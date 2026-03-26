@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "liangqin-brand-openclaw/product-detail-blueprint.schema.zh-CN.json",
+  "title": "良禽佳木产品详情蓝图 Schema",
+  "type": "object",
+  "required": [
+    "page_type",
+    "page_goal",
+    "target_audience",
+    "narrative_arc",
+    "section_order",
+    "sections",
+    "cta_strategy",
+    "brand_constraints"
+  ],
+  "properties": {
+    "page_type": {
+      "const": "product_detail_blueprint"
+    },
+    "page_goal": {
+      "type": "string"
+    },
+    "target_audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "narrative_arc": {
+      "type": "array",
+      "description": "产品详情叙事主线，通常从产品印象、亮点、材质/规格、场景适配走向咨询。",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "section_order": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "role",
+          "content_requirements",
+          "tone",
+          "layout_rule"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "content_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tone": {
+            "type": "string"
+          },
+          "layout_rule": {
+            "type": "string"
+          },
+          "fact_source_rule": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cta_strategy": {
+      "type": "object",
+      "required": [
+        "primary_cta",
+        "secondary_cta",
+        "tone_rule"
+      ],
+      "properties": {
+        "primary_cta": {
+          "type": "string"
+        },
+        "secondary_cta": {
+          "type": "string"
+        },
+        "tone_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "brand_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3
+    }
+  }
+}

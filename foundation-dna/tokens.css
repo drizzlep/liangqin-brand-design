@@ -1,0 +1,182 @@
+/* Foundation DNA tokens for Chinese premium home furnishing brands */
+/* Source of truth: design-dna.zh-CN.json */
+
+@font-face {
+  font-family: "Swei Sugar";
+  src:
+    url("/assets/fonts/SweiSugarCJKtc-ExtraLight.woff2") format("woff2"),
+    url("/assets/fonts/SweiSugarCJKtc-ExtraLight.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OPPO Sans 4.0";
+  src:
+    url("/assets/fonts/OPPO-Sans-4.0.woff2") format("woff2"),
+    url("/assets/fonts/OPPO-Sans-4.0.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  /* Color */
+  --dna-color-bg: #F8F5F0;
+  --dna-color-surface: #F2EEE8;
+  --dna-color-surface-elevated: #FFFCF8;
+  --dna-color-ink-900: #1F1D1B;
+  --dna-color-ink-800: #2B2926;
+  --dna-color-ink-700: #4B4640;
+  --dna-color-ink-600: #6A635B;
+  --dna-color-ink-500: #888075;
+  --dna-color-ink-400: #A99F92;
+  --dna-color-line: #D8D0C4;
+  --dna-color-accent: #8B6A4E;
+  --dna-color-success: #567A62;
+  --dna-color-warning: #A0743C;
+  --dna-color-error: #A04F46;
+  --dna-color-info: #5E7A8E;
+
+  /* Typography */
+  --dna-font-heading: "Swei Sugar", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --dna-font-body: "OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+  --dna-font-mono: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+
+  --dna-size-display: 76px;
+  --dna-size-h1: 52px;
+  --dna-size-h2: 38px;
+  --dna-size-h3: 28px;
+  --dna-size-body: 17px;
+  --dna-size-body-sm: 15px;
+  --dna-size-caption: 13px;
+  --dna-size-overline: 12px;
+
+  --dna-line-display: 1.02;
+  --dna-line-h1: 1.12;
+  --dna-line-h2: 1.18;
+  --dna-line-h3: 1.24;
+  --dna-line-body: 1.82;
+  --dna-line-body-sm: 1.72;
+  --dna-line-caption: 1.6;
+  --dna-line-overline: 1.4;
+
+  --dna-tracking-display: -0.02em;
+  --dna-tracking-h1: -0.015em;
+  --dna-tracking-h2: -0.01em;
+  --dna-tracking-h3: -0.015em;
+  --dna-tracking-body: 0;
+  --dna-tracking-caption: 0.01em;
+  --dna-tracking-overline: 0.12em;
+
+  /* Spacing */
+  --dna-space-1: 4px;
+  --dna-space-2: 8px;
+  --dna-space-3: 12px;
+  --dna-space-4: 16px;
+  --dna-space-5: 24px;
+  --dna-space-6: 32px;
+  --dna-space-7: 48px;
+  --dna-space-8: 64px;
+  --dna-space-9: 96px;
+  --dna-space-10: 128px;
+
+  /* Layout */
+  --dna-max-content-width: 1440px;
+  --dna-gutter-desktop: 32px;
+  --dna-gutter-tablet: 24px;
+  --dna-gutter-mobile: 16px;
+
+  /* Shape */
+  --dna-radius-sm: 2px;
+  --dna-radius-md: 6px;
+  --dna-radius-lg: 12px;
+  --dna-radius-pill: 999px;
+
+  /* Elevation */
+  --dna-shadow-low: 0 8px 24px rgba(31, 29, 27, 0.04);
+  --dna-shadow-medium: 0 18px 44px rgba(31, 29, 27, 0.08);
+  --dna-shadow-high: 0 28px 72px rgba(31, 29, 27, 0.12);
+
+  /* Motion */
+  --dna-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --dna-duration-micro: 140ms;
+  --dna-duration-normal: 280ms;
+  --dna-duration-macro: 520ms;
+}
+
+body {
+  background: var(--dna-color-bg);
+  color: var(--dna-color-ink-800);
+  font-family: var(--dna-font-body);
+  font-size: var(--dna-size-body);
+  line-height: var(--dna-line-body);
+  letter-spacing: var(--dna-tracking-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-text {
+  color: var(--dna-color-ink-900);
+  font-family: var(--dna-font-heading);
+  font-weight: 200;
+}
+
+h1 { font-size: var(--dna-size-h1); line-height: var(--dna-line-h1); letter-spacing: var(--dna-tracking-h1); }
+h2 { font-size: var(--dna-size-h2); line-height: var(--dna-line-h2); letter-spacing: var(--dna-tracking-h2); }
+h3 { font-size: var(--dna-size-h3); line-height: var(--dna-line-h3); letter-spacing: var(--dna-tracking-h3); }
+
+small,
+.caption {
+  font-size: var(--dna-size-caption);
+  line-height: var(--dna-line-caption);
+  letter-spacing: var(--dna-tracking-caption);
+  color: var(--dna-color-ink-500);
+}
+
+.overline {
+  font-size: var(--dna-size-overline);
+  line-height: var(--dna-line-overline);
+  letter-spacing: var(--dna-tracking-overline);
+  text-transform: uppercase;
+  color: var(--dna-color-ink-500);
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 var(--dna-space-5);
+  border: 1px solid var(--dna-color-ink-800);
+  border-radius: var(--dna-radius-pill);
+  background: var(--dna-color-ink-800);
+  color: var(--dna-color-bg);
+  transition: background var(--dna-duration-normal) var(--dna-ease-standard),
+              color var(--dna-duration-normal) var(--dna-ease-standard),
+              transform var(--dna-duration-micro) var(--dna-ease-standard);
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 var(--dna-space-5);
+  border: 1px solid var(--dna-color-line);
+  border-radius: var(--dna-radius-pill);
+  background: transparent;
+  color: var(--dna-color-ink-800);
+}
+
+.card-surface {
+  background: var(--dna-color-surface);
+  border: 1px solid var(--dna-color-line);
+  border-radius: var(--dna-radius-lg);
+  box-shadow: var(--dna-shadow-low);
+}
