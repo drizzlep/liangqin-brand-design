@@ -1,0 +1,110 @@
+{
+  "version": "1.0.0",
+  "brand": "良禽佳木",
+  "modules": [
+    {
+      "id": "brand-hero",
+      "label": "品牌首屏",
+      "supported_pages": ["homepage", "product_detail"],
+      "required_inputs": ["brand_brief"],
+      "optional_inputs": ["product_data", "reference_pages"],
+      "role": "在首屏建立品牌气质与页面主线。",
+      "tone_rule": "沉稳、温润、有留白，不用喊话式文案。",
+      "layout_rule": "标题、摘要、主视觉和主 CTA 必须形成清晰阅读顺序。",
+      "allowed_neighbors_before": [],
+      "allowed_neighbors_after": ["trust-intro", "product-highlight", "material-craft"],
+      "forbidden": ["价格促销信息前置", "过多按钮并列", "英文化极短标题"]
+    },
+    {
+      "id": "trust-intro",
+      "label": "品牌信任引导",
+      "supported_pages": ["homepage"],
+      "required_inputs": ["brand_brief"],
+      "optional_inputs": ["reference_pages"],
+      "role": "解释品牌判断标准、服务态度或作品方法论。",
+      "tone_rule": "理性且有温度，像在建立理解，不像在自夸。",
+      "layout_rule": "优先使用短段落和稳定网格，不做过度装饰。",
+      "allowed_neighbors_before": ["brand-hero"],
+      "allowed_neighbors_after": ["material-craft", "editorial-story", "consultation-promise"],
+      "forbidden": ["空泛口号堆叠", "长篇品牌自述无结构"]
+    },
+    {
+      "id": "material-craft",
+      "label": "材质与工艺说明",
+      "supported_pages": ["homepage", "product_detail"],
+      "required_inputs": ["brand_brief"],
+      "optional_inputs": ["product_data", "reference_pages"],
+      "role": "把木、石、布、皮革与工艺细节翻译成客户能理解的价值。",
+      "tone_rule": "强调触感、长期体验和判断依据，不夸张。",
+      "layout_rule": "图片与说明必须对应，不允许只有情绪没有信息。",
+      "allowed_neighbors_before": ["brand-hero", "trust-intro", "product-highlight"],
+      "allowed_neighbors_after": ["product-specs", "editorial-story", "consultation-promise"],
+      "forbidden": ["堆参数但不解释意义", "只讲气氛不讲材质事实"]
+    },
+    {
+      "id": "product-highlight",
+      "label": "产品亮点",
+      "supported_pages": ["homepage", "product_detail"],
+      "required_inputs": ["brand_brief", "product_data"],
+      "optional_inputs": ["reference_pages"],
+      "role": "快速说明产品特征、适用空间和关键差异。",
+      "tone_rule": "突出判断价值，不用营销修饰词堆叠。",
+      "layout_rule": "每个亮点都要能被图片、材质或使用场景支撑。",
+      "allowed_neighbors_before": ["brand-hero", "material-craft"],
+      "allowed_neighbors_after": ["product-specs", "editorial-story", "consultation-cta"],
+      "forbidden": ["臆造功能卖点", "脱离产品事实的形容"]
+    },
+    {
+      "id": "product-specs",
+      "label": "规格参数",
+      "supported_pages": ["product_detail"],
+      "required_inputs": ["product_data"],
+      "optional_inputs": ["brand_brief"],
+      "role": "稳定承载尺寸、材质、工艺、适用说明等事实信息。",
+      "tone_rule": "清楚、可信、对齐，不文学化。",
+      "layout_rule": "参数区必须稳定对齐，便于扫描和比对。",
+      "allowed_neighbors_before": ["product-highlight", "material-craft"],
+      "allowed_neighbors_after": ["editorial-story", "consultation-promise", "consultation-cta"],
+      "forbidden": ["缺少事实来源", "将参数区做得过度艺术化"]
+    },
+    {
+      "id": "editorial-story",
+      "label": "图文叙事",
+      "supported_pages": ["homepage", "product_detail"],
+      "required_inputs": ["brand_brief"],
+      "optional_inputs": ["product_data", "reference_pages"],
+      "role": "通过图文节奏补足空间气质、使用场景和方法论解释。",
+      "tone_rule": "像编辑化讲述，不像长广告。",
+      "layout_rule": "图片顺序必须服务叙事，不做随机拼贴。",
+      "allowed_neighbors_before": ["trust-intro", "material-craft", "product-specs"],
+      "allowed_neighbors_after": ["consultation-promise", "consultation-cta"],
+      "forbidden": ["无主线图文堆叠", "信息密度忽高忽低"]
+    },
+    {
+      "id": "consultation-promise",
+      "label": "咨询承诺",
+      "supported_pages": ["homepage", "product_detail"],
+      "required_inputs": ["brand_brief"],
+      "optional_inputs": ["product_data"],
+      "role": "解释咨询后会发生什么、客户能获得什么、沟通边界是什么。",
+      "tone_rule": "服务型、礼貌、稳定，不制造焦虑。",
+      "layout_rule": "用承诺列表和简洁说明建立信任，避免话术化。",
+      "allowed_neighbors_before": ["trust-intro", "material-craft", "product-specs", "editorial-story"],
+      "allowed_neighbors_after": ["consultation-cta"],
+      "forbidden": ["逼单式紧迫感", "空洞服务承诺"]
+    },
+    {
+      "id": "consultation-cta",
+      "label": "咨询动作",
+      "supported_pages": ["homepage", "product_detail"],
+      "required_inputs": ["brand_brief"],
+      "optional_inputs": ["product_data"],
+      "role": "把用户自然引导到预约咨询、查看案例或获取资料。",
+      "tone_rule": "主动作明确，次动作克制，语气始终是邀请。",
+      "layout_rule": "主 CTA 数量受控，移动端优先保证点击清晰。",
+      "allowed_neighbors_before": ["product-highlight", "product-specs", "editorial-story", "consultation-promise"],
+      "allowed_neighbors_after": [],
+      "forbidden": ["多个主 CTA 争抢", "命令式按钮文案", "为了转化破坏整体气质"]
+    }
+  ]
+}

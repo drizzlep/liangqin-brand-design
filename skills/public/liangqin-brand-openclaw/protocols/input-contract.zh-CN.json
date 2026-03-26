@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "brand": "良禽佳木",
+  "skill_name": "liangqin-brand-openclaw",
+  "primary_input": "brand_brief",
+  "accepted_inputs": {
+    "brand_brief": {
+      "required": true,
+      "purpose": "锁定品牌定位、目标用户、语气、服务方式和页面目标，是一切蓝图生成的起点。",
+      "required_fields": [
+        "brand_positioning",
+        "target_audience",
+        "tone_keywords",
+        "service_model",
+        "page_goal"
+      ]
+    },
+    "product_data": {
+      "required": false,
+      "purpose": "给产品详情页和首页重点产品区提供事实依据，避免空泛叙事。",
+      "required_fields_when_present": [
+        "product_name",
+        "materials",
+        "dimensions",
+        "craft_notes",
+        "usage_scene"
+      ]
+    },
+    "reference_pages": {
+      "required": false,
+      "purpose": "只用于校准结构节奏、图文编排和信息层级，不用于直接复刻视觉或文案。",
+      "accepted_types": [
+        "url",
+        "text_summary",
+        "image_reference"
+      ],
+      "extract_only": [
+        "composition_logic",
+        "section_pacing",
+        "content_hierarchy"
+      ],
+      "forbidden_to_copy": [
+        "brand_identity_elements",
+        "headline_phrasing",
+        "signature_interactions",
+        "logo_or_marks"
+      ]
+    }
+  },
+  "input_media_policy": {
+    "default_mode": "text_first",
+    "image_role": "auxiliary_only",
+    "notes": [
+      "品牌 brief 和产品资料以文字为主。",
+      "图片只用于补充材质、比例、空间气质判断，不作为唯一依据。"
+    ]
+  },
+  "fallback_rules": [
+    {
+      "condition": "missing_brand_brief",
+      "action": "stop_final_blueprint",
+      "reason": "缺少品牌 brief 时，无法稳定判断良禽佳木语气与页面目标。"
+    },
+    {
+      "condition": "missing_product_data",
+      "action": "allow_low_detail_blueprint",
+      "reason": "可以先输出结构骨架，但不得臆造产品事实。"
+    },
+    {
+      "condition": "missing_reference_pages",
+      "action": "fallback_to_foundation_dna",
+      "reason": "直接使用良禽佳木默认品牌边界和模块优先级。"
+    }
+  ]
+}

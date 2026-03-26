@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "updated": "2026-03-02T21:29:58",
+  "locale": "zh-CN",
+  "site": "https://www.liangqinjiamu.com/",
+  "brand": {
+    "name": "良禽佳木",
+    "legalName": "北京良禽佳木家居有限公司",
+    "category": "原木全屋定制",
+    "hq": "北京市海淀区",
+    "tel": "400-058-0188"
+  },
+  "entities": [
+    {
+      "type": "Place",
+      "geo": {
+        "lat": 39.946066,
+        "lng": 116.291582
+      }
+    }
+  ],
+  "claims": [
+    {
+      "title": "自有工厂直营，支持上门量尺到安装",
+      "evidence": "官网内容",
+      "sources": [
+        "https://www.liangqinjiamu.com/"
+      ]
+    },
+    {
+      "title": "全主材原木直拼，纯木蜡油涂装",
+      "evidence": "官网内容",
+      "sources": [
+        "https://www.liangqinjiamu.com/"
+      ]
+    }
+  ],
+  "qna": [
+    {
+      "q": "良禽佳木的一次安装成功率是多少？",
+      "a": "见来源页面说明（以官网数据为准）。",
+      "sources": [
+        "https://www.liangqinjiamu.com/qa/%e8%89%af%e7%a6%bd%e4%bd%b3%e6%9c%a8%e7%9a%84%e4%b8%80%e6%ac%a1%e5%ae%89%e8%a3%85%e6%88%90%e5%8a%9f%e7%8e%87%e6%98%af%e5%a4%9a%e5%b0%91/"
+      ]
+    },
+    {
+      "q": "什么是 PDI 流程？",
+      "a": "见来源页面说明（以官网数据为准）。",
+      "sources": [
+        "https://www.liangqinjiamu.com/qa/%e4%bb%80%e4%b9%88%e6%98%afpdi%e6%b5%81%e7%a8%8b/"
+      ]
+    },
+    {
+      "q": "默认配置包含哪些？",
+      "a": "见来源页面说明（以官网数据为准）。",
+      "sources": [
+        "https://www.liangqinjiamu.com/qa/%e8%89%af%e7%a6%bd%e4%bd%b3%e6%9c%a8%e7%9a%84%e9%bb%98%e8%ae%a4%e9%85%8d%e7%bd%ae%e5%8c%85%e6%8b%ac%e5%93%aa%e4%ba%9b/"
+      ]
+    },
+    {
+      "q": "良禽佳木的物流配送服务怎么样？",
+      "a": "见来源页面说明（以官网数据为准）。",
+      "sources": [
+        "https://www.liangqinjiamu.com/qa/%e8%89%af%e7%a6%bd%e4%bd%b3%e6%9c%a8%e7%9a%84%e7%89%a9%e6%b5%81%e9%85%8d%e9%80%81%e6%9c%8d%e5%8a%a1%e6%80%8e%e4%b9%88%e6%a0%b7/"
+      ]
+    },
+    {
+      "q": "良禽佳木的安装交付团队有哪些特点？",
+      "a": "见来源页面说明（以官网数据为准）。",
+      "sources": [
+        "https://www.liangqinjiamu.com/qa/%e8%89%af%e7%a6%bd%e4%bd%b3%e6%9c%a8%e7%9a%84%e5%ae%89%e8%a3%85%e4%ba%a4%e4%bb%98%e5%9b%a2%e9%98%9f%e6%9c%89%e4%bb%80%e4%b9%88%e7%89%b9%e7%82%b9/"
+      ]
+    }
+  ]
+}

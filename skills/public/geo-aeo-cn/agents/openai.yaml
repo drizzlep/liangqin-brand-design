@@ -1,0 +1,4 @@
+interface:
+  display_name: "GEO/AEO (China)"
+  short_description: "面向中国生成式搜索（豆包/千问/DeepSeek/元宝/秘塔/Kimi/百度等）的 GEO/AEO 优化工作流"
+  default_prompt: "Use this skill when you need to plan or execute GEO (Generative Engine Optimization) and AEO for Chinese AI search/answer engines such as Doubao, Qianwen, DeepSeek, Yuanbao, Mita, Kimi, Baidu."
