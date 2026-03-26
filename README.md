@@ -1,74 +1,58 @@
-# liangqin-brand-design
+# 良禽佳木品牌设计规范与 OpenClaw Skill
 
-良禽佳木 OpenClaw 品牌设计 Skill 独立仓库。
+这个仓库包含两层资产：
 
-这个仓库面向两类用途：
+1. **设计规范层**
+   - `foundation-dna/`
+   - `index.html`
+   - `components.html`
+   - `product-detail.html`
+   - `case-detail.html`
 
-- 安装可直接使用的良禽佳木品牌设计 Skill
-- 维护品牌设计 DNA、审查规则、发布脚本和安装器
+2. **OpenClaw 协议层**
+   - `skills/public/liangqin-brand-openclaw/`
 
-## 适用场景
+## 适用目标
 
-这个 Skill 适合下面这类任务：
+把良禽佳木现有设计规范升级为一个**品牌专用 OpenClaw Skill**，让其他 OpenClaw 机器人可以：
 
-- 请用良禽品牌设计体重做这份视觉
-- 改成良禽佳木品牌设计
-- 审查当前页面 / 海报 / 内容图是否符合良禽佳木品牌规范
-- 先指出偏差，再按良禽佳木品牌气质纠偏
+- 吃品牌 brief、产品资料、参考页面
+- 输出首页 / 产品详情的结构化蓝图
+- 在固定模块库内继续生成页面
+- 更稳定地“像良禽佳木”
 
-默认工作流：**先审查，再改写**。
+## Skill 入口
 
-## 仓库结构
+- Skill 文件：`skills/public/liangqin-brand-openclaw/SKILL.md`
+- 输入协议：`skills/public/liangqin-brand-openclaw/protocols/input-contract.zh-CN.json`
+- 模块库：`skills/public/liangqin-brand-openclaw/recipes/module-recipes.zh-CN.json`
+- 黄金样例：`skills/public/liangqin-brand-openclaw/examples/`
+- 真实设计案例：`skills/public/liangqin-brand-openclaw/examples/real-cases/`
 
-- `skill/liangqin-brand-design/`：可发布到 OpenClaw 的 Skill 本体
-- `scripts/`：打包 zip、生成单文件安装器等仓库级脚本
-- `docs/`：安装说明、设计说明、实现计划
-- `dist/`：打包产物目录
-
-## 最常用的两件事
-
-### 1. 打包 zip
-
-```bash
-bash scripts/package_openclaw_skill.sh
-```
-
-### 2. 生成单文件安装器
+## 导出给其他 OpenClaw 使用
 
 ```bash
-bash scripts/build_single_file_installer.sh
+python3 scripts/export_openclaw_skill.py --output-dir ./dist
 ```
 
-## 安装到另一个 OpenClaw
+导出后会生成：
 
-### 方式一：从源码仓库安装
+- `dist/liangqin-brand-openclaw/`
+
+这个目录可以直接复制到其他 OpenClaw 的 skills 目录中使用。
+
+## 本地校验
 
 ```bash
-git clone <你的 GitHub 仓库地址>
-cd liangqin-brand-design
-python3 skill/liangqin-brand-design/scripts/publish_skill.py           --source "$PWD/skill/liangqin-brand-design"
+python3 -m unittest tests/test_liangqin_brand_skill_assets.py -v
+python3 -m unittest tests/test_liangqin_brand_skill_distribution.py -v
+python3 skills/public/liangqin-brand-openclaw/scripts/validate_skill_assets.py
 ```
 
-### 方式二：先生成单文件安装器，再交给 OpenClaw 安装
+## 当前 v1 范围
 
-```bash
-bash scripts/build_single_file_installer.sh
-```
-
-生成后会得到一个文件，例如：
-
-```bash
-dist/liangqin-brand-design-installer-YYYYMMDD.sh
-```
-
-可以把下面这段话直接发给 OpenClaw：
-
-```text
-请运行 /绝对路径/liangqin-brand-design-installer-YYYYMMDD.sh，把良禽佳木品牌设计 skill 安装到 shared skills，并同步到 workspace。安装完成后再做一次 fresh 测试，确认 skill 已经生效。
-```
-
-## 推荐 GitHub 发布方式
-
-远程仓库名建议直接使用：`liangqin-brand-design`
-
-本地若为避免与现有设计项目目录重名，可使用其他本地目录名；真正发布到 GitHub 时再使用上面的仓库名即可。
+- 只服务良禽佳木
+- 只覆盖首页与产品详情
+- 固定模块库优先
+- 先做人工评测与黄金样例
+- 第一目标是“更像品牌”，不是“生成更多页面”

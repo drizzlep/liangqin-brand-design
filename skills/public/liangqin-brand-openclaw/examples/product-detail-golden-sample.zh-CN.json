@@ -1,0 +1,91 @@
+{
+  "page_type": "product_detail_blueprint",
+  "page_goal": "统一承载产品印象、亮点、材质、规格与咨询动作，让客户在理解后自然产生咨询意愿。",
+  "target_audience": [
+    "正在对具体产品做比较和判断的中文客户",
+    "关心材质、尺寸、工艺与适配空间的人群"
+  ],
+  "narrative_arc": [
+    "先理解产品印象与适用场景",
+    "再理解亮点与材质逻辑",
+    "再查看规格事实",
+    "最后进入咨询"
+  ],
+  "section_order": [
+    "brand-hero",
+    "product-highlight",
+    "material-craft",
+    "product-specs",
+    "editorial-story",
+    "consultation-promise",
+    "consultation-cta"
+  ],
+  "sections": [
+    {
+      "id": "brand-hero",
+      "role": "建立产品第一印象与基础定位",
+      "content_requirements": ["产品名", "一句定位", "主图", "基础 CTA"],
+      "tone": "克制、可信",
+      "layout_rule": "标题与主图要形成稳定焦点",
+      "fact_source_rule": "产品名和定位必须来自已给资料"
+    },
+    {
+      "id": "product-highlight",
+      "role": "说明产品亮点与适用空间",
+      "content_requirements": ["关键亮点", "适用场景", "差异点"],
+      "tone": "具体而不夸张",
+      "layout_rule": "每个亮点都要有事实支撑",
+      "fact_source_rule": "不得臆造功能与结构"
+    },
+    {
+      "id": "material-craft",
+      "role": "解释材质与工艺如何影响使用体验",
+      "content_requirements": ["材质", "工艺细节", "触感说明", "图片对应"],
+      "tone": "有触感、可判断",
+      "layout_rule": "说明与图片强绑定",
+      "fact_source_rule": "材质与工艺必须来自输入资料"
+    },
+    {
+      "id": "product-specs",
+      "role": "提供稳定可扫读的规格信息",
+      "content_requirements": ["尺寸", "材质", "结构说明", "适配信息"],
+      "tone": "清楚、对齐",
+      "layout_rule": "参数区优先扫描效率",
+      "fact_source_rule": "事实字段不允许推测"
+    },
+    {
+      "id": "editorial-story",
+      "role": "补足图文叙事与空间使用想象",
+      "content_requirements": ["空间场景", "细节图", "使用说明"],
+      "tone": "编辑化但不漂浮",
+      "layout_rule": "图文必须服务主线",
+      "fact_source_rule": "场景描述不得违背产品用途"
+    },
+    {
+      "id": "consultation-promise",
+      "role": "让用户理解咨询后的沟通方式",
+      "content_requirements": ["咨询承诺", "回复方式", "资料准备说明"],
+      "tone": "礼貌、稳定",
+      "layout_rule": "承诺短句清晰可读",
+      "fact_source_rule": "不得夸大服务边界"
+    },
+    {
+      "id": "consultation-cta",
+      "role": "引导进入咨询或查看案例",
+      "content_requirements": ["主 CTA", "次 CTA", "提交后说明"],
+      "tone": "邀请式",
+      "layout_rule": "主 CTA 明确，次 CTA 不争抢",
+      "fact_source_rule": "提交后说明要符合真实服务流程"
+    }
+  ],
+  "cta_strategy": {
+    "primary_cta": "预约咨询",
+    "secondary_cta": "查看案例",
+    "tone_rule": "先说明能获得什么，再发出邀请"
+  },
+  "brand_constraints": [
+    "参数区不得艺术化到难以查阅",
+    "所有产品事实必须来自输入资料",
+    "咨询动作必须礼貌、可信"
+  ]
+}

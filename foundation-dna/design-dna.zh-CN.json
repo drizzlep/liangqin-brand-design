@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "name": "miten-foundation-dna-zh-cn-v2",
+    "description": "面向中文客户的高端家居品牌设计语言内核 v2。综合 Poliform、Flexform 与 Stockholm Design Lab 在 2026-03-25 的公开首页视觉特征，并结合中文官网落地需求沉淀为可复用的 Design DNA / Token Contract。",
+    "source_references": [
+      {
+        "name": "Poliform 中国官网",
+        "url": "https://www.poliform.cn/",
+        "role": "提供高端家居陈列感、暖灰中性色和大留白参考",
+        "observed_at": "2026-03-25"
+      },
+      {
+        "name": "Flexform 官网",
+        "url": "https://www.flexform.it/en",
+        "role": "提供高端 serif + sans 组合、时尚编辑感与影像气质参考",
+        "observed_at": "2026-03-25"
+      },
+      {
+        "name": "Stockholm Design Lab 官网",
+        "url": "https://www.stockholmdesignlab.se/",
+        "role": "提供理性栅格、方法论排版与系统性品牌表达参考",
+        "observed_at": "2026-03-25"
+      }
+    ],
+    "created_at": "2026-03-25",
+    "version": "2.0.0",
+    "updated_at": "2026-03-25",
+    "target_market": "以中国大陆中文客户为主，同时兼容双语品牌站扩展。"
+  },
+  "brand_principles": {
+    "anchor_sentence": "以温润克制的高级感与理性秩序感，服务中文语境下重视品质、可信度与审美耐久度的客户。",
+    "principles": [
+      {
+        "id": "premium",
+        "label": "高级但不疏离",
+        "description": "气质来自材质、比例、留白与影像，不来自夸张修饰。"
+      },
+      {
+        "id": "calm",
+        "label": "温润且安静",
+        "description": "避免情绪过热与强刺激配色，让用户感到稳妥、松弛、可信。"
+      },
+      {
+        "id": "rational",
+        "label": "秩序清晰",
+        "description": "信息层级、栅格、对齐与节奏必须清楚，支撑品牌专业度。"
+      },
+      {
+        "id": "tactile",
+        "label": "强调触感与材质",
+        "description": "通过摄影、文字与色彩去传达木、石、布、皮革等真实触感。"
+      },
+      {
+        "id": "chinese-readable",
+        "label": "中文优先可读",
+        "description": "中文正文字重、字号、行高与标签长度必须优先于西文美感。"
+      }
+    ],
+    "avoid": [
+      "高饱和品牌主色占据大面积界面",
+      "复杂粒子、炫光、液态变形等喧宾夺主特效",
+      "过度纤细且不适合中文的标题排版",
+      "英文式超短导航和按钮文案",
+      "为追求高级感而牺牲导航、表单与信息可理解性"
+    ]
+  },
+  "design_system": {
+    "color": {
+      "palette_type": "analogous",
+      "primary": {
+        "hex": "#2B2926",
+        "role": "主文本、品牌锚点、深色分隔面与高对比标题"
+      },
+      "secondary": {
+        "hex": "#E7E1D8",
+        "role": "暖石色辅助表面、卡片底色、柔和大区块背景"
+      },
+      "accent": {
+        "hex": "#8B6A4E",
+        "role": "CTA、悬停、重点链接与少量状态强调"
+      },
+      "neutral": {
+        "scale": {
+          "0": "#F8F5F0",
+          "50": "#F2EEE8",
+          "100": "#E7E1D8",
+          "200": "#D8D0C4",
+          "300": "#C6BDAF",
+          "400": "#A99F92",
+          "500": "#888075",
+          "600": "#6A635B",
+          "700": "#4B4640",
+          "800": "#36322E",
+          "900": "#1F1D1B"
+        },
+        "usage": "以暖白、石灰、烟灰、炭黑构成主中性色阶；大面积使用浅阶，信息和标题使用 700-900 深阶。"
+      },
+      "semantic": {
+        "success": "#567A62",
+        "warning": "#A0743C",
+        "error": "#A04F46",
+        "info": "#5E7A8E"
+      },
+      "surface": {
+        "background": "#F8F5F0",
+        "card": "#F2EEE8",
+        "elevated": "#FFFCF8"
+      },
+      "contrast_strategy": "dark-on-light dominant with subtle layers",
+      "brand_asset": {
+        "hex": "#9C7F66",
+        "role": "类目品牌资产专用色，用于良禽佳木 logo、标准字、品牌签名区与少量品牌识别强调，不替代通用 CTA accent。"
+      },
+      "accent_strategy": "通用界面 CTA 继续使用 #8B6A4E；品牌识别与 logo 资产允许使用 #9C7F66 作为品牌 taupe。"
+    },
+    "typography": {
+      "type_scale": {
+        "display": {
+          "size": "72px",
+          "weight": "500",
+          "line_height": "1.08",
+          "tracking": "-0.03em"
+        },
+        "heading_1": {
+          "size": "48px",
+          "weight": "500",
+          "line_height": "1.18",
+          "tracking": "-0.025em"
+        },
+        "heading_2": {
+          "size": "36px",
+          "weight": "500",
+          "line_height": "1.24",
+          "tracking": "-0.02em"
+        },
+        "heading_3": {
+          "size": "28px",
+          "weight": "500",
+          "line_height": "1.32",
+          "tracking": "-0.015em"
+        },
+        "body": {
+          "size": "17px",
+          "weight": "400",
+          "line_height": "1.82",
+          "tracking": "0"
+        },
+        "body_small": {
+          "size": "15px",
+          "weight": "400",
+          "line_height": "1.72",
+          "tracking": "0"
+        },
+        "caption": {
+          "size": "13px",
+          "weight": "400",
+          "line_height": "1.6",
+          "tracking": "0.01em"
+        },
+        "overline": {
+          "size": "12px",
+          "weight": "500",
+          "line_height": "1.4",
+          "tracking": "0.12em"
+        }
+      },
+      "font_families": {
+        "heading": "\"Swei Sugar\", \"Noto Serif SC\", \"Source Han Serif SC\", \"Songti SC\", serif",
+        "body": "\"OPPO Sans 4.0\", \"PingFang SC\", \"Hiragino Sans GB\", \"Noto Sans SC\", sans-serif",
+        "mono": "\"SFMono-Regular\", \"SF Mono\", \"Menlo\", \"Consolas\", monospace"
+      },
+      "font_style_notes": "中文大标题默认使用 Swei Sugar（狮尾宋体）ExtraLight 方向营造高级、安静、带文化感的品牌气质；正文、摘要、导航、按钮与表单默认使用 OPPO Sans 4.0，保证中文界面的清晰度、稳定性与现代感。",
+      "chinese_typesetting": {
+        "headline_rule": "大标题优先使用 Swei Sugar（狮尾宋体），控制单行长度与换行位置，避免依靠过强字距制造高级感。",
+        "body_rule": "正文、摘要、导航、按钮、表单统一使用 OPPO Sans 4.0，默认不少于 16px，并保持较宽松行高。",
+        "label_rule": "导航、按钮、标签与表单字段名称允许更完整的中文表达，不以极短英文式标签为目标。",
+        "fallback_rule": "当自定义字体加载失败时，正文优先回退到 PingFang SC / Noto Sans SC，标题优先回退到 Source Han Serif SC / Songti SC。"
+      }
+    },
+    "spacing": {
+      "base_unit": "8px",
+      "scale": [
+        "4px",
+        "8px",
+        "12px",
+        "16px",
+        "24px",
+        "32px",
+        "48px",
+        "64px",
+        "96px",
+        "128px"
+      ],
+      "content_density": "spacious",
+      "section_rhythm": "以 96px / 128px 为主节奏，长页面用 64px 作为次节奏，模块内部保持 16px / 24px / 32px 的递进关系。"
+    },
+    "layout": {
+      "grid_system": "12-column modular grid",
+      "max_content_width": "1440px",
+      "columns": {
+        "desktop": 12,
+        "tablet": 8,
+        "mobile": 4
+      },
+      "gutter": {
+        "desktop": "32px",
+        "tablet": "24px",
+        "mobile": "16px"
+      },
+      "breakpoints": {
+        "mobile": "0-767px",
+        "tablet": "768-1199px",
+        "desktop": "1200px+"
+      },
+      "alignment_tendency": "strict grid with selective centered hero compositions"
+    },
+    "shape": {
+      "border_radius": {
+        "small": "2px",
+        "medium": "6px",
+        "large": "12px",
+        "pill": "999px"
+      },
+      "border_usage": "subtle 1px",
+      "divider_style": "1px 实线细分隔，优先使用 #D8D0C4；必要时用图像留白和版心对齐替代分割线。"
+    },
+    "elevation": {
+      "shadow_style": "soft diffused",
+      "levels": {
+        "low": "0 8px 24px rgba(31, 29, 27, 0.04)",
+        "medium": "0 18px 44px rgba(31, 29, 27, 0.08)",
+        "high": "0 28px 72px rgba(31, 29, 27, 0.12)"
+      },
+      "depth_cues": "主要通过色面层差、图文叠放和克制阴影表达深度，不采用厚重投影。"
+    },
+    "iconography": {
+      "style": "thin geometric outline",
+      "stroke_weight": "1.25px",
+      "size_scale": {
+        "small": "16px",
+        "medium": "20px",
+        "large": "24px"
+      },
+      "preferred_set": "细线性、几何感、端点克制的图标；方向性图标可适度填充以提升识别。"
+    },
+    "motion": {
+      "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "duration_scale": {
+        "micro": "140ms",
+        "normal": "280ms",
+        "macro": "520ms"
+      },
+      "entrance_pattern": "fade-up with slight translateY(12px)",
+      "exit_pattern": "fade-out with slight translateY(-8px)",
+      "philosophy": "minimal functional"
+    },
+    "components": {
+      "button_style": "以实底深色按钮和浅底描边按钮为主，默认高度 44-48px，文案礼貌直接，不使用高饱和色块。",
+      "input_style": "白底或浅石色底，1px 边框，内边距充足，标签与帮助信息层级必须清晰。",
+      "card_style": "更像信息版块而不是电商卡片；弱边框、弱阴影、大图或大留白优先。",
+      "navigation_pattern": "顶部主导航保持稀疏与明确，一级层级少而准；移动端优先保证检索与路径理解。",
+      "modal_style": "采用安静的居中浮层或抽屉，背景遮罩偏轻，避免玻璃与重模糊。",
+      "list_style": "采用节奏稳定的纵向列表，标题、摘要、元信息和辅助标签之间关系明确。",
+      "component_notes": "组件继承品牌秩序而非自我表现：按钮、导航、表单、卡片都必须让位于内容、摄影与材质表达。"
+    },
+    "responsive": {
+      "desktop_strategy": "以 12 栏与宽留白建立高端秩序，可局部使用偏移构图和编辑式断行。",
+      "tablet_strategy": "缩减为 8 栏，保留图文层级与卡片模组，不简单等比压缩桌面版。",
+      "mobile_strategy": "优先保证中文阅读、导航理解与 CTA 易点按；首屏允许更集中，但不能拥挤。",
+      "navigation_behavior": "移动端导航可采用横向滑动目录或折叠目录，但命名必须完整、层级必须明确。",
+      "section_density_rule": "移动端区块间距可从 96px 收束到 64px，但模块内部呼吸感不能被牺牲。"
+    },
+    "accessibility": {
+      "contrast_policy": "正文与背景保持稳定高对比，浅色背景上的正文优先使用 700-900 深阶；禁止浅灰正文落在暖灰背景上。",
+      "focus_visibility": "键盘焦点必须可见，建议使用 1px 深色描边加低强度外发光或底线增强。",
+      "target_size": "按钮、主要链接与表单控件的有效点击高度不低于 44px。",
+      "motion_safety": "所有 reveal、hover 与滚动动效都必须支持 prefers-reduced-motion 降级。",
+      "content_clarity": "错误、成功、帮助与空状态信息必须直接说明问题与下一步，不使用隐喻或玩笑化表达。"
+    }
+  },
+  "design_style": {
+    "aesthetic": {
+      "mood": [
+        "calm",
+        "premium",
+        "tactile",
+        "rational",
+        "warm"
+      ],
+      "visual_metaphor": "如同进入光线柔和、材质克制的高端家居展厅：有秩序、有空气感、可被慢慢观看。",
+      "era_influence": "当代极简奢雅融合现代编辑设计",
+      "genre": "luxury editorial",
+      "personality_traits": [
+        "confident",
+        "meticulous",
+        "cultured",
+        "restrained",
+        "trustworthy"
+      ],
+      "adjectives": [
+        "温润",
+        "克制",
+        "高定",
+        "理性",
+        "安静",
+        "耐看"
+      ]
+    },
+    "visual_language": {
+      "complexity": "minimal",
+      "ornamentation": "subtle accents",
+      "whitespace_usage": "generous and directional",
+      "visual_weight_distribution": "以大图与大标题承担主重量，正文与元信息轻量陪衬，整体重心稳定下沉。",
+      "focal_strategy": "single hero element with progressive reveal",
+      "contrast_level": "medium-high",
+      "texture_usage": "纹理主要来自真实摄影中的木、石、布、皮革；UI 结构本身保持平整简洁。"
+    },
+    "composition": {
+      "hierarchy_method": "scale contrast + spatial isolation + typographic hierarchy",
+      "balance_type": "asymmetric",
+      "flow_direction": "top-to-bottom with deliberate pauses",
+      "grouping_strategy": "以统一版心、留白分组和图文模数组合建立结构",
+      "negative_space_role": "留白是高端感的主要组成，不只是空出来，而是用来给摄影、文字和品牌留呼吸。"
+    },
+    "imagery": {
+      "photo_treatment": "高质量产品与空间摄影，保留自然材质色温与阴影，不做高饱和滤镜。",
+      "illustration_style": "尽量不用插画；若必须使用，应为极简线稿或抽象结构图。",
+      "graphic_elements": "极少量细线、序号、版式标记与安静的标签系统。",
+      "pattern_usage": "默认无图案；必要时只使用极低对比度线性纹理或材质细节。",
+      "image_shape": "矩形为主，极少使用异形裁切。"
+    },
+    "interaction_feel": {
+      "feedback_style": "quiet and precise",
+      "hover_behavior": "色值轻微加深、下划线显现、图片微缩放或弱遮罩，不跳跃。",
+      "transition_personality": "smooth glide",
+      "loading_style": "骨架屏或静态占位优先，避免炫技 loading。",
+      "microinteraction_density": "low"
+    },
+    "brand_voice_in_ui": {
+      "tone": "克制、专业、礼貌、可信",
+      "formality": "high",
+      "cta_style": "subtle suggestion",
+      "empty_state_approach": "以解释性文案和下一步建议为主，不卖萌、不玩梗。",
+      "error_tone": "说明问题、给出解决路径、保持礼貌，不制造焦虑。"
+    }
+  },
+  "visual_effects": {
+    "overview": {
+      "effect_intensity": "subtle-accent",
+      "performance_tier": "lightweight",
+      "fallback_strategy": "reduce to CSS or static snapshot",
+      "primary_technology": "CSS only"
+    },
+    "background_effects": {
+      "type": "video-bg",
+      "description": "仅在首页或品牌级首屏可选用静音、缓慢、材质导向的视频背景；其余页面默认使用静态摄影。",
+      "technology": "HTML5 video + CSS object-fit",
+      "params": {
+        "color_palette": [
+          "#F8F5F0",
+          "#E7E1D8",
+          "#A99F92",
+          "#2B2926"
+        ],
+        "speed": "slow",
+        "density": "low",
+        "opacity": "0.72",
+        "blend_mode": "normal"
+      }
+    },
+    "particle_systems": {
+      "enabled": false,
+      "type": "none",
+      "description": "基础系统不使用粒子系统，避免喧宾夺主。",
+      "technology": "none",
+      "params": {
+        "count": "0",
+        "shape": "none",
+        "size_range": "none",
+        "movement_pattern": "none",
+        "color_behavior": "none",
+        "interaction": "none",
+        "spawn_area": "none"
+      }
+    },
+    "3d_elements": {
+      "enabled": false,
+      "type": "none",
+      "description": "不把 3D 作为默认品牌语言，仅在未来需要产品查看器时单独定义。",
+      "technology": "none",
+      "params": {
+        "renderer": "none",
+        "lighting": "none",
+        "camera": "none",
+        "materials": "none",
+        "geometry": "none",
+        "post_processing": [
+          "none"
+        ],
+        "interaction_model": "none"
+      }
+    },
+    "shader_effects": {
+      "enabled": false,
+      "type": "none",
+      "description": "不使用 shader 扭曲与噪声作为基础层语言。",
+      "technology": "none",
+      "params": {
+        "uniforms": [
+          "none"
+        ],
+        "vertex_manipulation": "none",
+        "fragment_output": "none",
+        "noise_type": "none",
+        "distortion": "none"
+      }
+    },
+    "scroll_effects": {
+      "parallax": {
+        "enabled": true,
+        "layers": "2",
+        "depth_range": "4%-8%",
+        "speed_curve": "slow ease-out"
+      },
+      "scroll_triggered_animations": {
+        "enabled": true,
+        "trigger_points": "进入视口 15%-25% 时触发",
+        "animation_type": "fade-up",
+        "scrub_behavior": "none"
+      },
+      "scroll_morphing": {
+        "enabled": false,
+        "description": "避免复杂滚动形变，以免破坏高端、安静、可信的整体体验。"
+      }
+    },
+    "text_effects": {
+      "type": "none",
+      "description": "文本表现依赖排版、比例和留白，而不是拆字动画或花式字效。",
+      "technology": "none",
+      "params": {
+        "split_strategy": "none",
+        "animation_per_unit": "none",
+        "stagger": "0ms",
+        "effect_style": "none"
+      }
+    },
+    "cursor_effects": {
+      "enabled": false,
+      "type": "none",
+      "description": "不用自定义鼠标与磁吸交互，保证中文客户的熟悉感与稳定性。",
+      "params": {
+        "shape": "none",
+        "size": "default",
+        "blend_mode": "normal",
+        "trail": "none",
+        "interaction_zone": "none"
+      }
+    },
+    "image_effects": {
+      "type": "reveal-clip",
+      "description": "图片进入视口时可做轻微裁切揭示与弱缩放，悬停时只允许细微位移或亮度变化。",
+      "technology": "CSS transforms + clip-path (optional)",
+      "params": {
+        "filter_pipeline": "none or slight contrast(1.02)",
+        "hover_transform": "scale(1.02)",
+        "reveal_animation": "clip reveal + fade",
+        "distortion_type": "none"
+      }
+    },
+    "glassmorphism_neumorphism": {
+      "enabled": false,
+      "style": "none",
+      "params": {
+        "blur_radius": "0px",
+        "transparency": "0",
+        "border_treatment": "none",
+        "shadow_type": "none",
+        "light_source_angle": "none"
+      }
+    },
+    "canvas_drawings": {
+      "enabled": false,
+      "type": "none",
+      "description": "基础规范不引入 Canvas 绘制层。",
+      "technology": "none",
+      "params": {
+        "draw_method": "none",
+        "animation_loop": "none",
+        "color_scheme": "none",
+        "responsiveness": "none",
+        "interaction": "none"
+      }
+    },
+    "svg_animations": {
+      "enabled": false,
+      "type": "logo-reveal",
+      "description": "仅允许在品牌开场或 logo 场景中使用极轻量 SVG 线条显现，不纳入默认页面语言。",
+      "params": {
+        "animation_method": "stroke-dashoffset",
+        "path_morphing": "false",
+        "stroke_animation": "subtle draw",
+        "filter_effects": "none"
+      }
+    },
+    "composite_notes": "整体特效策略应以'几乎感觉不到特效存在，但能感到页面很顺'为原则。首屏允许极轻微视频或弱视差，其余区域以摄影、留白、排版节奏为主，确保中文客户不会因过度实验性动效而产生距离感。"
+  },
+  "localization": {
+    "primary_locale": "zh-CN",
+    "tone_goal": "以中文客户熟悉的礼貌、专业、稳定表达建立信任，避免纯翻译腔与欧美式过冷语气。",
+    "copy_length_policy": {
+      "navigation": "一级导航优先 2-6 个中文字符，必要时可更长，但必须清楚表达栏目含义。",
+      "buttons": "CTA 以 4-8 个中文字符为宜，优先使用查看、了解、预约、获取、咨询等动词。",
+      "form_labels": "字段标签以完整中文短语命名，避免只保留单字或缩写。",
+      "summaries": "摘要文案允许使用完整句，帮助用户快速建立判断，而不是只拼关键词。"
+    },
+    "bilingual_extension": "若未来加入英文版本，允许英文在个别标题中作为辅助信息出现，但不应反向主导中文层级。"
+  },
+  "application_guidelines": {
+    "page_templates": {
+      "homepage": {
+        "goal": "先建立品牌气质与信任，再逐步展开材质、案例、服务方式与咨询入口。",
+        "required_sections": [
+          "hero",
+          "brand perspective",
+          "material language",
+          "service approach",
+          "case scenarios",
+          "faq",
+          "cta"
+        ],
+        "cta_priority": "主 CTA 以预约咨询、查看案例、获取材料说明为主，不做强促销。"
+      },
+      "product_detail": {
+        "goal": "统一承载产品图、材质说明、规格参数、适配空间与咨询动作。",
+        "required_sections": [
+          "gallery",
+          "material notes",
+          "dimensions/specs",
+          "scene recommendation",
+          "consultation entry"
+        ],
+        "layout_note": "参数区应保持稳定对齐，避免过度艺术化导致信息难查。"
+      },
+      "case_detail": {
+        "goal": "通过图片顺序、项目背景、空间逻辑与材料叙事建立完整案例阅读体验。",
+        "required_sections": [
+          "project intro",
+          "space gallery",
+          "material/story notes",
+          "project facts",
+          "related consultation"
+        ],
+        "layout_note": "案例正文可更编辑化，但摄影与说明之间的逻辑必须可追踪。"
+      },
+      "brand_story": {
+        "goal": "承接方法论、审美观与品牌判断标准，体现理性秩序中的温度。",
+        "required_sections": [
+          "founding idea",
+          "methodology",
+          "material philosophy",
+          "service belief"
+        ],
+        "layout_note": "适合更强的文字编排与章节结构，但不应失去触感与留白。"
+      }
+    },
+    "content_modules": [
+      {
+        "id": "material-note",
+        "purpose": "解释木、石、布、皮革等材质如何影响空间气质与长期使用体验。",
+        "default_components": [
+          "section heading",
+          "imagery",
+          "body copy",
+          "supporting facts"
+        ]
+      },
+      {
+        "id": "service-path",
+        "purpose": "说明从需求沟通到方案判断再到配置落地的服务流程。",
+        "default_components": [
+          "step index",
+          "headline",
+          "description",
+          "optional cta"
+        ]
+      },
+      {
+        "id": "case-summary",
+        "purpose": "快速呈现案例类型、气质差异与适用场景，帮助客户建立比较。",
+        "default_components": [
+          "category label",
+          "headline",
+          "summary"
+        ]
+      },
+      {
+        "id": "consultation-promise",
+        "purpose": "在不制造压迫感的前提下，说明咨询方式、沟通边界与服务态度。",
+        "default_components": [
+          "kicker",
+          "headline",
+          "promise list",
+          "secondary action"
+        ]
+      }
+    ],
+    "conversion_rules": {
+      "cta_tone": "礼貌邀请式，不命令、不制造焦虑、不使用倒计时和夸张稀缺文案。",
+      "form_strategy": "先解释提交后会发生什么，再让用户填写；帮助客户理解提交动作的价值。",
+      "trust_signals": [
+        "案例结构清楚",
+        "材质说明完整",
+        "服务流程透明",
+        "联系方式可理解"
+      ]
+    },
+    "mobile_experience": {
+      "headline_rule": "标题可收束，但仍保持呼吸感与断句美感。",
+      "navigation_rule": "优先保留主要栏目可见性，必要时允许横向滑动导航。",
+      "cta_rule": "按钮与主操作在单列中优先满宽展示，减少误触与犹豫。",
+      "content_rule": "案例、FAQ、服务步骤转为单列后，仍要保留层次与间隔，不可挤成资讯流。"
+    }
+  }
+}

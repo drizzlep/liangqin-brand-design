@@ -1,0 +1,76 @@
+{
+  "page_type": "homepage_blueprint",
+  "page_goal": "先建立良禽佳木的品牌气质与信任，再引导用户理解材质与服务方式，最后进入自然咨询。",
+  "target_audience": [
+    "正在为新家寻找高质感家具与空间解决方案的中文客户",
+    "看重材质、触感、长期使用体验的中高端用户"
+  ],
+  "narrative_arc": [
+    "先感受到品牌气质",
+    "再理解材质与判断标准",
+    "再建立服务信任",
+    "最后进入咨询动作"
+  ],
+  "section_order": [
+    "brand-hero",
+    "trust-intro",
+    "material-craft",
+    "editorial-story",
+    "consultation-promise",
+    "consultation-cta"
+  ],
+  "sections": [
+    {
+      "id": "brand-hero",
+      "role": "建立首页首屏印象与页面主线",
+      "content_requirements": ["品牌标题", "一句主张", "一段摘要", "主视觉", "主 CTA"],
+      "tone": "沉稳、克制、可信",
+      "layout_rule": "首屏主信息必须在 3 秒内可读"
+    },
+    {
+      "id": "trust-intro",
+      "role": "解释品牌审美和服务判断标准",
+      "content_requirements": ["价值主张", "品牌方法", "判断标准"],
+      "tone": "理性、有温度",
+      "layout_rule": "使用稳定栅格，不让文案漂浮"
+    },
+    {
+      "id": "material-craft",
+      "role": "把材质和工艺翻译成客户感知价值",
+      "content_requirements": ["材质名称", "触感说明", "工艺亮点", "对应图片"],
+      "tone": "具体、可信",
+      "layout_rule": "图片和说明一一对应"
+    },
+    {
+      "id": "editorial-story",
+      "role": "通过图文节奏强化空间气质和使用场景",
+      "content_requirements": ["空间场景", "图文组合", "适配人群"],
+      "tone": "编辑化讲述",
+      "layout_rule": "保持图文节奏稳定，不做随机拼贴"
+    },
+    {
+      "id": "consultation-promise",
+      "role": "建立咨询前信任",
+      "content_requirements": ["沟通方式", "服务承诺", "边界说明"],
+      "tone": "礼貌、稳定",
+      "layout_rule": "承诺列表要短而清楚"
+    },
+    {
+      "id": "consultation-cta",
+      "role": "引导预约咨询或进一步了解",
+      "content_requirements": ["主 CTA", "次 CTA", "简短说明"],
+      "tone": "邀请式",
+      "layout_rule": "主 CTA 优先，次 CTA 降一级"
+    }
+  ],
+  "cta_strategy": {
+    "primary_cta": "预约咨询",
+    "secondary_cta": "查看案例",
+    "tone_rule": "动作要明确，但不制造压迫感"
+  },
+  "brand_constraints": [
+    "不得出现促销化语气",
+    "不得让 accent 大面积占主导",
+    "中文摘要必须完整可读"
+  ]
+}
