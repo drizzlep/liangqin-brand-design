@@ -22,40 +22,100 @@
           </a>
 
           <div class="guide-intro">
-            <p class="guide-kicker">Liangqinjiamu Guidelines</p>
-            <h1>良禽佳木设计规范</h1>
-            <p>以真实品牌资产、样本与 token 来组织规则，而不是用叙事长文组织首页。</p>
+            <p class="guide-kicker">Liangqinjiamu Manual</p>
+            <h1>良禽佳木设计手册</h1>
+            <p>品牌资产、基础规范与组件规则总览。</p>
           </div>
 
+          <section class="guide-theme-panel" aria-label="首页主题模式">
+            <div class="guide-meta-row guide-meta-row--stacked">
+              <span class="guide-label">主题</span>
+              <span class="guide-meta-note">系统 / 浅色 / 深色</span>
+            </div>
+            <div class="theme-toggle" role="group" aria-label="主题切换">
+              <button type="button" class="theme-toggle-button" data-theme-value="system">系统</button>
+              <button type="button" class="theme-toggle-button" data-theme-value="light">浅色</button>
+              <button type="button" class="theme-toggle-button" data-theme-value="dark">深色</button>
+            </div>
+          </section>
+
           <nav class="guide-nav" aria-label="良禽佳木设计规范目录">
-            <a class="guide-nav-link" href="#overview">Overview</a>
-            <a class="guide-nav-link" href="#brand-assets">Brand Assets</a>
-            <a class="guide-nav-link" href="#foundations-color">Color</a>
-            <a class="guide-nav-link" href="#foundations-typography">Typography</a>
-            <a class="guide-nav-link" href="#foundations-spacing">Spacing</a>
-            <a class="guide-nav-link" href="#foundations-layout">Layout</a>
-            <a class="guide-nav-link" href="#foundations-shape-motion">Shape & Motion</a>
-            <a class="guide-nav-link" href="#components-buttons">Buttons</a>
-            <a class="guide-nav-link" href="#components-forms">Forms</a>
-            <a class="guide-nav-link" href="#components-navigation">Navigation</a>
-            <a class="guide-nav-link" href="#components-cards">Cards</a>
-            <a class="guide-nav-link" href="#appendix">Appendix</a>
+            <a class="guide-nav-link" href="#overview">总览</a>
+            <a class="guide-nav-link" href="#brand-assets">品牌资产</a>
+            <a class="guide-nav-link" href="#foundations-color">色彩</a>
+            <a class="guide-nav-link" href="#foundations-typography">排版</a>
+            <a class="guide-nav-link" href="#foundations-spacing">间距</a>
+            <a class="guide-nav-link" href="#foundations-layout">布局</a>
+            <a class="guide-nav-link" href="#foundations-shape-motion">形态与动效</a>
+            <a class="guide-nav-link" href="#components-buttons">按钮</a>
+            <a class="guide-nav-link" href="#components-forms">表单</a>
+            <a class="guide-nav-link" href="#components-navigation">导航</a>
+            <a class="guide-nav-link" href="#components-cards">卡片</a>
+            <a class="guide-nav-link" href="#appendix">附录</a>
           </nav>
         </div>
       </aside>
 
       <main class="guide-main">
         <section class="guide-section guide-section--hero reveal" id="overview" data-spy-section>
-          <div class="guide-section-head">
-            <span class="eyebrow">Overview</span>
-            <h2>良禽佳木的规范首页，应先传达结构、资产与使用规则</h2>
-            <p>本页聚焦品牌资产、Foundations 与 Components，规则以样本、token 与对照表达。</p>
+          <div class="hero-intro-grid">
+            <article class="guide-surface guide-surface--editorial hero-editorial-panel">
+              <div class="guide-section-head guide-section-head--hero">
+                <span class="eyebrow">手册总览</span>
+                <h2>品牌资产、基础规范与组件规则</h2>
+                <p>首页保留关键示意与总则，帮助快速定位，再进入细节模块。</p>
+              </div>
+
+              <div class="hero-principles-grid manual-index-grid">
+                <article class="hero-principle-card manual-index-card">
+                  <span class="guide-label">品牌资产</span>
+                  <p>标志、色值、留白与错误示例。</p>
+                </article>
+                <article class="hero-principle-card manual-index-card">
+                  <span class="guide-label">基础规范</span>
+                  <p>色彩、排版、间距、布局与动效。</p>
+                </article>
+                <article class="hero-principle-card manual-index-card">
+                  <span class="guide-label">组件规范</span>
+                  <p>按钮、表单、导航与卡片原则。</p>
+                </article>
+                <article class="hero-principle-card manual-index-card">
+                  <span class="guide-label">附录资源</span>
+                  <p>DNA、Token、Schema 与示例页入口。</p>
+                </article>
+              </div>
+
+              <div class="hero-note-list">
+                <span>中文主导</span>
+                <span>双主题支持</span>
+                <span>低噪声层级</span>
+                <span>规则优先</span>
+              </div>
+            </article>
+
+            <div class="hero-entry-cluster">
+              <a class="guide-surface guide-surface--entry hero-entry-card hero-entry-card--primary" href="/foundation-dna/design-dna.zh-CN.json" target="_blank" rel="noreferrer">
+                <span class="guide-label">手册索引</span>
+                <h3>Design DNA JSON</h3>
+                <p>品牌气质与系统字段。</p>
+              </a>
+              <a class="guide-surface guide-surface--entry hero-entry-card" href="/foundation-dna/tokens.css" target="_blank" rel="noreferrer">
+                <span class="guide-label">实现变量</span>
+                <h3>CSS Tokens</h3>
+                <p>颜色、字体、间距与动效变量。</p>
+              </a>
+              <a class="guide-surface guide-surface--entry hero-entry-card" href="/skills/public/liangqin-brand-openclaw/SKILL.md" target="_blank" rel="noreferrer">
+                <span class="guide-label">协议层</span>
+                <h3>OpenClaw Skill</h3>
+                <p>输入协议与页面蓝图。</p>
+              </a>
+            </div>
           </div>
 
-          <div class="overview-grid">
-            <article class="guide-surface overview-card">
-              <span class="guide-label">Tone</span>
-              <strong>良禽佳木气质</strong>
+          <div class="hero-support-grid">
+            <article class="guide-surface guide-surface--support overview-card">
+              <span class="guide-label">气质</span>
+              <strong>可信、温润、专业</strong>
               <ul class="rule-list">
                 <li>暖白、石灰、烟灰、炭黑</li>
                 <li>品牌 Taupe 为识别色</li>
@@ -63,73 +123,75 @@
                 <li>正文用 OPPO Sans 4.0</li>
               </ul>
             </article>
-            <article class="guide-surface overview-card">
-              <span class="guide-label">Structure</span>
-              <strong>Single-page Style Guide</strong>
+            <article class="guide-surface guide-surface--support overview-card">
+              <span class="guide-label">使用方式</span>
+              <strong>先总览，再细读</strong>
               <ul class="rule-list">
-                <li>左侧目录导航</li>
-                <li>中心内容区滚动</li>
-                <li>附录页降级为 examples</li>
+                <li>左侧目录负责定位</li>
+                <li>右侧章节负责规则与示意</li>
+                <li>附录只承接资源出口</li>
               </ul>
-            </article>
-            <article class="guide-surface overview-card overview-card--links">
-              <span class="guide-label">Assets</span>
-              <strong>规范资产入口</strong>
-              <div class="chip-row">
-                <a class="guide-chip" href="/foundation-dna/design-dna.zh-CN.json" target="_blank" rel="noreferrer">DNA JSON</a>
-                <a class="guide-chip" href="/foundation-dna/tokens.css" target="_blank" rel="noreferrer">CSS Tokens</a>
-                <a class="guide-chip" href="/foundation-dna/token-table.zh-CN.md" target="_blank" rel="noreferrer">Token 表</a>
-                <a class="guide-chip" href="/skills/public/liangqin-brand-openclaw/SKILL.md" target="_blank" rel="noreferrer">OpenClaw Skill</a>
-              </div>
             </article>
           </div>
         </section>
 
-        <section class="guide-section reveal" id="brand-assets" data-spy-section>
-          <div class="guide-section-head">
-            <span class="eyebrow">Brand Assets</span>
-            <h2>良禽佳木品牌资产应先被标准化，再进入页面系统</h2>
-            <p>以下展示真实横版与纵版标志，并补充反白、安全留白、最小尺寸与错误示例。</p>
+        <section class="guide-section guide-section--assets reveal" id="brand-assets" data-spy-section>
+          <div class="guide-section-head guide-section-head--split">
+            <div>
+              <span class="eyebrow">品牌资产</span>
+              <h2>标志与应用边界</h2>
+              <p>固定标志、色值、留白与误用范围，再进入页面表达。</p>
+            </div>
+            <p class="guide-section-aside">品牌资产先定规则，再进入组件与页面。</p>
           </div>
 
-          <div class="guide-block-grid guide-block-grid--two">
-            <article class="guide-surface logo-asset-card">
-              <div class="guide-meta-row">
-                <span class="guide-label">Horizontal Logo</span>
-                <span class="guide-meta-note">Header / Footer</span>
-              </div>
-              <div class="logo-stage">
-                <img src="/assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木横向标准字与标志" />
-              </div>
-              <div class="chip-row">
-                <span class="guide-chip guide-chip--static">浅底优先</span>
-                <span class="guide-chip guide-chip--static">Min 80px</span>
-                <span class="guide-chip guide-chip--static">Horizontal</span>
-              </div>
-            </article>
+          <div class="brand-assets-layout">
+            <div class="guide-block-grid guide-block-grid--two brand-assets-primary">
+              <article class="guide-surface guide-surface--exhibit logo-asset-card">
+                <div class="guide-meta-row">
+                  <span class="guide-label">横版标志</span>
+                  <span class="guide-meta-note">页眉 / 页脚</span>
+                </div>
+                <div class="logo-stage">
+                  <img src="/assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木横向标准字与标志" />
+                </div>
+                <div class="chip-row">
+                  <span class="guide-chip guide-chip--static">浅底优先</span>
+                  <span class="guide-chip guide-chip--static">最小 80px</span>
+                  <span class="guide-chip guide-chip--static">横向使用</span>
+                </div>
+              </article>
 
-            <article class="guide-surface logo-asset-card">
-              <div class="guide-meta-row">
-                <span class="guide-label">Vertical Logo</span>
-                <span class="guide-meta-note">Cover / Signature</span>
-              </div>
-              <div class="logo-stage logo-stage--vertical">
-                <img src="/assets/brand/liangqinjiamu-logo-vertical.svg" alt="良禽佳木纵向标准字与标志" />
-              </div>
-              <div class="chip-row">
-                <span class="guide-chip guide-chip--static">Taupe tone</span>
-                <span class="guide-chip guide-chip--static">Clear space</span>
-                <span class="guide-chip guide-chip--static">Vertical</span>
-              </div>
-            </article>
-          </div>
+              <article class="guide-surface guide-surface--exhibit logo-asset-card">
+                <div class="guide-meta-row">
+                  <span class="guide-label">纵版标志</span>
+                  <span class="guide-meta-note">封面 / 签名区</span>
+                </div>
+                <div class="logo-stage logo-stage--vertical">
+                  <img src="/assets/brand/liangqinjiamu-logo-vertical.svg" alt="良禽佳木纵向标准字与标志" />
+                </div>
+                <div class="chip-row">
+                  <span class="guide-chip guide-chip--static">Taupe 色</span>
+                  <span class="guide-chip guide-chip--static">保留留白</span>
+                  <span class="guide-chip guide-chip--static">纵向使用</span>
+                </div>
+              </article>
+            </div>
 
-          <div class="token-table-lite guide-surface">
-            <div class="token-row"><span>Brand Taupe</span><strong>#9C7F66</strong><small>类目品牌资产色 / 标识色</small></div>
-            <div class="token-row"><span>Logo color</span><strong>Taupe brand tone</strong><small>当前源文件默认使用暖 taupe 标识色</small></div>
-            <div class="token-row"><span>Usage</span><strong>Light background first</strong><small>页眉、页脚、封面、品牌签名区</small></div>
-            <div class="token-row"><span>Typography relation</span><strong>OPPO Sans + 标准字资产</strong><small>正文系统继续用 OPPO Sans，品牌识别使用现成标准字</small></div>
-            <div class="token-row"><span>Don’t</span><strong>No distortion / no effects</strong><small>不要拉伸、描边、投影、叠复杂背景</small></div>
+            <aside class="guide-surface guide-surface--editorial brand-assets-summary">
+              <span class="guide-label">关键规则</span>
+              <h3>先固定标志、色值与留白，再进入页面应用。</h3>
+              <div class="token-table-lite token-table-lite--compact">
+                <div class="token-row"><span>品牌色</span><strong>#9C7F66</strong><small>品牌资产识别色</small></div>
+                <div class="token-row"><span>正文系统</span><strong>OPPO Sans</strong><small>品牌识别不替代正文系统</small></div>
+                <div class="token-row"><span>应用原则</span><strong>浅底优先</strong><small>深底场景使用反白版</small></div>
+              </div>
+              <ul class="rule-list">
+                <li>不要拉伸、描边或叠复杂效果</li>
+                <li>留白优先于装饰背景</li>
+                <li>先判断识别，再判断装饰</li>
+              </ul>
+            </aside>
           </div>
 
           <div class="brand-rule-grid">
@@ -203,31 +265,31 @@
           </div>
         </section>
 
-        <section class="guide-section reveal" id="foundations-color" data-spy-section>
+        <section class="guide-section guide-section--foundation reveal" id="foundations-color" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Foundations / Color</span>
-            <h2>颜色以层次和用途组织，不以装饰组织</h2>
-            <p>accent 只做引导与强调，不占据长时间视觉中心。</p>
+            <span class="eyebrow">基础规范</span>
+            <h2>色彩</h2>
+            <p>先定层级，再定强调。accent 只负责引导，不负责占位。</p>
           </div>
 
           <div class="guide-block-grid guide-block-grid--two">
             <article class="guide-surface">
               <div class="guide-meta-row">
-                <span class="guide-label">Core palette</span>
-                <span class="guide-meta-note">Primary / Surface / Accent</span>
+                <span class="guide-label">主色板</span>
+                <span class="guide-meta-note">主色 / 表面 / 强调</span>
               </div>
               <div class="palette-showcase">
-                <div class="palette-card"><span style="background:#2B2926"></span><strong>#2B2926</strong><small>Primary Ink</small></div>
-                <div class="palette-card"><span style="background:#F8F5F0"></span><strong>#F8F5F0</strong><small>Background</small></div>
-                <div class="palette-card"><span style="background:#E7E1D8"></span><strong>#E7E1D8</strong><small>Surface</small></div>
-                <div class="palette-card"><span style="background:#8B6A4E"></span><strong>#8B6A4E</strong><small>Accent</small></div>
-                <div class="palette-card"><span style="background:#9C7F66"></span><strong>#9C7F66</strong><small>Brand Taupe</small></div>
+                <div class="palette-card"><span style="background:#2B2926"></span><strong>#2B2926</strong><small>主文字</small></div>
+                <div class="palette-card"><span style="background:#F8F5F0"></span><strong>#F8F5F0</strong><small>背景</small></div>
+                <div class="palette-card"><span style="background:#E7E1D8"></span><strong>#E7E1D8</strong><small>表面</small></div>
+                <div class="palette-card"><span style="background:#8B6A4E"></span><strong>#8B6A4E</strong><small>强调</small></div>
+                <div class="palette-card"><span style="background:#9C7F66"></span><strong>#9C7F66</strong><small>品牌色</small></div>
               </div>
             </article>
 
             <article class="guide-surface">
               <div class="guide-meta-row">
-                <span class="guide-label">Neutral scale</span>
+                <span class="guide-label">中性色阶</span>
                 <span class="guide-meta-note">0 → 900</span>
               </div>
               <div class="neutral-scale">
@@ -244,58 +306,56 @@
           </div>
 
           <div class="token-table-lite guide-surface">
-            <div class="token-row"><span>Brand Taupe</span><strong>#9C7F66</strong><small>品牌识别、logo 资产、辅助品牌强调</small></div>
-            <div class="token-row"><span>Background</span><strong>#F8F5F0</strong><small>页面主背景</small></div>
-            <div class="token-row"><span>Surface</span><strong>#F2EEE8</strong><small>卡片与次级底</small></div>
-            <div class="token-row"><span>Ink 800</span><strong>#2B2926</strong><small>主标题 / 品牌锚点</small></div>
-            <div class="token-row"><span>Accent</span><strong>#8B6A4E</strong><small>CTA / hover / link</small></div>
+            <div class="token-row"><span>品牌色</span><strong>#9C7F66</strong><small>只用于品牌识别锚点</small></div>
+            <div class="token-row"><span>背景</span><strong>#F8F5F0</strong><small>页面主背景</small></div>
+            <div class="token-row"><span>强调色</span><strong>#8B6A4E</strong><small>CTA 与悬停反馈</small></div>
           </div>
         </section>
 
-        <section class="guide-section reveal" id="foundations-typography" data-spy-section>
+        <section class="guide-section guide-section--foundation reveal" id="foundations-typography" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Foundations / Typography</span>
-            <h2>标题负责气质，正文负责识别与耐读</h2>
-            <p>中文标题默认狮尾宋体，正文、导航、按钮、表单统一 OPPO Sans。</p>
+            <span class="eyebrow">基础规范</span>
+            <h2>排版</h2>
+            <p>标题定气质，正文定阅读。中文优先可读。</p>
           </div>
 
           <div class="guide-block-grid guide-block-grid--two">
             <article class="guide-surface type-specimen-card">
-              <span class="guide-label">Heading specimen</span>
+              <span class="guide-label">标题示意</span>
               <div class="type-specimen type-specimen--heading">空间不是被装满，而是被组织</div>
               <div class="chip-row">
                 <span class="guide-chip guide-chip--static">Swei Sugar</span>
-                <span class="guide-chip guide-chip--static">Display / Heading</span>
+                <span class="guide-chip guide-chip--static">标题层</span>
               </div>
             </article>
             <article class="guide-surface type-specimen-card">
-              <span class="guide-label">Body specimen</span>
-              <div class="type-specimen type-specimen--body">中文正文需要稳、松、清楚。OPPO Sans 4.0 用于摘要、导航、按钮与表单，保证信息在真实业务场景里持续可读。</div>
+              <span class="guide-label">正文字示意</span>
+              <div class="type-specimen type-specimen--body">正文保持稳定、清楚、耐读。导航、按钮、表单统一 OPPO Sans 4.0。</div>
               <div class="chip-row">
                 <span class="guide-chip guide-chip--static">OPPO Sans 4.0</span>
-                <span class="guide-chip guide-chip--static">Body / UI</span>
+                <span class="guide-chip guide-chip--static">正文 / UI</span>
               </div>
             </article>
           </div>
 
           <div class="token-table-lite guide-surface">
-            <div class="token-row"><span>Display</span><strong>72px / 1.08</strong><small>首屏与大标题</small></div>
+            <div class="token-row"><span>Display</span><strong>72px / 1.08</strong><small>封面与重点标题</small></div>
             <div class="token-row"><span>H1</span><strong>48px / 1.18</strong><small>一级标题</small></div>
             <div class="token-row"><span>H2</span><strong>36px / 1.24</strong><small>二级标题</small></div>
             <div class="token-row"><span>Body</span><strong>17px / 1.82</strong><small>正文默认</small></div>
           </div>
         </section>
 
-        <section class="guide-section reveal" id="foundations-spacing" data-spy-section>
+        <section class="guide-section guide-section--foundation reveal" id="foundations-spacing" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Foundations / Spacing</span>
-            <h2>间距先建立节奏，再决定信息密度</h2>
-            <p>默认 8px base unit，区块节奏优先 64 / 96 / 128。</p>
+            <span class="eyebrow">基础规范</span>
+            <h2>间距</h2>
+            <p>先定节奏，再定密度。默认以 8px 为基准。</p>
           </div>
 
           <div class="guide-surface">
             <div class="guide-meta-row">
-              <span class="guide-label">Spacing scale</span>
+              <span class="guide-label">间距尺度</span>
               <span class="guide-meta-note">4 → 128</span>
             </div>
             <div class="spacing-showcase">
@@ -311,17 +371,17 @@
           </div>
         </section>
 
-        <section class="guide-section reveal" id="foundations-layout" data-spy-section>
+        <section class="guide-section guide-section--foundation reveal" id="foundations-layout" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Foundations / Layout</span>
-            <h2>版式应让用户一眼定位层级，而不是被版式本身吸走注意力</h2>
-            <p>桌面 12 栏，平板 8 栏，移动端收束到单列与 4 栏逻辑。</p>
+            <span class="eyebrow">基础规范</span>
+            <h2>布局</h2>
+            <p>版式先服务层级，再服务形式。桌面 12 栏，移动端收束到单列。</p>
           </div>
 
           <div class="guide-block-grid guide-block-grid--two">
             <article class="guide-surface">
               <div class="guide-meta-row">
-                <span class="guide-label">Grid demo</span>
+                <span class="guide-label">栅格示意</span>
                 <span class="guide-meta-note">12 columns</span>
               </div>
               <div class="layout-grid-demo">
@@ -331,7 +391,7 @@
             </article>
             <article class="guide-surface">
               <div class="guide-meta-row">
-                <span class="guide-label">Layout tokens</span>
+                <span class="guide-label">布局变量</span>
                 <span class="guide-meta-note">max / gutter</span>
               </div>
               <div class="token-table-lite token-table-lite--compact">
@@ -344,17 +404,17 @@
           </div>
         </section>
 
-        <section class="guide-section reveal" id="foundations-shape-motion" data-spy-section>
+        <section class="guide-section guide-section--foundation reveal" id="foundations-shape-motion" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Foundations / Shape & Motion</span>
-            <h2>边界要克制，动效要安静</h2>
-            <p>边框、圆角、阴影只承担秩序感；动效只承担顺滑感。</p>
+            <span class="eyebrow">基础规范</span>
+            <h2>形态与动效</h2>
+            <p>边界只做秩序，动效只做顺滑。</p>
           </div>
 
           <div class="guide-block-grid guide-block-grid--two">
             <article class="guide-surface">
               <div class="guide-meta-row">
-                <span class="guide-label">Shape</span>
+                <span class="guide-label">形态</span>
                 <span class="guide-meta-note">radius / border</span>
               </div>
               <div class="shape-demo-row">
@@ -366,7 +426,7 @@
             </article>
             <article class="guide-surface">
               <div class="guide-meta-row">
-                <span class="guide-label">Motion</span>
+                <span class="guide-label">动效</span>
                 <span class="guide-meta-note">fade / translate</span>
               </div>
               <div class="motion-chip-row">
@@ -383,10 +443,11 @@
           </div>
         </section>
 
-        <section class="guide-section reveal" id="components-buttons" data-spy-section>
+        <section class="guide-section guide-section--components reveal" id="components-buttons" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Components / Buttons</span>
-            <h2>按钮像礼貌邀请，不像促销喇叭</h2>
+            <span class="eyebrow">组件规范</span>
+            <h2>按钮</h2>
+            <p>主次分明，语气礼貌，不制造促销压力。</p>
           </div>
 
           <div class="guide-surface component-demo-card">
@@ -395,20 +456,9 @@
               <a class="button-secondary" href="#appendix">查看木作案例</a>
               <a class="text-link" href="#appendix">索取材质手册</a>
             </div>
-            <div class="chip-row">
-              <span class="guide-chip guide-chip--static">Primary</span>
-              <span class="guide-chip guide-chip--static">Secondary</span>
-              <span class="guide-chip guide-chip--static">Text Link</span>
-              <span class="guide-chip guide-chip--static">44px+</span>
-            </div>
-            <div class="state-row">
-              <span class="state-pill">Default</span>
-              <span class="state-pill">Hover</span>
-              <span class="state-pill">Disabled</span>
-            </div>
             <div class="do-dont-grid">
               <div class="do-card">
-                <strong>Do</strong>
+                <strong>推荐</strong>
                 <div class="compare-stage">
                   <div class="compare-action-row">
                     <span class="compare-button compare-button--good compare-button--dark">预约到店</span>
@@ -416,10 +466,10 @@
                     <span class="compare-link">材质手册</span>
                   </div>
                 </div>
-                <ul class="rule-list rule-list--tight"><li>主次层级明确</li><li>文案礼貌直接</li><li>主操作数量受控</li></ul>
+                <ul class="rule-list rule-list--tight"><li>主次层级明确</li><li>文案礼貌直接</li></ul>
               </div>
               <div class="dont-card">
-                <strong>Don’t</strong>
+                <strong>避免</strong>
                 <div class="compare-stage compare-stage--bad">
                   <div class="compare-action-row compare-action-row--stacked">
                     <span class="compare-button compare-button--bad">立即抢购</span>
@@ -427,16 +477,17 @@
                     <span class="compare-button compare-button--bad">马上咨询</span>
                   </div>
                 </div>
-                <ul class="rule-list rule-list--tight"><li>高饱和大色块</li><li>命令式营销语气</li><li>多个主按钮抢戏</li></ul>
+                <ul class="rule-list rule-list--tight"><li>高饱和大色块</li><li>命令式营销语气</li></ul>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="guide-section reveal" id="components-forms" data-spy-section>
+        <section class="guide-section guide-section--components reveal" id="components-forms" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Components / Forms</span>
-            <h2>表单先说明清楚，再让用户输入</h2>
+            <span class="eyebrow">组件规范</span>
+            <h2>表单</h2>
+            <p>先说明，再输入。字段命名按中文真实场景预留。</p>
           </div>
 
           <div class="guide-surface component-demo-card">
@@ -456,7 +507,7 @@
             </form>
             <div class="do-dont-grid">
               <div class="do-card">
-                <strong>Do</strong>
+                <strong>推荐</strong>
                 <div class="compare-stage">
                   <div class="mini-form-good">
                     <span>到店 / 上门咨询方式</span>
@@ -464,10 +515,10 @@
                     <small>提交后良禽佳木顾问将在 1 个工作日内联系</small>
                   </div>
                 </div>
-                <ul class="rule-list rule-list--tight"><li>标签始终可见</li><li>字段长度按中文预留</li><li>帮助信息清楚</li></ul>
+                <ul class="rule-list rule-list--tight"><li>标签始终可见</li><li>帮助信息清楚</li></ul>
               </div>
               <div class="dont-card">
-                <strong>Don’t</strong>
+                <strong>避免</strong>
                 <div class="compare-stage compare-stage--bad">
                   <div class="mini-form-bad">
                     <div class="mini-field-bad">name</div>
@@ -475,16 +526,17 @@
                     <div class="mini-field-bad mini-field-bad--short">msg...</div>
                   </div>
                 </div>
-                <ul class="rule-list rule-list--tight"><li>只靠 placeholder</li><li>字段命名过短</li><li>反馈语气生硬</li></ul>
+                <ul class="rule-list rule-list--tight"><li>只靠 placeholder</li><li>字段命名过短</li></ul>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="guide-section reveal" id="components-navigation" data-spy-section>
+        <section class="guide-section guide-section--components reveal" id="components-navigation" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Components / Navigation</span>
-            <h2>导航更像目录，而不是品牌姿态表演</h2>
+            <span class="eyebrow">组件规范</span>
+            <h2>导航</h2>
+            <p>像目录，不像广告。命名完整，路径清楚。</p>
           </div>
 
           <div class="guide-surface component-demo-card">
@@ -495,14 +547,9 @@
               <span>材质工艺</span>
               <span>到店咨询</span>
             </div>
-            <div class="chip-row">
-              <span class="guide-chip guide-chip--static">Sparse</span>
-              <span class="guide-chip guide-chip--static">Clear labels</span>
-              <span class="guide-chip guide-chip--static">Chinese-first</span>
-            </div>
             <div class="do-dont-grid">
               <div class="do-card">
-                <strong>Do</strong>
+                <strong>推荐</strong>
                 <div class="compare-stage">
                   <div class="mini-nav-good">
                     <span>品牌故事</span>
@@ -511,10 +558,10 @@
                     <span>到店咨询</span>
                   </div>
                 </div>
-                <ul class="rule-list rule-list--tight"><li>一级导航少而准</li><li>命名完整</li><li>帮助理解路径</li></ul>
+                <ul class="rule-list rule-list--tight"><li>一级导航少而准</li><li>命名完整</li></ul>
               </div>
               <div class="dont-card">
-                <strong>Don’t</strong>
+                <strong>避免</strong>
                 <div class="compare-stage compare-stage--bad">
                   <div class="mini-nav-bad">
                     <span>About us now</span>
@@ -524,24 +571,25 @@
                     <span>Contact now</span>
                   </div>
                 </div>
-                <ul class="rule-list rule-list--tight"><li>栏目过多</li><li>命名像广告</li><li>中英混杂且难扫读</li></ul>
+                <ul class="rule-list rule-list--tight"><li>栏目过多</li><li>命名像广告</li></ul>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="guide-section reveal" id="components-cards" data-spy-section>
+        <section class="guide-section guide-section--components reveal" id="components-cards" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Components / Cards</span>
-            <h2>卡片服务于内容，不服务于装饰欲望</h2>
+            <span class="eyebrow">组件规范</span>
+            <h2>卡片</h2>
+            <p>卡片服务内容，不服务装饰欲望。</p>
           </div>
 
           <div class="do-dont-grid">
             <div class="do-card">
-              <strong>Do</strong>
+              <strong>推荐</strong>
               <div class="component-card-grid component-card-grid--compact">
                 <article class="guide-surface mini-module-card">
-                  <span class="guide-label">Case module</span>
+                  <span class="guide-label">案例卡</span>
                   <h3>木作案例卡</h3>
                   <ul class="rule-list rule-list--tight">
                     <li>项目名称清楚</li>
@@ -550,7 +598,7 @@
                   </ul>
                 </article>
                 <article class="guide-surface mini-module-card">
-                  <span class="guide-label">Material module</span>
+                  <span class="guide-label">材质卡</span>
                   <h3>木种与材质卡</h3>
                   <ul class="rule-list rule-list--tight">
                     <li>先说木种用途</li>
@@ -561,7 +609,7 @@
               </div>
             </div>
             <div class="dont-card">
-              <strong>Don’t</strong>
+              <strong>避免</strong>
               <div class="compare-stage compare-stage--bad">
                 <div class="bad-card-stack">
                   <div class="bad-card-stack-item">
@@ -583,26 +631,26 @@
           </div>
         </section>
 
-        <section class="guide-section reveal" id="appendix" data-spy-section>
+        <section class="guide-section guide-section--appendix reveal" id="appendix" data-spy-section>
           <div class="guide-section-head">
-            <span class="eyebrow">Appendix</span>
-            <h2>附录示例与规范资产</h2>
-            <p>这些页面仍可访问，但不再定义站点主结构。</p>
+            <span class="eyebrow">附录资源</span>
+            <h2>资源入口</h2>
+            <p>附录只承接下载、Schema 与示例页入口。</p>
           </div>
 
           <div class="appendix-grid">
             <a class="guide-surface appendix-card" href="/foundation-dna/design-dna.zh-CN.json" target="_blank" rel="noreferrer">
-              <span class="guide-label">Asset</span>
+              <span class="guide-label">资产</span>
               <h3>Design DNA JSON</h3>
               <small>结构化规范资产</small>
             </a>
             <a class="guide-surface appendix-card" href="/foundation-dna/token-table.zh-CN.md" target="_blank" rel="noreferrer">
-              <span class="guide-label">Asset</span>
+              <span class="guide-label">资产</span>
               <h3>Token 表</h3>
               <small>中文化规则说明</small>
             </a>
             <a class="guide-surface appendix-card" href="/skills/public/liangqin-brand-openclaw/SKILL.md" target="_blank" rel="noreferrer">
-              <span class="guide-label">Skill</span>
+              <span class="guide-label">协议</span>
               <h3>OpenClaw 品牌 Skill</h3>
               <small>蓝图协议入口</small>
             </a>
@@ -612,17 +660,17 @@
               <small>结构化输出约束</small>
             </a>
             <a class="guide-surface appendix-card" href="/components.html">
-              <span class="guide-label">Example</span>
+              <span class="guide-label">示例</span>
               <h3>组件页</h3>
               <small>独立展示页</small>
             </a>
             <a class="guide-surface appendix-card" href="/case-detail.html">
-              <span class="guide-label">Example</span>
+              <span class="guide-label">示例</span>
               <h3>案例详情页</h3>
               <small>附录示例</small>
             </a>
             <a class="guide-surface appendix-card" href="/product-detail.html">
-              <span class="guide-label">Example</span>
+              <span class="guide-label">示例</span>
               <h3>产品详情页</h3>
               <small>附录示例</small>
             </a>
