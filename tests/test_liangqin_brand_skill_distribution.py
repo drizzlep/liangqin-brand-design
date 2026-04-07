@@ -61,6 +61,8 @@ class LiangqinBrandSkillDistributionTest(unittest.TestCase):
             self.assertIn("`protocols/brand-boundaries.zh-CN.json`", install_text)
             self.assertIn("`recipes/module-recipes.zh-CN.json`", install_text)
             self.assertIn("良禽佳木apple风", install_text)
+            self.assertIn("默认只使用 `良禽品牌体` 作为顶层品牌入口", install_text)
+            self.assertIn("次级写作能力", install_text)
 
     def test_exported_installer_can_publish_to_openclaw_skill_stores(self):
         script_path = ROOT / "scripts" / "export_openclaw_skill.py"
