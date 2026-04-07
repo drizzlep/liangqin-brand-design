@@ -151,7 +151,7 @@ python3 scripts/export_openclaw_skill.py --output-dir ./dist --zip
 导出后会生成：
 
 - `dist/liangqin-brand-body/`
-- `dist/liangqin-brand-body-0.2.0.zip`
+- `dist/liangqin-brand-body-2.0.0.zip`
 
 推荐安装方式：
 
@@ -182,8 +182,7 @@ python3 dist/liangqin-brand-body/scripts/install_into_openclaw.py
 
 - [drizzlep/liangqin-brand-design](https://github.com/drizzlep/liangqin-brand-design)
 
-当前线上最新 Release 仍是 `v1.0.2`，说明 GitHub 上公开说明还停留在旧分发模型。
-这次建议直接发布为：
+当前线上已发布统一入口版本：
 
 - `v2.0.0`
 
