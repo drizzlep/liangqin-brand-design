@@ -1,0 +1,77 @@
+{
+  "slug": "architectural-minimal",
+  "sort_order": 30,
+  "title": "Architectural Minimal",
+  "summary": "用更理性、严格的栅格去承接规格、系统与结构表达。",
+  "preview_variant": "analytical",
+  "mood": [
+    "理性秩序",
+    "结构留白",
+    "参数清晰"
+  ],
+  "density": "聚焦",
+  "imagery": "正立面摄影、结构视角和更少修饰的图文组织。",
+  "cta_tone": "说明式咨询",
+  "zh_readability": "高",
+  "best_for_pages": [
+    "产品详情",
+    "尺寸规格",
+    "系统页"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "严格栅格与对齐先于情绪表达，文字块和信息卡承担主要解释任务。",
+  "component_focus": [
+    "规格表",
+    "参数模块",
+    "对齐型信息卡"
+  ],
+  "recommended_modules": [
+    {
+      "name": "规格总览",
+      "purpose": "先把尺寸、配置和适配关系用最短路径讲清楚。",
+      "layout_hint": "总览摘要条或首屏参数总表。"
+    },
+    {
+      "name": "参数矩阵",
+      "purpose": "把尺寸、材质、版本和选项组织成可对比结构。",
+      "layout_hint": "双栏矩阵、表格或卡片式参数组。"
+    },
+    {
+      "name": "系统说明块",
+      "purpose": "解释结构逻辑、模数组合或空间关系。",
+      "layout_hint": "对齐型说明卡、结构分解图注。"
+    },
+    {
+      "name": "配置咨询入口",
+      "purpose": "在信息足够清楚之后承接进一步配置咨询。",
+      "layout_hint": "页中或页尾咨询卡，而不是抢首屏。"
+    }
+  ],
+  "notes": "适合让用户快速判断配置、比例与系统关系的产品型页面。",
+  "variation_scope": [
+    "可强化参数、规格和对齐秩序的存在感",
+    "可减少情绪化摄影比重，提升结构说明比重",
+    "不得滑向冷硬科技感或通用 SaaS 参数后台"
+  ],
+  "preview_tokens": {
+    "background": "#F5F2EC",
+    "surface": "#EFEBE5",
+    "elevated": "#FFFFFF",
+    "accent": "#6F6257",
+    "line": "#D4CCC0",
+    "hero_glow": "rgba(107, 99, 91, 0.16)",
+    "panel_tint": "rgba(255, 255, 255, 0.90)",
+    "chip_tint": "rgba(255, 255, 255, 0.70)"
+  },
+  "preview_content": {
+    "hero_title": "把尺寸、结构与秩序感讲清楚",
+    "hero_lead": "适合需要高可信规格表达的页面，让用户快速判断配置、比例与系统关系。",
+    "hero_note": "比品牌首页更理性，也更少依赖情绪化修饰。",
+    "primary_cta": "查看规格",
+    "secondary_cta": "咨询配置",
+    "feature_label": "节奏重点",
+    "feature_body": "标题更克制，表格与信息卡承担主要解释任务。",
+    "quote": "不是冷，而是稳；不是花，而是准。"
+  }
+}

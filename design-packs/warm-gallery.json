@@ -1,0 +1,77 @@
+{
+  "slug": "warm-gallery",
+  "sort_order": 10,
+  "title": "Warm Gallery",
+  "summary": "以展厅式大图、低压 CTA 与柔和色面承接首页和案例总览。",
+  "preview_variant": "gallery",
+  "mood": [
+    "温润陈列",
+    "慢节奏导览",
+    "大图留白"
+  ],
+  "density": "宽松",
+  "imagery": "大幅空间摄影配短标题与轻注释，像走进安静展厅。",
+  "cta_tone": "低压导览",
+  "zh_readability": "高",
+  "best_for_pages": [
+    "首页",
+    "案例总览",
+    "品牌故事"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "大图先行，内容以左右错落编排，信息停顿多于促销节奏。",
+  "component_focus": [
+    "大图 Hero",
+    "悬浮说明卡",
+    "轻标签导航"
+  ],
+  "recommended_modules": [
+    {
+      "name": "沉浸 Hero",
+      "purpose": "先用一张大幅空间主图和短标题建立温润气质。",
+      "layout_hint": "全宽首屏或左右错落的展厅式开场。"
+    },
+    {
+      "name": "系列导览条",
+      "purpose": "用低压标签把用户带进系列、空间或案例分类。",
+      "layout_hint": "轻量 chip 导航或横向切换条。"
+    },
+    {
+      "name": "案例精选卡",
+      "purpose": "把继续浏览的路径做成慢节奏卡片，而不是促销宫格。",
+      "layout_hint": "留白型图文卡或错落案例卡。"
+    },
+    {
+      "name": "预约到店入口",
+      "purpose": "在第二视线位置承接到店或咨询动作。",
+      "layout_hint": "弱强调横幅、悬浮说明卡或页尾邀请区。"
+    }
+  ],
+  "notes": "适合强调空间氛围、品牌调性和慢慢浏览的首页体验。",
+  "variation_scope": [
+    "可提高空间摄影、留白和慢节奏导览的比重",
+    "可弱化说明密度，把分类和预约放到第二视线",
+    "不得变成促销宫格、强转化首页或杂志拼贴页"
+  ],
+  "preview_tokens": {
+    "background": "#F7F2EB",
+    "surface": "#F0E9E0",
+    "elevated": "#FFFCF8",
+    "accent": "#8B6A4E",
+    "line": "#D7CCC0",
+    "hero_glow": "rgba(156, 127, 102, 0.18)",
+    "panel_tint": "rgba(255, 251, 246, 0.90)",
+    "chip_tint": "rgba(255, 255, 255, 0.74)"
+  },
+  "preview_content": {
+    "hero_title": "像走进一间可被慢慢观看的空间展厅",
+    "hero_lead": "先让空间摄影和温润材质建立信任，再用轻量文案带出系列与案例。",
+    "hero_note": "首页首屏、案例总览和品牌故事页最适合这个节奏。",
+    "primary_cta": "预约到店",
+    "secondary_cta": "浏览系列",
+    "feature_label": "节奏重点",
+    "feature_body": "大图先行，说明后置，CTA 在第二视线进入。",
+    "quote": "让用户先感受到空气和材质，再决定是否继续深入。"
+  }
+}

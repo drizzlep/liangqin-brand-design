@@ -1,0 +1,77 @@
+{
+  "slug": "product-spec-premium",
+  "sort_order": 80,
+  "title": "Product Spec Premium",
+  "summary": "把高端产品的参数、材质选项和配置逻辑做成更高级的规格页。",
+  "preview_variant": "analytical",
+  "mood": [
+    "规格高级",
+    "参数清晰",
+    "配置秩序"
+  ],
+  "density": "聚焦",
+  "imagery": "产品主视图、材质样片和可比配置卡协同出现，强调专业选择过程。",
+  "cta_tone": "配置咨询",
+  "zh_readability": "很高",
+  "best_for_pages": [
+    "产品规格",
+    "产品详情",
+    "配置选择"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "主规格、材质选项、尺寸参数和咨询入口分段清晰，不让信息堆成技术清单。",
+  "component_focus": [
+    "规格矩阵",
+    "材质样片卡",
+    "配置咨询入口"
+  ],
+  "recommended_modules": [
+    {
+      "name": "规格摘要",
+      "purpose": "先把产品核心尺寸和适配场景用摘要块说清楚。",
+      "layout_hint": "首屏参数摘要或规格头图。"
+    },
+    {
+      "name": "材质与选项",
+      "purpose": "让材质样片、版本差异和可选配置易于比较。",
+      "layout_hint": "样片卡、版本卡或二级矩阵。"
+    },
+    {
+      "name": "尺寸参数区",
+      "purpose": "把细规格和安装注意点分层呈现，不堆在一起。",
+      "layout_hint": "表格区、参数卡组或分栏明细。"
+    },
+    {
+      "name": "配置咨询入口",
+      "purpose": "承接更进一步的配置确认与方案沟通。",
+      "layout_hint": "页中咨询条或页尾联系卡。"
+    }
+  ],
+  "notes": "适合需要严肃呈现参数但又不能失去品牌高级感的产品规格页。",
+  "variation_scope": [
+    "可增加参数块、规格矩阵和配置说明的清晰度",
+    "可压缩情绪化首屏，突出尺寸与材质判断",
+    "不得退化成电商详情长页或报表式参数堆叠"
+  ],
+  "preview_tokens": {
+    "background": "#F4F0EA",
+    "surface": "#ECE6DE",
+    "elevated": "#FEFBF8",
+    "accent": "#74604F",
+    "line": "#D3C8BC",
+    "hero_glow": "rgba(116, 96, 79, 0.18)",
+    "panel_tint": "rgba(254, 251, 248, 0.94)",
+    "chip_tint": "rgba(255, 255, 255, 0.72)"
+  },
+  "preview_content": {
+    "hero_title": "让参数、材质与配置也能保持高级感",
+    "hero_lead": "适合高价值产品规格页，把专业信息讲清楚，同时保留品牌秩序和呼吸感。",
+    "hero_note": "参数块必须清晰，但不能退化成电商详情页的堆叠说明。",
+    "primary_cta": "咨询配置",
+    "secondary_cta": "查看规格表",
+    "feature_label": "节奏重点",
+    "feature_body": "参数、材质、尺寸和可选配置要分段呈现，层级一眼可读。",
+    "quote": "规格不是冷冰冰的数据，而是帮助用户判断是否适合自己的依据。"
+  }
+}

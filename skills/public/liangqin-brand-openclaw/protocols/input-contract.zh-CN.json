@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "brand": "良禽佳木",
-  "skill_name": "liangqin-brand-openclaw",
+  "skill_name": "良禽品牌体",
   "primary_input": "brand_brief",
   "accepted_inputs": {
     "brand_brief": {

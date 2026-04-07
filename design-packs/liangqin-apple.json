@@ -1,0 +1,77 @@
+{
+  "slug": "liangqin-apple",
+  "sort_order": 90,
+  "title": "良禽佳木apple风",
+  "summary": "提取 Apple 式整屏舞台、无衬线排版与单对象聚焦，让材质与产品像发布会主角一样被展示。",
+  "preview_variant": "luxury",
+  "mood": [
+    "作品发布感",
+    "全宽舞台",
+    "无衬线精确排版"
+  ],
+  "density": "稀疏",
+  "imagery": "以真实材质摄影和单件产品主视觉为主，优先完整对象、纯净背景和全宽画布，不用碎卡片和色块占位。",
+  "cta_tone": "单一了解",
+  "zh_readability": "高",
+  "best_for_pages": [
+    "首页首屏",
+    "产品详情首屏",
+    "系列发布页"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "整屏舞台、单对象聚焦、浅灰与近黑的结构节奏，让标题、材质和主视觉像在发布一件作品。",
+  "component_focus": [
+    "全宽舞台 Hero",
+    "单对象材质展示",
+    "单一主 CTA"
+  ],
+  "recommended_modules": [
+    {
+      "name": "发布式 Hero",
+      "purpose": "让单件产品或单种材质成为唯一主角，建立作品发布感。",
+      "layout_hint": "全宽舞台 + 居中大标题 + 单一主视觉，避免多入口并列。"
+    },
+    {
+      "name": "材质舞台段",
+      "purpose": "把木材、石材或工艺样本做成像发布会对象陈列的主展区。",
+      "layout_hint": "优先真实图片和完整对象，允许浅灰背景，不做色块拼贴。"
+    },
+    {
+      "name": "工艺揭示段",
+      "purpose": "用极短中文说明把收边、触感和结构逻辑讲清楚。",
+      "layout_hint": "图文一对一，像产品发布说明卡，不像参数表。"
+    },
+    {
+      "name": "克制咨询入口",
+      "purpose": "把咨询动作压到第二视线，像进一步了解而不是直接促单。",
+      "layout_hint": "单一主 CTA，位置稳定，文案简短礼貌，不做双主按钮。"
+    }
+  ],
+  "notes": "直接提取 Apple 的全宽舞台、无衬线排版、近单色结构色和单对象聚焦；只保留良禽佳木的中文语气、材质叙事与咨询式信任。",
+  "variation_scope": [
+    "可把标题、导航和正文切换到 Apple 式无衬线排版，不再沿用原生宋体标题",
+    "可使用更接近 Apple 的浅灰、白和近黑结构色，暖感主要由真实材质图来提供",
+    "可增强整屏 section、单一主角构图和发布式节奏，但不得变成冷科技官网或英文产品官网语气"
+  ],
+  "preview_tokens": {
+    "background": "#F5F5F7",
+    "surface": "#FFFFFF",
+    "elevated": "#FBFBFD",
+    "accent": "#0071E3",
+    "line": "#D2D2D7",
+    "hero_glow": "rgba(0, 113, 227, 0.10)",
+    "panel_tint": "rgba(255, 255, 255, 0.94)",
+    "chip_tint": "rgba(255, 255, 255, 0.76)"
+  },
+  "preview_content": {
+    "hero_title": "像发布一件高定作品，而不是展示一组普通商品",
+    "hero_lead": "直接借 Apple 的无衬线排版、整屏聚焦和近单色节奏，但继续讲良禽佳木的中文材质故事。",
+    "hero_note": "适合首页首屏、产品首屏和系列发布，不适合 FAQ、报价和复杂信息页。",
+    "primary_cta": "进一步了解",
+    "secondary_cta": "预约咨询",
+    "feature_label": "节奏重点",
+    "feature_body": "更少模块、更强主角、更完整对象，让木材和柜体像发布会主角一样被看见。",
+    "quote": "不是把良禽佳木做成 Apple，而是把 Apple 的发布方法抽出来，重新服务良禽佳木。"
+  }
+}

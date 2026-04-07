@@ -8,12 +8,12 @@
       "supported_pages": ["homepage", "product_detail"],
       "required_inputs": ["brand_brief"],
       "optional_inputs": ["product_data", "reference_pages"],
-      "role": "在首屏建立品牌气质与页面主线。",
-      "tone_rule": "沉稳、温润、有留白，不用喊话式文案。",
-      "layout_rule": "标题、摘要、主视觉和主 CTA 必须形成清晰阅读顺序。",
+      "role": "在首屏先建立品牌信任，再交代页面主线。",
+      "tone_rule": "像迎接客户进入展厅，不喊口号，不抢情绪。",
+      "layout_rule": "只保留一个主标题、一个摘要、一个主 CTA，主视觉服务标题。",
       "allowed_neighbors_before": [],
       "allowed_neighbors_after": ["trust-intro", "product-highlight", "material-craft"],
-      "forbidden": ["价格促销信息前置", "过多按钮并列", "英文化极短标题"]
+      "forbidden": ["价格促销信息前置", "多个主 CTA 并列", "英文化极短标题"]
     },
     {
       "id": "trust-intro",
@@ -34,9 +34,9 @@
       "supported_pages": ["homepage", "product_detail"],
       "required_inputs": ["brand_brief"],
       "optional_inputs": ["product_data", "reference_pages"],
-      "role": "把木、石、布、皮革与工艺细节翻译成客户能理解的价值。",
-      "tone_rule": "强调触感、长期体验和判断依据，不夸张。",
-      "layout_rule": "图片与说明必须对应，不允许只有情绪没有信息。",
+      "role": "把木、石、布、皮革与工艺细节翻译成可感知的判断价值。",
+      "tone_rule": "强调触感、耐用性和判断依据，不夸张。",
+      "layout_rule": "每张图都要对应具体说明，不允许只有气氛没有信息。",
       "allowed_neighbors_before": ["brand-hero", "trust-intro", "product-highlight"],
       "allowed_neighbors_after": ["product-specs", "editorial-story", "consultation-promise"],
       "forbidden": ["堆参数但不解释意义", "只讲气氛不讲材质事实"]
@@ -74,8 +74,8 @@
       "required_inputs": ["brand_brief"],
       "optional_inputs": ["product_data", "reference_pages"],
       "role": "通过图文节奏补足空间气质、使用场景和方法论解释。",
-      "tone_rule": "像编辑化讲述，不像长广告。",
-      "layout_rule": "图片顺序必须服务叙事，不做随机拼贴。",
+      "tone_rule": "像编辑化讲述，不像长广告，也不写成长日记。",
+      "layout_rule": "图片顺序必须服务叙事，每一屏都要回答一个问题。",
       "allowed_neighbors_before": ["trust-intro", "material-craft", "product-specs"],
       "allowed_neighbors_after": ["consultation-promise", "consultation-cta"],
       "forbidden": ["无主线图文堆叠", "信息密度忽高忽低"]
@@ -87,8 +87,8 @@
       "required_inputs": ["brand_brief"],
       "optional_inputs": ["product_data"],
       "role": "解释咨询后会发生什么、客户能获得什么、沟通边界是什么。",
-      "tone_rule": "服务型、礼貌、稳定，不制造焦虑。",
-      "layout_rule": "用承诺列表和简洁说明建立信任，避免话术化。",
+      "tone_rule": "服务型、礼貌、稳定，不制造焦虑，也不许下空头承诺。",
+      "layout_rule": "优先用 3 到 5 条承诺列表建立信任，避免话术化长段落。",
       "allowed_neighbors_before": ["trust-intro", "material-craft", "product-specs", "editorial-story"],
       "allowed_neighbors_after": ["consultation-cta"],
       "forbidden": ["逼单式紧迫感", "空洞服务承诺"]
@@ -100,8 +100,8 @@
       "required_inputs": ["brand_brief"],
       "optional_inputs": ["product_data"],
       "role": "把用户自然引导到预约咨询、查看案例或获取资料。",
-      "tone_rule": "主动作明确，次动作克制，语气始终是邀请。",
-      "layout_rule": "主 CTA 数量受控，移动端优先保证点击清晰。",
+      "tone_rule": "主动作明确，次动作克制，语气始终是邀请而不是催促。",
+      "layout_rule": "默认一个主 CTA、一个次 CTA，移动端优先保证点击清晰。",
       "allowed_neighbors_before": ["product-highlight", "product-specs", "editorial-story", "consultation-promise"],
       "allowed_neighbors_after": [],
       "forbidden": ["多个主 CTA 争抢", "命令式按钮文案", "为了转化破坏整体气质"]

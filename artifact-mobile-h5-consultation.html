@@ -1,0 +1,469 @@
+<!doctype html>
+            <html lang="zh-CN">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <title>Mobile H5 Consultation · 良禽佳木载体样例</title>
+              <style>
+                @font-face {
+                  font-family: "Swei Sugar";
+                  src:
+                    url("assets/fonts/SweiSugarCJKtc-ExtraLight.woff2") format("woff2"),
+                    url("assets/fonts/SweiSugarCJKtc-ExtraLight.ttf") format("truetype");
+                  font-style: normal;
+                  font-weight: 200;
+                  font-display: swap;
+                }
+
+                @font-face {
+                  font-family: "OPPO Sans 4.0";
+                  src:
+                    url("assets/fonts/OPPO-Sans-4.0.woff2") format("woff2"),
+                    url("assets/fonts/OPPO-Sans-4.0.ttf") format("truetype");
+                  font-style: normal;
+                  font-weight: 400;
+                  font-display: swap;
+                }
+
+                :root {
+                  --bg: #F8F5F0;
+                  --surface: #F2EEE8;
+                  --surface-elevated: #FFFCF8;
+                  --ink: #2B2926;
+                  --line: #D8D0C4;
+                  --muted: #888075;
+                  --shadow-low: 0 10px 24px rgba(31, 29, 27, 0.05);
+                  --shadow-medium: 0 18px 40px rgba(31, 29, 27, 0.08);
+                }
+
+                * { box-sizing: border-box; }
+                body {
+                  margin: 0;
+                  background: linear-gradient(180deg, var(--bg) 0%, #fffdf9 100%);
+                  color: var(--ink);
+                  font-family: "OPPO Sans 4.0", "PingFang SC", "Noto Sans SC", sans-serif;
+                  line-height: 1.82;
+                }
+                a { color: inherit; text-decoration: none; }
+                button { font: inherit; }
+                .artifact-shell {
+                  width: min(1160px, calc(100vw - 32px));
+                  margin: 0 auto;
+                  padding: 28px 0 80px;
+                }
+                .artifact-topbar {
+                  display: flex;
+                  justify-content: space-between;
+                  gap: 16px;
+                  align-items: center;
+                  margin-bottom: 20px;
+                }
+                .artifact-breadcrumbs {
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                  color: var(--muted);
+                  font-size: 13px;
+                }
+                .artifact-chip {
+                  display: inline-flex;
+                  align-items: center;
+                  padding: 7px 12px;
+                  border: 1px solid var(--line);
+                  border-radius: 999px;
+                  background: rgba(255,255,255,0.74);
+                }
+                .artifact-hero {
+                  padding: 28px;
+                  border-radius: 28px;
+                  border: 1px solid var(--pack-line);
+                  background:
+                    radial-gradient(circle at top right, var(--pack-hero-glow), transparent 35%),
+                    linear-gradient(135deg, var(--pack-elevated), var(--pack-background));
+                  box-shadow: var(--shadow-medium);
+                }
+                .artifact-kicker {
+                  display: inline-flex;
+                  padding: 8px 14px;
+                  border-radius: 999px;
+                  border: 1px solid var(--pack-line);
+                  color: var(--pack-accent);
+                  background: rgba(255,255,255,0.68);
+                  font-size: 13px;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                }
+                .artifact-stage {
+                  display: grid;
+                  gap: 24px;
+                  align-items: start;
+                }
+                .artifact-stage-web,
+                .artifact-stage-quote {
+                  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+                }
+                .artifact-stage-mobile {
+                  grid-template-columns: minmax(300px, 420px) minmax(0, 1fr);
+                  justify-content: center;
+                }
+                .artifact-stage-copy {
+                  display: grid;
+                  gap: 16px;
+                }
+                .artifact-stage-copy h1 {
+                  margin: 0;
+                  font-family: "Swei Sugar", "Source Han Serif SC", serif;
+                  font-weight: 200;
+                  font-size: 72px;
+                  line-height: 1.08;
+                  letter-spacing: -0.03em;
+                  max-width: 12ch;
+                }
+                .artifact-stage-panel,
+                .artifact-section,
+                .artifact-module-card,
+                .quote-artifact-card,
+                .mobile-module-item {
+                  padding: 20px;
+                  border-radius: 22px;
+                  border: 1px solid var(--pack-line);
+                  background: var(--pack-panel-tint);
+                }
+                .artifact-stage-panel strong,
+                .artifact-section strong,
+                .artifact-module-card strong,
+                .quote-artifact-card h3,
+                .mobile-module-item strong {
+                  display: block;
+                  margin-bottom: 8px;
+                }
+                .artifact-muted {
+                  color: #61574d;
+                  font-size: 15px;
+                }
+                .artifact-actions {
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                }
+                .artifact-primary,
+                .artifact-secondary {
+                  min-height: 46px;
+                  padding: 0 22px;
+                  border-radius: 999px;
+                  border: 1px solid transparent;
+                  cursor: pointer;
+                }
+                .artifact-primary {
+                  background: var(--pack-accent);
+                  color: #fffaf5;
+                }
+                .artifact-secondary {
+                  background: transparent;
+                  border-color: var(--pack-line);
+                  color: var(--ink);
+                }
+                .artifact-link {
+                  display: inline-flex;
+                  align-items: center;
+                }
+                .artifact-grid {
+                  display: grid;
+                  gap: 16px;
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                  margin-top: 24px;
+                }
+                .artifact-module-card span {
+                  color: var(--pack-accent);
+                  font-size: 13px;
+                }
+                .artifact-rule-list {
+                  margin: 0;
+                  padding-left: 18px;
+                  display: grid;
+                  gap: 8px;
+                }
+                .mobile-frame {
+                  width: min(100%, 390px);
+                  border-radius: 36px;
+                  border: 1px solid var(--pack-line);
+                  background: color-mix(in srgb, var(--pack-background) 88%, white);
+                  box-shadow: var(--shadow-medium);
+                  overflow: hidden;
+                }
+                .mobile-status,
+                .mobile-actions {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  padding: 14px 18px;
+                  border-bottom: 1px solid var(--pack-line);
+                }
+                .mobile-actions {
+                  gap: 10px;
+                  border-top: 1px solid var(--pack-line);
+                  border-bottom: none;
+                }
+                .mobile-body {
+                  display: grid;
+                  gap: 16px;
+                  padding: 20px 18px;
+                }
+                .mobile-body h1 {
+                  margin: 0;
+                  font-family: "Swei Sugar", "Source Han Serif SC", serif;
+                  font-weight: 200;
+                  font-size: 48px;
+                  line-height: 1.18;
+                }
+                .mobile-module-stack,
+                .quote-artifact-gallery {
+                  display: grid;
+                  gap: 12px;
+                }
+                .quote-artifact-gallery {
+                  margin-top: 24px;
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                }
+                .quote-badge {
+                  display: inline-flex;
+                  margin-bottom: 10px;
+                  padding: 6px 10px;
+                  border-radius: 999px;
+                  border: 1px solid var(--pack-line);
+                  color: var(--pack-accent);
+                  font-size: 13px;
+                }
+                .quote-badge-reference {
+                  color: #7a6555;
+                }
+                .quote-sample-shell {
+                  display: grid;
+                  gap: 18px;
+                  margin-top: 28px;
+                }
+                .quote-sample-intro {
+                  display: grid;
+                  gap: 8px;
+                  padding: 20px 24px;
+                  border: 1px solid var(--pack-line);
+                  border-radius: 24px;
+                  background: rgba(255, 255, 255, 0.72);
+                  box-shadow: var(--shadow-low);
+                }
+                .quote-sample-grid {
+                  display: grid;
+                  gap: 18px;
+                  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                }
+                .quote-sample-card {
+                  display: grid;
+                  gap: 16px;
+                  padding: 24px;
+                  border: 1px solid var(--pack-line);
+                  border-radius: 28px;
+                  background:
+                    linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(248, 245, 240, 0.94));
+                  box-shadow: var(--shadow-medium);
+                }
+                .quote-sample-card--reference {
+                  background:
+                    linear-gradient(180deg, rgba(255, 250, 245, 0.98), rgba(245, 239, 232, 0.96));
+                }
+                .quote-sample-topbar,
+                .quote-sample-line,
+                .quote-sample-hero {
+                  display: flex;
+                  align-items: flex-start;
+                  justify-content: space-between;
+                  gap: 14px;
+                }
+                .quote-sample-eyebrow,
+                .quote-sample-section-label {
+                  color: var(--muted);
+                  font-size: 13px;
+                  letter-spacing: 0.08em;
+                  text-transform: uppercase;
+                }
+                .quote-sample-hero {
+                  align-items: end;
+                  padding-bottom: 14px;
+                  border-bottom: 1px solid var(--pack-line);
+                }
+                .quote-sample-hero h3 {
+                  margin: 0 0 6px;
+                  font-family: "Swei Sugar", "Source Han Serif SC", serif;
+                  font-weight: 200;
+                  font-size: 36px;
+                  line-height: 1.24;
+                }
+                .quote-sample-hero p,
+                .quote-sample-scenario,
+                .quote-sample-note {
+                  color: #5d574f;
+                }
+                .quote-sample-hero strong {
+                  color: var(--ink-deep);
+                  font-size: 28px;
+                  line-height: 1.32;
+                }
+                .quote-sample-tags {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 10px;
+                }
+                .quote-sample-tags span {
+                  padding: 7px 12px;
+                  border-radius: 999px;
+                  background: color-mix(in srgb, var(--pack-surface) 82%, white);
+                  border: 1px solid var(--pack-line);
+                  color: var(--muted);
+                  font-size: 13px;
+                }
+                .quote-sample-sections {
+                  display: grid;
+                  gap: 14px;
+                }
+                .quote-sample-section {
+                  display: grid;
+                  gap: 10px;
+                  padding: 16px 18px;
+                  border-radius: 18px;
+                  background: color-mix(in srgb, var(--pack-surface) 72%, white);
+                  border: 1px solid color-mix(in srgb, var(--pack-line) 88%, white);
+                }
+                .quote-sample-line {
+                  padding-top: 10px;
+                  border-top: 1px solid color-mix(in srgb, var(--pack-line) 75%, white);
+                }
+                .quote-sample-line:first-of-type {
+                  padding-top: 0;
+                  border-top: none;
+                }
+                .quote-sample-line span,
+                .quote-sample-line strong {
+                  font-size: 15px;
+                }
+                .quote-sample-line span {
+                  color: var(--muted);
+                }
+                .quote-sample-line strong {
+                  color: var(--ink);
+                  text-align: right;
+                }
+                @media (max-width: 920px) {
+                  .artifact-stage-web,
+                  .artifact-stage-quote,
+                  .artifact-stage-mobile {
+                    grid-template-columns: 1fr;
+                  }
+                }
+              </style>
+            </head>
+            <body>
+              <main class="artifact-shell">
+                <div class="artifact-topbar">
+                  <div class="artifact-breadcrumbs">
+                    <a class="artifact-chip" href="/">首页</a>
+                    <a class="artifact-chip" href="/design-preview">Design Preview</a>
+                    <span class="artifact-chip">手机 H5</span>
+                  </div>
+                  <div class="artifact-breadcrumbs">
+                    <span>绑定 Pack：Consultation Trust</span>
+                    <span>用途：移动端咨询承接、服务说明与 FAQ 导流</span>
+                  </div>
+                </div>
+
+                <section class="artifact-hero" style="--pack-background: #F5F1EB; --pack-surface: #EEE8E0; --pack-elevated: #FBF8F4; --pack-accent: #776353; --pack-line: #D2C9BE; --pack-hero-glow: rgba(119, 99, 83, 0.18); --pack-panel-tint: rgba(251, 248, 244, 0.94); --pack-chip-tint: rgba(255, 255, 255, 0.72)">
+
+<section class="artifact-stage artifact-stage-mobile">
+  <div class="mobile-frame">
+    <div class="mobile-status">
+      <span>9:41</span>
+      <span>良禽佳木 H5</span>
+    </div>
+    <div class="mobile-body">
+      <span class="artifact-kicker">Mobile H5 Consultation</span>
+      <h1>在手机里把咨询流程、FAQ 和提交需求做成一条顺滑路径</h1>
+      <p>这类 H5 主要检验同一套 DNA 到窄屏后是否仍然可信、克制、清楚，尤其是解释和承接的关系。</p>
+      <div class="mobile-module-stack">
+        <div class="mobile-module-item"><strong>服务边界说明</strong><p>先说明适合谁、做什么、不做什么，减少不必要咨询。</p></div><div class="mobile-module-item"><strong>流程步骤</strong><p>让用户在手机上快速理解后续沟通会发生什么。</p></div><div class="mobile-module-item"><strong>FAQ 列表</strong><p>优先回答价格、周期、上门、交付等高频问题。</p></div>
+      </div>
+    </div>
+    <div class="mobile-actions">
+      <button type="button" class="artifact-primary">提交需求</button>
+      <button type="button" class="artifact-secondary">查看流程</button>
+    </div>
+  </div>
+  <aside class="artifact-stage-panel">
+    <strong>Page Goal</strong>
+    <p>它应该像一张真实可转发、可打开、可继续操作的移动咨询页。</p>
+    <p class="artifact-muted">手机 H5 重点检验窄屏秩序、CTA 承接和 FAQ/流程节奏。</p>
+  </aside>
+</section>
+
+                </section>
+
+
+
+                <section class="artifact-grid">
+
+<article class="artifact-module-card">
+  <span>01</span>
+  <strong>服务边界说明</strong>
+  <p>先说明适合谁、做什么、不做什么，减少不必要咨询。</p>
+  <p class="artifact-muted">首屏摘要卡，长度控制在 3 行内。</p>
+</article>
+
+<article class="artifact-module-card">
+  <span>02</span>
+  <strong>流程步骤</strong>
+  <p>让用户在手机上快速理解后续沟通会发生什么。</p>
+  <p class="artifact-muted">3 步流程卡，单列堆叠。</p>
+</article>
+
+<article class="artifact-module-card">
+  <span>03</span>
+  <strong>FAQ 列表</strong>
+  <p>优先回答价格、周期、上门、交付等高频问题。</p>
+  <p class="artifact-muted">手风琴或短问答卡，避免长段文字墙。</p>
+</article>
+
+<article class="artifact-module-card">
+  <span>04</span>
+  <strong>提交需求区</strong>
+  <p>在解释完成后自然承接咨询动作。</p>
+  <p class="artifact-muted">底部固定 CTA 或页尾表单卡。</p>
+</article>
+
+                </section>
+
+                <section class="artifact-grid">
+                  <article class="artifact-section">
+                    <strong>载体类型</strong>
+                    <p>手机 H5</p>
+                  </article>
+                  <article class="artifact-section">
+                    <strong>绑定风格包</strong>
+                    <p>consultation-trust</p>
+                  </article>
+                  <article class="artifact-section">
+                    <strong>核心用途</strong>
+                    <p>移动端咨询承接、服务说明与 FAQ 导流</p>
+                  </article>
+                  <article class="artifact-section">
+                    <strong>布局规则</strong>
+                    <ul class="artifact-rule-list">
+                      <li>窄屏下每屏只承担一个判断任务</li><li>按钮和说明必须保持完整中文，不压缩成过短标签</li><li>先解释后转化，避免首屏就出现强刺激 CTA</li>
+                    </ul>
+                  </article>
+                  <article class="artifact-section">
+                    <strong>易失真点</strong>
+                    <ul class="artifact-rule-list">
+                      <li>把多段长文直接堆进窄屏，形成阅读墙</li><li>首屏先推销后解释，导致信任感不足</li><li>按钮过小或标签过短，牺牲中文理解和点按稳定性</li>
+                    </ul>
+                  </article>
+                </section>
+              </main>
+            </body>
+            </html>

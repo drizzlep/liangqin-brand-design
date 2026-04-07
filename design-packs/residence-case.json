@@ -1,0 +1,77 @@
+{
+  "slug": "residence-case",
+  "sort_order": 70,
+  "title": "Residence Case",
+  "summary": "为整屋住宅案例做更完整的空间叙事、动线说明和前后对照。",
+  "preview_variant": "storytelling",
+  "mood": [
+    "住宅叙事",
+    "空间层递",
+    "案例沉浸"
+  ],
+  "density": "均衡",
+  "imagery": "整屋空间摄影、平面动线提示与局部细节并行，强调居住感而非单品陈列。",
+  "cta_tone": "案例导览",
+  "zh_readability": "高",
+  "best_for_pages": [
+    "住宅案例",
+    "案例详情",
+    "空间专题"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "先给整体空间关系，再分层展示客厅、餐厅、卧室等区域，形成慢节奏参观路线。",
+  "component_focus": [
+    "空间分区导航",
+    "前后对照段落",
+    "场景说明卡"
+  ],
+  "recommended_modules": [
+    {
+      "name": "整体空间开场",
+      "purpose": "先让用户读懂这是一个怎样的住宅与生活场景。",
+      "layout_hint": "整屋主图加项目摘要。"
+    },
+    {
+      "name": "空间分区导航",
+      "purpose": "把客厅、餐厅、卧室等区域组织成一条参观路线。",
+      "layout_hint": "区域导航条或楼层索引。"
+    },
+    {
+      "name": "场景展开段",
+      "purpose": "按区域展开细节，并补充居住动线和使用感。",
+      "layout_hint": "分区章节、前后对照或双图段落。"
+    },
+    {
+      "name": "案例落点",
+      "purpose": "收束项目方法、材料判断和适合人群。",
+      "layout_hint": "案例总结卡或顾问说明块。"
+    }
+  ],
+  "notes": "适合整屋项目、别墅案例和多空间联动的叙事型页面。",
+  "variation_scope": [
+    "可增强整屋动线、区域章节和案例叙事完整度",
+    "可让空间摄影承担更高比重并拉长浏览节奏",
+    "不得做成房产楼盘介绍页或无节制图集瀑布流"
+  ],
+  "preview_tokens": {
+    "background": "#F6F1EA",
+    "surface": "#EEE7DE",
+    "elevated": "#FFFBF6",
+    "accent": "#82674E",
+    "line": "#D4C8BA",
+    "hero_glow": "rgba(130, 103, 78, 0.18)",
+    "panel_tint": "rgba(255, 251, 246, 0.92)",
+    "chip_tint": "rgba(255, 255, 255, 0.74)"
+  },
+  "preview_content": {
+    "hero_title": "把一整个住宅的节奏与关系讲出来",
+    "hero_lead": "适合整屋案例，用空间分区、生活动线和细节镜头一起建立沉浸感。",
+    "hero_note": "先给整体，再分区展开，避免把案例切成没有关系的碎片图集。",
+    "primary_cta": "进入案例",
+    "secondary_cta": "查看空间分区",
+    "feature_label": "节奏重点",
+    "feature_body": "用楼层、区域和场景说明形成一条可阅读的参观路线。",
+    "quote": "不是展示几张好看的图，而是让用户读懂一个家的组织方式。"
+  }
+}

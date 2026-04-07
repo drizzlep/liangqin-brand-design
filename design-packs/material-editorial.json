@@ -1,0 +1,77 @@
+{
+  "slug": "material-editorial",
+  "sort_order": 20,
+  "title": "Material Editorial",
+  "summary": "把材质、工艺与参数说明做成更像品牌册页的阅读体验。",
+  "preview_variant": "editorial",
+  "mood": [
+    "材质放大",
+    "编辑式说明",
+    "细节切片"
+  ],
+  "density": "均衡",
+  "imagery": "近景材质摄影、局部纹理和编排感更强的说明图。",
+  "cta_tone": "编辑式引导",
+  "zh_readability": "高",
+  "best_for_pages": [
+    "产品详情",
+    "材质说明",
+    "系列介绍"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "图文交替、参数分节、摘要更明确，像一本可翻阅的材质手册。",
+  "component_focus": [
+    "参数侧栏",
+    "图文章节",
+    "工艺标签"
+  ],
+  "recommended_modules": [
+    {
+      "name": "材质导言",
+      "purpose": "先明确这页在讲哪类材料、工艺或触感价值。",
+      "layout_hint": "带导语的开篇标题区或册页式前言。"
+    },
+    {
+      "name": "图文章节",
+      "purpose": "把大图、图注和短段落做成可翻阅的编辑内容。",
+      "layout_hint": "左右交替的图文段或双栏册页。"
+    },
+    {
+      "name": "参数侧栏",
+      "purpose": "把关键规格、尺寸和工艺参数集中在易扫读位置。",
+      "layout_hint": "固定侧栏、信息条或摘要卡。"
+    },
+    {
+      "name": "工艺标签带",
+      "purpose": "用简短标签补充木种、表面处理、五金等关键词。",
+      "layout_hint": "标签行、材料 chip 或小规格卡片。"
+    }
+  ],
+  "notes": "适合产品价值需要靠材料证据和工艺解释被看见的页面。",
+  "variation_scope": [
+    "可提升材料特写、证据型文案和编辑式分栏的比重",
+    "可让页面更像材质档案而不是通用产品详情页",
+    "不得过度装饰化，也不得削弱中文信息可读性"
+  ],
+  "preview_tokens": {
+    "background": "#F6F1EA",
+    "surface": "#EEE7DD",
+    "elevated": "#FCF7F1",
+    "accent": "#7F654B",
+    "line": "#D1C6B8",
+    "hero_glow": "rgba(139, 106, 78, 0.15)",
+    "panel_tint": "rgba(252, 247, 241, 0.92)",
+    "chip_tint": "rgba(255, 250, 245, 0.78)"
+  },
+  "preview_content": {
+    "hero_title": "用编辑式结构讲清材料、工艺与使用感",
+    "hero_lead": "适合把木纹、石材、织物和五金细节拆开讲，让专业度被看见。",
+    "hero_note": "内容信息比首页更密，但仍保持留白与中文可读。",
+    "primary_cta": "了解材质",
+    "secondary_cta": "查看工艺",
+    "feature_label": "节奏重点",
+    "feature_body": "大图与参数并行，段落短、说明准、图注不能缺席。",
+    "quote": "像一本可翻阅的材质手册，而不是促销详情页。"
+  }
+}

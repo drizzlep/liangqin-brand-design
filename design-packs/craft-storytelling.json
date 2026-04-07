@@ -1,0 +1,77 @@
+{
+  "slug": "craft-storytelling",
+  "sort_order": 50,
+  "title": "Craft Storytelling",
+  "summary": "把工艺过程、触感细节和慢阅读节奏纳入系统表达。",
+  "preview_variant": "storytelling",
+  "mood": [
+    "工艺叙事",
+    "时间感",
+    "过程细节"
+  ],
+  "density": "均衡",
+  "imagery": "工艺过程、局部细节和章节式图文，让页面更像一篇长阅读内容。",
+  "cta_tone": "故事引导",
+  "zh_readability": "高",
+  "best_for_pages": [
+    "工艺故事",
+    "案例详情",
+    "品牌栏目"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "章节化叙事与时间线组合更强，用停顿、序号和引用句推动阅读。",
+  "component_focus": [
+    "步骤序列",
+    "细节放大图",
+    "引用卡"
+  ],
+  "recommended_modules": [
+    {
+      "name": "工艺开场",
+      "purpose": "先说明这一段故事在讲什么材料或工艺关系。",
+      "layout_hint": "短导言加一张工艺主图。"
+    },
+    {
+      "name": "步骤序列",
+      "purpose": "用阶段分组把制作过程拆开，让阅读有时间感。",
+      "layout_hint": "三步或四步的时间线叙事。"
+    },
+    {
+      "name": "细节放大段",
+      "purpose": "把纹理、连接、触感等小细节讲到位。",
+      "layout_hint": "局部大图配图注和短段落。"
+    },
+    {
+      "name": "引用与落点",
+      "purpose": "用一句话收束工艺判断，而不是煽情总结。",
+      "layout_hint": "引用卡、页中题记或结尾注释。"
+    }
+  ],
+  "notes": "适合讲工艺、讲定制细节、讲案例背后过程的内容型页面。",
+  "variation_scope": [
+    "可放慢阅读节奏，增强章节叙事和过程说明",
+    "可提升材料证据、工艺步骤与故事段落的比重",
+    "不得写成纯长文专栏或脱离页面结构的品牌散文"
+  ],
+  "preview_tokens": {
+    "background": "#F6F0E8",
+    "surface": "#EFE7DD",
+    "elevated": "#FFF9F2",
+    "accent": "#8C6748",
+    "line": "#D3C5B6",
+    "hero_glow": "rgba(140, 103, 72, 0.18)",
+    "panel_tint": "rgba(255, 249, 242, 0.90)",
+    "chip_tint": "rgba(255, 253, 250, 0.74)"
+  },
+  "preview_content": {
+    "hero_title": "把木、石、布与手工过程讲成一段可信的故事",
+    "hero_lead": "适合展示工艺流程、案例背后的定制细节，让用户感受到时间与手感。",
+    "hero_note": "章节切换可以更多，但每段都要短而清楚。",
+    "primary_cta": "阅读工艺",
+    "secondary_cta": "查看细节",
+    "feature_label": "节奏重点",
+    "feature_body": "用阶段分组、序号和引用句推动阅读，而不是把所有图文堆在一起。",
+    "quote": "故事感不是煽情，而是把过程有条理地摆在用户面前。"
+  }
+}

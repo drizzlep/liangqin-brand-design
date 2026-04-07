@@ -1,0 +1,554 @@
+<!doctype html>
+            <html lang="zh-CN">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <title>Quote Card Editorial · 良禽佳木载体样例</title>
+              <style>
+                @font-face {
+                  font-family: "Swei Sugar";
+                  src:
+                    url("assets/fonts/SweiSugarCJKtc-ExtraLight.woff2") format("woff2"),
+                    url("assets/fonts/SweiSugarCJKtc-ExtraLight.ttf") format("truetype");
+                  font-style: normal;
+                  font-weight: 200;
+                  font-display: swap;
+                }
+
+                @font-face {
+                  font-family: "OPPO Sans 4.0";
+                  src:
+                    url("assets/fonts/OPPO-Sans-4.0.woff2") format("woff2"),
+                    url("assets/fonts/OPPO-Sans-4.0.ttf") format("truetype");
+                  font-style: normal;
+                  font-weight: 400;
+                  font-display: swap;
+                }
+
+                :root {
+                  --bg: #F8F5F0;
+                  --surface: #F2EEE8;
+                  --surface-elevated: #FFFCF8;
+                  --ink: #2B2926;
+                  --line: #D8D0C4;
+                  --muted: #888075;
+                  --shadow-low: 0 10px 24px rgba(31, 29, 27, 0.05);
+                  --shadow-medium: 0 18px 40px rgba(31, 29, 27, 0.08);
+                }
+
+                * { box-sizing: border-box; }
+                body {
+                  margin: 0;
+                  background: linear-gradient(180deg, var(--bg) 0%, #fffdf9 100%);
+                  color: var(--ink);
+                  font-family: "OPPO Sans 4.0", "PingFang SC", "Noto Sans SC", sans-serif;
+                  line-height: 1.82;
+                }
+                a { color: inherit; text-decoration: none; }
+                button { font: inherit; }
+                .artifact-shell {
+                  width: min(1160px, calc(100vw - 32px));
+                  margin: 0 auto;
+                  padding: 28px 0 80px;
+                }
+                .artifact-topbar {
+                  display: flex;
+                  justify-content: space-between;
+                  gap: 16px;
+                  align-items: center;
+                  margin-bottom: 20px;
+                }
+                .artifact-breadcrumbs {
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                  color: var(--muted);
+                  font-size: 13px;
+                }
+                .artifact-chip {
+                  display: inline-flex;
+                  align-items: center;
+                  padding: 7px 12px;
+                  border: 1px solid var(--line);
+                  border-radius: 999px;
+                  background: rgba(255,255,255,0.74);
+                }
+                .artifact-hero {
+                  padding: 28px;
+                  border-radius: 28px;
+                  border: 1px solid var(--pack-line);
+                  background:
+                    radial-gradient(circle at top right, var(--pack-hero-glow), transparent 35%),
+                    linear-gradient(135deg, var(--pack-elevated), var(--pack-background));
+                  box-shadow: var(--shadow-medium);
+                }
+                .artifact-kicker {
+                  display: inline-flex;
+                  padding: 8px 14px;
+                  border-radius: 999px;
+                  border: 1px solid var(--pack-line);
+                  color: var(--pack-accent);
+                  background: rgba(255,255,255,0.68);
+                  font-size: 13px;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                }
+                .artifact-stage {
+                  display: grid;
+                  gap: 24px;
+                  align-items: start;
+                }
+                .artifact-stage-web,
+                .artifact-stage-quote {
+                  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+                }
+                .artifact-stage-mobile {
+                  grid-template-columns: minmax(300px, 420px) minmax(0, 1fr);
+                  justify-content: center;
+                }
+                .artifact-stage-copy {
+                  display: grid;
+                  gap: 16px;
+                }
+                .artifact-stage-copy h1 {
+                  margin: 0;
+                  font-family: "Swei Sugar", "Source Han Serif SC", serif;
+                  font-weight: 200;
+                  font-size: 72px;
+                  line-height: 1.08;
+                  letter-spacing: -0.03em;
+                  max-width: 12ch;
+                }
+                .artifact-stage-panel,
+                .artifact-section,
+                .artifact-module-card,
+                .quote-artifact-card,
+                .mobile-module-item {
+                  padding: 20px;
+                  border-radius: 22px;
+                  border: 1px solid var(--pack-line);
+                  background: var(--pack-panel-tint);
+                }
+                .artifact-stage-panel strong,
+                .artifact-section strong,
+                .artifact-module-card strong,
+                .quote-artifact-card h3,
+                .mobile-module-item strong {
+                  display: block;
+                  margin-bottom: 8px;
+                }
+                .artifact-muted {
+                  color: #61574d;
+                  font-size: 15px;
+                }
+                .artifact-actions {
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                }
+                .artifact-primary,
+                .artifact-secondary {
+                  min-height: 46px;
+                  padding: 0 22px;
+                  border-radius: 999px;
+                  border: 1px solid transparent;
+                  cursor: pointer;
+                }
+                .artifact-primary {
+                  background: var(--pack-accent);
+                  color: #fffaf5;
+                }
+                .artifact-secondary {
+                  background: transparent;
+                  border-color: var(--pack-line);
+                  color: var(--ink);
+                }
+                .artifact-link {
+                  display: inline-flex;
+                  align-items: center;
+                }
+                .artifact-grid {
+                  display: grid;
+                  gap: 16px;
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                  margin-top: 24px;
+                }
+                .artifact-module-card span {
+                  color: var(--pack-accent);
+                  font-size: 13px;
+                }
+                .artifact-rule-list {
+                  margin: 0;
+                  padding-left: 18px;
+                  display: grid;
+                  gap: 8px;
+                }
+                .mobile-frame {
+                  width: min(100%, 390px);
+                  border-radius: 36px;
+                  border: 1px solid var(--pack-line);
+                  background: color-mix(in srgb, var(--pack-background) 88%, white);
+                  box-shadow: var(--shadow-medium);
+                  overflow: hidden;
+                }
+                .mobile-status,
+                .mobile-actions {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  padding: 14px 18px;
+                  border-bottom: 1px solid var(--pack-line);
+                }
+                .mobile-actions {
+                  gap: 10px;
+                  border-top: 1px solid var(--pack-line);
+                  border-bottom: none;
+                }
+                .mobile-body {
+                  display: grid;
+                  gap: 16px;
+                  padding: 20px 18px;
+                }
+                .mobile-body h1 {
+                  margin: 0;
+                  font-family: "Swei Sugar", "Source Han Serif SC", serif;
+                  font-weight: 200;
+                  font-size: 48px;
+                  line-height: 1.18;
+                }
+                .mobile-module-stack,
+                .quote-artifact-gallery {
+                  display: grid;
+                  gap: 12px;
+                }
+                .quote-artifact-gallery {
+                  margin-top: 24px;
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                }
+                .quote-badge {
+                  display: inline-flex;
+                  margin-bottom: 10px;
+                  padding: 6px 10px;
+                  border-radius: 999px;
+                  border: 1px solid var(--pack-line);
+                  color: var(--pack-accent);
+                  font-size: 13px;
+                }
+                .quote-badge-reference {
+                  color: #7a6555;
+                }
+                .quote-sample-shell {
+                  display: grid;
+                  gap: 18px;
+                  margin-top: 28px;
+                }
+                .quote-sample-intro {
+                  display: grid;
+                  gap: 8px;
+                  padding: 20px 24px;
+                  border: 1px solid var(--pack-line);
+                  border-radius: 24px;
+                  background: rgba(255, 255, 255, 0.72);
+                  box-shadow: var(--shadow-low);
+                }
+                .quote-sample-grid {
+                  display: grid;
+                  gap: 18px;
+                  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                }
+                .quote-sample-card {
+                  display: grid;
+                  gap: 16px;
+                  padding: 24px;
+                  border: 1px solid var(--pack-line);
+                  border-radius: 28px;
+                  background:
+                    linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(248, 245, 240, 0.94));
+                  box-shadow: var(--shadow-medium);
+                }
+                .quote-sample-card--reference {
+                  background:
+                    linear-gradient(180deg, rgba(255, 250, 245, 0.98), rgba(245, 239, 232, 0.96));
+                }
+                .quote-sample-topbar,
+                .quote-sample-line,
+                .quote-sample-hero {
+                  display: flex;
+                  align-items: flex-start;
+                  justify-content: space-between;
+                  gap: 14px;
+                }
+                .quote-sample-eyebrow,
+                .quote-sample-section-label {
+                  color: var(--muted);
+                  font-size: 13px;
+                  letter-spacing: 0.08em;
+                  text-transform: uppercase;
+                }
+                .quote-sample-hero {
+                  align-items: end;
+                  padding-bottom: 14px;
+                  border-bottom: 1px solid var(--pack-line);
+                }
+                .quote-sample-hero h3 {
+                  margin: 0 0 6px;
+                  font-family: "Swei Sugar", "Source Han Serif SC", serif;
+                  font-weight: 200;
+                  font-size: 36px;
+                  line-height: 1.24;
+                }
+                .quote-sample-hero p,
+                .quote-sample-scenario,
+                .quote-sample-note {
+                  color: #5d574f;
+                }
+                .quote-sample-hero strong {
+                  color: var(--ink-deep);
+                  font-size: 28px;
+                  line-height: 1.32;
+                }
+                .quote-sample-tags {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 10px;
+                }
+                .quote-sample-tags span {
+                  padding: 7px 12px;
+                  border-radius: 999px;
+                  background: color-mix(in srgb, var(--pack-surface) 82%, white);
+                  border: 1px solid var(--pack-line);
+                  color: var(--muted);
+                  font-size: 13px;
+                }
+                .quote-sample-sections {
+                  display: grid;
+                  gap: 14px;
+                }
+                .quote-sample-section {
+                  display: grid;
+                  gap: 10px;
+                  padding: 16px 18px;
+                  border-radius: 18px;
+                  background: color-mix(in srgb, var(--pack-surface) 72%, white);
+                  border: 1px solid color-mix(in srgb, var(--pack-line) 88%, white);
+                }
+                .quote-sample-line {
+                  padding-top: 10px;
+                  border-top: 1px solid color-mix(in srgb, var(--pack-line) 75%, white);
+                }
+                .quote-sample-line:first-of-type {
+                  padding-top: 0;
+                  border-top: none;
+                }
+                .quote-sample-line span,
+                .quote-sample-line strong {
+                  font-size: 15px;
+                }
+                .quote-sample-line span {
+                  color: var(--muted);
+                }
+                .quote-sample-line strong {
+                  color: var(--ink);
+                  text-align: right;
+                }
+                @media (max-width: 920px) {
+                  .artifact-stage-web,
+                  .artifact-stage-quote,
+                  .artifact-stage-mobile {
+                    grid-template-columns: 1fr;
+                  }
+                }
+              </style>
+            </head>
+            <body>
+              <main class="artifact-shell">
+                <div class="artifact-topbar">
+                  <div class="artifact-breadcrumbs">
+                    <a class="artifact-chip" href="/">首页</a>
+                    <a class="artifact-chip" href="/design-preview">Design Preview</a>
+                    <span class="artifact-chip">图文报价体</span>
+                  </div>
+                  <div class="artifact-breadcrumbs">
+                    <span>绑定 Pack：Consultation Trust</span>
+                    <span>用途：正式报价卡、汇总报价长图与客户转发用图文清单</span>
+                  </div>
+                </div>
+
+                <section class="artifact-hero" style="--pack-background: #F5F1EB; --pack-surface: #EEE8E0; --pack-elevated: #FBF8F4; --pack-accent: #776353; --pack-line: #D2C9BE; --pack-hero-glow: rgba(119, 99, 83, 0.18); --pack-panel-tint: rgba(251, 248, 244, 0.94); --pack-chip-tint: rgba(255, 255, 255, 0.72)">
+
+<section class="artifact-stage artifact-stage-quote">
+  <div class="artifact-stage-copy">
+    <span class="artifact-kicker">Quote Card Editorial</span>
+    <h1>正式报价页必须先有真实报价数据，再进入样式表达</h1>
+    <p>图文报价体不是规则说明页，也不是报表截图。它应该把真实报价清单整理成客户能快速理解、愿意转发、也不容易误读的正式成品。</p>
+    <div class="artifact-actions">
+      <a class="artifact-primary artifact-link" href="#quote-samples">查看报价样例</a>
+      <button type="button" class="artifact-secondary">查看模块顺序</button>
+    </div>
+  </div>
+  <aside class="artifact-stage-panel">
+    <strong>报价页判断标准</strong>
+    <p>先看产品与总价，再看确认条件和计价依据；长明细回到文字报价，不把整张图做成说明文档。</p>
+    <p class="artifact-muted">如果没有真实报价数据，就不应该开始做报价成品页。</p>
+  </aside>
+</section>
+
+                </section>
+
+
+<section class="quote-sample-shell" id="quote-samples">
+  <div class="quote-sample-intro">
+    <strong>真实报价样例</strong>
+    <p>下面每张卡都来自结构化报价数据，而不是规则说明文案。目标是让客户先理解产品与总价，再理解条件与边界。</p>
+  </div>
+  <div class="quote-sample-grid">
+
+<article class="quote-sample-card">
+  <div class="quote-sample-topbar">
+    <span class="quote-badge">正式报价</span>
+    <span class="quote-sample-eyebrow">单品报价</span>
+  </div>
+  <div class="quote-sample-hero">
+    <div>
+      <h3>主卧通顶衣柜</h3>
+      <p>北美黑胡桃木 · 1.8m 柜体 · 含抽屉模块</p>
+    </div>
+    <strong>39,529 元</strong>
+  </div>
+  <div class="quote-sample-tags"><span>投影面积计价</span><span>超深调整</span><span>含抽屉模块</span></div>
+  <p class="quote-sample-scenario">客户已确认大致尺寸和材质方向，需要一张正式可转发的单品报价卡。</p>
+  <div class="quote-sample-sections">
+<section class="quote-sample-section">
+  <span class="quote-sample-section-label">已确认条件</span>
+  <div class="quote-sample-line"><span>尺寸范围</span><strong>长 1.8m × 深 0.67m × 高 2.2m</strong></div><div class="quote-sample-line"><span>包含内容</span><strong>抽屉模块、侧封板与见光面处理</strong></div>
+</section>
+
+<section class="quote-sample-section">
+  <span class="quote-sample-section-label">关键依据</span>
+  <div class="quote-sample-line"><span>基础计价</span><strong>按投影面积计算</strong></div><div class="quote-sample-line"><span>调整项</span><strong>超深加价 12%</strong></div>
+</section>
+</div>
+  <p class="quote-sample-note">完整计算过程与补充条件继续保留在文字报价中。</p>
+</article>
+
+<article class="quote-sample-card">
+  <div class="quote-sample-topbar">
+    <span class="quote-badge">汇总报价</span>
+    <span class="quote-sample-eyebrow">多品汇总</span>
+  </div>
+  <div class="quote-sample-hero">
+    <div>
+      <h3>儿童房半高床组合</h3>
+      <p>半高床 + 双屉书桌 + 配套儿童椅</p>
+    </div>
+    <strong>12,465 元</strong>
+  </div>
+  <div class="quote-sample-tags"><span>3 项产品</span><span>儿童房</span><span>总价优先</span></div>
+  <p class="quote-sample-scenario">客户想先快速确认组合预算，再决定是否细看单项拆分。</p>
+  <div class="quote-sample-sections">
+<section class="quote-sample-section">
+  <span class="quote-sample-section-label">产品清单</span>
+  <div class="quote-sample-line"><span>半高床（玫瑰木）</span><strong>8,505 元</strong></div><div class="quote-sample-line"><span>经典双屉书桌</span><strong>3,080 元</strong></div><div class="quote-sample-line"><span>配套儿童椅</span><strong>880 元</strong></div>
+</section>
+
+<section class="quote-sample-section">
+  <span class="quote-sample-section-label">阅读方式</span>
+  <div class="quote-sample-line"><span>第一优先</span><strong>先看总价，再看组合构成</strong></div><div class="quote-sample-line"><span>详细规则</span><strong>完整分项继续回到文字报价</strong></div>
+</section>
+</div>
+  <p class="quote-sample-note">图卡负责快速理解，明细与调整项不在同一张图里全部展开。</p>
+</article>
+
+<article class="quote-sample-card quote-sample-card--reference">
+  <div class="quote-sample-topbar">
+    <span class="quote-badge">参考报价</span>
+    <span class="quote-sample-eyebrow">预算阶段</span>
+  </div>
+  <div class="quote-sample-hero">
+    <div>
+      <h3>衣帽间方案预估</h3>
+      <p>尺寸待最终确认 · 仅供预算判断</p>
+    </div>
+    <strong>约 24,800 元</strong>
+  </div>
+  <div class="quote-sample-tags"><span>仅供参考</span><span>尺寸未锁定</span><span>正式报价待复核</span></div>
+  <p class="quote-sample-scenario">客户还在前期预算阶段，需要先知道大致区间，但不能被误读成成交价。</p>
+  <div class="quote-sample-sections">
+<section class="quote-sample-section">
+  <span class="quote-sample-section-label">当前假设</span>
+  <div class="quote-sample-line"><span>柜体范围</span><strong>2.4m 转角组合</strong></div><div class="quote-sample-line"><span>材质基准</span><strong>黑胡桃木 / 标准五金</strong></div>
+</section>
+
+<section class="quote-sample-section">
+  <span class="quote-sample-section-label">边界说明</span>
+  <div class="quote-sample-line"><span>当前状态</span><strong>仅供预算判断</strong></div><div class="quote-sample-line"><span>正式动作</span><strong>待尺寸与配置复核后再出正式报价</strong></div>
+</section>
+</div>
+  <p class="quote-sample-note">参考报价必须显式标出边界，不允许伪装成正式报价。</p>
+</article>
+
+  </div>
+</section>
+
+
+                <section class="artifact-grid">
+
+<article class="artifact-module-card">
+  <span>01</span>
+  <strong>报价类型标识</strong>
+  <p>明确区分正式报价、参考报价和汇总报价。</p>
+  <p class="artifact-muted">在首屏顶部显式出现，不允许隐藏。</p>
+</article>
+
+<article class="artifact-module-card">
+  <span>02</span>
+  <strong>总价结论区</strong>
+  <p>让产品名称、总价和条件摘要成为唯一主焦点。</p>
+  <p class="artifact-muted">总价只出现一次，位于首屏中上部。</p>
+</article>
+
+<article class="artifact-module-card">
+  <span>03</span>
+  <strong>依据说明区</strong>
+  <p>收纳关键计价逻辑、条件边界和必要说明。</p>
+  <p class="artifact-muted">分组信息卡，避免大表格直接铺满。</p>
+</article>
+
+<article class="artifact-module-card">
+  <span>04</span>
+  <strong>长图回退说明</strong>
+  <p>当明细过长或无图时，仍保持专业与可读。</p>
+  <p class="artifact-muted">摘要卡加一句“完整过程见文字报价”。</p>
+</article>
+
+                </section>
+
+                <section class="artifact-grid">
+                  <article class="artifact-section">
+                    <strong>载体类型</strong>
+                    <p>图文报价体</p>
+                  </article>
+                  <article class="artifact-section">
+                    <strong>绑定风格包</strong>
+                    <p>consultation-trust</p>
+                  </article>
+                  <article class="artifact-section">
+                    <strong>核心用途</strong>
+                    <p>正式报价卡、汇总报价长图与客户转发用图文清单</p>
+                  </article>
+                  <article class="artifact-section">
+                    <strong>布局规则</strong>
+                    <ul class="artifact-rule-list">
+                      <li>总价必须是唯一主焦点，不重复制造第二个大金额</li><li>参考报价一定要显式说明“仅供参考”</li><li>细则过长时回到文字报价，不把长图做成报表截图</li>
+                    </ul>
+                  </article>
+                  <article class="artifact-section">
+                    <strong>易失真点</strong>
+                    <ul class="artifact-rule-list">
+                      <li>同一张图重复出现多个主金额，削弱结论焦点</li><li>把汇总报价做成表格截图或技术报表感长图</li><li>参考报价没有清楚标出“仅供参考”，被误读为正式报价</li>
+                    </ul>
+                  </article>
+                </section>
+              </main>
+            </body>
+            </html>

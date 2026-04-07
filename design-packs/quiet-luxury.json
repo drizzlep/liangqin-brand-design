@@ -1,0 +1,77 @@
+{
+  "slug": "quiet-luxury",
+  "sort_order": 40,
+  "title": "Quiet Luxury",
+  "summary": "让品牌签名区、预约服务和高定礼序感更完整地出现在页面里。",
+  "preview_variant": "luxury",
+  "mood": [
+    "静奢签名",
+    "服务感",
+    "高定礼序"
+  ],
+  "density": "均衡",
+  "imagery": "低饱和空间摄影配品牌资产色点缀，重视入口氛围和礼貌感。",
+  "cta_tone": "预约承接",
+  "zh_readability": "较高",
+  "best_for_pages": [
+    "高端系列",
+    "预约咨询",
+    "品牌介绍"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "品牌签名区、服务承诺和预约入口有更完整的首屏位置，但节奏仍克制。",
+  "component_focus": [
+    "品牌签名横幅",
+    "服务卡",
+    "预约入口"
+  ],
+  "recommended_modules": [
+    {
+      "name": "品牌签名区",
+      "purpose": "先让品牌气质和高定礼序感被清楚感知。",
+      "layout_hint": "居中签名 hero、品牌题记或资产横幅。"
+    },
+    {
+      "name": "服务承诺卡",
+      "purpose": "用克制的方式解释服务内容、边界与价值。",
+      "layout_hint": "三联服务卡或礼序说明带。"
+    },
+    {
+      "name": "预约顾问入口",
+      "purpose": "把咨询动作放在礼貌且自然的位置。",
+      "layout_hint": "柔和 CTA 卡、预约横条或页尾承接区。"
+    },
+    {
+      "name": "系列气质段",
+      "purpose": "补充系列背景、空间摄影和材质氛围。",
+      "layout_hint": "一图一段的品牌叙述模块。"
+    }
+  ],
+  "notes": "适合高端系列落地页、预约咨询和品牌介绍页面。",
+  "variation_scope": [
+    "可提升签名式标题、中心构图和静奢氛围",
+    "可在品牌介绍或预约场景中拉高仪式感",
+    "不得滑向炫耀式奢华、黑金模板或厚重会所腔"
+  ],
+  "preview_tokens": {
+    "background": "#F8F3ED",
+    "surface": "#F2ECE5",
+    "elevated": "#FFFDF9",
+    "accent": "#90725A",
+    "line": "#D7CDC1",
+    "hero_glow": "rgba(156, 127, 102, 0.22)",
+    "panel_tint": "rgba(255, 250, 245, 0.92)",
+    "chip_tint": "rgba(255, 255, 255, 0.76)"
+  },
+  "preview_content": {
+    "hero_title": "把高定礼序感放进页面，但不做浮夸奢侈",
+    "hero_lead": "适合需要承接预约、展示品牌签名与服务流程的高端落地页。",
+    "hero_note": "用更完整的品牌资产区块和更柔和的节奏建立价值感。",
+    "primary_cta": "预约顾问",
+    "secondary_cta": "了解服务",
+    "feature_label": "节奏重点",
+    "feature_body": "品牌资产色可以更明确出现，但仍不能喧宾夺主。",
+    "quote": "让高级感来自礼貌、秩序和质地，而不是闪耀。"
+  }
+}

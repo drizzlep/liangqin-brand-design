@@ -1,0 +1,18 @@
+{
+  "display_name": "良禽品牌体",
+  "package_slug": "liangqin-brand-body",
+  "source_slug": "liangqin-brand-openclaw",
+  "version": "2.0.0",
+  "entry_keyword": "良禽品牌体",
+  "legacy_keywords": [
+    "liangqin-brand-openclaw",
+    "良禽佳木品牌页"
+  ],
+  "style_keywords": [
+    "良禽佳木apple风"
+  ],
+  "install_targets": [
+    "~/.openclaw/skills/liangqin-brand-body",
+    "~/.openclaw/workspace/skills/liangqin-brand-body"
+  ]
+}

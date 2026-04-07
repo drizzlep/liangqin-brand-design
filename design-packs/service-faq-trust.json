@@ -1,0 +1,77 @@
+{
+  "slug": "service-faq-trust",
+  "sort_order": 90,
+  "title": "Service FAQ Trust",
+  "summary": "把常见问题、服务边界和咨询入口整合成更稳妥的信任页。",
+  "preview_variant": "consultation",
+  "mood": [
+    "服务解释",
+    "边界清楚",
+    "信任承接"
+  ],
+  "density": "聚焦",
+  "imagery": "服务场景与顾问说明做辅助，核心是清楚解释流程、范围与预期。",
+  "cta_tone": "答疑引导",
+  "zh_readability": "很高",
+  "best_for_pages": [
+    "服务说明",
+    "常见问题",
+    "咨询入口"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "FAQ、流程说明、服务边界和表单入口围绕同一决策路径组织，先解疑再引导行动。",
+  "component_focus": [
+    "FAQ 手风琴",
+    "流程说明块",
+    "咨询表单入口"
+  ],
+  "recommended_modules": [
+    {
+      "name": "问题总览",
+      "purpose": "先用一句话说明这页主要解决哪些疑问。",
+      "layout_hint": "FAQ 导语区或分类导航。"
+    },
+    {
+      "name": "流程说明块",
+      "purpose": "在 FAQ 之间穿插服务流程，帮助用户建立预期。",
+      "layout_hint": "流程条、步骤卡或图文说明块。"
+    },
+    {
+      "name": "服务边界解释",
+      "purpose": "把范围、费用逻辑和交付方式说具体。",
+      "layout_hint": "说明卡、对照卡或边界列表。"
+    },
+    {
+      "name": "咨询承接区",
+      "purpose": "让用户在疑问被解开后顺势提交需求。",
+      "layout_hint": "FAQ 末尾表单卡或联系横幅。"
+    }
+  ],
+  "notes": "适合服务承接页、FAQ 页和咨询前置解释页面，降低沟通成本。",
+  "variation_scope": [
+    "可围绕高频问题重排页面，优先解释再转化",
+    "可加强流程说明、服务边界和答疑模块的比重",
+    "不得写成客服帮助中心模板或营销问答页"
+  ],
+  "preview_tokens": {
+    "background": "#F5F1EC",
+    "surface": "#EEE8E1",
+    "elevated": "#FCF9F5",
+    "accent": "#7A6555",
+    "line": "#D3C9BE",
+    "hero_glow": "rgba(122, 101, 85, 0.18)",
+    "panel_tint": "rgba(252, 249, 245, 0.94)",
+    "chip_tint": "rgba(255, 255, 255, 0.72)"
+  },
+  "preview_content": {
+    "hero_title": "先把常见疑问讲明白，再邀请用户继续沟通",
+    "hero_lead": "适合服务说明和 FAQ 页面，用稳定语气降低不确定感，让咨询成为自然下一步。",
+    "hero_note": "问题分类和答案长度都要克制，重点是直接、具体、可执行。",
+    "primary_cta": "提交咨询",
+    "secondary_cta": "查看常见问题",
+    "feature_label": "节奏重点",
+    "feature_body": "FAQ、流程和服务边界要围绕同一决策路径组织，不要各说各话。",
+    "quote": "当用户先被解释清楚，后面的咨询动作就会更顺。"
+  }
+}

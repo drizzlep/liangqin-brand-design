@@ -1,0 +1,132 @@
+{
+  "slug": "quote-card-editorial",
+  "title": "Quote Card Editorial",
+  "surface_type": "quote_card",
+  "source_pack": "consultation-trust",
+  "primary_use_case": "正式报价卡、汇总报价长图与客户转发用图文清单",
+  "governance_role": "artifact_validation_layer",
+  "recommended_modules": [
+    {
+      "name": "报价类型标识",
+      "purpose": "明确区分正式报价、参考报价和汇总报价。",
+      "layout_hint": "在首屏顶部显式出现，不允许隐藏。"
+    },
+    {
+      "name": "总价结论区",
+      "purpose": "让产品名称、总价和条件摘要成为唯一主焦点。",
+      "layout_hint": "总价只出现一次，位于首屏中上部。"
+    },
+    {
+      "name": "依据说明区",
+      "purpose": "收纳关键计价逻辑、条件边界和必要说明。",
+      "layout_hint": "分组信息卡，避免大表格直接铺满。"
+    },
+    {
+      "name": "长图回退说明",
+      "purpose": "当明细过长或无图时，仍保持专业与可读。",
+      "layout_hint": "摘要卡加一句“完整过程见文字报价”。"
+    }
+  ],
+  "layout_rules": [
+    "总价必须是唯一主焦点，不重复制造第二个大金额",
+    "参考报价一定要显式说明“仅供参考”",
+    "细则过长时回到文字报价，不把长图做成报表截图"
+  ],
+  "failure_modes": [
+    "同一张图重复出现多个主金额，削弱结论焦点",
+    "把汇总报价做成表格截图或技术报表感长图",
+    "参考报价没有清楚标出“仅供参考”，被误读为正式报价"
+  ],
+  "preview_content": {
+    "eyebrow": "Quote Card Editorial",
+    "hero_title": "正式报价页必须先有真实报价数据，再进入样式表达",
+    "hero_lead": "图文报价体不是规则说明页，也不是报表截图。它应该把真实报价清单整理成客户能快速理解、愿意转发、也不容易误读的正式成品。",
+    "page_goal": "先看产品与总价，再看确认条件和计价依据；长明细回到文字报价，不把整张图做成说明文档。",
+    "primary_cta": "查看报价样例",
+    "secondary_cta": "查看模块顺序"
+  },
+  "quote_samples": [
+    {
+      "quote_type": "formal_single",
+      "badge": "正式报价",
+      "eyebrow": "单品报价",
+      "product_name": "主卧通顶衣柜",
+      "subtitle": "北美黑胡桃木 · 1.8m 柜体 · 含抽屉模块",
+      "total_price": "39,529 元",
+      "tags": ["投影面积计价", "超深调整", "含抽屉模块"],
+      "scenario": "客户已确认大致尺寸和材质方向，需要一张正式可转发的单品报价卡。",
+      "sections": [
+        {
+          "label": "已确认条件",
+          "lines": [
+            { "label": "尺寸范围", "value": "长 1.8m × 深 0.67m × 高 2.2m" },
+            { "label": "包含内容", "value": "抽屉模块、侧封板与见光面处理" }
+          ]
+        },
+        {
+          "label": "关键依据",
+          "lines": [
+            { "label": "基础计价", "value": "按投影面积计算" },
+            { "label": "调整项", "value": "超深加价 12%" }
+          ]
+        }
+      ],
+      "note": "完整计算过程与补充条件继续保留在文字报价中。"
+    },
+    {
+      "quote_type": "bundle_summary",
+      "badge": "汇总报价",
+      "eyebrow": "多品汇总",
+      "product_name": "儿童房半高床组合",
+      "subtitle": "半高床 + 双屉书桌 + 配套儿童椅",
+      "total_price": "12,465 元",
+      "tags": ["3 项产品", "儿童房", "总价优先"],
+      "scenario": "客户想先快速确认组合预算，再决定是否细看单项拆分。",
+      "sections": [
+        {
+          "label": "产品清单",
+          "lines": [
+            { "label": "半高床（玫瑰木）", "value": "8,505 元" },
+            { "label": "经典双屉书桌", "value": "3,080 元" },
+            { "label": "配套儿童椅", "value": "880 元" }
+          ]
+        },
+        {
+          "label": "阅读方式",
+          "lines": [
+            { "label": "第一优先", "value": "先看总价，再看组合构成" },
+            { "label": "详细规则", "value": "完整分项继续回到文字报价" }
+          ]
+        }
+      ],
+      "note": "图卡负责快速理解，明细与调整项不在同一张图里全部展开。"
+    },
+    {
+      "quote_type": "reference_quote",
+      "badge": "参考报价",
+      "eyebrow": "预算阶段",
+      "product_name": "衣帽间方案预估",
+      "subtitle": "尺寸待最终确认 · 仅供预算判断",
+      "total_price": "约 24,800 元",
+      "tags": ["仅供参考", "尺寸未锁定", "正式报价待复核"],
+      "scenario": "客户还在前期预算阶段，需要先知道大致区间，但不能被误读成成交价。",
+      "sections": [
+        {
+          "label": "当前假设",
+          "lines": [
+            { "label": "柜体范围", "value": "2.4m 转角组合" },
+            { "label": "材质基准", "value": "黑胡桃木 / 标准五金" }
+          ]
+        },
+        {
+          "label": "边界说明",
+          "lines": [
+            { "label": "当前状态", "value": "仅供预算判断" },
+            { "label": "正式动作", "value": "待尺寸与配置复核后再出正式报价" }
+          ]
+        }
+      ],
+      "note": "参考报价必须显式标出边界，不允许伪装成正式报价。"
+    }
+  ]
+}

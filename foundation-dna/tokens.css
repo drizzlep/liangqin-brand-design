@@ -34,6 +34,7 @@
   --dna-color-ink-400: #A99F92;
   --dna-color-line: #D8D0C4;
   --dna-color-accent: #8B6A4E;
+  --dna-color-brand-asset: #9C7F66;
   --dna-color-success: #567A62;
   --dna-color-warning: #A0743C;
   --dna-color-error: #A04F46;
@@ -44,27 +45,27 @@
   --dna-font-body: "OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
   --dna-font-mono: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
 
-  --dna-size-display: 76px;
-  --dna-size-h1: 52px;
-  --dna-size-h2: 38px;
+  --dna-size-display: 72px;
+  --dna-size-h1: 48px;
+  --dna-size-h2: 36px;
   --dna-size-h3: 28px;
   --dna-size-body: 17px;
   --dna-size-body-sm: 15px;
   --dna-size-caption: 13px;
   --dna-size-overline: 12px;
 
-  --dna-line-display: 1.02;
-  --dna-line-h1: 1.12;
-  --dna-line-h2: 1.18;
-  --dna-line-h3: 1.24;
+  --dna-line-display: 1.08;
+  --dna-line-h1: 1.18;
+  --dna-line-h2: 1.24;
+  --dna-line-h3: 1.32;
   --dna-line-body: 1.82;
   --dna-line-body-sm: 1.72;
   --dna-line-caption: 1.6;
   --dna-line-overline: 1.4;
 
-  --dna-tracking-display: -0.02em;
-  --dna-tracking-h1: -0.015em;
-  --dna-tracking-h2: -0.01em;
+  --dna-tracking-display: -0.03em;
+  --dna-tracking-h1: -0.025em;
+  --dna-tracking-h2: -0.02em;
   --dna-tracking-h3: -0.015em;
   --dna-tracking-body: 0;
   --dna-tracking-caption: 0.01em;

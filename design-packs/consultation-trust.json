@@ -1,0 +1,77 @@
+{
+  "slug": "consultation-trust",
+  "sort_order": 60,
+  "title": "Consultation Trust",
+  "summary": "让咨询页、报价卡和服务入口更清楚地解释流程、边界与下一步。",
+  "preview_variant": "consultation",
+  "mood": [
+    "咨询可信",
+    "信息承接",
+    "明确下一步"
+  ],
+  "density": "聚焦",
+  "imagery": "服务场景、顾问说明和局部空间图，重点是降低不确定感。",
+  "cta_tone": "咨询解释",
+  "zh_readability": "很高",
+  "best_for_pages": [
+    "咨询页",
+    "报价卡",
+    "联系入口"
+  ],
+  "derived_from": "foundation-dna/design-dna.zh-CN.json",
+  "governance_role": "controlled_variation_layer",
+  "layout_focus": "表单前先解释服务流程、预期与 FAQ，让 CTA 成为自然下一步。",
+  "component_focus": [
+    "服务说明卡",
+    "FAQ 列表",
+    "表单区"
+  ],
+  "recommended_modules": [
+    {
+      "name": "服务边界说明",
+      "purpose": "先说清楚服务范围、适合对象和不包含内容。",
+      "layout_hint": "首屏说明卡或服务摘要块。"
+    },
+    {
+      "name": "流程步骤",
+      "purpose": "把咨询后的每一步讲明白，降低不确定感。",
+      "layout_hint": "三步或四步流程卡。"
+    },
+    {
+      "name": "常见问题",
+      "purpose": "提前消除价格、周期、上门、交付等疑问。",
+      "layout_hint": "FAQ 手风琴或分类答疑卡。"
+    },
+    {
+      "name": "需求提交区",
+      "purpose": "让咨询动作出现在解释之后，而不是突然冒出来。",
+      "layout_hint": "表单卡、联系卡或固定页尾承接区。"
+    }
+  ],
+  "notes": "适合服务流程、询价和联系转化场景，重点是稳妥而不是刺激。",
+  "variation_scope": [
+    "可前置流程说明、FAQ 和信任信息",
+    "可把 CTA 放在解释之后而不是抢首屏",
+    "不得变成强销售话术页或促销转化页"
+  ],
+  "preview_tokens": {
+    "background": "#F5F1EB",
+    "surface": "#EEE8E0",
+    "elevated": "#FBF8F4",
+    "accent": "#776353",
+    "line": "#D2C9BE",
+    "hero_glow": "rgba(119, 99, 83, 0.18)",
+    "panel_tint": "rgba(251, 248, 244, 0.94)",
+    "chip_tint": "rgba(255, 255, 255, 0.72)"
+  },
+  "preview_content": {
+    "hero_title": "让用户在咨询前就知道流程、预期与下一步",
+    "hero_lead": "适合报价卡、咨询入口和服务说明页，重点是降低不确定感而不是制造冲动。",
+    "hero_note": "结构清晰比形式更重要，FAQ 和服务流程要足够直接。",
+    "primary_cta": "提交需求",
+    "secondary_cta": "查看流程",
+    "feature_label": "节奏重点",
+    "feature_body": "先解释服务边界，再给 CTA；表单不是突然出现的。",
+    "quote": "让用户知道接下来会发生什么，信任就更容易建立。"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "web-brand-landing",
+  "title": "Web Brand Landing",
+  "surface_type": "web",
+  "source_pack": "warm-gallery",
+  "primary_use_case": "品牌展示、系列介绍与首页式落地页",
+  "governance_role": "artifact_validation_layer",
+  "recommended_modules": [
+    {
+      "name": "沉浸 Hero",
+      "purpose": "先用一张空间主图和一句稳重标题建立品牌气质。",
+      "layout_hint": "首屏大图配短导语，CTA 放在第二视线。"
+    },
+    {
+      "name": "系列导览带",
+      "purpose": "把系列、空间类型或案例路径组织成一条低压导航。",
+      "layout_hint": "横向 chip 导览或留白型分类条。"
+    },
+    {
+      "name": "案例精选区",
+      "purpose": "展示 2 到 4 个重点案例，让用户自然继续浏览。",
+      "layout_hint": "错落图文卡或双列精选卡。"
+    },
+    {
+      "name": "预约承接区",
+      "purpose": "在浏览节奏之后承接到店或咨询动作。",
+      "layout_hint": "页中横幅或页尾邀请区。"
+    }
+  ],
+  "layout_rules": [
+    "摄影与留白优先于组件存在感",
+    "首屏不要堆过多说明，系列导览留到第二视线",
+    "案例区节奏要慢，不做促销宫格式排布"
+  ],
+  "failure_modes": [
+    "首屏文案过满，压住摄影和空间气质",
+    "案例区做成促销卡宫格，失去浏览节奏",
+    "CTA 过早过强，把品牌落地页做成转化页"
+  ],
+  "preview_content": {
+    "eyebrow": "Web Brand Landing",
+    "hero_title": "把品牌气质、空间摄影与系列路径放在同一张落地页里",
+    "hero_lead": "这类网页样例用于验证良禽佳木的品牌首页和展示页，在真实浏览器里是否既有秩序，也有继续浏览的动力。",
+    "page_goal": "它应该像一个可发布的品牌落地页，而不是一张 design pack 说明卡。",
+    "primary_cta": "浏览系列",
+    "secondary_cta": "预约到店"
+  }
+}

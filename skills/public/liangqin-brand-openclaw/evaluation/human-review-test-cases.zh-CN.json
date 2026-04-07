@@ -1,0 +1,152 @@
+{
+  "version": "1.0.0",
+  "brand": "良禽佳木",
+  "purpose": "给外部 OpenClaw 做人类在环验收。先生成蓝图，再由人类判断是否适合真实品牌交付。",
+  "review_rule": "每道题都必须先产出完整蓝图，再由人类按评审协议判断是否通过；不得只依赖 schema 或白名单校验直接判定合格。",
+  "cases": [
+    {
+      "id": "homepage-core-fit",
+      "title": "首页标准品牌题",
+      "page_type": "homepage_blueprint",
+      "difficulty": "baseline",
+      "test_focus": [
+        "品牌气质是否成立",
+        "首页主线是否清楚",
+        "咨询动作是否自然"
+      ],
+      "inputs": {
+        "brand_brief": {
+          "brand_positioning": "提供高质感家具与空间搭配建议的中文高端家居品牌，强调材质、耐看度与长期使用体验。",
+          "target_audience": [
+            "正在装修新家、追求空间完整度的中文客户",
+            "重视材质、触感和整体搭配而非单纯比价的中高端用户"
+          ],
+          "tone_keywords": ["温润", "克制", "可信", "理性", "不促销"],
+          "service_model": "先通过咨询理解空间需求，再给出产品与组合建议。",
+          "page_goal": "先建立品牌信任，再引导用户理解材质与咨询方式。"
+        }
+      },
+      "human_review_checks": [
+        "首屏是否像品牌迎宾，而不是促销页开场",
+        "模块顺序是否帮助用户先理解品牌、再理解材质、再进入咨询",
+        "CTA 是否像邀请，而不是逼单"
+      ],
+      "pass_signal": "人类主观判断为『明显像良禽佳木，可直接进入下一轮页面生成』。"
+    },
+    {
+      "id": "homepage-reference-boundary",
+      "title": "首页参考页干扰题",
+      "page_type": "homepage_blueprint",
+      "difficulty": "boundary",
+      "test_focus": [
+        "参考页提取边界",
+        "品牌语气稳定性",
+        "是否避免照搬外部风格"
+      ],
+      "inputs": {
+        "brand_brief": {
+          "brand_positioning": "以中文语境下的审美判断、材质理解和咨询服务为核心的高端家居品牌。",
+          "target_audience": [
+            "关注空间气质与家具搭配关系的家庭客户"
+          ],
+          "tone_keywords": ["编辑化", "有温度", "可信", "留白感"],
+          "service_model": "通过案例理解与咨询沟通帮助客户做出稳妥判断。",
+          "page_goal": "输出一个更像品牌官网而不是案例拼贴站的首页蓝图。"
+        },
+        "reference_pages": [
+          {
+            "type": "text_summary",
+            "summary": "参考页 A 的优点是首屏大图和模块节奏很清楚，但品牌调性更偏欧美冷淡，按钮文案非常短。"
+          },
+          {
+            "type": "text_summary",
+            "summary": "参考页 B 的优点是案例叙事完整，但大量使用黑底强对比和艺术化断句。"
+          }
+        ]
+      },
+      "human_review_checks": [
+        "结果是否只借鉴结构节奏，而没有借走外部品牌腔调",
+        "中文标题、摘要、按钮是否仍然自然完整",
+        "页面是否仍然温润可信，而不是欧美冷淡或过度艺术化"
+      ],
+      "pass_signal": "人类能看出参考页被消化了，但看不出明显模仿。"
+    },
+    {
+      "id": "product-detail-factual",
+      "title": "产品详情完整信息题",
+      "page_type": "product_detail_blueprint",
+      "difficulty": "baseline",
+      "test_focus": [
+        "产品事实承载能力",
+        "材质与规格区是否稳定",
+        "详情页咨询承接是否可信"
+      ],
+      "inputs": {
+        "brand_brief": {
+          "brand_positioning": "面向中文家庭客户的高端家具品牌，强调材质、细节与搭配建议。",
+          "target_audience": [
+            "正在比较具体家具产品的中文客户"
+          ],
+          "tone_keywords": ["具体", "可信", "克制", "非营销化"],
+          "service_model": "先帮助客户理解产品适配性，再进入咨询确认。",
+          "page_goal": "做出一份可判断、可对比、可咨询的产品详情蓝图。"
+        },
+        "product_data": {
+          "product_name": "温木石语边柜",
+          "materials": ["黑胡桃木皮", "浅米洞石台面", "雾面金属底座"],
+          "dimensions": "1800 x 450 x 780 mm",
+          "craft_notes": [
+            "柜门转角做圆润收边",
+            "台面采用防渗处理",
+            "抽屉开合强调静音与稳定"
+          ],
+          "usage_scene": "适合餐厅、玄关或开放式客厅的收纳与展示。",
+          "product_highlights": [
+            "木与石的对照关系克制耐看",
+            "适合承担收纳与陈列双重角色",
+            "更适合现代中性和温润住宅空间"
+          ]
+        }
+      },
+      "human_review_checks": [
+        "产品亮点、材质区、规格区是否各司其职，没有互相挤压",
+        "规格信息是否清楚易扫读，没有被过度艺术化",
+        "咨询承诺和 CTA 是否建立在真实产品理解之后"
+      ],
+      "pass_signal": "人类愿意把这份蓝图当成正式详情页的骨架继续往下做。"
+    },
+    {
+      "id": "product-detail-missing-data",
+      "title": "产品详情缺信息题",
+      "page_type": "product_detail_blueprint",
+      "difficulty": "fallback",
+      "test_focus": [
+        "缺信息时是否克制",
+        "是否遵守不臆造事实",
+        "是否还能输出可用骨架"
+      ],
+      "inputs": {
+        "brand_brief": {
+          "brand_positioning": "以材质理解和稳妥咨询为核心的中文高端家居品牌。",
+          "target_audience": [
+            "对单件家具还在初步判断阶段的客户"
+          ],
+          "tone_keywords": ["审慎", "可信", "自然", "有秩序"],
+          "service_model": "先给结构化理解，再进入进一步沟通。",
+          "page_goal": "在信息不足时，先产出不冒进的详情页骨架。"
+        },
+        "product_data": {
+          "product_name": "未命名餐边柜方案 A",
+          "materials": ["浅色木饰面"],
+          "usage_scene": "餐厅收纳"
+        }
+      },
+      "human_review_checks": [
+        "是否明确区分已知信息和待补信息",
+        "有没有为了把页面写满而臆造规格、工艺或功能",
+        "即便信息不足，结构是否仍然稳定可用"
+      ],
+      "pass_signal": "人类认为结果克制可信，可以作为待补资料状态下的过渡蓝图。"
+    }
+  ]
+}

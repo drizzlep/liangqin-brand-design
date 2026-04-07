@@ -1,0 +1,48 @@
+{
+  "slug": "mobile-h5-consultation",
+  "title": "Mobile H5 Consultation",
+  "surface_type": "mobile_h5",
+  "source_pack": "consultation-trust",
+  "primary_use_case": "移动端咨询承接、服务说明与 FAQ 导流",
+  "governance_role": "artifact_validation_layer",
+  "recommended_modules": [
+    {
+      "name": "服务边界说明",
+      "purpose": "先说明适合谁、做什么、不做什么，减少不必要咨询。",
+      "layout_hint": "首屏摘要卡，长度控制在 3 行内。"
+    },
+    {
+      "name": "流程步骤",
+      "purpose": "让用户在手机上快速理解后续沟通会发生什么。",
+      "layout_hint": "3 步流程卡，单列堆叠。"
+    },
+    {
+      "name": "FAQ 列表",
+      "purpose": "优先回答价格、周期、上门、交付等高频问题。",
+      "layout_hint": "手风琴或短问答卡，避免长段文字墙。"
+    },
+    {
+      "name": "提交需求区",
+      "purpose": "在解释完成后自然承接咨询动作。",
+      "layout_hint": "底部固定 CTA 或页尾表单卡。"
+    }
+  ],
+  "layout_rules": [
+    "窄屏下每屏只承担一个判断任务",
+    "按钮和说明必须保持完整中文，不压缩成过短标签",
+    "先解释后转化，避免首屏就出现强刺激 CTA"
+  ],
+  "failure_modes": [
+    "把多段长文直接堆进窄屏，形成阅读墙",
+    "首屏先推销后解释，导致信任感不足",
+    "按钮过小或标签过短，牺牲中文理解和点按稳定性"
+  ],
+  "preview_content": {
+    "eyebrow": "Mobile H5 Consultation",
+    "hero_title": "在手机里把咨询流程、FAQ 和提交需求做成一条顺滑路径",
+    "hero_lead": "这类 H5 主要检验同一套 DNA 到窄屏后是否仍然可信、克制、清楚，尤其是解释和承接的关系。",
+    "page_goal": "它应该像一张真实可转发、可打开、可继续操作的移动咨询页。",
+    "primary_cta": "提交需求",
+    "secondary_cta": "查看流程"
+  }
+}

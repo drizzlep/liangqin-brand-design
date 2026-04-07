@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "liangqin-brand-openclaw/homepage-blueprint.schema.zh-CN.json",
+  "$id": "liangqin-brand-body/homepage-blueprint.schema.zh-CN.json",
   "title": "良禽佳木首页蓝图 Schema",
   "type": "object",
   "required": [
