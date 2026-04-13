@@ -9,8 +9,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DNA_PATH = ROOT / "foundation-dna" / "design-dna.zh-CN.json"
 TOKENS_CSS_PATH = ROOT / "foundation-dna" / "tokens.css"
+SEMANTIC_TOKENS_PATH = ROOT / "foundation-dna" / "tokens.semantic.json"
+STANDARD_PACKAGE_PATH = ROOT / "design-standard-package.json"
 PACKS_DIR = ROOT / "design-packs"
 ARTIFACT_SURFACES_DIR = ROOT / "artifact-surfaces"
+EVALUATION_DIR = ROOT / "evaluation"
+ASSET_MANIFEST_PATH = ROOT / "assets" / "brand" / "asset-manifest.zh-CN.json"
 
 EXPECTED_PACK_SLUGS = {
     "warm-gallery",
@@ -97,6 +101,9 @@ REQUIRED_ARTIFACT_FIELDS = [
     "source_pack",
     "primary_use_case",
     "governance_role",
+    "consumption_tier",
+    "allowed_adaptations",
+    "forbidden_brand_overrides",
     "recommended_modules",
     "layout_rules",
     "failure_modes",
@@ -123,6 +130,13 @@ class DesignMdAdapterTest(unittest.TestCase):
     def test_generated_assets_exist_in_repo(self):
         self.assertTrue((ROOT / "DESIGN.md").exists(), "DESIGN.md missing")
         self.assertTrue((ROOT / "DESIGN-GOVERNANCE.md").exists(), "DESIGN-GOVERNANCE.md missing")
+        self.assertTrue(STANDARD_PACKAGE_PATH.exists(), "design-standard-package.json missing")
+        self.assertTrue(SEMANTIC_TOKENS_PATH.exists(), "tokens.semantic.json missing")
+        self.assertTrue(EVALUATION_DIR.exists(), "evaluation directory missing")
+        self.assertTrue((EVALUATION_DIR / "manual-rubric.zh-CN.md").exists(), "evaluation manual rubric missing")
+        self.assertTrue((EVALUATION_DIR / "human-review-protocol.zh-CN.md").exists(), "evaluation review protocol missing")
+        self.assertTrue((EVALUATION_DIR / "human-review-test-cases.zh-CN.json").exists(), "evaluation review cases missing")
+        self.assertTrue(ASSET_MANIFEST_PATH.exists(), "asset manifest missing")
         self.assertTrue((ROOT / "design-preview.html").exists(), "design-preview.html missing")
         self.assertTrue((ROOT / "index.html").exists(), "index.html missing")
         for slug in EXPECTED_ARTIFACT_SLUGS:
@@ -130,6 +144,81 @@ class DesignMdAdapterTest(unittest.TestCase):
                 (ROOT / f"artifact-{slug}.html").exists(),
                 f"artifact page missing for {slug}",
             )
+
+    def test_standard_package_manifest_is_decision_complete(self):
+        manifest = json.loads(STANDARD_PACKAGE_PATH.read_text(encoding="utf-8"))
+        self.assertEqual(manifest["package_name"], "良禽跨工具 DESIGN 标准包")
+        self.assertEqual(manifest["source_of_truth"], "foundation-dna/design-dna.zh-CN.json")
+        self.assertEqual(manifest["brand_content_version"], "2.0.0")
+        self.assertEqual(
+            manifest["default_conflict_resolution"],
+            "Foundation DNA > DESIGN.md > artifact-surfaces > design-packs > examples",
+        )
+        self.assertEqual(manifest["scope"], "single_brand_first_release")
+        self.assertEqual(manifest["entry_keywords"]["recommended"], ["良禽品牌体"])
+        self.assertEqual(manifest["entry_keywords"]["compatible"], ["良禽佳木品牌体"])
+        self.assertEqual(
+            manifest["internal_slugs"]["openclaw_source_slug"],
+            "liangqin-brand-openclaw",
+        )
+        self.assertEqual(
+            manifest["internal_slugs"]["openclaw_distribution_slug"],
+            "liangqin-brand-body",
+        )
+        compatible_tools = {
+            item["tool"]: item["recommended_tier"]
+            for item in manifest["compatible_tools"]
+        }
+        self.assertEqual(compatible_tools["Google Stitch"], "tier_1")
+        self.assertEqual(compatible_tools["OpenClaw"], "tier_3")
+        self.assertIn("DESIGN.md", manifest["public_interfaces"])
+        self.assertIn("CONSUMER-GUIDE.zh-CN.md", manifest["public_interfaces"])
+        self.assertIn("foundation-dna/tokens.semantic.json", manifest["public_interfaces"])
+        self.assertIn("artifact-surfaces/*.json", manifest["public_interfaces"])
+        self.assertIn("assets/brand/*", manifest["public_interfaces"])
+        self.assertIn("evaluation/manual-rubric.zh-CN.md", manifest["public_interfaces"])
+        self.assertIn("evaluation/examples/*.json", manifest["public_interfaces"])
+
+        layers = manifest["package_layers"]
+        self.assertEqual(len(layers), 7)
+        layer_ids = {layer["id"] for layer in layers}
+        self.assertEqual(
+            layer_ids,
+            {
+                "foundation_dna",
+                "brand_constitution",
+                "controlled_variation",
+                "delivery_constraints",
+                "brand_assets",
+                "evaluation",
+                "openclaw_adapter",
+            },
+        )
+        layer_entries = {layer["id"]: set(layer["entry_points"]) for layer in layers}
+        self.assertIn("assets/brand/asset-manifest.zh-CN.json", layer_entries["brand_assets"])
+        self.assertIn("evaluation/manual-rubric.zh-CN.md", layer_entries["evaluation"])
+        self.assertIn("evaluation/human-review-protocol.zh-CN.md", layer_entries["evaluation"])
+        self.assertIn("evaluation/human-review-test-cases.zh-CN.json", layer_entries["evaluation"])
+        self.assertIn("evaluation/examples/*.json", layer_entries["evaluation"])
+
+        tiers = manifest["consumer_tiers"]
+        self.assertEqual(set(tiers.keys()), {"tier_1", "tier_2", "tier_3"})
+        self.assertEqual(tiers["tier_1"]["reads"], ["DESIGN.md"])
+        self.assertIn("artifact-surfaces/*.json", tiers["tier_2"]["reads"])
+        self.assertIn("assets/brand/*", tiers["tier_2"]["reads"])
+        self.assertIn("foundation-dna/design-dna.zh-CN.json", tiers["tier_3"]["reads"])
+        self.assertIn("evaluation/*", tiers["tier_3"]["reads"])
+
+    def test_semantic_tokens_export_matches_foundation_dna(self):
+        semantic = json.loads(SEMANTIC_TOKENS_PATH.read_text(encoding="utf-8"))
+        colors = self.dna["design_system"]["color"]
+        typography = self.dna["design_system"]["typography"]["type_scale"]
+        self.assertEqual(semantic["token_model"], "semantic_roles")
+        self.assertEqual(semantic["color"]["background"], colors["surface"]["background"])
+        self.assertEqual(semantic["color"]["accent"], colors["accent"]["hex"])
+        self.assertEqual(semantic["color"]["brand_asset"], colors["brand_asset"]["hex"])
+        self.assertEqual(semantic["typography"]["scale"]["display"]["size"], typography["display"]["size"])
+        self.assertEqual(semantic["typography"]["scale"]["body"]["line_height"], typography["body"]["line_height"])
 
     def test_design_packs_exist_and_validate_schema(self):
         self.assertTrue(PACKS_DIR.exists(), "design-packs directory missing")
@@ -334,6 +423,11 @@ class DesignMdAdapterTest(unittest.TestCase):
                 EXPECTED_ARTIFACT_GOVERNANCE_ROLE,
                 f"{surface_path.name} must be marked as artifact validation layer",
             )
+            self.assertEqual(
+                surface["consumption_tier"],
+                "tier_2",
+                f"{surface_path.name} must be marked as tier_2 surface",
+            )
 
             self.assertIn(
                 surface["surface_type"],
@@ -374,6 +468,26 @@ class DesignMdAdapterTest(unittest.TestCase):
                 len(surface["failure_modes"]),
                 2,
                 f"{surface_path.name} failure_modes must contain at least 2 items",
+            )
+            self.assertIsInstance(
+                surface["allowed_adaptations"],
+                list,
+                f"{surface_path.name} allowed_adaptations must be list",
+            )
+            self.assertGreaterEqual(
+                len(surface["allowed_adaptations"]),
+                2,
+                f"{surface_path.name} allowed_adaptations must contain at least 2 items",
+            )
+            self.assertIsInstance(
+                surface["forbidden_brand_overrides"],
+                list,
+                f"{surface_path.name} forbidden_brand_overrides must be list",
+            )
+            self.assertGreaterEqual(
+                len(surface["forbidden_brand_overrides"]),
+                2,
+                f"{surface_path.name} forbidden_brand_overrides must contain at least 2 items",
             )
 
             for index, module in enumerate(surface["recommended_modules"]):
@@ -484,10 +598,26 @@ class DesignMdAdapterTest(unittest.TestCase):
             output_root = Path(tmp_dir)
             design_md = output_root / "DESIGN.md"
             governance_md = output_root / "DESIGN-GOVERNANCE.md"
+            standard_manifest = output_root / "design-standard-package.json"
+            exported_dna = output_root / "foundation-dna" / "design-dna.zh-CN.json"
+            exported_semantic_tokens = output_root / "foundation-dna" / "tokens.semantic.json"
+            exported_artifact_surfaces = output_root / "artifact-surfaces"
+            exported_evaluation = output_root / "evaluation"
+            exported_asset_manifest = output_root / "assets" / "brand" / "asset-manifest.zh-CN.json"
             preview_html = output_root / "design-preview.html"
             index_html = output_root / "index.html"
             self.assertTrue(design_md.exists(), "generated DESIGN.md missing")
+            self.assertTrue(
+                (output_root / "CONSUMER-GUIDE.zh-CN.md").exists(),
+                "generated CONSUMER-GUIDE.zh-CN.md missing",
+            )
             self.assertTrue(governance_md.exists(), "generated DESIGN-GOVERNANCE.md missing")
+            self.assertTrue(standard_manifest.exists(), "generated design-standard-package.json missing")
+            self.assertTrue(exported_dna.exists(), "generated design DNA missing")
+            self.assertTrue(exported_semantic_tokens.exists(), "generated semantic tokens missing")
+            self.assertTrue(exported_artifact_surfaces.exists(), "generated artifact-surfaces missing")
+            self.assertTrue(exported_evaluation.exists(), "generated evaluation missing")
+            self.assertTrue(exported_asset_manifest.exists(), "generated asset manifest missing")
             self.assertTrue(preview_html.exists(), "generated design-preview.html missing")
             self.assertTrue(index_html.exists(), "generated index.html missing")
             artifact_pages = {
@@ -499,6 +629,7 @@ class DesignMdAdapterTest(unittest.TestCase):
 
             design_md_text = design_md.read_text(encoding="utf-8")
             governance_md_text = governance_md.read_text(encoding="utf-8")
+            standard_manifest_text = standard_manifest.read_text(encoding="utf-8")
             preview_html_text = preview_html.read_text(encoding="utf-8")
             index_html_text = index_html.read_text(encoding="utf-8")
 
@@ -560,6 +691,24 @@ class DesignMdAdapterTest(unittest.TestCase):
             self.assertIn("## Change Map", governance_md_text)
             self.assertNotIn("## 1. Layer Roles", governance_md_text)
             self.assertNotIn("## 2. 默认 AI 读取顺序", governance_md_text)
+            self.assertIn("\"package_name\": \"良禽跨工具 DESIGN 标准包\"", standard_manifest_text)
+            self.assertIn("\"tier_3\"", standard_manifest_text)
+            self.assertTrue(
+                (exported_artifact_surfaces / "web-brand-landing.json").exists(),
+                "generated raw artifact surface missing",
+            )
+            self.assertTrue(
+                (exported_evaluation / "high-risk-regression-cases.zh-CN.json").exists(),
+                "generated evaluation regression cases missing",
+            )
+            self.assertTrue(
+                (exported_evaluation / "human-review-protocol.zh-CN.md").exists(),
+                "generated evaluation review protocol missing",
+            )
+            self.assertTrue(
+                (exported_evaluation / "human-review-test-cases.zh-CN.json").exists(),
+                "generated evaluation review cases missing",
+            )
 
             self.assertIn("Brand Surface Preview", preview_html_text)
             self.assertIn('data-pack-tab="liangqin-apple"', preview_html_text)

@@ -5,6 +5,18 @@
   "source_pack": "warm-gallery",
   "primary_use_case": "品牌展示、系列介绍与首页式落地页",
   "governance_role": "artifact_validation_layer",
+  "consumption_tier": "tier_2",
+  "allowed_adaptations": [
+    "根据屏宽调整图文比例",
+    "根据浏览目标调整模块长短",
+    "让导航和案例区的信息密度略有差异",
+    "在不失真的前提下减少图标和装饰"
+  ],
+  "forbidden_brand_overrides": [
+    "把品牌落地页改成转化导向促销页",
+    "把案例区改成电商宫格",
+    "为了网页互动而引入另一套视觉语言"
+  ],
   "recommended_modules": [
     {
       "name": "沉浸 Hero",

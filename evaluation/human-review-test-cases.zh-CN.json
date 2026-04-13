@@ -1,9 +1,6 @@
 {
   "version": "1.0.0",
   "brand": "良禽佳木",
-  "source_of_truth": "evaluation/human-review-test-cases.zh-CN.json",
-  "mirror_role": "openclaw_adapter_evaluation_mirror",
-  "adapter_scope": "OpenClaw 镜像可补充适配器语境，但不得改变根层标准的核心 case id 与检查目标。",
   "purpose": "给任意消费这套标准包的工具或 agent 做人类在环验收。先生成蓝图或结构化 spec，再由人类判断是否适合真实品牌交付。",
   "review_rule": "每道题都必须先产出完整蓝图或结构化 spec，再由人类按评审协议判断是否通过；不得只依赖 schema 或白名单校验直接判定合格。",
   "cases": [
@@ -24,13 +21,7 @@
             "正在装修新家、追求空间完整度的中文客户",
             "重视材质、触感和整体搭配而非单纯比价的中高端用户"
           ],
-          "tone_keywords": [
-            "温润",
-            "克制",
-            "可信",
-            "理性",
-            "不促销"
-          ],
+          "tone_keywords": ["温润", "克制", "可信", "理性", "不促销"],
           "service_model": "先通过咨询理解空间需求，再给出产品与组合建议。",
           "page_goal": "先建立品牌信任，再引导用户理解材质与咨询方式。"
         }
@@ -58,12 +49,7 @@
           "target_audience": [
             "关注空间气质与家具搭配关系的家庭客户"
           ],
-          "tone_keywords": [
-            "编辑化",
-            "有温度",
-            "可信",
-            "留白感"
-          ],
+          "tone_keywords": ["编辑化", "有温度", "可信", "留白感"],
           "service_model": "通过案例理解与咨询沟通帮助客户做出稳妥判断。",
           "page_goal": "输出一个更像品牌官网而不是案例拼贴站的首页蓝图。"
         },
@@ -101,22 +87,13 @@
           "target_audience": [
             "正在比较具体家具产品的中文客户"
           ],
-          "tone_keywords": [
-            "具体",
-            "可信",
-            "克制",
-            "非营销化"
-          ],
+          "tone_keywords": ["具体", "可信", "克制", "非营销化"],
           "service_model": "先帮助客户理解产品适配性，再进入咨询确认。",
           "page_goal": "做出一份可判断、可对比、可咨询的产品详情蓝图。"
         },
         "product_data": {
           "product_name": "温木石语边柜",
-          "materials": [
-            "黑胡桃木皮",
-            "浅米洞石台面",
-            "雾面金属底座"
-          ],
+          "materials": ["黑胡桃木皮", "浅米洞石台面", "雾面金属底座"],
           "dimensions": "1800 x 450 x 780 mm",
           "craft_notes": [
             "柜门转角做圆润收边",
@@ -154,20 +131,13 @@
           "target_audience": [
             "对单件家具还在初步判断阶段的客户"
           ],
-          "tone_keywords": [
-            "审慎",
-            "可信",
-            "自然",
-            "有秩序"
-          ],
+          "tone_keywords": ["审慎", "可信", "自然", "有秩序"],
           "service_model": "先给结构化理解，再进入进一步沟通。",
           "page_goal": "在信息不足时，先产出不冒进的详情页骨架。"
         },
         "product_data": {
           "product_name": "未命名餐边柜方案 A",
-          "materials": [
-            "浅色木饰面"
-          ],
+          "materials": ["浅色木饰面"],
           "usage_scene": "餐厅收纳"
         }
       },

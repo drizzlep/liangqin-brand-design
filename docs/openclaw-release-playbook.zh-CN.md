@@ -11,14 +11,14 @@
 
 这次升级建议直接发布为：
 
-- `v2.0.0`
+- `v2.1.0`
 
 原因：
 
-- 对外入口从 `liangqin-brand-openclaw` 收口为 `良禽品牌体`
-- 控制面从旧协议层升级为 `DESIGN.md` 主导
-- 增加了标准发行元数据、安装脚本与 zip 包交付方式
-- 对其他 OpenClaw 机器人来说，这是一次明确的分发方式升级，不是小修补
+- 从单个 skill 仓库升级为“跨工具标准包 + OpenClaw 适配器”结构
+- 增加 `CONSUMER-GUIDE.zh-CN.md`、`EXECUTION-CHECKLIST.md`、`evaluation/`、`assets/brand/` 等标准层
+- 增加统一同步、校验、发布脚本，发布流程更稳定
+- 对其他 OpenClaw 机器人来说，这是一次能力边界和分发结构都升级的小版本
 
 ## 标准发布流程
 
@@ -31,7 +31,7 @@ python3 scripts/prepare_openclaw_release.py
 默认会生成：
 
 - `dist/liangqin-brand-body/`
-- `dist/liangqin-brand-body-2.0.0.zip`
+- `dist/liangqin-brand-body-2.1.0.zip`
 
 ### 2. 跑校验
 
@@ -44,15 +44,15 @@ python3 skills/public/liangqin-brand-openclaw/scripts/validate_skill_assets.py
 
 ```bash
 git add .
-git commit -m "release: ship 良禽品牌体 v2.0.0"
+git commit -m "release: ship 良禽品牌体 v2.1.0"
 git push origin HEAD
 ```
 
 ### 4. 打 Tag 并推送
 
 ```bash
-git tag v2.0.0
-git push origin v2.0.0
+git tag v2.1.0
+git push origin v2.1.0
 ```
 
 ### 5. 到 GitHub 创建 Release
@@ -67,12 +67,12 @@ Release 页面：
 
 上传资产：
 
-- `dist/liangqin-brand-body-2.0.0.zip`
+- `dist/liangqin-brand-body-2.1.0.zip`
 
 ## 建议的 GitHub Release 标题
 
 ```text
-v2.0.0 · 良禽品牌体单入口版
+v2.1.0 · 良禽跨工具标准包版
 ```
 
 ## 建议的 GitHub Release 正文
@@ -80,24 +80,30 @@ v2.0.0 · 良禽品牌体单入口版
 ```md
 ## Summary
 
-- upgrade the Liangqin OpenClaw distribution to a single public entry: `良禽品牌体`
-- switch the default design governance to `DESIGN.md`-led control
-- add release metadata, packaged zip distribution, and one-command OpenClaw installer
-- preserve `良禽佳木apple风` as a controlled style trigger inside the unified skill
+- upgrade the repository from a single OpenClaw skill into a cross-tool Liangqin design standard package
+- keep `良禽品牌体` as the public OpenClaw entry, but move the source of truth back to the root standard package
+- add `CONSUMER-GUIDE.zh-CN.md`, `EXECUTION-CHECKLIST.md`, root `evaluation/`, brand asset guardrails, and release validation
+- preserve `良禽佳木apple风` as a controlled variation inside the standard package
 
 ## What Changed
 
 - public entry keyword is now `良禽品牌体`
 - packaged skill slug is now `liangqin-brand-body`
+- root standard package is now the source of truth, OpenClaw only consumes it
 - exported bundle now includes:
   - `DESIGN.md`
+  - `CONSUMER-GUIDE.zh-CN.md`
   - `DESIGN-GOVERNANCE.md`
+  - `EXECUTION-CHECKLIST.md`
   - `foundation-dna/design-dna.zh-CN.json`
+  - `foundation-dna/tokens.semantic.json`
+  - `artifact-surfaces/`
+  - `assets/brand/`
+  - root `evaluation/`
   - `design-packs/`
   - `protocols/`
   - `recipes/`
   - `examples/`
-  - `evaluation/`
   - `skill-release.json`
   - `scripts/install_into_openclaw.py`
 
@@ -135,7 +141,7 @@ python3 scripts/install_into_openclaw.py
 ### 2. 怎么安装
 
 ```md
-1. 下载 Release 里的 `liangqin-brand-body-2.0.0.zip`
+1. 下载 Release 里的 `liangqin-brand-body-2.1.0.zip`
 2. 解压后进入目录
 3. 运行：
 
@@ -192,5 +198,5 @@ python3 scripts/install_into_openclaw.py
 你可以直接这样写：
 
 ```text
-v2.0.0 把原来的良禽品牌设计能力收口成一个统一入口“良禽品牌体”，并升级为 DESIGN.md 主导的单入口分发版本；安装更简单、调用更一致、后续风格扩展也更容易。
+v2.1.0 把仓库升级成“良禽跨工具设计标准包 + OpenClaw 适配器”的新结构，标准本体回到根目录统一治理，OpenClaw 继续作为稳定消费入口，发布、校验和样例同步也都更完整。
 ```

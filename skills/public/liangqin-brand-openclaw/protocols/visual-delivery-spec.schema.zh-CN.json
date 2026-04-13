@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "liangqin-brand-body/visual-delivery-spec.schema.zh-CN.json",
+  "title": "良禽佳木视觉交付 Spec Schema",
+  "type": "object",
+  "required": [
+    "page_type",
+    "delivery_goal",
+    "asset_form",
+    "target_audience",
+    "primary_message",
+    "information_priority",
+    "layout_blocks",
+    "visual_system",
+    "image_strategy",
+    "icon_strategy",
+    "copy_tone",
+    "brand_constraints",
+    "handoff_rules"
+  ],
+  "properties": {
+    "page_type": {
+      "const": "visual_delivery_spec"
+    },
+    "delivery_goal": {
+      "type": "string"
+    },
+    "asset_form": {
+      "type": "string",
+      "enum": [
+        "poster",
+        "long_image",
+        "quote_card",
+        "social_cover",
+        "page_visual",
+        "hero_image",
+        "multi_card_set",
+        "icon_direction"
+      ]
+    },
+    "target_audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "primary_message": {
+      "type": "string"
+    },
+    "information_priority": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "layout_blocks": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "role",
+          "content_requirements",
+          "emphasis_rule"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "content_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "emphasis_rule": {
+            "type": "string"
+          },
+          "density_note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "visual_system": {
+      "type": "object",
+      "required": [
+        "composition_rule",
+        "background_strategy",
+        "typography_direction",
+        "color_strategy"
+      ],
+      "properties": {
+        "composition_rule": {
+          "type": "string"
+        },
+        "background_strategy": {
+          "type": "string"
+        },
+        "typography_direction": {
+          "type": "string"
+        },
+        "color_strategy": {
+          "type": "string"
+        },
+        "material_expression": {
+          "type": "string"
+        }
+      }
+    },
+    "image_strategy": {
+      "type": "object",
+      "required": [
+        "image_role",
+        "must_show",
+        "forbidden"
+      ],
+      "properties": {
+        "image_role": {
+          "type": "string"
+        },
+        "must_show": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forbidden": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "icon_strategy": {
+      "type": "object",
+      "required": [
+        "policy",
+        "stroke_rule",
+        "fallback_rule"
+      ],
+      "properties": {
+        "policy": {
+          "type": "string"
+        },
+        "stroke_rule": {
+          "type": "string"
+        },
+        "fallback_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "copy_tone": {
+      "type": "object",
+      "required": [
+        "headline_rule",
+        "body_rule",
+        "cta_rule"
+      ],
+      "properties": {
+        "headline_rule": {
+          "type": "string"
+        },
+        "body_rule": {
+          "type": "string"
+        },
+        "cta_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "brand_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 4
+    },
+    "handoff_rules": {
+      "type": "object",
+      "required": [
+        "render_after_spec",
+        "downstream_inputs",
+        "fidelity_fail_action"
+      ],
+      "properties": {
+        "render_after_spec": {
+          "const": true
+        },
+        "downstream_inputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2
+        },
+        "fidelity_fail_action": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

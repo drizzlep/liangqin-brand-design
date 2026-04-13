@@ -27,8 +27,12 @@ class PrepareOpenclawReleaseTest(unittest.TestCase):
                 check=False,
             )
             self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("[run] sync OpenClaw mirrors", result.stdout)
+            self.assertIn("[run] run core release tests", result.stdout)
+            self.assertIn("[run] validate exported skill assets", result.stdout)
+            self.assertIn("[run] export OpenClaw release bundle", result.stdout)
             self.assertIn("Prepared release artifact:", result.stdout)
-            self.assertTrue((output_dir / "liangqin-brand-body-2.0.0.zip").exists())
+            self.assertTrue((output_dir / "liangqin-brand-body-2.1.0.zip").exists())
 
 
 if __name__ == "__main__":

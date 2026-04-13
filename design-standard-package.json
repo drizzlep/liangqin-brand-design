@@ -1,0 +1,201 @@
+{
+  "version": "1.1.0",
+  "brand": "良禽佳木",
+  "package_name": "良禽跨工具 DESIGN 标准包",
+  "package_slug": "liangqin-design-standard",
+  "brand_content_version": "2.0.0",
+  "scope": "single_brand_first_release",
+  "source_of_truth": "foundation-dna/design-dna.zh-CN.json",
+  "default_entry": "DESIGN.md",
+  "entry_keywords": {
+    "recommended": [
+      "良禽品牌体"
+    ],
+    "compatible": [
+      "良禽佳木品牌体"
+    ]
+  },
+  "internal_slugs": {
+    "openclaw_source_slug": "liangqin-brand-openclaw",
+    "openclaw_distribution_slug": "liangqin-brand-body"
+  },
+  "compatible_tools": [
+    {
+      "tool": "Google Stitch",
+      "recommended_tier": "tier_1"
+    },
+    {
+      "tool": "OpenClaw",
+      "recommended_tier": "tier_3"
+    },
+    {
+      "tool": "Generic page / poster / long-image generators",
+      "recommended_tier": "tier_2"
+    }
+  ],
+  "default_conflict_resolution": "Foundation DNA > DESIGN.md > artifact-surfaces > design-packs > examples",
+  "public_interfaces": [
+    "DESIGN.md",
+    "CONSUMER-GUIDE.zh-CN.md",
+    "foundation-dna/design-dna.zh-CN.json",
+    "foundation-dna/tokens.semantic.json",
+    "artifact-surfaces/*.json",
+    "assets/brand/*",
+    "EXECUTION-CHECKLIST.md",
+    "evaluation/manual-rubric.zh-CN.md",
+    "evaluation/examples/*.json",
+    "design-standard-package.json"
+  ],
+  "package_layers": [
+    {
+      "id": "foundation_dna",
+      "role": "brand_truth_source",
+      "entry_points": [
+        "foundation-dna/design-dna.zh-CN.json",
+        "foundation-dna/tokens.semantic.json",
+        "foundation-dna/tokens.css"
+      ]
+    },
+    {
+      "id": "brand_constitution",
+      "role": "human_and_agent_default_entry",
+      "entry_points": [
+        "DESIGN.md",
+        "CONSUMER-GUIDE.zh-CN.md",
+        "DESIGN-GOVERNANCE.md",
+        "EXECUTION-CHECKLIST.md"
+      ]
+    },
+    {
+      "id": "controlled_variation",
+      "role": "design_pack_layer",
+      "entry_points": [
+        "design-packs/*.json"
+      ]
+    },
+    {
+      "id": "delivery_constraints",
+      "role": "artifact_surface_layer",
+      "entry_points": [
+        "artifact-surfaces/*.json"
+      ]
+    },
+    {
+      "id": "brand_assets",
+      "role": "runtime_asset_guardrail",
+      "entry_points": [
+        "assets/brand/*",
+        "assets/brand/asset-manifest.zh-CN.json"
+      ]
+    },
+    {
+      "id": "evaluation",
+      "role": "manual_review_and_regression",
+      "entry_points": [
+        "evaluation/manual-rubric.zh-CN.md",
+        "evaluation/human-review-protocol.zh-CN.md",
+        "evaluation/human-review-test-cases.zh-CN.json",
+        "evaluation/golden-samples.zh-CN.md",
+        "evaluation/failure-samples.zh-CN.md",
+        "evaluation/high-risk-regression-cases.zh-CN.json",
+        "evaluation/examples/*.json"
+      ]
+    },
+    {
+      "id": "openclaw_adapter",
+      "role": "tool_specific_adapter",
+      "entry_points": [
+        "skills/public/liangqin-brand-openclaw/"
+      ]
+    }
+  ],
+  "consumer_tiers": {
+    "tier_1": {
+      "name": "design_md_only",
+      "reads": [
+        "DESIGN.md"
+      ],
+      "best_for": [
+        "Stitch",
+        "弱能力 agent",
+        "公开传播"
+      ],
+      "guarantees": [
+        "brand_tone",
+        "chinese_first_readability",
+        "cta_personality"
+      ],
+      "limitations": [
+        "logo_and_icon_fidelity_not_guaranteed",
+        "delivery_constraints_are_implicit"
+      ]
+    },
+    "tier_2": {
+      "name": "design_md_plus_surfaces_and_assets",
+      "reads": [
+        "DESIGN.md",
+        "artifact-surfaces/*.json",
+        "assets/brand/*"
+      ],
+      "best_for": [
+        "页面视觉稿",
+        "长图",
+        "海报",
+        "H5"
+      ],
+      "guarantees": [
+        "logo_runtime_assets",
+        "delivery_density_constraints",
+        "basic_layout_consistency"
+      ],
+      "limitations": [
+        "deep_brand_regression_not_covered",
+        "tool_must_self_manage_generation_checks"
+      ]
+    },
+    "tier_3": {
+      "name": "full_standard_package",
+      "reads": [
+        "DESIGN.md",
+        "foundation-dna/design-dna.zh-CN.json",
+        "foundation-dna/tokens.semantic.json",
+        "artifact-surfaces/*.json",
+        "assets/brand/*",
+        "EXECUTION-CHECKLIST.md",
+        "evaluation/*"
+      ],
+      "best_for": [
+        "你自己的机器人链路",
+        "团队内高保真生成",
+        "回归与验收"
+      ],
+      "guarantees": [
+        "brand_and_delivery_consistency",
+        "runtime_logo_guardrails",
+        "manual_review_and_regression_hooks"
+      ],
+      "limitations": [
+        "tooling_integration_cost_is_higher"
+      ]
+    }
+  },
+  "governance": {
+    "categories_rule": "品类只改变内容事实与重点，不改写品牌表达。",
+    "channels_rule": "渠道只改变信息密度、画幅与交付方式，不切换品牌风格。",
+    "adapter_policy": "skills/public/liangqin-brand-openclaw/ 只负责消费标准，不负责定义标准。",
+    "design_packs_policy": "design-packs/ 只允许受控变化，不允许重写品牌。",
+    "artifact_surfaces_policy": "artifact-surfaces/ 只描述交付约束，不描述新的品牌审美。"
+  },
+  "team_governance": {
+    "versioning_policy": [
+      "标准包版本与品牌内容版本分开记录。",
+      "设计宪法、token、资产、artifact surface 的升级可独立追踪。"
+    ],
+    "review_rules": [
+      "每次改动都必须说明改的是哪一层以及原因。",
+      "不允许直接在渠道层偷偷改品牌。",
+      "OpenClaw 适配器变更不能反向覆盖标准包本体。"
+    ],
+    "regression_suite": "evaluation/high-risk-regression-cases.zh-CN.json"
+  }
+}

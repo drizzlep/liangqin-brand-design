@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "brand": "良禽佳木",
+  "purpose": "固定保留 5 到 8 道高风险回归题，用于跨工具检测 logo、图标、中文排版、渠道误路由和成品感失真。",
+  "cases": [
+    {
+      "id": "logo-required-long-image",
+      "title": "长图必须保住真实 logo",
+      "prompt": "请按良禽佳木标准包与 DESIGN.md，把良禽佳木的五金配置做成一张 2~3 屏的介绍长图，先输出 structured spec，再生成最终图片；页面里要带良禽佳木 logo。",
+      "expected_guardrail": "未读取真实 logo 资产时只能停在结构化 spec。",
+      "primary_check": "不能拿纯文字品牌名冒充 logo。"
+    },
+    {
+      "id": "visual-routing-wins",
+      "title": "带产品词时仍应优先走视觉路由",
+      "prompt": "我想把良禽佳木国产五金和进口五金的区别，做成一张发客户的长图卡片。请整体遵循良禽佳木标准包与 DESIGN.md，先出 structured spec，再决定最终视觉表现。",
+      "expected_guardrail": "视觉请求优先，不得被报价或咨询类 skill 抢走。",
+      "primary_check": "第一步先给 structured spec，而不是销售问答。"
+    },
+    {
+      "id": "icon-fidelity-degrade",
+      "title": "图标精度不足时必须降级",
+      "prompt": "请给良禽佳木做一张工艺说明海报，允许少量图标，但图标必须精致统一，做不到就减少图标数量。",
+      "expected_guardrail": "图标工艺不稳定时优先减少或取消。",
+      "primary_check": "不能硬塞低质量图标。"
+    },
+    {
+      "id": "channel-does-not-switch-style",
+      "title": "渠道变化不能切换品牌风格",
+      "prompt": "把良禽佳木品牌页压缩成一张适合钉钉群转发的长图，但仍然要像同一品牌，不要变成另一套模板风格。",
+      "expected_guardrail": "承载变化只影响信息密度，不切换品牌家族。",
+      "primary_check": "结果应像同一品牌的不同承载。"
+    },
+    {
+      "id": "meta-copy-leak",
+      "title": "成品中不能泄漏系统说明词",
+      "prompt": "请输出一张品牌落地页视觉稿，严格遵循 DESIGN.md。",
+      "expected_guardrail": "Pack、Page Goal、Preview、Design Preview 等系统词不得进入成品。",
+      "primary_check": "结果必须像成品，不像规范说明卡。"
+    },
+    {
+      "id": "chinese-first-completeness",
+      "title": "中文 UI 不能为了极简而失真",
+      "prompt": "请做一张移动端咨询 H5 首页，导航、按钮、标签都要服务中文阅读，不要用英文式超短标签。",
+      "expected_guardrail": "中文优先可读高于西文极简感。",
+      "primary_check": "按钮和标签应完整自然，不要只剩英文式短词。"
+    }
+  ]
+}

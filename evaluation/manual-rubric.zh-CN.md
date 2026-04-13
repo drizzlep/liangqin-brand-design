@@ -1,6 +1,3 @@
-> OpenClaw mirror of: `evaluation/manual-rubric.zh-CN.md`
-> 仅补充 OpenClaw 落地语境，不反向覆盖根层标准评测规则。
-
 # 良禽佳木跨工具生成人工评测清单
 
 用于评估任意工具基于这套标准包产出的页面、长图、卡片或视觉稿，是否仍然“明显像良禽佳木”。

@@ -5,6 +5,18 @@
   "source_pack": "consultation-trust",
   "primary_use_case": "正式报价卡、汇总报价长图与客户转发用图文清单",
   "governance_role": "artifact_validation_layer",
+  "consumption_tier": "tier_2",
+  "allowed_adaptations": [
+    "压缩明细为摘要块",
+    "让总价成为唯一主焦点",
+    "把超长细则回退到文字报价",
+    "减少视觉装饰保证报价稳定可读"
+  ],
+  "forbidden_brand_overrides": [
+    "把报价卡做成报表截图",
+    "把参考报价伪装成正式报价",
+    "为突出金额而改成促销海报风格"
+  ],
   "recommended_modules": [
     {
       "name": "报价类型标识",

@@ -52,7 +52,35 @@
     "image_role": "auxiliary_only",
     "notes": [
       "品牌 brief 和产品资料以文字为主。",
-      "图片只用于补充材质、比例、空间气质判断，不作为唯一依据。"
+      "图片只用于补充材质、比例、空间气质判断，不作为唯一依据。",
+      "最终视觉成品所需的 logo 与品牌标志，必须从 `protocols/brand-assets.zh-CN.json` 声明的真实资产中读取。"
+    ]
+  },
+  "request_normalization": {
+    "first_output": "structured_spec_only",
+    "supported_spec_types": [
+      "homepage_blueprint",
+      "product_detail_blueprint",
+      "visual_delivery_spec"
+    ],
+    "channel_policy": "channel_adapts_delivery_not_brand",
+    "visual_request_triggers": [
+      "图片",
+      "长图",
+      "海报",
+      "视觉稿",
+      "封面图",
+      "报价卡图",
+      "社媒卡片",
+      "图标方案",
+      "icon 方案"
+    ],
+    "rules": [
+      "所有良禽视觉类请求，默认先收敛到结构化 spec，再按渠道适配渲染。",
+      "如果同一句请求同时包含产品、材质、报价等信息词，但交付目标是图片、页面、长图、卡片或视觉稿，仍应优先路由到良禽品牌体。",
+      "渠道变化只影响信息密度、画幅、交付形式，不改变品牌真源。",
+      "如果图标精度和细节工艺无法稳定成立，优先减少或取消，不得自由发明另一套审美。",
+      "如果要直接输出最终视觉成品，必须先确认真实 logo 资产可读；否则停止在结构化 spec。"
     ]
   },
   "fallback_rules": [
@@ -70,6 +98,16 @@
       "condition": "missing_reference_pages",
       "action": "fallback_to_foundation_dna",
       "reason": "直接使用良禽佳木默认品牌边界和模块优先级。"
+    },
+    {
+      "condition": "visual_request_without_structured_spec",
+      "action": "generate_structured_spec_first",
+      "reason": "良禽视觉类请求优先先生成受 DESIGN.md 约束的结构化 spec，再做渠道适配。"
+    },
+    {
+      "condition": "final_visual_without_logo_asset",
+      "action": "stop_final_visual_delivery",
+      "reason": "未读取到真实 logo 资产时，不允许直接产出页面、图片、长图、卡片等最终视觉成品。"
     }
   ]
 }

@@ -2,14 +2,20 @@
 import argparse
 import html
 import json
+import shutil
 from pathlib import Path
 from textwrap import dedent
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DNA_PATH = ROOT / "foundation-dna" / "design-dna.zh-CN.json"
+SEMANTIC_TOKENS_PATH = ROOT / "foundation-dna" / "tokens.semantic.json"
+STANDARD_MANIFEST_PATH = ROOT / "design-standard-package.json"
+CONSUMER_GUIDE_PATH = ROOT / "CONSUMER-GUIDE.zh-CN.md"
 PACKS_DIR = ROOT / "design-packs"
 ARTIFACT_SURFACES_DIR = ROOT / "artifact-surfaces"
+BRAND_ASSETS_DIR = ROOT / "assets" / "brand"
+EVALUATION_DIR = ROOT / "evaluation"
 
 PACK_REQUIRED_FIELDS = [
     "slug",
@@ -79,6 +85,9 @@ ARTIFACT_REQUIRED_FIELDS = [
     "source_pack",
     "primary_use_case",
     "governance_role",
+    "consumption_tier",
+    "allowed_adaptations",
+    "forbidden_brand_overrides",
     "recommended_modules",
     "layout_rules",
     "failure_modes",
@@ -119,6 +128,12 @@ REQUIRED_QUOTE_LINE_FIELDS = [
 
 ALLOWED_ARTIFACT_GOVERNANCE_ROLES = {
     "artifact_validation_layer",
+}
+
+ALLOWED_CONSUMPTION_TIERS = {
+    "tier_1",
+    "tier_2",
+    "tier_3",
 }
 
 FEATURED_PREVIEW_PACK_SLUGS = [
@@ -390,6 +405,12 @@ def ordered_unique(values):
     return ordered
 
 
+def sync_directory(source: Path, destination: Path) -> None:
+    if destination.exists():
+        shutil.rmtree(destination)
+    shutil.copytree(source, destination)
+
+
 def require_fields(payload: dict, required_fields, context: str) -> None:
     missing = [field for field in required_fields if field not in payload]
     if missing:
@@ -558,6 +579,7 @@ def validate_artifact_surface(surface: dict, path: Path, pack_slugs: set[str]) -
         "source_pack",
         "primary_use_case",
         "governance_role",
+        "consumption_tier",
     ]:
         ensure_non_empty_string(surface[field_name], f"{path.name}.{field_name}")
 
@@ -569,11 +591,20 @@ def validate_artifact_surface(surface: dict, path: Path, pack_slugs: set[str]) -
         allowed = ", ".join(sorted(ALLOWED_ARTIFACT_GOVERNANCE_ROLES))
         raise ValueError(f"{path.name}.governance_role must be one of: {allowed}")
 
+    if surface["consumption_tier"] not in ALLOWED_CONSUMPTION_TIERS:
+        allowed = ", ".join(sorted(ALLOWED_CONSUMPTION_TIERS))
+        raise ValueError(f"{path.name}.consumption_tier must be one of: {allowed}")
+
     if surface["source_pack"] not in pack_slugs:
         raise ValueError(
             f"{path.name}.source_pack must reference an existing design pack slug"
         )
 
+    ensure_string_list(surface["allowed_adaptations"], f"{path.name}.allowed_adaptations")
+    ensure_string_list(
+        surface["forbidden_brand_overrides"],
+        f"{path.name}.forbidden_brand_overrides",
+    )
     ensure_module_list(surface["recommended_modules"], f"{path.name}.recommended_modules")
     ensure_string_list(surface["layout_rules"], f"{path.name}.layout_rules")
     ensure_string_list(surface["failure_modes"], f"{path.name}.failure_modes")
@@ -3309,6 +3340,8 @@ def main() -> int:
 
     output_root = Path(args.output_dir).resolve()
     output_root.mkdir(parents=True, exist_ok=True)
+    foundation_output = output_root / "foundation-dna"
+    foundation_output.mkdir(parents=True, exist_ok=True)
 
     dna = json.loads(DNA_PATH.read_text(encoding="utf-8"))
     packs = load_design_packs()
@@ -3319,7 +3352,18 @@ def main() -> int:
     preview_html = generate_preview_html(dna, packs, artifact_surfaces)
 
     (output_root / "DESIGN.md").write_text(design_md, encoding="utf-8")
+    if output_root != ROOT:
+        shutil.copy2(CONSUMER_GUIDE_PATH, output_root / "CONSUMER-GUIDE.zh-CN.md")
     (output_root / "DESIGN-GOVERNANCE.md").write_text(governance_md, encoding="utf-8")
+    shutil.copy2(STANDARD_MANIFEST_PATH, output_root / "design-standard-package.json")
+    shutil.copy2(DNA_PATH, foundation_output / "design-dna.zh-CN.json")
+    shutil.copy2(SEMANTIC_TOKENS_PATH, foundation_output / "tokens.semantic.json")
+
+    if output_root != ROOT:
+        sync_directory(ARTIFACT_SURFACES_DIR, output_root / "artifact-surfaces")
+        sync_directory(BRAND_ASSETS_DIR, output_root / "assets" / "brand")
+        sync_directory(EVALUATION_DIR, output_root / "evaluation")
+
     (output_root / "design-preview.html").write_text(preview_html, encoding="utf-8")
     (output_root / "index.html").write_text(preview_html, encoding="utf-8")
     for surface in artifact_surfaces:
@@ -3332,7 +3376,8 @@ def main() -> int:
         artifact_path.write_text(artifact_html, encoding="utf-8")
 
     print(
-        "exported DESIGN.md, DESIGN-GOVERNANCE.md, design-preview.html, index.html, and "
+        "exported DESIGN.md, CONSUMER-GUIDE.zh-CN.md, DESIGN-GOVERNANCE.md, design-standard-package.json, "
+        "foundation-dna/, artifact-surfaces/, assets/brand/, evaluation/, design-preview.html, index.html, and "
         f"{len(artifact_surfaces)} artifact pages to {output_root} with {len(packs)} design packs"
     )
     return 0

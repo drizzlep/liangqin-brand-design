@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "brand": "良禽佳木",
+  "package_role": "standard_package_brand_assets",
+  "purpose": "声明跨工具标准包在 Tier 2 及以上消费层必须可读取的品牌识别资产，避免最终视觉交付退化成纯文字品牌名或误判 logo 缺失。",
+  "consumption_tier": "tier_2",
+  "required_runtime_assets": [
+    {
+      "id": "logo_horizontal_svg",
+      "type": "logo",
+      "role": "primary_header_mark",
+      "preferred_format": "svg",
+      "path": "assets/brand/liangqinjiamu-logo-horizontal.svg",
+      "fallback_paths": [
+        "assets/brand/liangqinjiamu-logo-horizontal.png"
+      ],
+      "usage_rules": [
+        "优先用于页头、页尾、品牌签名区与横向品牌落款。",
+        "禁止拉伸、描边、加浮雕、加发光或覆在高噪声背景上。",
+        "可使用 Brand Asset 色或原始文件，不得擅自重绘字形。"
+      ]
+    },
+    {
+      "id": "logo_vertical_svg",
+      "type": "logo",
+      "role": "square_or_editorial_mark",
+      "preferred_format": "svg",
+      "path": "assets/brand/liangqinjiamu-logo-vertical.svg",
+      "fallback_paths": [
+        "assets/brand/liangqinjiamu-logo-vertical.png"
+      ],
+      "usage_rules": [
+        "仅用于竖版品牌页、封面或更适合纵向识别的品牌签名场景。",
+        "禁止替代横向主标在常规导航中的默认位置。"
+      ]
+    }
+  ],
+  "delivery_guardrails": {
+    "final_visual_requires_logo_asset": true,
+    "allowed_without_logo_asset": [
+      "structured_spec_only"
+    ],
+    "blocked_outputs_when_missing": [
+      "page_visual",
+      "hero_image",
+      "long_image",
+      "multi_card_set"
+    ],
+    "missing_asset_action": "stop_final_delivery_and_report_missing_logo_asset",
+    "missing_asset_message": "未读取到真实 logo 资产时，只允许输出受 DESIGN.md 约束的结构化 spec，不允许直接产出最终视觉成品。"
+  },
+  "icon_relationship": {
+    "policy": "logo 优先级高于装饰图标。图标精度不足时可以减少或取消，但品牌标志不得被弱化成纯文本替身。"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "version": "1.0.0",
+  "brand": "良禽佳木",
+  "source_of_truth": "foundation-dna/design-dna.zh-CN.json",
+  "token_model": "semantic_roles",
+  "notes": [
+    "这个文件是跨工具消费的中立 token 导出层。",
+    "优先服务 Stitch、OpenClaw 之外的其他 agent、脚本和导出流程。",
+    "它只表达稳定角色，不表达工具专属协议。"
+  ],
+  "color": {
+    "primary_ink": "#2B2926",
+    "background": "#F8F5F0",
+    "surface": "#F2EEE8",
+    "elevated_surface": "#FFFCF8",
+    "accent": "#8B6A4E",
+    "brand_asset": "#9C7F66",
+    "line": "#D8D0C4",
+    "neutral": {
+      "0": "#F8F5F0",
+      "50": "#F2EEE8",
+      "100": "#E7E1D8",
+      "200": "#D8D0C4",
+      "300": "#C6BDAF",
+      "400": "#A99F92",
+      "500": "#888075",
+      "600": "#6A635B",
+      "700": "#4B4640",
+      "800": "#36322E",
+      "900": "#1F1D1B"
+    },
+    "semantic": {
+      "success": "#567A62",
+      "warning": "#A0743C",
+      "error": "#A04F46",
+      "info": "#5E7A8E"
+    }
+  },
+  "typography": {
+    "heading_family": "\"Swei Sugar\", \"Noto Serif SC\", \"Source Han Serif SC\", \"Songti SC\", serif",
+    "body_family": "\"OPPO Sans 4.0\", \"PingFang SC\", \"Hiragino Sans GB\", \"Noto Sans SC\", sans-serif",
+    "mono_family": "\"SFMono-Regular\", \"SF Mono\", \"Menlo\", \"Consolas\", monospace",
+    "scale": {
+      "display": {
+        "size": "72px",
+        "weight": "500",
+        "line_height": "1.08",
+        "tracking": "-0.03em"
+      },
+      "heading_1": {
+        "size": "48px",
+        "weight": "500",
+        "line_height": "1.18",
+        "tracking": "-0.025em"
+      },
+      "heading_2": {
+        "size": "36px",
+        "weight": "500",
+        "line_height": "1.24",
+        "tracking": "-0.02em"
+      },
+      "heading_3": {
+        "size": "28px",
+        "weight": "500",
+        "line_height": "1.32",
+        "tracking": "-0.015em"
+      },
+      "body": {
+        "size": "17px",
+        "weight": "400",
+        "line_height": "1.82",
+        "tracking": "0"
+      },
+      "body_small": {
+        "size": "15px",
+        "weight": "400",
+        "line_height": "1.72",
+        "tracking": "0"
+      },
+      "caption": {
+        "size": "13px",
+        "weight": "400",
+        "line_height": "1.6",
+        "tracking": "0.01em"
+      },
+      "overline": {
+        "size": "12px",
+        "weight": "500",
+        "line_height": "1.4",
+        "tracking": "0.12em"
+      }
+    }
+  },
+  "spacing": {
+    "base_unit": "8px",
+    "scale": [
+      "4px",
+      "8px",
+      "12px",
+      "16px",
+      "24px",
+      "32px",
+      "48px",
+      "64px",
+      "96px",
+      "128px"
+    ],
+    "section_rhythm": "96px/128px",
+    "content_density": "spacious"
+  },
+  "shape": {
+    "radius": {
+      "small": "2px",
+      "medium": "6px",
+      "large": "12px",
+      "pill": "999px"
+    },
+    "divider": {
+      "thickness": "1px",
+      "style": "solid",
+      "color": "#D8D0C4"
+    }
+  },
+  "elevation": {
+    "low": "0 8px 24px rgba(31, 29, 27, 0.04)",
+    "medium": "0 18px 44px rgba(31, 29, 27, 0.08)",
+    "high": "0 28px 72px rgba(31, 29, 27, 0.12)"
+  },
+  "motion": {
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "duration": {
+      "micro": "140ms",
+      "normal": "280ms",
+      "macro": "520ms"
+    },
+    "entrance": "fade-up with slight translateY(12px)",
+    "exit": "fade-out with slight translateY(-8px)"
+  },
+  "responsive": {
+    "desktop_columns": 12,
+    "tablet_columns": 8,
+    "mobile_columns": 4,
+    "desktop_gutter": "32px",
+    "tablet_gutter": "24px",
+    "mobile_gutter": "16px"
+  }
+}

@@ -5,6 +5,18 @@
   "source_pack": "consultation-trust",
   "primary_use_case": "移动端咨询承接、服务说明与 FAQ 导流",
   "governance_role": "artifact_validation_layer",
+  "consumption_tier": "tier_2",
+  "allowed_adaptations": [
+    "压缩信息层级",
+    "把多列结构收束成单列",
+    "减少非关键图标与装饰",
+    "调整 CTA 的位置和长度"
+  ],
+  "forbidden_brand_overrides": [
+    "把移动端理解成另一套品牌风格",
+    "为了显眼而引入促销感标题或按钮",
+    "为了省空间而牺牲中文标签完整度"
+  ],
   "recommended_modules": [
     {
       "name": "服务边界说明",

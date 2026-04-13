@@ -2,11 +2,31 @@
   "display_name": "良禽品牌体",
   "package_slug": "liangqin-brand-body",
   "source_slug": "liangqin-brand-openclaw",
-  "version": "2.0.0",
+  "version": "2.1.0",
+  "package_role": "openclaw_adapter_distribution",
+  "standard_manifest": "design-standard-package.json",
   "entry_keyword": "良禽品牌体",
+  "entry_aliases": [
+    "良禽佳木品牌体"
+  ],
+  "consumption_tier": "tier_3",
+  "supported_tools": [
+    "OpenClaw"
+  ],
+  "consumes_layers": [
+    "DESIGN.md",
+    "DESIGN-GOVERNANCE.md",
+    "EXECUTION-CHECKLIST.md",
+    "foundation-dna/design-dna.zh-CN.json",
+    "foundation-dna/tokens.semantic.json",
+    "artifact-surfaces/",
+    "assets/brand/",
+    "evaluation/"
+  ],
   "legacy_keywords": [
     "liangqin-brand-openclaw",
-    "良禽佳木品牌页"
+    "良禽佳木品牌页",
+    "良禽佳木品牌体"
   ],
   "style_keywords": [
     "良禽佳木apple风"

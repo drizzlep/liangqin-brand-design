@@ -40,8 +40,18 @@ def validate_exported_package(source: Path) -> None:
     expected = [
         source / "SKILL.md",
         source / "DESIGN.md",
+        source / "CONSUMER-GUIDE.zh-CN.md",
         source / "DESIGN-GOVERNANCE.md",
+        source / "design-standard-package.json",
+        source / "EXECUTION-CHECKLIST.md",
+        source / "evaluation" / "manual-rubric.zh-CN.md",
+        source / "protocols" / "brand-assets.zh-CN.json",
+        source / "assets" / "brand" / "asset-manifest.zh-CN.json",
+        source / "assets" / "brand" / "liangqinjiamu-logo-horizontal.svg",
+        source / "assets" / "brand" / "liangqinjiamu-logo-vertical.svg",
         source / "foundation-dna" / "design-dna.zh-CN.json",
+        source / "foundation-dna" / "tokens.semantic.json",
+        source / "artifact-surfaces",
         source / "design-packs",
     ]
     missing = [str(path) for path in expected if not path.exists()]

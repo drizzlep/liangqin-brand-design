@@ -1,6 +1,3 @@
-> OpenClaw mirror of: `evaluation/human-review-protocol.zh-CN.md`
-> 仅补充 OpenClaw 落地语境，不反向覆盖根层标准评测规则。
-
 # 良禽佳木跨工具人类验收协议
 
 这份协议不是替代自动测试，而是补上“是否真的适合品牌交付”的人工判断。

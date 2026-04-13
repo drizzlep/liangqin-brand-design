@@ -42,26 +42,82 @@ class LiangqinBrandSkillDistributionTest(unittest.TestCase):
             exported_skill = output_dir / "liangqin-brand-body"
             self.assertTrue(exported_skill.exists(), "standalone skill folder missing")
             self.assertTrue((exported_skill / "DESIGN.md").exists())
+            self.assertTrue((exported_skill / "CONSUMER-GUIDE.zh-CN.md").exists())
             self.assertTrue((exported_skill / "DESIGN-GOVERNANCE.md").exists())
+            self.assertTrue((exported_skill / "design-standard-package.json").exists())
+            self.assertTrue((exported_skill / "EXECUTION-CHECKLIST.md").exists())
             self.assertTrue((exported_skill / "SKILL.md").exists())
             self.assertTrue((exported_skill / "skill-release.json").exists())
             self.assertTrue((exported_skill / "foundation-dna").exists())
             self.assertTrue((exported_skill / "foundation-dna" / "design-dna.zh-CN.json").exists())
+            self.assertTrue((exported_skill / "foundation-dna" / "tokens.semantic.json").exists())
+            self.assertTrue((exported_skill / "assets" / "brand").exists())
+            self.assertTrue(
+                (exported_skill / "assets" / "brand" / "asset-manifest.zh-CN.json").exists()
+            )
+            self.assertTrue(
+                (exported_skill / "assets" / "brand" / "liangqinjiamu-logo-horizontal.svg").exists()
+            )
+            self.assertTrue(
+                (exported_skill / "assets" / "brand" / "liangqinjiamu-logo-vertical.svg").exists()
+            )
             self.assertTrue((exported_skill / "design-packs").exists())
             self.assertTrue((exported_skill / "design-packs" / "liangqin-apple.json").exists())
+            self.assertTrue((exported_skill / "artifact-surfaces").exists())
+            self.assertTrue(
+                (exported_skill / "artifact-surfaces" / "web-brand-landing.json").exists()
+            )
             self.assertTrue((exported_skill / "protocols").exists())
+            self.assertTrue(
+                (
+                    exported_skill
+                    / "protocols"
+                    / "brand-assets.zh-CN.json"
+                ).exists()
+            )
+            self.assertTrue(
+                (
+                    exported_skill
+                    / "protocols"
+                    / "visual-delivery-spec.schema.zh-CN.json"
+                ).exists()
+            )
             self.assertTrue((exported_skill / "recipes").exists())
             self.assertTrue((exported_skill / "examples").exists())
             self.assertTrue((exported_skill / "evaluation").exists())
+            self.assertTrue(
+                (exported_skill / "evaluation" / "manual-rubric.zh-CN.md").exists()
+            )
+            self.assertTrue(
+                (exported_skill / "evaluation" / "examples" / "homepage-golden-sample.zh-CN.json").exists()
+            )
+            self.assertTrue(
+                (
+                    exported_skill
+                    / "evaluation"
+                    / "examples"
+                    / "product-detail-golden-sample.zh-CN.json"
+                ).exists()
+            )
             self.assertTrue((exported_skill / "scripts" / "install_into_openclaw.py").exists())
             install_text = (exported_skill / "OPENCLAW_INSTALL.md").read_text(encoding="utf-8")
             self.assertIn("`良禽品牌体`", install_text)
             self.assertIn("`liangqin-brand-body`", install_text)
             self.assertIn("默认先读取 `DESIGN.md`", install_text)
+            self.assertIn("`CONSUMER-GUIDE.zh-CN.md`", install_text)
+            self.assertIn("`design-standard-package.json`", install_text)
+            self.assertIn("`foundation-dna/tokens.semantic.json`", install_text)
             self.assertIn("`protocols/brand-boundaries.zh-CN.json`", install_text)
+            self.assertIn("`protocols/brand-assets.zh-CN.json`", install_text)
+            self.assertIn("`assets/brand/asset-manifest.zh-CN.json`", install_text)
             self.assertIn("`recipes/module-recipes.zh-CN.json`", install_text)
+            self.assertIn("结构化 spec", install_text)
             self.assertIn("良禽佳木apple风", install_text)
-            self.assertIn("默认只使用 `良禽品牌体` 作为顶层品牌入口", install_text)
+            self.assertIn(
+                "默认优先使用 `良禽品牌体 / 良禽佳木品牌体` 作为顶层品牌入口",
+                install_text,
+            )
+            self.assertIn("Tier 1", install_text)
             self.assertIn("次级写作能力", install_text)
 
     def test_exported_installer_can_publish_to_openclaw_skill_stores(self):
@@ -110,6 +166,16 @@ class LiangqinBrandSkillDistributionTest(unittest.TestCase):
             self.assertTrue((active_dest / "SKILL.md").exists())
             self.assertTrue((workspace_dest / "SKILL.md").exists())
             self.assertTrue((active_dest / "DESIGN.md").exists())
+            self.assertTrue((active_dest / "CONSUMER-GUIDE.zh-CN.md").exists())
+            self.assertTrue((active_dest / "design-standard-package.json").exists())
+            self.assertTrue((active_dest / "EXECUTION-CHECKLIST.md").exists())
+            self.assertTrue((active_dest / "protocols" / "brand-assets.zh-CN.json").exists())
+            self.assertTrue((active_dest / "assets" / "brand" / "asset-manifest.zh-CN.json").exists())
+            self.assertTrue((active_dest / "foundation-dna" / "tokens.semantic.json").exists())
+            self.assertTrue((active_dest / "artifact-surfaces" / "web-brand-landing.json").exists())
+            self.assertTrue(
+                (active_dest / "assets" / "brand" / "liangqinjiamu-logo-horizontal.svg").exists()
+            )
             self.assertTrue((workspace_dest / "skill-release.json").exists())
 
 
