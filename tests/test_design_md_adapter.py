@@ -48,6 +48,8 @@ REQUIRED_PACK_FIELDS = [
     "recommended_modules",
     "notes",
     "variation_scope",
+    "tweak_axes",
+    "locked_axes",
     "preview_tokens",
     "preview_content",
 ]
@@ -107,6 +109,10 @@ REQUIRED_ARTIFACT_FIELDS = [
     "recommended_modules",
     "layout_rules",
     "failure_modes",
+    "canvas_contract",
+    "interaction_contract",
+    "export_contract",
+    "verification_contract",
     "preview_content",
 ]
 
@@ -117,6 +123,32 @@ REQUIRED_ARTIFACT_CONTENT_FIELDS = [
     "page_goal",
     "primary_cta",
     "secondary_cta",
+]
+
+REQUIRED_CANVAS_CONTRACT_FIELDS = [
+    "format",
+    "size_strategy",
+    "safe_area",
+    "responsive_behavior",
+]
+
+REQUIRED_INTERACTION_CONTRACT_FIELDS = [
+    "interaction_model",
+    "state_persistence",
+    "input_methods",
+]
+
+REQUIRED_EXPORT_CONTRACT_FIELDS = [
+    "primary_formats",
+    "handoff_mode",
+    "offline_expectation",
+]
+
+REQUIRED_VERIFICATION_CONTRACT_FIELDS = [
+    "structure_checks",
+    "runtime_checks",
+    "visual_checks",
+    "delivery_checks",
 ]
 
 EXPECTED_ARTIFACT_GOVERNANCE_ROLE = "artifact_validation_layer"
@@ -178,6 +210,9 @@ class DesignMdAdapterTest(unittest.TestCase):
         self.assertIn("assets/brand/*", manifest["public_interfaces"])
         self.assertIn("evaluation/manual-rubric.zh-CN.md", manifest["public_interfaces"])
         self.assertIn("evaluation/examples/*.json", manifest["public_interfaces"])
+        self.assertEqual(len(manifest["governance"]["delivery_gates"]), 7)
+        self.assertIn("Context Gate", manifest["governance"]["delivery_gates"][0])
+        self.assertIn("reference_policy", manifest["governance"])
 
         layers = manifest["package_layers"]
         self.assertEqual(len(layers), 7)
@@ -319,6 +354,28 @@ class DesignMdAdapterTest(unittest.TestCase):
                 2,
                 f"{pack_path.name} variation_scope must contain at least 2 items",
             )
+            for list_name in ["tweak_axes", "locked_axes"]:
+                self.assertIsInstance(
+                    pack[list_name],
+                    list,
+                    f"{pack_path.name} {list_name} must be list",
+                )
+                self.assertGreaterEqual(
+                    len(pack[list_name]),
+                    2,
+                    f"{pack_path.name} {list_name} must contain at least 2 items",
+                )
+                for index, item in enumerate(pack[list_name]):
+                    self.assertIsInstance(
+                        item,
+                        str,
+                        f"{pack_path.name} {list_name}[{index}] must be string",
+                    )
+                    self.assertTrue(
+                        item.strip(),
+                        f"{pack_path.name} {list_name}[{index}] must not be empty",
+                    )
+
             for index, scope_item in enumerate(pack["variation_scope"]):
                 self.assertIsInstance(
                     scope_item,
@@ -528,6 +585,51 @@ class DesignMdAdapterTest(unittest.TestCase):
                     f"{surface_path.name} failure_modes[{index}] must not be empty",
                 )
 
+            contract_specs = {
+                "canvas_contract": REQUIRED_CANVAS_CONTRACT_FIELDS,
+                "interaction_contract": REQUIRED_INTERACTION_CONTRACT_FIELDS,
+                "export_contract": REQUIRED_EXPORT_CONTRACT_FIELDS,
+                "verification_contract": REQUIRED_VERIFICATION_CONTRACT_FIELDS,
+            }
+            for contract_name, required_fields in contract_specs.items():
+                self.assertIsInstance(
+                    surface[contract_name],
+                    dict,
+                    f"{surface_path.name} {contract_name} must be object",
+                )
+                for field_name in required_fields:
+                    self.assertIn(
+                        field_name,
+                        surface[contract_name],
+                        f"{surface_path.name} {contract_name} missing {field_name}",
+                    )
+                    field_value = surface[contract_name][field_name]
+                    if isinstance(field_value, list):
+                        self.assertTrue(
+                            field_value,
+                            f"{surface_path.name} {contract_name}.{field_name} must not be empty",
+                        )
+                        for index, item in enumerate(field_value):
+                            self.assertIsInstance(
+                                item,
+                                str,
+                                f"{surface_path.name} {contract_name}.{field_name}[{index}] must be string",
+                            )
+                            self.assertTrue(
+                                item.strip(),
+                                f"{surface_path.name} {contract_name}.{field_name}[{index}] must not be empty",
+                            )
+                    else:
+                        self.assertIsInstance(
+                            field_value,
+                            str,
+                            f"{surface_path.name} {contract_name}.{field_name} must be string or list",
+                        )
+                        self.assertTrue(
+                            field_value.strip(),
+                            f"{surface_path.name} {contract_name}.{field_name} must not be empty",
+                        )
+
             self.assertIsInstance(
                 surface["preview_content"],
                 dict,
@@ -688,6 +790,10 @@ class DesignMdAdapterTest(unittest.TestCase):
                 "Foundation DNA > DESIGN.md > artifact-surfaces > design-packs > examples",
                 governance_md_text,
             )
+            self.assertIn("## Delivery Gates", governance_md_text)
+            self.assertIn("Context Gate", governance_md_text)
+            self.assertIn("Surface Gate", governance_md_text)
+            self.assertIn("Runtime Gate", governance_md_text)
             self.assertIn("## Change Map", governance_md_text)
             self.assertNotIn("## 1. Layer Roles", governance_md_text)
             self.assertNotIn("## 2. 默认 AI 读取顺序", governance_md_text)

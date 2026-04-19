@@ -36,6 +36,8 @@ PACK_REQUIRED_FIELDS = [
     "recommended_modules",
     "notes",
     "variation_scope",
+    "tweak_axes",
+    "locked_axes",
     "preview_tokens",
     "preview_content",
 ]
@@ -91,6 +93,10 @@ ARTIFACT_REQUIRED_FIELDS = [
     "recommended_modules",
     "layout_rules",
     "failure_modes",
+    "canvas_contract",
+    "interaction_contract",
+    "export_contract",
+    "verification_contract",
     "preview_content",
 ]
 
@@ -101,6 +107,32 @@ ARTIFACT_REQUIRED_CONTENT_FIELDS = [
     "page_goal",
     "primary_cta",
     "secondary_cta",
+]
+
+CANVAS_CONTRACT_REQUIRED_FIELDS = [
+    "format",
+    "size_strategy",
+    "safe_area",
+    "responsive_behavior",
+]
+
+INTERACTION_CONTRACT_REQUIRED_FIELDS = [
+    "interaction_model",
+    "state_persistence",
+    "input_methods",
+]
+
+EXPORT_CONTRACT_REQUIRED_FIELDS = [
+    "primary_formats",
+    "handoff_mode",
+    "offline_expectation",
+]
+
+VERIFICATION_CONTRACT_REQUIRED_FIELDS = [
+    "structure_checks",
+    "runtime_checks",
+    "visual_checks",
+    "delivery_checks",
 ]
 
 REQUIRED_QUOTE_SAMPLE_FIELDS = [
@@ -376,9 +408,24 @@ def generate_design_governance_md(dna: dict) -> str:
         "",
         "- Truth: `foundation-dna/design-dna.zh-CN.json`",
         "- Default input: `DESIGN.md`",
+        "- Neutral token export: `foundation-dna/tokens.semantic.json`",
         "- Read `design-packs/*.json` only when style variation is needed",
         "- Read `artifact-surfaces/*.json` only when a concrete artifact is needed",
         "- Read `examples / real cases` only for acceptance or calibration",
+        "- Run the delivery gates in order: Context → Surface → Variation → Material → Runtime → Verification → Handoff",
+        "- Categories change content facts and emphasis only; they must not redefine brand style",
+        "- Channels change delivery constraints and density only; they must not become style switches",
+        "- `skills/public/liangqin-brand-openclaw/` is an adapter that consumes this standard; it is not the source of truth",
+        "",
+        "## Delivery Gates",
+        "",
+        "- Context Gate: confirm the brief, product facts, reference material, design assets and target fidelity before choosing an output level.",
+        "- Surface Gate: identify the delivery surface before layout; do not turn decks, quote cards, H5 flows, motion artifacts or design canvases into generic web pages.",
+        "- Variation Gate: use `design-packs/` as controlled tweaks only; expose options when exploration is requested, not as uncontrolled style drift.",
+        "- Material Gate: if logo, imagery, icon, quote or product facts are missing, degrade to structured spec, placeholder or a missing-input list instead of faking finish.",
+        "- Runtime Gate: follow the selected artifact surface's canvas, interaction and export contract when the output must open, scale, print, present or be shared.",
+        "- Verification Gate: check structure, runtime behavior, brand fit and final delivery format before treating the artifact as ready.",
+        "- Handoff Gate: state whether the output is a spec, prototype, visual draft, final artifact or blocked pending assets.",
         "",
         "## Conflict Resolution",
         "",
@@ -390,6 +437,7 @@ def generate_design_governance_md(dna: dict) -> str:
         "- Change `DESIGN.md` to alter AI-facing design language",
         "- Change `design-packs/` to open controlled variation",
         "- Change `artifact-surfaces/` to validate concrete deliverables",
+        "- Change `evaluation/` to record delivery failures, AI slop, data slop, context gaps and regression questions",
     ]
 
     return "\n".join(lines) + "\n"
@@ -442,6 +490,19 @@ def ensure_module_list(values, context: str) -> None:
                 value[field_name],
                 f"{context}[{index}].{field_name}",
             )
+
+
+def ensure_contract_fields(value: dict, required_fields, context: str) -> None:
+    if not isinstance(value, dict):
+        raise ValueError(f"{context} must be an object")
+    require_fields(value, required_fields, context)
+    for field_name in required_fields:
+        field_value = value[field_name]
+        field_context = f"{context}.{field_name}"
+        if isinstance(field_value, list):
+            ensure_string_list(field_value, field_context)
+        else:
+            ensure_non_empty_string(field_value, field_context)
 
 
 def ensure_quote_samples(values, context: str) -> None:
@@ -518,6 +579,8 @@ def validate_design_pack(pack: dict, path: Path) -> None:
     ensure_string_list(pack["best_for_pages"], f"{path.name}.best_for_pages")
     ensure_string_list(pack["component_focus"], f"{path.name}.component_focus")
     ensure_string_list(pack["variation_scope"], f"{path.name}.variation_scope")
+    ensure_string_list(pack["tweak_axes"], f"{path.name}.tweak_axes")
+    ensure_string_list(pack["locked_axes"], f"{path.name}.locked_axes")
     ensure_module_list(pack["recommended_modules"], f"{path.name}.recommended_modules")
 
     preview_tokens = pack["preview_tokens"]
@@ -608,6 +671,26 @@ def validate_artifact_surface(surface: dict, path: Path, pack_slugs: set[str]) -
     ensure_module_list(surface["recommended_modules"], f"{path.name}.recommended_modules")
     ensure_string_list(surface["layout_rules"], f"{path.name}.layout_rules")
     ensure_string_list(surface["failure_modes"], f"{path.name}.failure_modes")
+    ensure_contract_fields(
+        surface["canvas_contract"],
+        CANVAS_CONTRACT_REQUIRED_FIELDS,
+        f"{path.name}.canvas_contract",
+    )
+    ensure_contract_fields(
+        surface["interaction_contract"],
+        INTERACTION_CONTRACT_REQUIRED_FIELDS,
+        f"{path.name}.interaction_contract",
+    )
+    ensure_contract_fields(
+        surface["export_contract"],
+        EXPORT_CONTRACT_REQUIRED_FIELDS,
+        f"{path.name}.export_contract",
+    )
+    ensure_contract_fields(
+        surface["verification_contract"],
+        VERIFICATION_CONTRACT_REQUIRED_FIELDS,
+        f"{path.name}.verification_contract",
+    )
 
     preview_content = surface["preview_content"]
     if not isinstance(preview_content, dict):

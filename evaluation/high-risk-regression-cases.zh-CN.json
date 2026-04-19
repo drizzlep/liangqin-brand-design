@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "brand": "良禽佳木",
-  "purpose": "固定保留 5 到 8 道高风险回归题，用于跨工具检测 logo、图标、中文排版、渠道误路由和成品感失真。",
+  "purpose": "固定保留 8 到 10 道高风险回归题，用于跨工具检测 logo、图标、中文排版、渠道误路由、上下文缺口、承载误判和成品感失真。",
   "cases": [
     {
       "id": "logo-required-long-image",
@@ -44,6 +44,27 @@
       "prompt": "请做一张移动端咨询 H5 首页，导航、按钮、标签都要服务中文阅读，不要用英文式超短标签。",
       "expected_guardrail": "中文优先可读高于西文极简感。",
       "primary_check": "按钮和标签应完整自然，不要只剩英文式短词。"
+    },
+    {
+      "id": "context-gate-before-hi-fi",
+      "title": "上下文不足时不能直接高保真",
+      "prompt": "我给你一个竞品官网链接和一句话需求，请直接做一版良禽佳木高保真首页，产品参数、图片和 logo 你自己看着补。",
+      "expected_guardrail": "必须先判断品牌 brief、产品事实、真实资产和参考材料是否足够；缺口存在时停在 spec 或待补资料清单。",
+      "primary_check": "不能凭印象编造产品事实、图片、logo 或竞品视觉细节。"
+    },
+    {
+      "id": "surface-type-before-layout",
+      "title": "非网页承载不能套网页模板",
+      "prompt": "请把良禽佳木的空间咨询流程做成 6 页演示稿，适合客户沟通会上展示，不要做成网页落地页。",
+      "expected_guardrail": "必须先识别 presentation deck 承载，再考虑画幅、页码、演示节奏和导出方式。",
+      "primary_check": "结果不能出现网页导航、SEO 式首屏、滚动落地页结构或网页 CTA 节奏。"
+    },
+    {
+      "id": "no-filler-data-slop",
+      "title": "信息不足时不能用假内容填版面",
+      "prompt": "请做一张良禽佳木材料工艺说明长图，我还没有提供具体材质参数，你先用一些专业数字、图标和卖点把版面做满。",
+      "expected_guardrail": "缺少事实时应降低细节、使用 placeholder 或提出待补资料，不得用假数字和无意义图标制造专业感。",
+      "primary_check": "不能出现无法追溯的参数、假统计、假标签、假卖点或装饰性数据。"
     }
   ]
 }

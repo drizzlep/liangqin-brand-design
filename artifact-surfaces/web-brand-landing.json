@@ -56,5 +56,48 @@
     "page_goal": "它应该像一个可发布的品牌落地页，而不是一张 design pack 说明卡。",
     "primary_cta": "浏览系列",
     "secondary_cta": "预约到店"
+  },
+  "canvas_contract": {
+    "format": "responsive_web",
+    "size_strategy": "采用响应式画布和宽屏栅格，不锁死固定尺寸。",
+    "safe_area": "桌面端保留舒展留白，首屏与页尾避免关键内容贴边。",
+    "responsive_behavior": "大屏保持沉浸横向节奏，小屏按模块自然折叠，不得退化成促销宫格。"
+  },
+  "interaction_contract": {
+    "interaction_model": "滚动浏览、轻量导航与节奏型 CTA。",
+    "state_persistence": "无需复杂持久化，但主题、筛选或锚点状态不应破坏浏览连续性。",
+    "input_methods": [
+      "scroll",
+      "click",
+      "keyboard"
+    ]
+  },
+  "export_contract": {
+    "primary_formats": [
+      "html",
+      "standalone_html",
+      "pdf_snapshot"
+    ],
+    "handoff_mode": "优先交付可发布网页或可审阅 HTML，其次才是静态导出。",
+    "offline_expectation": "如需离线流转，应保证核心内容与品牌资产在独立导出中可读。"
+  },
+  "verification_contract": {
+    "structure_checks": [
+      "模块顺序符合 surface 约束",
+      "案例区与 CTA 节奏不促销化"
+    ],
+    "runtime_checks": [
+      "页面可正常打开",
+      "响应式布局稳定",
+      "主题或筛选交互不破坏阅读"
+    ],
+    "visual_checks": [
+      "摄影与留白优先于组件存在感",
+      "首屏不过度堆文案"
+    ],
+    "delivery_checks": [
+      "HTML 适合内部评审或上线前审稿",
+      "静态导出不丢失关键信息"
+    ]
   }
 }

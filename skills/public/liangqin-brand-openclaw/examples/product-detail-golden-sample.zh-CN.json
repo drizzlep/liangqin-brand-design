@@ -5,6 +5,13 @@
     "正在对具体产品做比较和判断的中文客户",
     "关心材质、尺寸、工艺与适配空间的人群"
   ],
+  "delivery_context": {
+    "context_status": "complete",
+    "selected_surface": "web",
+    "surface_reason": "这是产品详情页结构蓝图，先固定叙事和事实顺序，再决定具体网页或其他承载。",
+    "material_readiness": "产品事实足以产出详情蓝图，但最终视觉仍需确认主图、logo 与实际导出方式。",
+    "variation_mode": "default_foundation_then_controlled_tweak"
+  },
   "narrative_arc": [
     "先理解产品印象与适用场景",
     "再理解亮点与材质逻辑",
@@ -118,5 +125,11 @@
     "参数区不得艺术化到难以查阅",
     "所有产品事实必须来自输入资料",
     "咨询动作必须礼貌、可信"
-  ]
+  ],
+  "handoff_state": {
+    "current_stage": "structured_spec",
+    "can_render_final": false,
+    "next_action": "补充 visual_delivery_spec，确认具体 surface 与品牌资产后再进入最终渲染。",
+    "blocker_if_any": "当前样例只覆盖结构化蓝图，不直接承担最终高保真交付。"
+  }
 }

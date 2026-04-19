@@ -72,6 +72,18 @@ class LiangqinBrandSkillAssetsTest(unittest.TestCase):
             input_contract["request_normalization"]["channel_policy"],
             "channel_adapts_delivery_not_brand",
         )
+        self.assertEqual(
+            len(input_contract["request_normalization"]["delivery_gates"]),
+            7,
+        )
+        self.assertIn(
+            "Context Gate",
+            input_contract["request_normalization"]["delivery_gates"][0],
+        )
+        self.assertIn(
+            "presentation_deck",
+            input_contract["request_normalization"]["surface_selection"]["supported_surfaces"],
+        )
         self.assertIn(
             {
                 "condition": "final_visual_without_logo_asset",
@@ -144,11 +156,13 @@ class LiangqinBrandSkillAssetsTest(unittest.TestCase):
             "page_type",
             "page_goal",
             "target_audience",
+            "delivery_context",
             "narrative_arc",
             "section_order",
             "sections",
             "cta_strategy",
             "brand_constraints",
+            "handoff_state",
         }
         self.assertTrue(required_fields.issubset(set(homepage_schema["required"])))
         self.assertTrue(required_fields.issubset(set(product_schema["required"])))
@@ -157,12 +171,16 @@ class LiangqinBrandSkillAssetsTest(unittest.TestCase):
                 "page_type",
                 "delivery_goal",
                 "asset_form",
+                "delivery_context",
                 "information_priority",
                 "layout_blocks",
                 "visual_system",
                 "image_strategy",
                 "icon_strategy",
+                "surface_contract_summary",
+                "asset_readiness",
                 "handoff_rules",
+                "handoff_state",
             }.issubset(set(visual_schema["required"]))
         )
         self.assertEqual(
@@ -199,6 +217,14 @@ class LiangqinBrandSkillAssetsTest(unittest.TestCase):
         self.assertEqual(homepage_sample, root_homepage_sample)
         self.assertEqual(product_sample, root_product_sample)
         for sample in [homepage_sample, product_sample]:
+            self.assertIn("delivery_context", sample)
+            self.assertIn("handoff_state", sample)
+            self.assertIn(
+                sample["delivery_context"]["context_status"],
+                {"complete", "partial", "blocked"},
+            )
+            self.assertEqual(sample["handoff_state"]["current_stage"], "structured_spec")
+            self.assertFalse(sample["handoff_state"]["can_render_final"])
             self.assertTrue(sample["section_order"])
             self.assertTrue(
                 set(sample["section_order"]).issubset(set(module_ids)),
@@ -374,7 +400,7 @@ class LiangqinBrandSkillAssetsTest(unittest.TestCase):
             regression_cases["mirror_role"],
             "openclaw_adapter_evaluation_mirror",
         )
-        self.assertTrue(5 <= len(regression_cases["cases"]) <= 8)
+        self.assertTrue(8 <= len(regression_cases["cases"]) <= 10)
         regression_ids = {case["id"] for case in regression_cases["cases"]}
         root_regression_ids = {
             case["id"] for case in root_regression_cases["cases"]

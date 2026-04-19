@@ -56,5 +56,46 @@
     "page_goal": "它应该像一张真实可转发、可打开、可继续操作的移动咨询页。",
     "primary_cta": "提交需求",
     "secondary_cta": "查看流程"
+  },
+  "canvas_contract": {
+    "format": "mobile_single_column",
+    "size_strategy": "按移动端窄屏单列组织信息，每屏承担一个判断任务。",
+    "safe_area": "顶部、底部和固定 CTA 区需保留触控安全边距。",
+    "responsive_behavior": "允许在不同手机宽度上收束间距，但不得牺牲中文标签完整度和点按稳定性。"
+  },
+  "interaction_contract": {
+    "interaction_model": "纵向浏览、分段说明、底部承接咨询动作。",
+    "state_persistence": "如存在流程或 FAQ 展开状态，应保证刷新后不影响主路径理解。",
+    "input_methods": [
+      "scroll",
+      "tap"
+    ]
+  },
+  "export_contract": {
+    "primary_formats": [
+      "html",
+      "standalone_html",
+      "long_image_preview"
+    ],
+    "handoff_mode": "优先交付真实可打开的 H5，再考虑长图化预览。",
+    "offline_expectation": "离线查看时仍应保留流程、FAQ 和 CTA 的主次关系。"
+  },
+  "verification_contract": {
+    "structure_checks": [
+      "服务边界、流程、FAQ、提交需求区完整",
+      "首屏先解释后转化"
+    ],
+    "runtime_checks": [
+      "移动端滚动稳定",
+      "按钮尺寸与触控区域合格"
+    ],
+    "visual_checks": [
+      "窄屏不形成阅读墙",
+      "标签与按钮保持完整中文"
+    ],
+    "delivery_checks": [
+      "适合手机内打开与转发",
+      "固定 CTA 不遮挡核心说明"
+    ]
   }
 }

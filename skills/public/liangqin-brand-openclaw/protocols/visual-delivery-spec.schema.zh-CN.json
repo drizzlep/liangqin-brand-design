@@ -8,6 +8,7 @@
     "delivery_goal",
     "asset_form",
     "target_audience",
+    "delivery_context",
     "primary_message",
     "information_priority",
     "layout_blocks",
@@ -16,7 +17,10 @@
     "icon_strategy",
     "copy_tone",
     "brand_constraints",
-    "handoff_rules"
+    "surface_contract_summary",
+    "asset_readiness",
+    "handoff_rules",
+    "handoff_state"
   ],
   "properties": {
     "page_type": {
@@ -44,6 +48,37 @@
         "type": "string"
       },
       "minItems": 1
+    },
+    "delivery_context": {
+      "type": "object",
+      "required": [
+        "context_status",
+        "selected_surface",
+        "surface_reason",
+        "material_readiness"
+      ],
+      "properties": {
+        "context_status": {
+          "type": "string",
+          "enum": [
+            "complete",
+            "partial",
+            "blocked"
+          ]
+        },
+        "selected_surface": {
+          "type": "string"
+        },
+        "surface_reason": {
+          "type": "string"
+        },
+        "material_readiness": {
+          "type": "string"
+        },
+        "variation_mode": {
+          "type": "string"
+        }
+      }
     },
     "primary_message": {
       "type": "string"
@@ -185,6 +220,95 @@
       },
       "minItems": 4
     },
+    "surface_contract_summary": {
+      "type": "object",
+      "required": [
+        "canvas_format",
+        "interaction_model",
+        "export_formats",
+        "verification_focus"
+      ],
+      "properties": {
+        "canvas_format": {
+          "type": "string"
+        },
+        "interaction_model": {
+          "type": "string"
+        },
+        "export_formats": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "verification_focus": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          }
+        },
+        "offline_expectation": {
+          "type": "string"
+        }
+      }
+    },
+    "asset_readiness": {
+      "type": "object",
+      "required": [
+        "logo_status",
+        "imagery_status",
+        "icon_status",
+        "fact_status",
+        "fallback_action"
+      ],
+      "properties": {
+        "logo_status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "missing",
+            "not_needed"
+          ]
+        },
+        "imagery_status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "partial",
+            "missing",
+            "not_needed"
+          ]
+        },
+        "icon_status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "partial",
+            "missing",
+            "not_needed"
+          ]
+        },
+        "fact_status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "partial",
+            "missing"
+          ]
+        },
+        "fallback_action": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "handoff_rules": {
       "type": "object",
       "required": [
@@ -204,6 +328,35 @@
           "minItems": 2
         },
         "fidelity_fail_action": {
+          "type": "string"
+        }
+      }
+    },
+    "handoff_state": {
+      "type": "object",
+      "required": [
+        "current_stage",
+        "can_render_final",
+        "next_action"
+      ],
+      "properties": {
+        "current_stage": {
+          "type": "string",
+          "enum": [
+            "structured_spec",
+            "visual_draft",
+            "prototype",
+            "final_delivery",
+            "blocked"
+          ]
+        },
+        "can_render_final": {
+          "type": "boolean"
+        },
+        "next_action": {
+          "type": "string"
+        },
+        "blocker_if_any": {
           "type": "string"
         }
       }
