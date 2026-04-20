@@ -11,7 +11,7 @@
 
 这次升级建议直接发布为：
 
-- `v2.1.0`
+- `v2.2.0`
 
 原因：
 
@@ -31,7 +31,7 @@ python3 scripts/prepare_openclaw_release.py
 默认会生成：
 
 - `dist/liangqin-brand-body/`
-- `dist/liangqin-brand-body-2.1.0.zip`
+- `dist/liangqin-brand-body-2.2.0.zip`
 
 ### 2. 跑校验
 
@@ -44,15 +44,15 @@ python3 skills/public/liangqin-brand-openclaw/scripts/validate_skill_assets.py
 
 ```bash
 git add .
-git commit -m "release: ship 良禽品牌体 v2.1.0"
+git commit -m "release: ship 良禽品牌体 v2.2.0"
 git push origin HEAD
 ```
 
 ### 4. 打 Tag 并推送
 
 ```bash
-git tag v2.1.0
-git push origin v2.1.0
+git tag v2.2.0
+git push origin v2.2.0
 ```
 
 ### 5. 到 GitHub 创建 Release
@@ -67,12 +67,12 @@ Release 页面：
 
 上传资产：
 
-- `dist/liangqin-brand-body-2.1.0.zip`
+- `dist/liangqin-brand-body-2.2.0.zip`
 
 ## 建议的 GitHub Release 标题
 
 ```text
-v2.1.0 · 良禽跨工具标准包版
+v2.2.0 · 良禽交付协议增强版
 ```
 
 ## 建议的 GitHub Release 正文
@@ -141,7 +141,7 @@ python3 scripts/install_into_openclaw.py
 ### 2. 怎么安装
 
 ```md
-1. 下载 Release 里的 `liangqin-brand-body-2.1.0.zip`
+1. 下载 Release 里的 `liangqin-brand-body-2.2.0.zip`
 2. 解压后进入目录
 3. 运行：
 
@@ -198,5 +198,5 @@ python3 scripts/install_into_openclaw.py
 你可以直接这样写：
 
 ```text
-v2.1.0 把仓库升级成“良禽跨工具设计标准包 + OpenClaw 适配器”的新结构，标准本体回到根目录统一治理，OpenClaw 继续作为稳定消费入口，发布、校验和样例同步也都更完整。
+v2.2.0 在跨工具标准包结构上继续把交付协议下沉到 schema 层，明确 structured spec、surface 选择、资产完备度与 handoff 状态，让 Hermes、OpenClaw 及其他机器人更稳定地消费同一安装包。
 ```

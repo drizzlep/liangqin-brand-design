@@ -182,9 +182,19 @@
   "governance": {
     "categories_rule": "品类只改变内容事实与重点，不改写品牌表达。",
     "channels_rule": "渠道只改变信息密度、画幅与交付方式，不切换品牌风格。",
+    "delivery_gates": [
+      "Context Gate：先确认 brief、产品事实、参考材料、真实资产与目标保真度是否足够。",
+      "Surface Gate：先识别交付物类型，不把 deck、H5、报价卡、动效和设计画布统一做成网页。",
+      "Variation Gate：只有在探索需要时才打开 design packs，且它们只是受控 tweak，不是第二套品牌。",
+      "Material Gate：logo、图像、图标、报价和产品事实不足时，应降级到 spec、placeholder 或待补资料清单。",
+      "Runtime Gate：真实交付前必须遵守 artifact surface 的画布、交互、导出与验证合同。",
+      "Verification Gate：交付前至少检查结构、运行、品牌拟合与最终格式。",
+      "Handoff Gate：明确当前结果是 spec、草稿、原型、最终成品还是阻断状态。"
+    ],
     "adapter_policy": "skills/public/liangqin-brand-openclaw/ 只负责消费标准，不负责定义标准。",
     "design_packs_policy": "design-packs/ 只允许受控变化，不允许重写品牌。",
-    "artifact_surfaces_policy": "artifact-surfaces/ 只描述交付约束，不描述新的品牌审美。"
+    "artifact_surfaces_policy": "artifact-surfaces/ 只描述交付约束，不描述新的品牌审美。",
+    "reference_policy": "参考页、截图、源码树和黄金样例都只能提供上下文线索，不得被当作直接复制模板。"
   },
   "team_governance": {
     "versioning_policy": [
@@ -194,7 +204,8 @@
     "review_rules": [
       "每次改动都必须说明改的是哪一层以及原因。",
       "不允许直接在渠道层偷偷改品牌。",
-      "OpenClaw 适配器变更不能反向覆盖标准包本体。"
+      "OpenClaw 适配器变更不能反向覆盖标准包本体。",
+      "外部方法论只能翻译成良禽自己的协议，不直接抬升为品牌真源。"
     ],
     "regression_suite": "evaluation/high-risk-regression-cases.zh-CN.json"
   }

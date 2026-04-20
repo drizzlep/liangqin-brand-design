@@ -5,6 +5,13 @@
     "正在为新家寻找高质感家具与空间解决方案的中文客户",
     "看重材质、触感、长期使用体验的中高端用户"
   ],
+  "delivery_context": {
+    "context_status": "complete",
+    "selected_surface": "web",
+    "surface_reason": "这是首页级结构蓝图，默认服务官网首页或品牌落地页的网页承载。",
+    "material_readiness": "品牌 brief 与叙事结构已足够产出蓝图，但最终高保真仍需确认 logo、图像与实际交付资产。",
+    "variation_mode": "default_foundation_then_controlled_tweak"
+  },
   "narrative_arc": [
     "先感受到品牌气质",
     "再理解材质与判断标准",
@@ -72,5 +79,11 @@
     "不得出现促销化语气",
     "不得让 accent 大面积占主导",
     "中文摘要必须完整可读"
-  ]
+  ],
+  "handoff_state": {
+    "current_stage": "structured_spec",
+    "can_render_final": false,
+    "next_action": "在确认具体承载后补充 visual_delivery_spec，并按对应 artifact surface 进入渲染。",
+    "blocker_if_any": "当前样例停在首页蓝图阶段，尚未确认最终运行时资产与导出目标。"
+  }
 }

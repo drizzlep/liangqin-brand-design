@@ -63,6 +63,32 @@
       "product_detail_blueprint",
       "visual_delivery_spec"
     ],
+    "delivery_gates": [
+      "Context Gate：先确认 brief、产品事实、参考材料、真实资产和目标保真度是否足够。",
+      "Surface Gate：先识别交付物类型，不把所有承载都做成网页。",
+      "Variation Gate：只有在探索需要时才打开 design packs，且它们只是受控 tweak。",
+      "Material Gate：logo、图像、图标、报价和产品事实不足时，优先降级到 spec、placeholder 或待补资料清单。",
+      "Runtime Gate：真实交付前必须遵守 artifact surface 的画布、交互、导出与验证合同。",
+      "Verification Gate：交付前至少检查结构、运行、品牌拟合与最终格式。",
+      "Handoff Gate：明确当前结果是 spec、草稿、原型、最终成品还是阻断状态。"
+    ],
+    "surface_selection": {
+      "supported_surfaces": [
+        "web",
+        "mobile_h5",
+        "quote_card",
+        "presentation_deck",
+        "interactive_prototype",
+        "design_canvas",
+        "motion_artifact",
+        "standalone_html"
+      ],
+      "default_policy": "先判断承载，再决定版式、画幅、交互和导出方式。",
+      "forbidden_shortcuts": [
+        "不得把 H5、报价卡、PPT、动效和设计画布统一套成网页落地页。",
+        "不得把参考页表面结构直接当作最终交付结构。"
+      ]
+    },
     "channel_policy": "channel_adapts_delivery_not_brand",
     "visual_request_triggers": [
       "图片",
@@ -98,6 +124,11 @@
       "condition": "missing_reference_pages",
       "action": "fallback_to_foundation_dna",
       "reason": "直接使用良禽佳木默认品牌边界和模块优先级。"
+    },
+    {
+      "condition": "missing_context_for_hi_fi",
+      "action": "degrade_to_spec_or_placeholder",
+      "reason": "上下文不足时，优先停在 structured spec、placeholder 或待补资料清单，不伪造高保真成品。"
     },
     {
       "condition": "visual_request_without_structured_spec",

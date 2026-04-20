@@ -32,7 +32,7 @@ class PrepareOpenclawReleaseTest(unittest.TestCase):
             self.assertIn("[run] validate exported skill assets", result.stdout)
             self.assertIn("[run] export OpenClaw release bundle", result.stdout)
             self.assertIn("Prepared release artifact:", result.stdout)
-            self.assertTrue((output_dir / "liangqin-brand-body-2.1.0.zip").exists())
+            self.assertTrue((output_dir / "liangqin-brand-body-2.2.0.zip").exists())
 
 
 if __name__ == "__main__":

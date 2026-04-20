@@ -99,6 +99,14 @@ def main() -> int:
     if "visual_delivery_spec" not in supported_spec_types:
         print("input-contract missing visual_delivery_spec routing")
         return 1
+    delivery_gates = normalization.get("delivery_gates", [])
+    if len(delivery_gates) != 7:
+        print("input-contract delivery_gates must contain 7 stages")
+        return 1
+    surface_selection = normalization.get("surface_selection", {})
+    if "presentation_deck" not in surface_selection.get("supported_surfaces", []):
+        print("input-contract missing presentation_deck surface routing")
+        return 1
     fallback_conditions = {
         rule.get("condition")
         for rule in input_contract.get("fallback_rules", [])
@@ -229,11 +237,60 @@ def main() -> int:
         print("module count out of range")
         return 1
 
+    homepage_schema = load_json("protocols/homepage-blueprint.schema.zh-CN.json")
+    product_schema = load_json("protocols/product-detail-blueprint.schema.zh-CN.json")
+    visual_schema = load_json("protocols/visual-delivery-spec.schema.zh-CN.json")
+    blueprint_required = {
+        "page_type",
+        "page_goal",
+        "target_audience",
+        "delivery_context",
+        "narrative_arc",
+        "section_order",
+        "sections",
+        "cta_strategy",
+        "brand_constraints",
+        "handoff_state",
+    }
+    if not blueprint_required.issubset(set(homepage_schema.get("required", []))):
+        print("homepage schema missing delivery protocol fields")
+        return 1
+    if not blueprint_required.issubset(set(product_schema.get("required", []))):
+        print("product detail schema missing delivery protocol fields")
+        return 1
+    visual_required = {
+        "page_type",
+        "delivery_goal",
+        "asset_form",
+        "delivery_context",
+        "information_priority",
+        "layout_blocks",
+        "visual_system",
+        "image_strategy",
+        "icon_strategy",
+        "surface_contract_summary",
+        "asset_readiness",
+        "handoff_rules",
+        "handoff_state",
+    }
+    if not visual_required.issubset(set(visual_schema.get("required", []))):
+        print("visual delivery schema missing delivery protocol fields")
+        return 1
+
     for example_file in [
         "examples/homepage-golden-sample.zh-CN.json",
         "examples/product-detail-golden-sample.zh-CN.json"
     ]:
         example = load_json(example_file)
+        if "delivery_context" not in example or "handoff_state" not in example:
+            print(f"{example_file} missing delivery handoff fields")
+            return 1
+        if example["handoff_state"].get("current_stage") != "structured_spec":
+            print(f"{example_file} current_stage must stay structured_spec")
+            return 1
+        if example["handoff_state"].get("can_render_final") is not False:
+            print(f"{example_file} can_render_final must stay false")
+            return 1
         unknown = sorted(set(example["section_order"]) - set(module_ids))
         if unknown:
             print(f"{example_file} uses unknown modules: {', '.join(unknown)}")
@@ -260,8 +317,8 @@ def main() -> int:
         return 1
 
     regression_cases = load_standard_json("evaluation/high-risk-regression-cases.zh-CN.json")
-    if not 5 <= len(regression_cases.get("cases", [])) <= 8:
-        print("high-risk regression case count must be between 5 and 8")
+    if not 8 <= len(regression_cases.get("cases", [])) <= 10:
+        print("high-risk regression case count must be between 8 and 10")
         return 1
     if "良禽品牌体" in json.dumps(regression_cases, ensure_ascii=False):
         print("root regression cases should stay tool-neutral")
