@@ -202,7 +202,7 @@ python3 scripts/export_openclaw_skill.py --output-dir ./dist --zip
 导出后会生成：
 
 - `dist/liangqin-brand-body/`
-- `dist/liangqin-brand-body-2.1.0.zip`
+- `dist/liangqin-brand-body-2.2.0.zip`
 
 推荐安装方式：
 
