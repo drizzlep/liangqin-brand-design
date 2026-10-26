@@ -46,6 +46,28 @@ python3 scripts/check_page.py path/to/your-page.html
 
 4. 校验通过再交付。规范本身、预览页与 kit 每次构建都会跑同一套检查，所以规范与 kit 不会互相漂移。
 
+**给其他 AI Agent 安装**
+
+发行包才是可运行形态：`SKILL.md` 必须与 `DESIGN.md`、`kit/`、`tokens/`、`assets/` 放在同一层。源码目录 `skills/public/liangqin-brand-body/` 只有入口文件，直接当技能安装会缺规范与 kit。
+
+已验证可用的分发方式：
+
+```bash
+python3 scripts/build_skill.py --zip    # 生成 dist/liangqin-brand-body/ 与同名 zip
+```
+
+- **zip 安装**：解压 `dist/liangqin-brand-body-<version>.zip`，把 `liangqin-brand-body/` 放进目标 runtime 的 skills 目录。
+- **本机多 runtime**：`python3 scripts/sync_runtimes.py --apply`（自动跳过符号链接与不存在的 runtime）。
+- **项目级**：把 `DESIGN.md` 与 `kit/` 复制到目标项目根目录，在 `AGENTS.md` 或 `CLAUDE.md` 里加一行指向 `DESIGN.md`。
+- **GitHub skills CLI**：需要一个根目录就是发行包内容的独立仓库，命令形如 `npx skills add <owner>/<dist-repo>@liangqin-brand-body`。源码仓库 `skills/public/liangqin-brand-body/` 不满足条件，CLI 只会复制入口文件。
+
+独立分发仓库创建后，用一条命令发布：
+
+```bash
+python3 scripts/publish_dist_repo.py --repo <git-url>          # 预检
+python3 scripts/publish_dist_repo.py --repo <git-url> --apply  # 推送 main + vX.Y.Z tag
+```
+
 **项目里用（不依赖任何 skill 机制）**
 
 ```bash

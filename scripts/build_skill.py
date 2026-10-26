@@ -464,6 +464,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="构建良禽佳木品牌体发行包")
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR))
     parser.add_argument("--check", action="store_true", help="只校验，不写文件")
+    parser.add_argument(
+        "--zip",
+        action="store_true",
+        help="同时在输出目录的上一级生成可上传 GitHub Release 的 zip",
+    )
     args = parser.parse_args()
 
     errors = validate()
@@ -479,6 +484,17 @@ def main() -> int:
     written = build(Path(args.output_dir).resolve())
     total = sum(path.stat().st_size for path in written)
     print(f"[OK] 已构建 {len(written)} 个文件，共 {total / 1024:.0f} KB → {args.output_dir}")
+
+    if args.zip:
+        version = str(parse_frontmatter(ROOT / "DESIGN.md")[0].get("version", "0"))
+        output_path = Path(args.output_dir).resolve()
+        archive_base = output_path.parent / f"{PACKAGE_NAME}-{version}"
+        if archive_base.with_suffix(".zip").exists():
+            archive_base.with_suffix(".zip").unlink()
+        archive = shutil.make_archive(
+            str(archive_base), "zip", root_dir=output_path.parent, base_dir=output_path.name
+        )
+        print(f"[OK] 已打包 {archive}（{Path(archive).stat().st_size / 1024:.0f} KB）")
     return 0
 
 

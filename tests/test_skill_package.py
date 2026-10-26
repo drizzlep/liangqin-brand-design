@@ -299,7 +299,42 @@ class RepositoryHygieneTest(unittest.TestCase):
 
     def test_only_light_scripts_remain(self):
         scripts = sorted(p.name for p in (ROOT / "scripts").glob("*.py"))
-        self.assertEqual(scripts, ["build_skill.py", "check_page.py", "sync_runtimes.py"])
+        self.assertEqual(
+            scripts,
+            ["build_skill.py", "check_page.py", "publish_dist_repo.py", "sync_runtimes.py"],
+        )
+
+    def test_build_can_emit_release_zip(self):
+        import zipfile
+
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / PACKAGE_NAME
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_skill.py"),
+                    "--output-dir",
+                    str(output),
+                    "--zip",
+                ],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            version = json.loads(
+                (ROOT / "skills" / "public" / PACKAGE_NAME / "skill-release.json").read_text(
+                    encoding="utf-8"
+                )
+            )["version"]
+            archive = Path(tmp) / f"{PACKAGE_NAME}-{version}.zip"
+            self.assertTrue(archive.exists(), "未生成 Release zip")
+            with zipfile.ZipFile(archive) as zf:
+                names = zf.namelist()
+            self.assertIn(f"{PACKAGE_NAME}/SKILL.md", names)
+            self.assertIn(f"{PACKAGE_NAME}/DESIGN.md", names)
+            self.assertTrue(any(n.startswith(f"{PACKAGE_NAME}/kit/") for n in names))
 
     def test_root_has_single_standard_and_preview(self):
         self.assertTrue((ROOT / "DESIGN.md").is_file())
