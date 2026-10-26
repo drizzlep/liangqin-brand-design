@@ -1,0 +1,2 @@
+# 开发校验依赖：构建脚本用它执行严格 YAML frontmatter 复核
+PyYAML>=6.0.3,<7

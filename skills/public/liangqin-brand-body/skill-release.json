@@ -1,0 +1,28 @@
+{
+  "display_name": "良禽品牌体",
+  "package_slug": "liangqin-brand-body",
+  "version": "3.0.0",
+  "entry_keyword": "良禽品牌体",
+  "entry_aliases": [
+    "良禽佳木品牌体",
+    "liangqin-brand-body"
+  ],
+  "brand": "良禽佳木",
+  "package_role": "brand_design_standard",
+  "spec_format": "Google Stitch DESIGN.md",
+  "supported_tools": "任何遵循 Agent Skills 约定的 runtime",
+  "default_context": [
+    "SKILL.md",
+    "DESIGN.md"
+  ],
+  "optional_context": [
+    "assets/brand/",
+    "tokens/",
+    "preview.html",
+    "kit/",
+    "kit/icons/",
+    "scripts/check_page.py"
+  ],
+  "external_dependencies": [],
+  "deprecated_adapters": "旧运行时适配已移出本包，归档在仓库 archive/legacy-runtimes/，不随包发行"
+}

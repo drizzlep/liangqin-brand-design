@@ -1,0 +1,111 @@
+/* 良禽佳木 design tokens（CSS 变量导出，前缀 --lq-） */
+/* Source of truth: DESIGN.md frontmatter。本文件只导出 token，不包含组件样式与元素选择器。 */
+/* 注意：@font-face 的 url 以站点根目录为基准（/assets/fonts/...），移植到其它工程时改成相对路径。 */
+/* 注意：随包字体各自只有一个字重，所以这里不导出字重 token。 */
+
+@font-face {
+  font-family: "Swei Sugar";
+  src: url("../assets/fonts/SweiSugarCJKtc-ExtraLight.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OPPO Sans 4.0";
+  src: url("../assets/fonts/OPPO-Sans-4.0.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  /* Colors */
+  --lq-color-primary-ink: #2B2926;
+  --lq-color-background: #F8F5F0;
+  --lq-color-surface: #F2EEE8;
+  --lq-color-surface-elevated: #FFFCF8;
+  --lq-color-accent: #8B6A4E;
+  --lq-color-brand-asset: #9E7F63;
+  --lq-color-line: #D8D0C4;
+  --lq-color-ink-900: #1F1D1B;
+  --lq-color-ink-700: #4B4640;
+  --lq-color-ink-500: #888075;
+  --lq-color-on-dark: #F8F5F0;
+  --lq-color-success: #567A62;
+  --lq-color-warning: #A0743C;
+  --lq-color-error: #A04F46;
+  --lq-color-info: #5E7A8E;
+
+  /* Typography */
+  --lq-font-heading: "Swei Sugar", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --lq-font-body: "OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+  --lq-font-mono: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+
+  --lq-size-display: 72px;
+  --lq-size-heading-1: 48px;
+  --lq-size-heading-2: 36px;
+  --lq-size-heading-3: 28px;
+  --lq-size-heading-4: 22px;
+  --lq-size-body: 17px;
+  --lq-size-body-small: 15px;
+  --lq-size-caption: 13px;
+  --lq-size-overline: 12px;
+
+  --lq-line-display: 1.08;
+  --lq-line-heading-1: 1.18;
+  --lq-line-heading-2: 1.24;
+  --lq-line-heading-3: 1.32;
+  --lq-line-heading-4: 1.4;
+  --lq-line-body: 1.82;
+  --lq-line-body-small: 1.72;
+  --lq-line-caption: 1.6;
+  --lq-line-overline: 1.4;
+
+  --lq-tracking-display: -0.03em;
+  --lq-tracking-heading-1: -0.025em;
+  --lq-tracking-heading-2: -0.02em;
+  --lq-tracking-heading-3: -0.015em;
+  --lq-tracking-heading-4: -0.01em;
+  --lq-tracking-body: 0;
+  --lq-tracking-body-small: 0;
+  --lq-tracking-caption: 0.01em;
+  --lq-tracking-overline: 0.12em;
+
+  /* Spacing */
+  --lq-space-xxs: 4px;
+  --lq-space-xs: 8px;
+  --lq-space-sm: 12px;
+  --lq-space-md: 16px;
+  --lq-space-lg: 24px;
+  --lq-space-xl: 32px;
+  --lq-space-xxl: 48px;
+  --lq-space-xxxl: 64px;
+  --lq-space-section: 96px;
+  --lq-space-section-lg: 128px;
+
+  /* Shapes */
+  --lq-radius-xs: 2px;
+  --lq-radius-sm: 6px;
+  --lq-radius-md: 12px;
+  --lq-radius-pill: 999px;
+  --lq-divider-thickness: 1px;
+  --lq-divider-color: var(--lq-color-line);
+
+  /* Elevation */
+  --lq-shadow-low: 0 8px 24px rgba(31, 29, 27, 0.04);
+  --lq-shadow-medium: 0 18px 44px rgba(31, 29, 27, 0.08);
+  --lq-shadow-high: 0 28px 72px rgba(31, 29, 27, 0.12);
+
+  /* Motion */
+  --lq-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --lq-duration-micro: 140ms;
+  --lq-duration-normal: 280ms;
+  --lq-duration-macro: 520ms;
+
+  /* Layout */
+  --lq-max-content-width: 1440px;
+  --lq-gutter-desktop: 32px;
+  --lq-gutter-tablet: 24px;
+  --lq-gutter-mobile: 16px;
+}

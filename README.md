@@ -1,256 +1,96 @@
-# 良禽佳木跨工具 DESIGN 标准包
+# 良禽佳木品牌设计规范
 
-这个仓库不再只被视为一个 OpenClaw 品牌 skill，而是一个以良禽佳木为样板的**跨工具 DESIGN 标准包**。
+这个仓库是良禽佳木的设计规范包：一份人类和 AI 都能读的 `DESIGN.md`，加上一个把规范分发给各 AI 助手的技能目录。
 
-它的目标是：
+## 核心文件
 
-- 让 `DESIGN.md` 成为人类和弱能力 agent 都能理解的主入口
-- 让更强的链路继续读取 DNA、assets、artifact surfaces、checklist 和 evaluation
-- 让 OpenClaw 只作为一个消费这套标准的适配器，而不是标准本体
+| 路径 | 作用 |
+|---|---|
+| `DESIGN.md` | 唯一规范真源。frontmatter 是可机器读取的 token，正文是标准九段 + 标志扩展段 |
+| `preview.html` | 规范的可视化对照页；标准章节与 `DESIGN.md` 一致，另有 UIkit opening |
+| `kit/kit.css` | UI kit：token 变量 + 64 个组件规格（91 个 `.lq-*` 类），页面直接引入即可 |
+| `kit/index.html` | 组件目录页：组件模型、导航与寻路、按钮、表单、选择器、状态与加载、提示条、图标、占位块、浮层、卡片、页面区块 |
+| `kit/icons/` | 24 个 Lucide 线性图标（ISC 许可）+ 许可证文件；用 CSS mask 上色，跟随文字色 |
+| `kit/templates/` | 页面骨架：官网首页、产品详情 |
+| `tokens/` | token 的机器可读导出：`tokens.semantic.json` 与 `tokens.css` |
+| `assets/brand/` | 真实 logo 资产与用法清单 |
+| `assets/fonts/` | 标题与正文字体（woff2） |
+| `skills/public/liangqin-brand-body/` | 技能源码：`SKILL.md`、`skill-release.json`、`adapters/` |
+| `review-external-ui-kit.html` | 外部风格评审页；只用于参考图对照，不写回 `DESIGN.md` |
+| `scripts/` | 三个轻脚本：构建发行包、校验产出页面、同步到各 runtime |
+| `requirements-dev.txt` | 开发校验依赖：`PyYAML`，用于严格复核 frontmatter |
+| `archive/` | 冻结的历史层，默认不读、不维护 |
 
-## 固定分层
+`DESIGN.md` 采用 Google Stitch 提出的 DESIGN.md 格式，并按 `awesome-design-md` 收录文件的写法对齐：
 
-当前标准包固定分成 7 层：
+- frontmatter 只放 8 个标准键：`version / name / description / colors / typography / rounded / spacing / components`
+- 正文按标准段落排列：Overview / Colors / Typography / Layout / Elevation & Depth / Shapes / Components / Do's and Don'ts / Responsive Behavior / Iteration Guide / Known Gaps
+- 品牌自己的内容（标志）作为扩展段排在标准段落之后
+- 组件状态（`button-primary-active`、`input-focused` 等）作为 `components:` 里的独立条目维护
+- 全篇使用 `{token.refs}` 引用，不内联 hex
 
-1. **Foundation DNA 真源层**
-   - `foundation-dna/design-dna.zh-CN.json`
-   - `foundation-dna/tokens.semantic.json`
-   - `foundation-dna/tokens.css`
-   - `foundation-dna/token-table.zh-CN.md`
+## 怎么用
 
-2. **品牌宪法主入口**
-   - `DESIGN.md`
-   - `CONSUMER-GUIDE.zh-CN.md`
-   - `DESIGN-GOVERNANCE.md`
-   - `EXECUTION-CHECKLIST.md`
+**统一产出的推荐做法（给用 AI 做网页的人）**
 
-3. **Design Pack 受控变化层**
-   - `design-packs/`
-
-4. **Artifact Surface 载体约束层**
-   - `artifact-surfaces/`
-   - `artifact-web-brand-landing.html`
-   - `artifact-mobile-h5-consultation.html`
-   - `artifact-quote-card-editorial.html`
-
-5. **品牌资产与阻断层**
-   - `assets/brand/`
-   - `assets/brand/asset-manifest.zh-CN.json`
-
-6. **评测与回归层**
-   - `evaluation/`
-
-7. **OpenClaw 适配器层**
-   - `skills/public/liangqin-brand-openclaw/`
-   - `scripts/export_openclaw_skill.py`
-   - `design-standard-package.json`
-
-## 适用目标
-
-把良禽佳木现有设计规范升级为一个**团队可维护、跨工具可消费、但先用良禽佳木验证的标准底座**。
-
-这套标准允许：
-
-- 弱能力工具只读取 `DESIGN.md`
-- 中等能力工具读取 `DESIGN.md + artifact-surfaces + assets`
-- 高保真链路读取完整标准包
-
-同时，它也让 OpenClaw 机器人可以：
-
-- 吃品牌 brief、产品资料、参考页面
-- 输出首页 / 产品详情的结构化蓝图
-- 在固定模块库内继续生成页面
-- 更稳定地“像良禽佳木”
-
-## 对外入口
-
-- 对外推荐入口词：`良禽品牌体`
-- 对外兼容入口词：`良禽佳木品牌体`
-- 内部源目录：`skills/public/liangqin-brand-openclaw/`
-- 标准包元数据：`design-standard-package.json`
-- Skill 文件：`skills/public/liangqin-brand-openclaw/SKILL.md`
-- 输入协议：`skills/public/liangqin-brand-openclaw/protocols/input-contract.zh-CN.json`
-- 模块库：`skills/public/liangqin-brand-openclaw/recipes/module-recipes.zh-CN.json`
-- OpenClaw 本地兼容样例：`skills/public/liangqin-brand-openclaw/examples/`
-- 真实设计案例：`skills/public/liangqin-brand-openclaw/examples/real-cases/`
-- Root 黄金样例：`evaluation/examples/`
-
-命名策略：
-
-- 仓库内部暂时保留旧源目录名，避免一次性打碎路径与测试
-- 对外发行包继续使用 `liangqin-brand-body`
-- 对话里推荐使用 `良禽品牌体` 或 `良禽佳木品牌体`
-- `liangqin-brand-openclaw` 只保留为历史兼容说明
-
-## 系统层级关系
-
-- `foundation-dna/`：品牌真源
-- `DESIGN.md`：人类与弱能力 agent 的唯一主入口
-- `CONSUMER-GUIDE.zh-CN.md`：跨渠道、跨 agent 的统一消费说明
-- `DESIGN-GOVERNANCE.md`：读取顺序、冲突优先级与层级职责
-- `EXECUTION-CHECKLIST.md`：统一生成自检
-- `design-packs/`：受控变化层
-- `artifact-surfaces/`：具体交付物约束层
-- `assets/brand/` 与 `assets/brand/asset-manifest.zh-CN.json`：最终成品阻断层
-- `evaluation/`：人工评审、黄金样例索引与回归题
-- `skills/public/liangqin-brand-openclaw/`：OpenClaw 适配器层
-- `design-standard-package.json`：标准包元数据、消费层级与团队治理策略
-
-默认优先级：
-
-- `Foundation DNA > DESIGN.md > artifact-surfaces > design-packs > examples`
-
-补充约定：
-
-- `design-packs/` 只负责受控偏移，不替代真源
-- `artifact-surfaces/` 只负责交付约束，不重定义品牌
-- `examples/` 与真实案例只作验收基准
-- `skills/public/liangqin-brand-openclaw/` 只负责消费标准，不再定义标准本身
-
-## 跨工具消费层级
-
-- `Tier 1`
-  - 只读 `DESIGN.md`
-  - 适合 Stitch、弱能力 agent、公开传播
-  - 能保住品牌基调，但不保证图标、logo、成品细节工艺
-
-- `Tier 2`
-  - 读取 `DESIGN.md + artifact-surfaces + assets`
-  - 适合页面、长图、海报、H5 等成品交付
-  - 能较稳定保住 logo、版式、信息密度
-
-- `Tier 3`
-  - 读取完整标准包：`DESIGN.md + DNA + assets + checklist + evaluation`
-  - 适合你自己的机器人链路与团队内高保真生成
-
-所有工具都允许“只读自己吃得动的层”，但不允许低层覆盖高层。
-
-## DESIGN.md 导出与验收
+1. 引入 kit：`<link rel="stylesheet" href="kit/kit.css">`，页面用 `.lq-*` 类名拼装，不要自己写颜色、字号、间距、圆角。
+   图标用 `<span class="lq-icon" style="--lq-icon-url:url('kit/icons/phone.svg')"></span>`，颜色自动跟随文字色。
+2. 需要规格里没有的组件时，先改 `DESIGN.md` 的 `components:` 与 `## Components`，再在 `kit.css` 加对应类；不要在页面里就地发明样式。
+3. 产出后跑校验：
 
 ```bash
-python3 scripts/export_design_md.py
+python3 scripts/check_page.py path/to/your-page.html
 ```
 
-默认会把下面这些文件写到目标目录：
+它会报出 token 外的颜色、不在字阶上的字号、不在 8px 刻度上的间距、非法圆角、字重声明、对比度不足与拼错的 `--lq-*` 变量，有偏离时返回非零退出码。
 
-- `DESIGN.md`
-- `CONSUMER-GUIDE.zh-CN.md`
-- `DESIGN-GOVERNANCE.md`
-- `design-standard-package.json`
-- `artifact-surfaces/`
-- `assets/brand/`
-- `evaluation/`
-- `design-preview.html`
-- `index.html`
-- `artifact-web-brand-landing.html`
-- `artifact-mobile-h5-consultation.html`
-- `artifact-quote-card-editorial.html`
-- `foundation-dna/design-dna.zh-CN.json`
-- `foundation-dna/tokens.semantic.json`
+4. 校验通过再交付。规范本身、预览页与 kit 每次构建都会跑同一套检查，所以规范与 kit 不会互相漂移。
 
-推荐执行顺序：
-
-1. 先修改 `foundation-dna/design-dna.zh-CN.json`
-2. 如需工具中立 token，再同步 `foundation-dna/tokens.semantic.json`
-3. 如需风格偏移，再改 `design-packs/*.json`
-4. 如需具体载体，再改 `artifact-surfaces/*.json`
-5. 运行 `python3 scripts/export_design_md.py`
-6. 打开 `DESIGN.md`、`CONSUMER-GUIDE.zh-CN.md`、`DESIGN-GOVERNANCE.md`、`design-standard-package.json`、`design-preview.html` 与 3 个 `artifact-*` 页面做人工验收
-7. 运行测试确认没有回归
-
-## 扩展 Design Packs
-
-当你觉得现有变化空间不够时，优先扩展 `design-packs/`，而不是引入外部样式仓库依赖。
-
-- 每个 pack 都是一份 JSON，描述适用页面、信息密度、CTA 语气、图像策略和预览文案
-- pack 只表达“同一品牌 DNA 下的不同页面气质”，不重新定义品牌真源
-- pack 的职责是打开**受控变化空间**，不是再造第二套设计系统
-
-## 扩展 Artifact Surfaces
-
-当你觉得“风格有了，但还看不出具体成品长什么样”时，优先扩展 `artifact-surfaces/`。
-
-- 每个 surface 都是一份 JSON，固定描述载体类型、推荐模块、版式规则和易失真点
-- surface 只表达“同一品牌 DNA 落到具体交付物时的模块顺序与版式约束”，不重定义品牌规则
-- surface 的职责是做**具体交付物校验**
-
-## 案例与回归
-
-`skills/public/liangqin-brand-openclaw/examples/` 与真实案例继续保留，但默认角色已经调整为：
-
-- 人工验收对照
-- 回归测试基准
-- 品牌边界校准样本
-- OpenClaw 本地兼容层，不再是黄金样例真源
-
-人类在环验收题库：
-
-- 评审协议：`evaluation/human-review-protocol.zh-CN.md`
-- 验收题库：`evaluation/human-review-test-cases.zh-CN.json`
-- 基础清单：`evaluation/manual-rubric.zh-CN.md`
-- 黄金样例索引：`evaluation/golden-samples.zh-CN.md`
-- Root 结构化样例：`evaluation/examples/`
-- 失败样例类型：`evaluation/failure-samples.zh-CN.md`
-- 高风险回归题：`evaluation/high-risk-regression-cases.zh-CN.json`
-
-## 导出给其他 OpenClaw 使用
+**项目里用（不依赖任何 skill 机制）**
 
 ```bash
-python3 scripts/export_openclaw_skill.py --output-dir ./dist --zip
+cp DESIGN.md /path/to/your-project/DESIGN.md
 ```
 
-导出后会生成：
+然后告诉 AI："按 `DESIGN.md` 做这个页面"。适合 Google Stitch、网页版 AI 工具，以及希望规范随项目走的团队。
 
-- `dist/liangqin-brand-body/`
-- `dist/liangqin-brand-body-2.2.0.zip`
-
-推荐安装方式：
+**在 AI 助手里用**
 
 ```bash
-python3 dist/liangqin-brand-body/scripts/install_into_openclaw.py
+python3 scripts/build_skill.py            # 构建 dist/liangqin-brand-body/
+python3 scripts/sync_runtimes.py          # 查看会同步到哪些 runtime（dry-run）
+python3 scripts/sync_runtimes.py --apply  # 真正写入
 ```
 
-导出包内已包含：
+也可以直接把 `dist/liangqin-brand-body/` 整个目录复制到目标 runtime 的 skills 目录。安装位置见 `skills/public/liangqin-brand-body/adapters/README.zh-CN.md`。
 
-- `DESIGN.md`
-- `CONSUMER-GUIDE.zh-CN.md`
-- `DESIGN-GOVERNANCE.md`
-- `design-standard-package.json`
-- `EXECUTION-CHECKLIST.md`
-- `foundation-dna/design-dna.zh-CN.json`
-- `foundation-dna/tokens.semantic.json`
-- `artifact-surfaces/`
-- `assets/brand/`
-- `SKILL.md`
-- `protocols/`
-- `recipes/`
-- `examples/`
-- `evaluation/`
-- `skill-release.json`
+**改规范**
 
-## 本地校验
+1. 改 `DESIGN.md`，必要时同步 `tokens/` 的导出值
+2. 跑 `python3 scripts/build_skill.py`（构建时自动校验 frontmatter、章节、资产引用）
+3. 用浏览器打开根目录 `preview.html` 做人工比对
+4. 跑 `python3 -m unittest discover -s tests -p "test_*.py"`
 
-```bash
-python3 scripts/prepare_openclaw_release.py --output-dir ./dist
-```
+## 版本
 
-如果你只想手动逐步检查，也可以使用：
+当前 `3.0.0`。这一版按 DESIGN.md 标准重新架构，只保留长期有效的部分：标志、色彩、字体、字号、间距、圆角、阴影、组件与禁用项。
 
-```bash
-python3 scripts/sync_openclaw_mirrors.py
-python3 scripts/export_design_md.py
-python3 -m unittest tests/test_liangqin_brand_skill_assets.py -v
-python3 -m unittest tests/test_liangqin_brand_skill_distribution.py -v
-python3 -m unittest tests/test_design_md_adapter.py -v
-python3 -m unittest tests/test_sync_openclaw_mirrors.py -v
-python3 -m unittest tests/test_standard_package_integrity.py -v
-python3 skills/public/liangqin-brand-openclaw/scripts/validate_skill_assets.py
-```
+相对 2.x 的变化：
 
-## 当前第一版范围
+- `DESIGN.md` 重写为标准的 frontmatter token + 九段正文格式，标志作为扩展段
+- 技能入口去掉 OpenClaw / Hermes 语境，改为运行时中立
+- 示例目录不再随包发行，规范里的提示词指南只保留一段可复制的短提示词
+- 旧 demo 页面、样式表与脚本全部退役，`preview.html` 作为规范可视化对照页；外部风格对照单独放在 `review-external-ui-kit.html`
+- 六个重脚本退役，只保留构建、页面校验与同步三个轻脚本
+- 旧标准层（DNA、design pack、artifact surface、蓝图 schema、模块 recipe、评测集）全部移入 `archive/`，不再参与默认读取路径
+- `tokens.css` 的变量前缀由 `--dna-` 改为 `--lq-`；引用过旧前缀的工程需要同步改名
+- `tokens.css` 只导出 token 变量，不再包含旧版附带的组件样式与元素选择器
+- 变量名与 `DESIGN.md` 对齐：`--lq-color-primary-ink`、`--lq-color-background`、`--lq-space-section`、`--lq-radius-sm` 等
+- 规范不再声明字重（随包字体各自只有一个字重）
+- 两个 logo 已按图形边界裁切：横向 `678×188`、纵向 `568×419`，可直接按高度排版
 
-- 只服务良禽佳木
-- 先做良禽先行样板，不直接抽成多品牌框架
-- 团队协作与你自己的机器人链路优先
-- 不新增“渠道专属风格包”作为主控方式
-- 第一目标是“更像品牌且可稳定交付”，不是“堆更多风格”
+## 已知待确认
+
+- 标志的最小尺寸与安全边距正式数值待品牌方确认；确认前以可见字高不低于 24px、印刷不低于 8mm 为准。
+- 本规范只定义浅色底与深色区块，没有完整的深色主题令牌。
+- 随包字体各自只有一个字重；需要多字重时先补字体文件。

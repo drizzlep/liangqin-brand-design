@@ -1,169 +1,730 @@
-# DESIGN.md: Liangqin Ji Mu
+---
+version: "3.0.0"
+name: 良禽佳木 DESIGN.md
+description: "良禽佳木品牌设计规范。温润、克制、专业、高级、松弛：暖中性色底 + 低饱和 taupe 强调，宋体方向标题 + 现代中文无衬线正文，8px 基准间距，12 栏宽留白，低噪声组件与礼貌 CTA。供 AI agent、设计工具与前端工程共同读取。"
 
-> Source of truth: `foundation-dna/design-dna.zh-CN.json`
->
-> Generated from `miten-foundation-dna-zh-cn-v2` (`v2.0.0`) as the default AI-facing design brief.
+colors:
+  primary-ink: "#2B2926"
+  background: "#F8F5F0"
+  surface: "#F2EEE8"
+  surface-elevated: "#FFFCF8"
+  accent: "#8B6A4E"
+  brand-asset: "#9E7F63"
+  line: "#D8D0C4"
+  ink-900: "#1F1D1B"
+  ink-700: "#4B4640"
+  ink-500: "#888075"
+  on-dark: "#F8F5F0"
+  success: "#567A62"
+  warning: "#A0743C"
+  error: "#A04F46"
+  info: "#5E7A8E"
 
-## 1. Visual Theme & Atmosphere
-一句话宪法：**所有输出都必须先像良禽佳木，再适配具体内容与承载方式；品类不定义品牌，渠道不切换风格。**
-良禽佳木的界面气质应围绕“温润 / 克制 / 高定 / 理性 / 安静 / 耐看”展开。先建立信任与审美判断，再承接咨询或产品理解。锚点句：**以温润克制的高级感与理性秩序感，服务中文语境下重视品质、可信度与审美耐久度的客户。**
-视觉隐喻：如同进入光线柔和、材质克制的高端家居展厅：有秩序、有空气感、可被慢慢观看。
-品牌不可妥协项：
-- 中文优先，允许完整导航、按钮与标签表达
-- CTA 必须礼貌、稳妥、非强刺激推销口吻
-- 材质、摄影、留白和信息秩序优先于装饰性表现
-- 不能滑向电商促销页、通用 SaaS 模板或欧美极简冷感语气
-- 品类变化只影响内容事实与重点，不改变品牌语气与视觉核心
-- 承载变化只影响信息密度与版式收束，不切换品牌风格
+typography:
+  heading-family: '"Swei Sugar", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif'
+  body-family: '"OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif'
+  mono-family: '"SFMono-Regular", "SF Mono", "Menlo", "Consolas", monospace'
+  display:
+    fontFamily: '{typography.heading-family}'
+    fontSize: 72px
+    lineHeight: 1.08
+    letterSpacing: -0.03em
+  heading-1:
+    fontFamily: '{typography.heading-family}'
+    fontSize: 48px
+    lineHeight: 1.18
+    letterSpacing: -0.025em
+  heading-2:
+    fontFamily: '{typography.heading-family}'
+    fontSize: 36px
+    lineHeight: 1.24
+    letterSpacing: -0.02em
+  heading-3:
+    fontFamily: '{typography.heading-family}'
+    fontSize: 28px
+    lineHeight: 1.32
+    letterSpacing: -0.015em
+  heading-4:
+    fontFamily: '{typography.heading-family}'
+    fontSize: 22px
+    lineHeight: 1.4
+    letterSpacing: -0.01em
+  body:
+    fontFamily: '{typography.body-family}'
+    fontSize: 17px
+    lineHeight: 1.82
+    letterSpacing: 0
+  body-small:
+    fontFamily: '{typography.body-family}'
+    fontSize: 15px
+    lineHeight: 1.72
+    letterSpacing: 0
+  caption:
+    fontFamily: '{typography.body-family}'
+    fontSize: 13px
+    lineHeight: 1.6
+    letterSpacing: 0.01em
+  overline:
+    fontFamily: '{typography.body-family}'
+    fontSize: 12px
+    lineHeight: 1.4
+    letterSpacing: 0.12em
 
-允许变化范围：
-- 首屏可偏编辑式或偏居中，只要阅读路径清楚
-- 信息密度可高可低，但不能靠堆卡片制造“丰富感”
-- CTA 可前可后，但不能提前夺走品牌主叙事
-- 图标在弱能力场景可减少或取消，不得换成另一套审美语言
+rounded:
+  xs: 2px
+  sm: 6px
+  md: 12px
+  pill: 999px
 
-设计风格：
-- Mood: calm, premium, tactile, rational, warm
-- Genre / Personality: luxury editorial / confident, meticulous, cultured, restrained, trustworthy
-- Texture / Whitespace: 纹理主要来自真实摄影中的木、石、布、皮革；UI 结构本身保持平整简洁。 / generous and directional
-## 2. Color Palette & Roles
-### Primary
-- **Primary Ink** (`#2B2926`): 主文本、品牌锚点、深色分隔面与高对比标题
-- **Background** (`#F8F5F0`): 页面主背景
-- **Surface** (`#F2EEE8`): 卡片 / 次级背景
-- **Elevated Surface** (`#FFFCF8`): 浮层 / 强调区块
-- **Accent** (`#8B6A4E`): CTA、悬停、重点链接与少量状态强调
-- **Brand Asset** (`#9C7F66`): 类目品牌资产专用色，用于良禽佳木 logo、标准字、品牌签名区与少量品牌识别强调，不替代通用 CTA accent。
+spacing:
+  xxs: 4px
+  xs: 8px
+  sm: 12px
+  md: 16px
+  lg: 24px
+  xl: 32px
+  xxl: 48px
+  xxxl: 64px
+  section: 96px
+  section-lg: 128px
 
-### Neutral Scale
+components:
+  nav-bar:
+    backgroundColor: '{colors.background}'
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    height: 72px
+  nav-link:
+    textColor: '{colors.ink-700}'
+    typography: '{typography.body-small}'
+    padding: 8px 12px
+    rounded: '{rounded.xs}'
+  nav-cta:
+    backgroundColor: '{colors.primary-ink}'
+    textColor: '{colors.background}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 12px 24px
+    height: 44px
+  breadcrumb:
+    textColor: '{colors.ink-700}'
+    typography: '{typography.caption}'
+    padding: 8px 0
+  tabs:
+    backgroundColor: transparent
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    padding: 8px 16px
+    height: 40px
+  pagination:
+    textColor: '{colors.ink-700}'
+    typography: '{typography.body-small}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.xs}'
+    size: 40px
+  button-primary:
+    backgroundColor: '{colors.primary-ink}'
+    textColor: '{colors.background}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 16px 32px
+    height: 48px
+  button-primary-active:
+    backgroundColor: '{colors.ink-900}'
+    textColor: '{colors.background}'
+    rounded: '{rounded.sm}'
+  button-primary-disabled:
+    backgroundColor: '{colors.line}'
+    textColor: '{colors.ink-700}'
+    rounded: '{rounded.sm}'
+  button-secondary:
+    backgroundColor: transparent
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 16px 32px
+    height: 48px
+  button-secondary-active:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.accent}'
+    rounded: '{rounded.sm}'
+  button-sm:
+    height: 40px
+    padding: 8px 24px
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+  button-lg:
+    height: 56px
+    padding: 16px 32px
+    typography: '{typography.body}'
+    rounded: '{rounded.sm}'
+  button-on-dark:
+    backgroundColor: '{colors.background}'
+    textColor: '{colors.primary-ink}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 16px 32px
+    height: 48px
+  button-text-link:
+    backgroundColor: transparent
+    textColor: '{colors.accent}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.xs}'
+    padding: 4px 0
+  text-input:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 12px 16px
+    height: 48px
+  text-input-focused:
+    border: '2px solid {colors.accent}'
+    rounded: '{rounded.sm}'
+  text-input-error:
+    border: '1px solid {colors.error}'
+    textColor: '{colors.error}'
+    rounded: '{rounded.sm}'
+  text-input-sm:
+    height: 40px
+    padding: 8px 12px
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+  search-field:
+    backgroundColor: '{colors.surface-elevated}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 0 16px
+    height: 48px
+  select:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 0 48px 0 16px
+    height: 48px
+  textarea:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 12px 16px
+    minHeight: 128px
+  select-on-dark:
+    backgroundColor: '{colors.primary-ink}'
+    textColor: '{colors.on-dark}'
+    border: '1px solid {colors.primary-ink}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 0 48px 0 16px
+    height: 48px
+  checkbox:
+    textColor: '{colors.primary-ink}'
+    typography: '{typography.body-small}'
+    size: 20px
+  checkbox-disabled:
+    textColor: '{colors.ink-700}'
+    opacity: 0.45
+  radio:
+    textColor: '{colors.primary-ink}'
+    typography: '{typography.body-small}'
+    size: 20px
+  slider:
+    height: 24px
+  segmented:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.pill}'
+    padding: 8px 16px
+  stepper:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    height: 40px
+  toggle:
+    backgroundColor: '{colors.line}'
+    textColor: '{colors.primary-ink}'
+    rounded: '{rounded.pill}'
+    width: 44px
+    height: 24px
+  choice-card:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.md}'
+    padding: 24px
+  form-label:
+    textColor: '{colors.ink-700}'
+    typography: '{typography.body-small}'
+    padding: 0 0 8px
+  form-helper:
+    textColor: '{colors.ink-700}'
+    typography: '{typography.caption}'
+    padding: 8px 0 0
+  card-base:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.md}'
+    padding: 32px
+  card-material:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.md}'
+    padding: 32px
+  card-case:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.md}'
+    padding: 0
+  card-product:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.md}'
+    padding: 24px
+  card-quote:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.sm}'
+    padding: 24px
+  hero-band:
+    backgroundColor: '{colors.background}'
+    textColor: '{colors.primary-ink}'
+    typography: '{typography.display}'
+    padding: 96px 32px
+    rounded: '{rounded.xs}'
+  section-header:
+    textColor: '{colors.primary-ink}'
+    typography: '{typography.heading-2}'
+    padding: 0 0 32px
+  media-frame:
+    backgroundColor: '{colors.surface}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.md}'
+    padding: 0
+  spec-table:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 16px
+  consultation-cta:
+    backgroundColor: '{colors.primary-ink}'
+    textColor: '{colors.background}'
+    typography: '{typography.heading-3}'
+    rounded: '{rounded.md}'
+    padding: 48px
+  footer:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.caption}'
+    padding: 64px 32px
+  logo-lockup:
+    textColor: '{colors.brand-asset}'
+    height: 24px
+    padding: 0
+  pill-tag:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.caption}'
+    rounded: '{rounded.pill}'
+    padding: 8px 16px
+  status-badge:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.caption}'
+    rounded: '{rounded.pill}'
+    padding: 4px 12px
+  eyebrow:
+    textColor: '{colors.ink-700}'
+    typography: '{typography.overline}'
+    padding: 0 0 16px
+  icon:
+    color: '{colors.primary-ink}'
+    size: 24px
+    strokeWidth: 1.5
+  icon-sm:
+    size: 16px
+  icon-lg:
+    size: 32px
+  placeholder:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    rounded: '{rounded.md}'
+  alert:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 16px 24px
+  alert-on-dark:
+    backgroundColor: '{colors.primary-ink}'
+    textColor: '{colors.on-dark}'
+    rounded: '{rounded.sm}'
+  upload:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink-700}'
+    border: '1px dashed {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 32px
+    minHeight: 128px
+  progress:
+    backgroundColor: '{colors.line}'
+    textColor: '{colors.primary-ink}'
+    rounded: '{rounded.pill}'
+    height: 4px
+  tooltip:
+    backgroundColor: '{colors.primary-ink}'
+    textColor: '{colors.on-dark}'
+    typography: '{typography.caption}'
+    rounded: '{rounded.sm}'
+    padding: 8px 12px
+  accordion:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.sm}'
+    padding: 16px 24px
+  modal:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.md}'
+    padding: 32px
+  drawer:
+    backgroundColor: '{colors.surface-elevated}'
+    textColor: '{colors.primary-ink}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    padding: 32px
+  empty-state:
+    backgroundColor: transparent
+    textColor: '{colors.ink-700}'
+    border: '1px solid {colors.line}'
+    typography: '{typography.body-small}'
+    rounded: '{rounded.md}'
+    padding: 48px 32px
+  skeleton:
+    backgroundColor: '{colors.surface}'
+    rounded: '{rounded.sm}'
+    height: 16px
+  divider:
+    backgroundColor: '{colors.line}'
+    height: 1px
+  section:
+    backgroundColor: '{colors.background}'
+    paddingY: '{spacing.section}'
+    maxWidth: 1440px
+---
 
-| Level | Value |
-|---|---|
-| 0 | `#F8F5F0` |
-| 50 | `#F2EEE8` |
-| 100 | `#E7E1D8` |
-| 200 | `#D8D0C4` |
-| 300 | `#C6BDAF` |
-| 400 | `#A99F92` |
-| 500 | `#888075` |
-| 600 | `#6A635B` |
-| 700 | `#4B4640` |
-| 800 | `#36322E` |
-| 900 | `#1F1D1B` |
-### Semantic
-- **Success** (`#567A62`)
-- **Warning** (`#A0743C`)
-- **Error** (`#A04F46`)
-- **Info** (`#5E7A8E`)
+# DESIGN.md: 良禽佳木
 
-配色策略：
-- Palette / Contrast: analogous / dark-on-light dominant with subtle layers
-- Accent / Neutral usage: 通用界面 CTA 继续使用 #8B6A4E；品牌识别与 logo 资产允许使用 #9C7F66 作为品牌 taupe。 / 以暖白、石灰、烟灰、炭黑构成主中性色阶；大面积使用浅阶，信息和标题使用 700-900 深阶。
-## 3. Typography Rules
-字体策略：
-- **Heading**: `"Swei Sugar", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif`
-- **Body**: `"OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif`
-- **Mono**: `"SFMono-Regular", "SF Mono", "Menlo", "Consolas", monospace`
-- Notes: 中文大标题默认使用 Swei Sugar（狮尾宋体）ExtraLight 方向营造高级、安静、带文化感的品牌气质；正文、摘要、导航、按钮与表单默认使用 OPPO Sans 4.0，保证中文界面的清晰度、稳定性与现代感。
+> 这是良禽佳木的默认视觉地图。agent 先读这一份；标志与资产的完整规则见文末扩展段。
 
-| Role | Size | Weight | Line Height | Tracking | Font Family | Usage |
-|---|---:|---:|---:|---:|---|---|
-| Display | 72px | 500 | 1.08 | -0.03em | "Swei Sugar", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif | 首屏主标题 |
-| Heading 1 | 48px | 500 | 1.18 | -0.025em | "Swei Sugar", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif | 一级标题 |
-| Heading 2 | 36px | 500 | 1.24 | -0.02em | "Swei Sugar", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif | 二级标题 |
-| Heading 3 | 28px | 500 | 1.32 | -0.015em | "Swei Sugar", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif | 三级标题 |
-| Body | 17px | 400 | 1.82 | 0 | "OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif | 正文与摘要 |
-| Body Small | 15px | 400 | 1.72 | 0 | "OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif | 次正文与表单说明 |
-| Caption | 13px | 400 | 1.6 | 0.01em | "OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif | 注释与元信息 |
-| Overline | 12px | 500 | 1.4 | 0.12em | "OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif | 标签与分组标题 |
-中文排版默认规则：
-- 标题：大标题优先使用 Swei Sugar（狮尾宋体），控制单行长度与换行位置，避免依靠过强字距制造高级感。
-- 正文：正文、摘要、导航、按钮、表单统一使用 OPPO Sans 4.0，默认不少于 16px，并保持较宽松行高。
-- 标签：导航、按钮、标签与表单字段名称允许更完整的中文表达，不以极短英文式标签为目标。
-- 回退：当自定义字体加载失败时，正文优先回退到 PingFang SC / Noto Sans SC，标题优先回退到 Source Han Serif SC / Songti SC。
-## 4. Component Stylings
-- **Buttons**: 以实底深色按钮和浅底描边按钮为主，默认高度 44-48px，文案礼貌直接，不使用高饱和色块。
-- **Inputs**: 白底或浅石色底，1px 边框，内边距充足，标签与帮助信息层级必须清晰。
-- **Cards**: 更像信息版块而不是电商卡片；弱边框、弱阴影、大图或大留白优先。
-- **Navigation**: 顶部主导航保持稀疏与明确，一级层级少而准；移动端优先保证检索与路径理解。
-- **Lists**: 采用节奏稳定的纵向列表，标题、摘要、元信息和辅助标签之间关系明确。
-- **Iconography**: 图标默认使用 thin geometric outline，`1.25px` 笔画，尺寸优先 `16 / 20 / 24px`；端点克制、比例稳定、少而准。若承载能力无法保证精度，优先减少或取消图标，而不是自由生成粗糙图标。
-- **Component rule**: 组件继承品牌秩序而非自我表现：按钮、导航、表单、卡片、图标都必须让位于内容、摄影与材质表达。
-## 5. Layout Principles
-- Base unit: `8px`
-- Spacing scale: `4px, 8px, 12px, 16px, 24px, 32px, 48px, 64px, 96px, 128px`
-- Section rhythm: 以 96px / 128px 为主节奏，长页面用 64px 作为次节奏，模块内部保持 16px / 24px / 32px 的递进关系。
-- Grid: `12-column modular grid`
-- Max content width: `1440px`
-- Columns: desktop `12` / tablet `8` / mobile `4`
-- Gutters: desktop `32px` / tablet `24px` / mobile `16px`
-- Alignment / Balance: strict grid with selective centered hero compositions / asymmetric
-- Negative space role: 留白是高端感的主要组成，不只是空出来，而是用来给摄影、文字和品牌留呼吸。
-- Density rule: 渠道变化只允许压缩信息层次与版式，不允许把良禽佳木做成另一套风格模板。
-Shape system：
-- Radius: small `2px` / medium `6px` / large `12px` / pill `999px`
-- Border / Divider: subtle 1px / 1px 实线细分隔，优先使用 #D8D0C4；必要时用图像留白和版心对齐替代分割线。
-## 6. Depth & Elevation
-| Level | Value | Usage |
+## Overview
+
+品牌锚点：**以温润克制的高级感与理性秩序感，服务中文语境下重视品质、可信度与审美耐久度的客户。**
+
+- 气质关键词：温润 / 克制 / 高定 / 理性 / 安静 / 耐看
+- 视觉隐喻：光线柔和、材质克制的高端家居展厅，有秩序、有空气感、可被慢慢观看
+- 整体方向：安静、克制、画册感强；先建立审美高度与信任，再承接产品理解、案例浏览或咨询动作
+- 纹理来自真实摄影中的木、石、布、皮革；UI 结构本身保持平整简洁
+- 留白充足且有方向感，不做均匀铺满
+
+外部参考（Poliform / Flexform 等）只提取方法：留白比例、影像节奏、材质表达、信息克制。不要复制其页面结构、模块顺序、品类形态或交互签名。
+
+用户明确要求外部风格（例如"喜茶风格"）时，按该风格完成本次产物，不要强行转译回木作风格，也不要写回本文件。
+
+## Colors
+
+| 角色 | 值 | 用途 |
 |---|---|---|
-| Low | `0 8px 24px rgba(31, 29, 27, 0.04)` | 轻层级卡片与弱强调区 |
-| Medium | `0 18px 44px rgba(31, 29, 27, 0.08)` | 浮层与重点信息块 |
-| High | `0 28px 72px rgba(31, 29, 27, 0.12)` | 强强调层与高优先级内容 |
-深度与动效规则：
-- Shadow style: soft diffused
-- Depth cues: 主要通过色面层差、图文叠放和克制阴影表达深度，不采用厚重投影。
-- Easing: `cubic-bezier(0.22, 1, 0.36, 1)`
-- Duration scale: micro `140ms` / normal `280ms` / macro `520ms`
-- Entrance: fade-up with slight translateY(12px)
-- Exit: fade-out with slight translateY(-8px)
-- Composite / Image / Background: 整体特效策略应以“几乎感觉不到特效存在，但能感到页面很顺”为原则。首屏允许极轻微视频或弱视差，其余区域以摄影、留白、排版节奏为主。
-## 7. Do's and Don'ts
+| `{colors.primary-ink}` | `#2B2926` | 主文本、品牌锚点、深色分隔面 |
+| `{colors.background}` | `#F8F5F0` | 页面主背景 |
+| `{colors.surface}` | `#F2EEE8` | 卡片与次级背景 |
+| `{colors.surface-elevated}` | `#FFFCF8` | 浮层与强调区块 |
+| `{colors.accent}` | `#8B6A4E` | CTA、选中态、重点链接 |
+| `{colors.brand-asset}` | `#9E7F63` | logo、标准字与品牌签名区，不替代 CTA accent |
+| `{colors.line}` | `#D8D0C4` | 低噪声分隔线与边框 |
+| `{colors.ink-900}` | `#1F1D1B` | 最深正文、深色区块底 |
+| `{colors.ink-700}` | `#4B4640` | 次级正文与说明 |
+| `{colors.ink-500}` | `#888075` | 仅装饰性文字 |
+| `{colors.on-dark}` | `#F8F5F0` | 深色区块上的正文 |
+
+状态色：`success` / `warning` / `error` / `info`，只用于状态表达，不承担品牌识别。
+
+使用规则：
+
+- 大面积使用暖白、石灰、烟灰、炭黑等中性色；accent 只用于引导与确认，不允许长时间大面积占据视觉中心。
+- 不使用高饱和色块制造注意力，让材质、图像与版式承担高级感。
+- 浅色背景上的正文只使用 `ink-900` / `ink-700` / `primary-ink`，禁止浅灰正文落在暖灰背景上。
+
+对比度（按 WCAG 2.1 计算，改色时必须重新核算）：
+
+| 组合 | 比值 | 结论 |
+|---|---|---|
+| `#1F1D1B` on `#F8F5F0` | 15.45:1 | `ink-900` 作正文与标题首选 |
+| `#2B2926` on `#F8F5F0` | 13.34:1 | `primary-ink` 作标题与主文本 |
+| `#4B4640` on `#F8F5F0` | 8.59:1 | `ink-700` 作次级正文与说明 |
+| `#4B4640` on `#F2EEE8` | 8.08:1 | `ink-700` 在卡片内作正文 |
+| `#8B6A4E` on `#F8F5F0` | 4.52:1 | `accent` 作链接与 CTA 文字，刚好达到 AA 正文 |
+| `#888075` on `#F8F5F0` | 3.58:1 | `ink-500` 不达 AA 正文，只允许 ≥18px 或纯装饰文字 |
+| `#A0743C` on `#F2EEE8` | 3.59:1 | `warning` 不达 AA 正文，只用于边框、图标或大字号 |
+| `#F8F5F0` on `#1F1D1B` | 15.45:1 | `on-dark` 在深色区块作正文 |
+
+落地要求：小字说明、表单帮助信息、图注、页脚一律使用 `ink-700` 或更深；状态色只用边框、图标或 ≥18px 文本表达。
+
+## Typography
+
+- **Heading**：`{typography.heading-family}`，宋体方向营造安静与文化感，但不牺牲可读性
+- **Body**：`{typography.body-family}`，正文、导航、按钮、表单使用清晰现代的中文无衬线
+- **Mono**：`{typography.mono-family}`，数据、编号、工程信息
+
+| Token | 字号 | 行高 | 字距 | 用途 |
+|---|---|---|---|---|
+| `{typography.display}` | 72px | 1.08 | -0.03em | 首屏主标题 |
+| `{typography.heading-1}` | 48px | 1.18 | -0.025em | 一级标题 |
+| `{typography.heading-2}` | 36px | 1.24 | -0.02em | 二级标题 |
+| `{typography.heading-3}` | 28px | 1.32 | -0.015em | 三级标题 |
+| `{typography.heading-4}` | 22px | 1.4 | -0.01em | 卡片标题、列表标题 |
+| `{typography.body}` | 17px | 1.82 | 0 | 主正文 |
+| `{typography.body-small}` | 15px | 1.72 | 0 | 次正文、表单说明 |
+| `{typography.caption}` | 13px | 1.6 | 0.01em | 注释与元信息 |
+| `{typography.overline}` | 12px | 1.4 | 0.12em | 分组标签 |
+
+规则：
+
+- 本规范不声明字重。随包字体各自只有一个字重，声明 500 / 600 不会生效；需要强调时用字号、颜色或留白，不要用字重。
+- 正文默认 `17px / 1.82`，不得小于 `16px / 1.7`。
+- 中文标签可以完整表达，不追求英文式极短导航；一级导航优先 2-6 个中文字符，必要时可更长但必须清楚。
+- 负字距只用于大字号标题，正文和按钮字距保持 0。
+- `caption` 与 `overline` 属于小字，颜色必须用 `ink-700` 或更深。
+
+## Layout
+
+间距刻度：`{spacing.xxs}` 4px / `{spacing.xs}` 8px / `{spacing.sm}` 12px / `{spacing.md}` 16px / `{spacing.lg}` 24px / `{spacing.xl}` 32px / `{spacing.xxl}` 48px / `{spacing.xxxl}` 64px / `{spacing.section}` 96px / `{spacing.section-lg}` 128px。
+
+- **基准**：8px。不要在刻度之外随手取值。
+- **Section rhythm**：常规区块纵向 96px，品牌级大区块 128px。
+- 相邻区块之间的间隔由两个 section 各自的内边距叠加形成；不要额外再写 margin，也不要只给单边内边距，否则节奏会和其它页面不一致。
+- **Grid**：桌面 12 栏、平板 8 栏、移动 4 栏；内容最大宽度 1440px，槽宽 32 / 24 / 16px。
+- **Whitespace**：留白是结构而不是剩余空间；允许局部偏移构图与编辑式断行，不做均匀网格铺满。
+- **Density**：spacious。宁可减少信息量，也不要压缩行高与模块间距。
+- 组件内边距必须取间距刻度上的值；14px、20px 这类刻度外数值一律不接受。
+
+## Elevation & Depth
+
+| 层级 | 值 | 用途 |
+|---|---|---|
+| Level 0 | 无阴影 | 默认状态，靠边框与背景差建立层次 |
+| Level 1 | `0 8px 24px rgba(31, 29, 27, 0.04)` | 轻浮层、抬起的卡片 |
+| Level 2 | `0 18px 44px rgba(31, 29, 27, 0.08)` | 下拉、弹层 |
+| Level 3 | `0 28px 72px rgba(31, 29, 27, 0.12)` | 模态、抽屉 |
+
+规则：阴影只表达层级，不用于装饰；同一屏内不要出现两个以上层级的阴影。不使用玻璃拟态、霓虹辉光与彩色阴影。
+
+动效：缓动 `cubic-bezier(0.22, 1, 0.36, 1)`，时长三档：`140ms` / `280ms` / `520ms`。入场为轻微上移淡入（位移不超过 12px），退场为淡出（位移不超过 8px）。视差只允许 2 层、4%-8% 深度。禁止粒子、3D、shader 扭曲、自定义光标与拆字动画，所有动效必须支持 `prefers-reduced-motion` 降级。
+
+## Shapes
+
+| Token | 值 | 用途 |
+|---|---|---|
+| `{rounded.xs}` | 2px | 分隔条、小标签 |
+| `{rounded.sm}` | 6px | 按钮、输入框 |
+| `{rounded.md}` | 12px | 卡片、面板 |
+| `{rounded.pill}` | 999px | 胶囊标签、圆形头像 |
+
+边框与分隔线：1px 实线，颜色 `{colors.line}`。不使用双线、虚线装饰或粗边框。
+
+## Components
+
+> 不记录 hover 状态：按下与选中态已经表达了交互反馈，hover 属于实现细节。
+
+组件模型按用途分为 10 类：基础内容、导航与寻路、操作按钮、表单输入、选择与确认、反馈与状态、披露与浮层、内容卡片、页面区块、标记与工具。每一类都同时给出 default / active / focus-visible / disabled / error 中适用的状态；不是每个组件都必须出现全部状态。
+
+### Navigation
+
+**`nav-bar`** — 顶部主导航容器。Background `{colors.background}`，text `{colors.ink-700}`，border `1px solid {colors.line}`，typography `{typography.body-small}`，height 72px。一级层级少而准。
+**`nav-link`** — 导航项。Text `{colors.ink-700}`，typography `{typography.body-small}`，padding `8px 12px`，rounded `{rounded.xs}`。选中态用 `{colors.accent}` 文字或 2px 下划线表达。
+**`nav-cta`** — 导航右侧的咨询入口。Background `{colors.primary-ink}`，text `{colors.background}`，rounded `{rounded.sm}`，height 44px。
+**`breadcrumb`** — 面包屑寻路。Text `{colors.ink-700}`，typography `{typography.caption}`，条目间距 8px；只展示真实层级，不把面包屑当装饰。
+**`tabs`** — 页内视图切换。底边 1px `{colors.line}`，选中项用 2px `{colors.accent}` 下划线；用于同一内容层的并列视图，不替代主导航。
+**`pagination`** — 分页。每页按钮 40×40px，border `{colors.line}`，rounded `{rounded.xs}`，当前页反白；只在真实多页内容中使用。
+
+### Buttons
+
+**`button-primary`** — 主操作按钮，实底深色。Background `{colors.primary-ink}`，text `{colors.background}`，typography `{typography.body-small}`，padding `16px 32px`，rounded `{rounded.sm}`，height 48px。
+**`button-primary-active`** — 按下态，背景加深到 `{colors.ink-900}`。
+**`button-primary-disabled`** — 禁用态，背景 `{colors.line}`，文字 `{colors.ink-700}`，降低对比而不改变色相。
+**`button-secondary`** — 次操作按钮，浅底描边。Background transparent，text `{colors.primary-ink}`，border `1px solid {colors.line}`，height 48px。
+**`button-secondary-active`** — 按下态，填充 `{colors.surface}`，边框转为 `{colors.accent}`。
+**`button-sm`** — 小尺寸按钮，height 40px、padding `8px 24px`，用于导航、卡片内操作与密集列表。
+**`button-lg`** — 大尺寸按钮，height 56px、padding `16px 32px`，typography `{typography.body}`，用于首屏与咨询入口。
+**`button-on-dark`** — 深色区块上的按钮。Background `{colors.background}`，text `{colors.primary-ink}`，height 48px；用于 `consultation-cta` 这类深底区块，不要在页面里临时覆盖按钮颜色。
+**`button-text-link`** — 内联文字链接。Text `{colors.accent}`，typography `{typography.body-small}`，padding `4px 0`。
+
+### Forms
+
+**`text-input`** — 输入框。Background `{colors.surface-elevated}`，text `{colors.primary-ink}`，border `1px solid {colors.line}`，rounded `{rounded.sm}`，height 48px。
+**`text-input-focused`** — 焦点态，边框换成 2px `{colors.accent}`；不允许移除键盘焦点提示。
+**`text-input-error`** — 错误态，边框与文字转为 `{colors.error}`。
+**`text-input-sm`** — 小尺寸输入框，height 40px、padding `8px 12px`，用于筛选、搜索与紧凑表单。
+**`select`** — 下拉选择。Background `{colors.surface-elevated}`，border `1px solid {colors.line}`，height 48px，右侧固定 20px 的 chevron 图标；不要用浏览器默认外观。
+**`select-on-dark`** — 深色区块内使用的下拉，Background `{colors.primary-ink}`，text `{colors.on-dark}`；规格同 `select`。
+**`textarea`** — 多行输入。最小高度 128px，padding `12px 16px`，只允许纵向拉伸。
+**`checkbox`** — 复选。20px 方框，选中态用 `{colors.primary-ink}`；标签文字 `{typography.body-small}`。
+**`checkbox-disabled`** — 禁用态，文字降到 `{colors.ink-700}`，控件透明度 0.45。
+**`radio`** — 单选。规格同 `checkbox`，用于互斥选项。
+**`slider`** — 滑杆。轨道与手柄用 `{colors.primary-ink}`，行高 24px；只在真正需要连续取值时使用。
+**`segmented`** — 分段选择器。容器 pill 圆角 + `{colors.surface}` 底，选中项反白；用于 2-4 个互斥视图切换，不要用于导航。
+**`stepper`** — 数字步进器。height 40px，两侧按钮各 40px 宽，中间数值居中。
+**`form-label`** — 字段标签。Text `{colors.ink-700}`，typography `{typography.body-small}`，padding `0 0 8px`。
+**`form-helper`** — 帮助与校验说明。Text `{colors.ink-700}`，typography `{typography.caption}`，padding `8px 0 0`。
+**`search-field`** — 搜索输入组合。外层 height 48px，左侧 16px Lucide 搜索图标，内部复用 `text-input`；图标只表达动作，不承担状态。
+**`toggle`** — 二元开关。轨道 44×24px，rounded `{rounded.pill}`，关闭 `{colors.line}`、开启 `{colors.primary-ink}`，手柄 `{colors.surface-elevated}`；只用于立即生效的设置。
+**`choice-card`** — 卡片式单选。Background `{colors.surface-elevated}`，border `{colors.line}`，rounded `{rounded.md}`，padding 24px，选中态边框 `{colors.accent}`；适合材质、空间或方案选择。
+
+### Content cards
+
+**`card-base`** — 通用信息版块。Background `{colors.surface}`，border `1px solid {colors.line}`，rounded `{rounded.md}`，padding 32px。是信息版块而不是电商卡片。
+**`card-material`** — 材质说明卡。Background `{colors.surface-elevated}`，padding 32px，强调真实材质摄影与短说明。
+**`card-case`** — 案例卡。Background `{colors.surface}`，padding 0，影像贴顶上、文字在下，影像与卡片圆角一致。
+**`card-product`** — 产品卡。Background `{colors.surface-elevated}`，padding 24px；产品图与规格短表并列，不做价格促销块。
+**`card-quote`** — 报价卡。Background `{colors.surface-elevated}`，rounded `{rounded.sm}`，padding 24px；总价是唯一主焦点，确认条件次之。
+
+### Page blocks
+
+**`hero-band`** — 品牌首屏区块。Background `{colors.background}`，typography `{typography.display}`，padding `96px 32px`；用摄影与留白建立气质，不堆卖点。
+**`section-header`** — 区块标题组。Text `{colors.primary-ink}`，typography `{typography.heading-2}`，padding `0 0 32px`，可配 `eyebrow`。
+**`media-frame`** — 图片容器。Background `{colors.surface}`，border `1px solid {colors.line}`，rounded `{rounded.md}`，padding 0；图片不加复杂边框或阴影。
+**`spec-table`** — 规格表。Background `{colors.surface-elevated}`，text `{colors.ink-700}`，typography `{typography.body-small}`，padding 16px；用分隔线而不是斑马纹。
+**`consultation-cta`** — 咨询入口区块。Background `{colors.primary-ink}`，text `{colors.background}`，typography `{typography.heading-3}`，rounded `{rounded.md}`，padding 48px；文案礼貌邀请，不制造紧迫感。
+**`footer`** — 页脚。Background `{colors.surface}`，text `{colors.ink-700}`，typography `{typography.caption}`，padding `64px 32px`；放品牌落款、主要栏目与联系信息。
+**`section`** — 页面区块容器。Padding 纵向 `{spacing.section}`，内容宽度上限 1440px；品牌级大区块用 `{spacing.section-lg}`。
+
+### Marks & tags
+
+**`logo-lockup`** — 品牌落款，使用 `assets/brand/` 的真实资产，height 24px，四周净空不小于可见高度的 1/4。
+**`pill-tag`** — 胶囊标签，用于材质、工艺、服务标签。Background `{colors.surface}`，text `{colors.ink-700}`，rounded `{rounded.pill}`，padding `8px 16px`。
+**`eyebrow`** — 分组小标题。Text `{colors.ink-700}`，typography `{typography.overline}`，uppercase，padding `0 0 16px`。
+**`icon`** — 图标。统一使用 Lucide 线性图标（ISC 许可，随包放在 `kit/icons/`），24px 网格，stroke 1.5，颜色跟随文字色；只允许 `icon-sm`(16px) / `icon`(24px) / `icon-lg`(32px) 三个尺寸。无法保证工艺时宁可去掉图标，也不要换一套。
+**`icon-sm`** — 16px，用于行内提示、按钮内文字前的小图标。
+**`icon-lg`** — 32px，用于空状态或区块入口。
+**`placeholder`** — 图片占位块。Background `{colors.surface}`，border `1px solid {colors.line}`，rounded `{rounded.md}`；按 16:10 或 4:3 出图，不要用色块冒充成品图。
+**`alert`** — 提示条。Background `{colors.surface}`，text `{colors.ink-700}`，padding `16px 24px`，右侧可带关闭按钮。
+**`alert-on-dark`** — 深色提示条，Background `{colors.primary-ink}`，text `{colors.on-dark}`；用于首屏或深底区块内的提示。
+**`upload`** — 上传 / 拖拽区。Background `{colors.surface}`，边框 `1px dashed {colors.line}`，最小高度 128px，图标居中；用于资料收集与方案确认阶段。
+**`progress`** — 进度条。轨道 `{colors.line}`，已完成段 `{colors.primary-ink}`，高度 4px，pill 圆角；只表达真实进度，不做装饰性动画。
+
+### Feedback & overlays
+
+**`status-badge`** — 状态徽标。Background `{colors.surface}`，text `{colors.ink-700}`，border `{colors.line}`，rounded `{rounded.pill}`，padding `4px 12px`；状态色只用于边框与 8px 状态点，小字保持可读。
+**`tooltip`** — 补充提示。Background `{colors.primary-ink}`，text `{colors.on-dark}`，typography `{typography.caption}`，rounded `{rounded.sm}`，padding `8px 12px`；悬停或键盘聚焦出现，不承载必读信息。
+**`accordion`** — 折叠披露。Background `{colors.surface-elevated}`，border `{colors.line}`，rounded `{rounded.sm}`，标题 padding `16px 24px`；默认收起，最多展开一项时由页面控制。
+**`modal`** — 模态对话框。Background `{colors.surface-elevated}`，border `{colors.line}`，rounded `{rounded.md}`，padding 32px，Level 3 阴影；必须有明确关闭方式，不用于普通说明。
+**`drawer`** — 侧边抽屉。Background `{colors.surface-elevated}`，border `{colors.line}`，padding 32px，Level 3 阴影；适合筛选、目录与次要详情，不替代页面导航。
+**`empty-state`** — 空状态。Background transparent，text `{colors.ink-700}`，border `{colors.line}`，rounded `{rounded.md}`，padding `48px 32px`；说明为什么为空以及下一步，不用插画硬填版面。
+**`skeleton`** — 加载骨架。Background `{colors.surface}`，rounded `{rounded.sm}`，height 16px；只表达真实加载，不循环装饰，`prefers-reduced-motion` 下停用动效。
+
+### Utilities
+
+**`divider`** — 水平分隔线。Background `{colors.line}`，height 1px；用于切断信息组，不使用虚线、双线或粗边框。
+
+### 通用规则
+
+- **Lists**：纵向节奏稳定，标题、摘要、元信息与辅助标签之间关系明确。
+- **Iconography**：细线、几何、克制，线宽约 1.25px；无法保证图标工艺时减少或取消图标，而不是用劣质图标填充。
+- **状态**：default / active / focus-visible / disabled / error 必须齐全；hover 不记录。
+- 组件服务内容、摄影与材质，不让组件自己抢戏。
+
+## Do's and Don'ts
+
 ### Do
-- 高级但不疏离：气质来自材质、比例、留白与影像，不来自夸张修饰。
-- 温润且安静：避免情绪过热与强刺激配色，让用户感到稳妥、松弛、可信。
-- 秩序清晰：信息层级、栅格、对齐与节奏必须清楚，支撑品牌专业度。
-- 强调触感与材质：通过摄影、文字与色彩去传达木、石、布、皮革等真实触感。
-- 中文优先可读：中文正文字重、字号、行高与标签长度必须优先于西文美感。
-- 让品类改变内容事实，让承载改变信息压缩，而不是改写品牌。
-- 所有动效遵守 `minimal functional`，并支持 reduced motion 降级。
+
+- 先建立品牌气质与信任，再谈产品、案例与咨询入口
+- 用真实摄影、材质、比例与留白表达高级感
+- 保持中文可读性优先：字号、行高、标签完整度
+- 结构稳定、允许有限变化；换承载方式不换风格语言
+- 信息不足时给出结构化 spec、占位或待补资料清单
+
 ### Don't
-- 高饱和品牌主色占据大面积界面。
-- 复杂粒子、炫光、液态变形等喧宾夺主特效。
-- 过度纤细且不适合中文的标题排版。
-- 英文式超短导航和按钮文案。
-- 为追求高级感而牺牲导航、表单与信息可理解性。
-- 把系统说明词、控制面术语、英文元标签泄漏到最终成品。
-- 当图标质量无法保证时继续硬塞低质量图标。
-## 8. Responsive Behavior
-| Breakpoint | Range / Strategy |
-|---|---|
-| Mobile | `0-767px` / 优先保证中文阅读、导航理解与 CTA 易点按；首屏允许更集中，但不能拥挤。 |
-| Tablet | `768-1199px` / 缩减为 8 栏，保留图文层级与卡片模组，不简单等比压缩桌面版。 |
-| Desktop | `1200px+` / 以 12 栏与宽留白建立高端秩序，可局部使用偏移构图和编辑式断行。 |
-响应式要求：
-- Navigation: 移动端导航可采用横向滑动目录或折叠目录，但命名必须完整、层级必须明确。
-- Section density: 移动端区块间距可从 96px 收束到 64px，但模块内部呼吸感不能被牺牲。
-- Contrast / Focus visibility: 正文与背景保持稳定高对比，浅色背景上的正文优先使用 700-900 深阶；禁止浅灰正文落在暖灰背景上。
-- Motion safety / Content clarity: 所有 reveal、hover 与滚动动效都必须支持 prefers-reduced-motion 降级；错误、成功、帮助与空状态信息必须直接说明问题与下一步。
-## 9. Agent Prompt Guide
-Use this DESIGN.md to lock the non-negotiable brand feel before exploring layout or style variation.
-Prompt checklist:
-- 优先中文，导航、按钮、标签允许完整表达
-- 先保品牌，再做适配；品类只改内容，承载只改压缩方式
-- 先用摄影、材质说明、留白和结构建立信任，再谈装饰
-- CTA 语气使用 `subtle suggestion`，避免命令式压迫感
-- 图标遵守 thin geometric outline；如精度无法保证，优先降级为少图标或无图标
-- 输出必须像成品，而不是规范说明卡；禁止出现系统说明词和英文元标签
-- 如果与品牌边界冲突，永远回到 `foundation-dna/design-dna.zh-CN.json` 里的规则
-Suggested prompt:
+
+- 不做电商促销风、倒计时、夸张稀缺文案与高饱和色块
+- 不做冷感国际模板腔、玻璃拟态、假奢华与炫技动效
+- 不用低质量图标、假数据或编造的参数、案例、图片来源
+- 不把参考页当模板复制，不照搬其他品牌识别、具体形态、文案或交互签名
+- 不把系统说明词、控制面术语、英文元标签泄漏到最终成品
+- 不在用户未明确要求时插入 logo，也不用纯文字品牌名冒充标志
+
+## Responsive Behavior
+
+- **Mobile `0-767px`**：4 栏，槽宽 16px。优先保证中文阅读、导航理解与 CTA 易点按；首屏可以更集中，但不能拥挤。
+- **Tablet `768-1199px`**：8 栏，槽宽 24px。保留图文层级与卡片模组，不简单等比压缩桌面版。
+- **Desktop `1200px+`**：12 栏，槽宽 32px。以宽留白建立高端秩序，可局部使用偏移构图。
+- 触控目标不小于 44×44px；正文行宽建议控制在 28-38 个中文字符。
+- 移动端标题降一级：`display` 降为 `heading-1`，`heading-1` 降为 `heading-2`，避免大字号撑破版心。
+- 区块间距可以收束，但模块内部呼吸感不能被牺牲。
+
+## Iteration Guide
+
+1. 一次只改一个组件，引用它的 YAML 键（如 `{components.card-base}`）。
+2. 新增组件必须同时写进 frontmatter 的 `components:` 和本节正文，两边名字一一对应。
+3. 状态作为独立条目维护，例如 `button-primary-active`、`text-input-focused`，不要写进正文描述。
+4. 不记录 hover 状态；只写 default / active / focus-visible / disabled / error。
+5. 任何地方都用 `{token.refs}`，不要内联 hex。
+6. 需要强调时先放大字号，再考虑颜色；本规范不提供字重变化。
+7. 颜色只用暖中性底 + 低饱和 taupe 这一组关系，不要引入第四种面层色调。
+8. 需要生图时把规范压缩成一段短提示词，不要把整份文件塞进提示词。
+
 ```text
-Build a Chinese premium home furnishing page for Liangqin Ji Mu.
-Keep every output under one brand constitution: calm, tactile, restrained,
-trustworthy, Chinese-first, and material-led. Treat category changes as
-content differences and channel changes as delivery compression only.
-Use warm neutral surfaces, serif-led headlines, refined spacing, and precise
-interactions. Prefer “查看 / 了解 / 预约 / 咨询” style CTAs. Use thin
-geometric outline icons only when fidelity is high; otherwise reduce icon use.
-Avoid promo styling, system-facing meta labels, loud gradients, glassmorphism,
-and any decorative effect that weakens readability or trust.
+为良禽佳木生成一版高端中文家居视觉方向：quiet luxury，暖中性色底，低饱和 taupe 强调，编辑式留白，
+克制的宋体标题配现代中文无衬线正文，真实木 / 石 / 布 / 皮革材质，低文字密度。
+避免电商促销感、高饱和色块、玻璃拟态、假奢华与英文优先的模板腔。
 ```
+
+## Known Gaps
+
+- 两个 logo 已按图形边界裁切（横向 678×188，纵向 568×419），但最小尺寸与安全边距的正式数值仍待品牌方确认；确认前以"可见字高不低于 24px、印刷不低于 8mm"为准。
+- 本规范只定义浅色底与深色区块，没有完整的深色主题令牌。需要深色主题时先补一套令牌，不要临时调色。
+- 随包字体各自只有一个字重（Swei Sugar 为 ExtraLight，OPPO Sans 为 Regular），因此本规范不声明字重；需要多字重时先补字体文件。
+- 图标、插画与摄影素材没有独立资产规范，只有 Do / Don't 层面的约束。
+- 本规范本体是 Markdown；配套代码 UI kit 在 `kit/`。当前没有 Figma 导出或 Storybook，新增可复用代码组件应维护在 `kit/`，不要塞回本文件。
+
+## Brand Mark & Logo
+
+> 扩展段。品牌名统一写 `良禽佳木` 或 `良禽`，不要写成 `梁琴` 或 `梁琴佳木`。
+
+- **横向标志**：页头、页尾、品牌签名区、横向落款的默认选择，文件为 `assets/brand/liangqinjiamu-logo-horizontal.svg`
+- **纵向标志**：仅用于竖版品牌页、封面或纵向识别的签名场景，文件为 `assets/brand/liangqinjiamu-logo-vertical.svg`，不要替代横向标志在导航中的位置
+- **PNG 降级**：`assets/brand/liangqinjiamu-logo-horizontal.png`、`assets/brand/liangqinjiamu-logo-vertical.png`
+- **默认不插 logo**：只有用户明确说"加入 logo / 使用真实标志 / 放横版 logo / 品牌落款"时才使用
+- **必须用真实资产**：不得凭记忆重绘字形，也不得用纯文字品牌名冒充标志；读不到资产就停在结构化 spec
+- **颜色**：标志自身填充色为 `{colors.brand-asset}`，直接使用文件颜色，不要重新上色
+- **最小尺寸**：可见字高不低于 24px（横向按高度直接排版即可，文件已裁切）
+- **保护空间**：四周净空不小于标志可见高度的 1/4
+- **禁止**：拉伸、描边、加浮雕、加发光、改字距、旋转、叠加在高噪声图像上

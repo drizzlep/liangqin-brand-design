@@ -1,0 +1,96 @@
+{
+  "version": "3.0.0",
+  "brand": "良禽佳木",
+  "source_of_truth": "DESIGN.md（frontmatter token）",
+  "token_model": "semantic_roles",
+  "notes": [
+    "这是 DESIGN.md frontmatter 的 JSON 导出，供不解析 YAML 的脚本与 agent 直接读取。",
+    "本规范不导出字重：随包字体各自只有一个字重。",
+    "elevation / motion / responsive 三组不在 frontmatter 中，只作为工程导出保留。"
+  ],
+  "color": {
+    "primary-ink": "#2B2926",
+    "background": "#F8F5F0",
+    "surface": "#F2EEE8",
+    "surface-elevated": "#FFFCF8",
+    "accent": "#8B6A4E",
+    "brand-asset": "#9E7F63",
+    "line": "#D8D0C4",
+    "ink-900": "#1F1D1B",
+    "ink-700": "#4B4640",
+    "ink-500": "#888075",
+    "on-dark": "#F8F5F0",
+    "success": "#567A62",
+    "warning": "#A0743C",
+    "error": "#A04F46",
+    "info": "#5E7A8E"
+  },
+  "typography": {
+    "heading-family": "\"Swei Sugar\", \"Noto Serif SC\", \"Source Han Serif SC\", \"Songti SC\", serif",
+    "body-family": "\"OPPO Sans 4.0\", \"PingFang SC\", \"Hiragino Sans GB\", \"Noto Sans SC\", sans-serif",
+    "mono-family": "\"SFMono-Regular\", \"SF Mono\", \"Menlo\", \"Consolas\", monospace",
+    "scale": {
+      "display": { "size": "72px", "line_height": "1.08", "tracking": "-0.03em" },
+      "heading-1": { "size": "48px", "line_height": "1.18", "tracking": "-0.025em" },
+      "heading-2": { "size": "36px", "line_height": "1.24", "tracking": "-0.02em" },
+      "heading-3": { "size": "28px", "line_height": "1.32", "tracking": "-0.015em" },
+      "heading-4": { "size": "22px", "line_height": "1.4", "tracking": "-0.01em" },
+      "body": { "size": "17px", "line_height": "1.82", "tracking": "0" },
+      "body-small": { "size": "15px", "line_height": "1.72", "tracking": "0" },
+      "caption": { "size": "13px", "line_height": "1.6", "tracking": "0.01em" },
+      "overline": { "size": "12px", "line_height": "1.4", "tracking": "0.12em" }
+    }
+  },
+  "rounded": {
+    "xs": "2px",
+    "sm": "6px",
+    "md": "12px",
+    "pill": "999px"
+  },
+  "spacing": {
+    "xxs": "4px",
+    "xs": "8px",
+    "sm": "12px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "xxl": "48px",
+    "xxxl": "64px",
+    "section": "96px",
+    "section-lg": "128px"
+  },
+  "shape": {
+    "radius": {
+      "xs": "2px",
+      "sm": "6px",
+      "md": "12px",
+      "pill": "999px"
+    },
+    "divider": {
+      "thickness": "1px",
+      "style": "solid",
+      "color": "#D8D0C4"
+    }
+  },
+  "elevation": {
+    "low": "0 8px 24px rgba(31, 29, 27, 0.04)",
+    "medium": "0 18px 44px rgba(31, 29, 27, 0.08)",
+    "high": "0 28px 72px rgba(31, 29, 27, 0.12)"
+  },
+  "motion": {
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "duration": {
+      "micro": "140ms",
+      "normal": "280ms",
+      "macro": "520ms"
+    }
+  },
+  "responsive": {
+    "desktop_columns": 12,
+    "tablet_columns": 8,
+    "mobile_columns": 4,
+    "desktop_gutter": "32px",
+    "tablet_gutter": "24px",
+    "mobile_gutter": "16px"
+  }
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>模板 · 产品详情</title>
+<!--
+  产品详情骨架。用法：套结构，替换文案与图片，不要改间距、颜色、字号、圆角。
+  规格与报价一律保持「待确认」，直到有真实资料。
+  改完运行：python3 scripts/check_page.py kit/templates/product-detail.html
+-->
+<link rel="stylesheet" href="../kit.css">
+</head>
+<body class="lq-page">
+
+<header class="lq-nav-bar">
+  <img class="lq-logo-lockup" src="../../assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木">
+  <nav style="display:flex;gap:var(--lq-space-md);align-items:center">
+    <a class="lq-nav-link" href="#">首页</a>
+    <a class="lq-nav-link is-active" href="#">产品</a>
+    <a class="lq-nav-link" href="#">案例</a>
+    <a class="lq-nav-cta" href="#">预约咨询</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="lq-section">
+    <div class="lq-container">
+      <div class="lq-grid-2">
+        <div class="lq-media-frame" style="aspect-ratio:4 / 3"></div>
+        <div>
+          <span class="lq-eyebrow">产品类别 · 待确认</span>
+          <h1 class="lq-hero-band__title" style="font-size:var(--lq-size-heading-1);line-height:var(--lq-line-heading-1)">产品名称 · 待确认</h1>
+          <p class="lq-prose" style="margin:var(--lq-space-md) 0 0;color:var(--lq-color-ink-700)">
+            两到三句说明这件产品解决什么问题、适合什么空间，以及为什么这样做。
+          </p>
+          <div style="display:flex;gap:var(--lq-space-md);flex-wrap:wrap;margin-top:var(--lq-space-lg)">
+            <a class="lq-btn lq-btn-primary" href="#">预约咨询</a>
+            <a class="lq-btn lq-btn-text-link" href="#">了解服务方式</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lq-section">
+    <div class="lq-container">
+      <div class="lq-section-header">
+        <span class="lq-eyebrow">规格</span>
+        <h2 class="lq-section-header__title">规格与选项</h2>
+      </div>
+      <table class="lq-spec-table">
+        <tbody>
+          <tr><td>材质</td><td>待确认</td></tr>
+          <tr><td>尺寸</td><td>待确认</td></tr>
+          <tr><td>颜色 / 表面处理</td><td>待确认</td></tr>
+          <tr><td>交付周期</td><td>待确认</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="lq-section">
+    <div class="lq-container">
+      <div class="lq-section-header">
+        <span class="lq-eyebrow">材质与工艺</span>
+        <h2 class="lq-section-header__title">为什么这样做</h2>
+      </div>
+      <div class="lq-grid-3">
+        <article class="lq-card-material">
+          <p style="margin:0 0 var(--lq-space-xs);font-family:var(--lq-font-heading);font-size:var(--lq-size-heading-4)">材料</p>
+          <p class="lq-note" style="margin:0;color:var(--lq-color-ink-700)">材料特性与适用场景。</p>
+        </article>
+        <article class="lq-card-material">
+          <p style="margin:0 0 var(--lq-space-xs);font-family:var(--lq-font-heading);font-size:var(--lq-size-heading-4)">工艺</p>
+          <p class="lq-note" style="margin:0;color:var(--lq-color-ink-700)">关键工艺如何影响长期使用。</p>
+        </article>
+        <article class="lq-card-product">
+          <p style="margin:0 0 var(--lq-space-xs);font-family:var(--lq-font-heading);font-size:var(--lq-size-heading-4)">组合建议</p>
+          <p class="lq-note" style="margin:0;color:var(--lq-color-ink-700)">与其它产品的搭配方式。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="lq-section">
+    <div class="lq-container">
+      <div class="lq-section-header">
+        <span class="lq-eyebrow">案例</span>
+        <h2 class="lq-section-header__title">落在空间里的样子</h2>
+      </div>
+      <div class="lq-grid-2">
+        <article class="lq-card-case">
+          <div class="lq-media-frame" style="aspect-ratio:16 / 10"></div>
+          <div class="lq-card-case__body">
+            <p style="margin:0 0 var(--lq-space-xs);font-family:var(--lq-font-heading);font-size:var(--lq-size-heading-4)">案例名称 · 待确认</p>
+            <p class="lq-note" style="margin:0;color:var(--lq-color-ink-700)">这件产品在真实空间里的用法。</p>
+          </div>
+        </article>
+        <article class="lq-card-quote">
+          <span class="lq-eyebrow">参考报价</span>
+          <p class="lq-card-quote__total">总价待确认</p>
+          <p class="lq-note" style="margin:0;color:var(--lq-color-ink-700)">报价必须来自真实资料；确认条件写清楚。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="lq-section">
+    <div class="lq-container">
+      <div class="lq-consultation-cta">
+        <p class="lq-consultation-cta__title">想确认这件产品是否适合你的空间？</p>
+        <a class="lq-btn lq-btn-on-dark" href="#">预约咨询</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="lq-footer">
+  <div class="lq-container" style="padding:0">
+    <img class="lq-logo-lockup lq-logo-lockup-lg" src="../../assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木">
+    <p style="margin:var(--lq-space-md) 0 0">主要栏目 · 联系方式 · 版权信息</p>
+  </div>
+</footer>
+
+</body>
+</html>

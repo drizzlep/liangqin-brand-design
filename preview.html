@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>良禽佳木 DESIGN.md 预览</title>
+<style>
+  @font-face {
+    font-family: "Swei Sugar";
+    src: url("assets/fonts/SweiSugarCJKtc-ExtraLight.woff2") format("woff2");
+    font-weight: 200;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "OPPO Sans 4.0";
+    src: url("assets/fonts/OPPO-Sans-4.0.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --ink: #2B2926;
+    --ink-900: #1F1D1B;
+    --ink-700: #4B4640;
+    --ink-500: #888075;
+    --bg: #F8F5F0;
+    --surface: #F2EEE8;
+    --elevated: #FFFCF8;
+    --accent: #8B6A4E;
+    --brand-asset: #9E7F63;
+    --line: #D8D0C4;
+    --success: #567A62;
+    --warning: #A0743C;
+    --error: #A04F46;
+    --info: #5E7A8E;
+    --heading: "Swei Sugar", "Noto Serif SC", "Songti SC", serif;
+    --body: "OPPO Sans 4.0", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    --mono: "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--elevated); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.82; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 64px 32px 128px; }
+  header.masthead { border-bottom: 1px solid var(--line); padding-bottom: 40px; margin-bottom: 64px; }
+  .eyebrow { font-size: 12px; letter-spacing: .12em; color: var(--ink-700); text-transform: uppercase; margin: 0 0 16px; }
+  h1 { font-family: var(--heading); font-size: 48px; line-height: 1.18; margin: 0 0 16px; }
+  .lede { color: var(--ink-700); max-width: 62ch; margin: 0; }
+  section { margin-bottom: 96px; }
+  h2 { font-family: var(--heading); font-size: 36px; line-height: 1.24; margin: 0 0 32px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+  h3 { font-family: var(--heading); font-size: 22px; margin: 0 0 16px; }
+  p { margin: 0 0 16px; }
+  .muted { color: var(--ink-700); font-size: 15px; line-height: 1.72; }
+  code { font-family: var(--mono); font-size: 13px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 32px; }
+  .panel-dark { background: var(--ink-900); color: var(--bg); border-color: var(--ink-900); }
+  .keyword { display: inline-block; margin: 0 8px 8px 0; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 15px; background: var(--elevated); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+  .swatch { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--elevated); }
+  .swatch .chip { height: 88px; }
+  .swatch .meta { padding: 12px 16px; }
+  .swatch .name { font-size: 15px; }
+  .swatch .hex { font-family: var(--mono); font-size: 13px; color: var(--ink-700); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+  th { font-weight: 400; color: var(--ink-700); font-size: 13px; letter-spacing: .01em; }
+  .specimen { font-family: var(--heading); color: var(--ink-900); margin: 0; }
+  .sp-bars { display: flex; flex-direction: column; gap: 12px; }
+  .sp-row { display: flex; align-items: center; gap: 16px; font-size: 15px; color: var(--ink-700); }
+  .sp-bar { height: 12px; background: var(--accent); opacity: .35; border-radius: 2px; }
+  .radius-row { display: flex; gap: 24px; flex-wrap: wrap; }
+  .radius-item { text-align: center; font-size: 13px; color: var(--ink-700); }
+  .radius-item .box { width: 96px; height: 96px; background: var(--surface); border: 1px solid var(--line); margin-bottom: 8px; }
+  .elevation-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .elevation-item { background: var(--elevated); border-radius: 12px; padding: 32px; font-size: 15px; color: var(--ink-700); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 16px 32px; border-radius: 6px; font-family: var(--body); font-size: 15px; border: 1px solid transparent; cursor: pointer; }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-disabled { background: var(--line); color: var(--ink-700); }
+  .field { display: block; width: 100%; height: 48px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 6px; background: var(--elevated); font-family: var(--body); font-size: 15px; color: var(--ink); }
+  .notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .notes ul { margin: 0; padding-left: 24px; }
+  .notes li { margin-bottom: 8px; }
+  .flag { background: var(--surface); border: 1px solid var(--warning); border-radius: 6px; padding: 16px 24px; font-size: 15px; color: var(--ink-700); }
+  .flag strong { color: var(--ink-900); }
+  .cols { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; margin-top: 8px; }
+  .cols span { height: 32px; background: var(--accent); opacity: .18; border-radius: 2px; }
+  .catalog { display: grid; gap: 24px; }
+  .catalog-item { border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: var(--elevated); }
+  .catalog-item .label { display: block; font-family: var(--mono); font-size: 12px; color: var(--ink-700); margin-bottom: 16px; }
+  .catalog-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .demo-media { aspect-ratio: 16 / 10; background: var(--surface); border-bottom: 1px solid var(--line); }
+  .logo-box { display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1px solid var(--line); background: var(--elevated); padding: 32px; }
+  .logo-box img { display: block; }
+  /* 两个标志已按图形边界裁切，可直接按高度排版 */
+  .logo-horizontal img { height: 40px; width: auto; }
+  .logo-vertical img { height: 120px; width: auto; }
+  .logo-nav { height: 28px; width: auto; display: block; }
+  footer { border-top: 1px solid var(--line); padding-top: 32px; color: var(--ink-700); font-size: 13px; }
+  .component-model { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .component-model-item { min-height: 112px; padding: 16px; border-top: 1px solid var(--ink); background: var(--surface); }
+  .component-model-item .model-title { display: block; margin-bottom: 8px; color: var(--ink); font-size: 15px; }
+  .component-model-item .model-copy { display: block; color: var(--ink-700); font-size: 13px; line-height: 1.6; }
+  .wayfinding-demo { display: grid; gap: 16px; }
+  .breadcrumb-demo { display: flex; flex-wrap: wrap; gap: 8px; color: var(--ink-700); font-size: 13px; }
+  .tabs-demo { display: flex; gap: 8px; border-bottom: 1px solid var(--line); }
+  .tabs-demo button { min-height: 40px; padding: 8px 16px; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--ink-700); font-family: var(--body); font-size: 15px; cursor: pointer; }
+  .tabs-demo button.is-active { border-bottom-color: var(--accent); color: var(--ink); }
+  .pagination-demo { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pagination-demo span { display: inline-grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 2px; background: var(--elevated); color: var(--ink-700); font-size: 13px; }
+  .pagination-demo span.is-active { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+  .extended-form-demo { display: grid; gap: 16px; }
+  .search-demo { position: relative; }
+  .search-demo .search-icon { position: absolute; top: 50%; left: 16px; width: 16px; height: 16px; transform: translateY(-50%); background: var(--ink-700); -webkit-mask: url("kit/icons/search.svg") center / contain no-repeat; mask: url("kit/icons/search.svg") center / contain no-repeat; pointer-events: none; }
+  .search-demo input { padding-left: 48px; }
+  .toggle-demo { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); font-size: 15px; cursor: pointer; }
+  .toggle-demo input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .toggle-demo .track { position: relative; width: 44px; height: 24px; flex: none; border-radius: 999px; background: var(--line); }
+  .toggle-demo .thumb { position: absolute; top: 4px; left: 4px; width: 16px; height: 16px; border-radius: 999px; background: var(--elevated); transition: transform 140ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .toggle-demo input:checked + .track { background: var(--ink); }
+  .toggle-demo input:checked + .track .thumb { transform: translateX(20px); }
+  .choice-demo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .choice-card { position: relative; display: block; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--elevated); cursor: pointer; }
+  .choice-card input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .choice-card.is-selected { border-color: var(--accent); background: var(--surface); }
+  .choice-card .choice-title { display: block; margin-bottom: 8px; color: var(--ink); font-size: 15px; }
+  .choice-card .choice-copy { display: block; color: var(--ink-700); font-size: 13px; line-height: 1.6; }
+  .feedback-demo { display: grid; gap: 16px; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .status-badge { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink-700); font-size: 13px; }
+  .status-badge::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--ink-700); }
+  .status-badge.is-success { border-color: var(--success); }
+  .status-badge.is-success::before { background: var(--success); }
+  .status-badge.is-warning { border: 1px solid var(--warning); }
+  .status-badge.is-warning::before { background: var(--warning); }
+  .status-badge.is-error { border-color: var(--error); }
+  .status-badge.is-error::before { background: var(--error); }
+  .status-badge.is-info { border-color: var(--info); }
+  .status-badge.is-info::before { background: var(--info); }
+  .skeleton-demo { display: grid; gap: 8px; }
+  .skeleton-demo span { display: block; height: 16px; border-radius: 6px; background: var(--surface); }
+  .empty-state-demo { padding: 48px 32px; border: 1px solid var(--line); border-radius: 12px; background: transparent; color: var(--ink-700); text-align: center; }
+  .empty-state-demo .empty-title { margin: 0 0 8px; color: var(--ink); font-family: var(--heading); font-size: 22px; }
+  .empty-state-demo .empty-copy { max-width: 42ch; margin: 0 auto; font-size: 15px; line-height: 1.72; }
+  .tooltip-demo { position: relative; display: inline-flex; padding: 8px 12px; border-radius: 6px; background: var(--ink-900); color: var(--bg); font-size: 13px; }
+  .accordion-demo { border: 1px solid var(--line); border-radius: 6px; background: var(--elevated); }
+  .accordion-demo + .accordion-demo { margin-top: 8px; }
+  .accordion-demo summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 24px; color: var(--ink); font-size: 15px; cursor: pointer; list-style: none; }
+  .accordion-demo summary::-webkit-details-marker { display: none; }
+  .accordion-demo summary::after { content: "+"; color: var(--ink-700); }
+  .accordion-demo[open] summary::after { content: "−"; }
+  .accordion-demo .accordion-copy { padding: 0 24px 24px; color: var(--ink-700); font-size: 13px; line-height: 1.6; }
+  .modal-demo { padding: 32px; border: 1px solid var(--line); border-radius: 12px; background: var(--elevated); box-shadow: 0 28px 72px rgba(31, 29, 27, .12); }
+  .modal-demo .modal-title { margin: 0 0 8px; color: var(--ink); font-family: var(--heading); font-size: 22px; }
+  .modal-demo .modal-copy { margin: 0 0 24px; color: var(--ink-700); font-size: 15px; line-height: 1.72; }
+  .drawer-demo { max-width: 400px; padding: 32px; border: 1px solid var(--line); background: var(--elevated); box-shadow: 0 28px 72px rgba(31, 29, 27, .12); }
+  .drawer-demo .drawer-title { margin: 0 0 8px; color: var(--ink); font-family: var(--heading); font-size: 22px; }
+  .drawer-demo .drawer-copy { margin: 0 0 24px; color: var(--ink-700); font-size: 15px; line-height: 1.72; }
+  .divider-demo { height: 1px; background: var(--line); }
+  .overlay-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .reference-opening { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; margin-bottom: 64px; }
+  .reference-panel { min-width: 0; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .reference-panel h3 { margin: 0 0 16px; color: var(--ink-700); font-family: var(--body); font-size: 13px; line-height: 1.6; letter-spacing: .12em; text-transform: uppercase; }
+  .reference-panel p { margin: 0 0 12px; }
+  .reference-panel .reference-copy { color: var(--ink-700); font-size: 15px; line-height: 1.72; }
+  .reference-type { display: grid; gap: 8px; }
+  .reference-type span { display: block; color: var(--ink); font-family: var(--body); }
+  .reference-type .display { font-size: 48px; line-height: 1.08; letter-spacing: -.03em; }
+  .reference-type .heading { font-size: 36px; line-height: 1.18; letter-spacing: -.025em; }
+  .reference-type .subheading { font-size: 22px; line-height: 1.32; letter-spacing: -.015em; }
+  .reference-rule { height: 1px; margin: 16px 0; background: var(--line); }
+  .reference-button-row { display: flex; flex-wrap: wrap; gap: 16px; }
+  .reference-select-wrap { position: relative; display: block; }
+  .reference-select-wrap::after { content: "⌄"; position: absolute; top: 50%; right: 16px; color: var(--ink-700); transform: translateY(-50%); pointer-events: none; }
+  .reference-select { appearance: none; padding-right: 40px; }
+  .reference-state-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .reference-state { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); background: var(--elevated); color: var(--ink-700); font-size: 13px; }
+  .reference-state.active { border-color: var(--ink); color: var(--ink); }
+  .reference-state.error { border-color: var(--error); color: var(--error); }
+  /* External reference styling: compact two-column UIkit catalog. */
+  .reference-logo { display: block; width: 136px; height: auto; margin: 0 auto 24px; }
+  .masthead { border-bottom: 0; padding-bottom: 32px; margin-bottom: 32px; text-align: center; }
+  .masthead .eyebrow { margin-bottom: 16px; }
+  .masthead h1 { margin-bottom: 8px; color: var(--ink-700); font-family: var(--body); font-size: 13px; line-height: 1.6; letter-spacing: .12em; text-transform: uppercase; }
+  .masthead .lede { display: none; }
+  .wrap { max-width: 1200px; padding: 48px 64px 128px; }
+  .spec-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; align-items: start; }
+  .spec-grid > section { min-width: 0; margin: 0; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .spec-grid > section:last-child { border-bottom: 0; }
+  section { margin-bottom: 64px; }
+  h2 { margin: 0 0 16px; padding-bottom: 0; border-bottom: 0; color: var(--ink-700); font-family: var(--body); font-size: 13px; line-height: 1.6; letter-spacing: .12em; text-transform: uppercase; }
+  h3 { margin-bottom: 12px; color: var(--ink-700); font-family: var(--body); font-size: 13px; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; }
+  .panel { padding: 16px 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent; }
+  .panel-dark { background: var(--ink-900); color: var(--bg); border-color: var(--ink-900); }
+  .catalog { gap: 16px; }
+  .catalog-item { padding: 16px 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent; }
+  .catalog-item .label { margin-bottom: 12px; font-family: var(--body); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  .catalog-grid { gap: 16px; }
+  .grid-2, .grid-3 { gap: 16px; }
+  .swatches { gap: 8px; }
+  .swatch .chip { height: 64px; }
+  .swatch .meta { padding: 8px 12px; }
+  table { font-size: 12px; }
+  th, td { padding: 8px 12px; }
+  .btn { height: 40px; padding: 8px 24px; border-radius: 2px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  .field { height: 40px; padding: 8px 12px; border-radius: 2px; font-size: 13px; }
+  .keyword { padding: 4px 12px; border-radius: 999px; font-size: 12px; }
+  .notes li { margin-bottom: 4px; }
+  footer { margin-top: 32px; padding-top: 24px; }
+  .standard-disclosure { margin-bottom: 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .standard-disclosure > summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; color: var(--ink-700); cursor: pointer; font-family: var(--body); font-size: 13px; letter-spacing: .12em; list-style: none; text-transform: uppercase; }
+  .standard-disclosure > summary::-webkit-details-marker { display: none; }
+  .standard-disclosure > summary::after { content: "+"; color: var(--ink-700); }
+  .standard-disclosure[open] > summary::after { content: "−"; }
+  .standard-disclosure > .spec-grid { padding-top: 32px; }
+  @media (max-width: 900px) {
+    .wrap { padding: 48px 24px 96px; }
+    .grid-2, .grid-3, .elevation-row, .notes { grid-template-columns: 1fr; }
+    .spec-grid { grid-template-columns: 1fr; gap: 24px; }
+    .reference-opening, .reference-state-row { grid-template-columns: 1fr; }
+    .component-model, .overlay-grid { grid-template-columns: 1fr; }
+    table { display: block; overflow-x: auto; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 28px; }
+    section { margin-bottom: 64px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <img class="reference-logo" src="assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木">
+    <p class="eyebrow">Liangqin Ji Mu · UI Kit · v3.0.0</p>
+    <h1>良禽佳木设计规范预览</h1>
+  </header>
+
+  <section class="reference-opening" aria-label="UI kit opening catalog">
+    <div class="reference-panel">
+      <h3>Headlines</h3>
+      <div class="reference-type">
+        <span class="display">72 px Display</span>
+        <span class="heading">48 px Headline 1</span>
+        <span class="subheading">28 px Headline 3</span>
+      </div>
+      <div class="reference-rule"></div>
+      <h3>Subtitles</h3>
+      <div class="reference-type">
+        <span class="subheading">22 px Headline 4</span>
+        <span class="reference-copy">12 px overline / UI label</span>
+      </div>
+    </div>
+    <div class="reference-panel">
+      <h3>Paragraphs</h3>
+      <p class="reference-copy">大面积留白、细线分区和稳定的双栏结构，让组件像规格书一样容易扫描。</p>
+      <p class="reference-copy">沿用 3.0 字阶与正文行高，保留中文阅读的舒适度；视觉密度靠近参考图，但不牺牲可读性。</p>
+    </div>
+    <div class="reference-panel">
+      <h3>Buttons</h3>
+      <div class="reference-button-row">
+        <button class="btn btn-primary" type="button">预约咨询</button>
+        <button class="btn btn-secondary" type="button">查看案例</button>
+      </div>
+      <div class="reference-button-row" style="margin-top:16px">
+        <button class="btn btn-primary" type="button">了解更多</button>
+        <button class="btn btn-secondary" type="button">开始配置</button>
+      </div>
+      <div class="reference-rule"></div>
+      <a class="btn btn-text-link" href="#components">查看完整组件目录 →</a>
+    </div>
+    <div class="reference-panel">
+      <h3>Dropdowns</h3>
+      <div class="reference-state-row">
+        <label class="reference-select-wrap"><select class="field reference-select" aria-label="空间类型"><option>空间类型</option><option>客厅</option><option>卧室</option></select></label>
+        <label class="reference-select-wrap"><select class="field reference-select" aria-label="交付形式"><option>交付形式</option><option>网页</option><option>报价卡</option></select></label>
+        <label class="reference-select-wrap"><select class="field reference-select" aria-label="材质方向"><option>材质方向</option><option>待确认</option></select></label>
+        <label class="reference-select-wrap"><select class="field reference-select" aria-label="项目状态"><option>项目状态</option><option>草稿</option><option>待评审</option></select></label>
+      </div>
+    </div>
+    <div class="reference-panel">
+      <h3>Input Fields</h3>
+      <div class="reference-state-row">
+        <input class="field" type="text" placeholder="怎么称呼你" aria-label="称呼">
+        <input class="field" type="text" placeholder="手机号或邮箱" aria-label="联系方式">
+        <input class="field" type="text" placeholder="待确认" aria-label="空间面积">
+        <input class="field" type="search" placeholder="搜索组件或规范" aria-label="搜索">
+      </div>
+    </div>
+    <div class="reference-panel">
+      <h3>Input Field Styles</h3>
+      <div class="reference-state-row">
+        <div class="reference-state active">Active · 已聚焦</div>
+        <div class="reference-state">Accept · 已填写</div>
+        <div class="reference-state">Writing · 编辑中</div>
+        <div class="reference-state error">Error · 需要修正</div>
+        <div class="reference-state">Wrote · 已完成</div>
+        <div class="reference-state" style="background:var(--surface);color:var(--ink-500)">Disabled · 暂不可用</div>
+      </div>
+    </div>
+  </section>
+
+  <details class="standard-disclosure">
+    <summary>Standard sections · 展开规范章节</summary>
+    <div class="spec-grid spec-grid-top">
+
+  <section>
+    <h2>Overview 概览</h2>
+    <div class="panel">
+      <p style="margin-bottom:24px">品牌锚点：<strong>以温润克制的高级感与理性秩序感，服务中文语境下重视品质、可信度与审美耐久度的客户。</strong></p>
+      <div>
+        <span class="keyword">温润</span><span class="keyword">克制</span><span class="keyword">高定</span>
+        <span class="keyword">理性</span><span class="keyword">安静</span><span class="keyword">耐看</span>
+      </div>
+      <p class="muted" style="margin:24px 0 0">纹理来自真实摄影中的木、石、布、皮革；UI 结构保持平整简洁。留白充足且有方向感，不做均匀铺满。</p>
+    </div>
+    <div class="grid-2" style="margin-top:24px">
+      <div class="panel"><h3>是</h3><p class="muted" style="margin:0">安静、克制、画册感强；先建立审美高度与信任，再承接产品与咨询。</p></div>
+      <div class="panel"><h3>不是</h3><p class="muted" style="margin:0">促销页、冷感国际模板、炫技动效；也不复制参考品牌的结构与交互签名。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Colors 色彩</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#2B2926"></div><div class="meta"><div class="name">Primary Ink</div><div class="hex">#2B2926</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#F8F5F0"></div><div class="meta"><div class="name">Background</div><div class="hex">#F8F5F0</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#F2EEE8"></div><div class="meta"><div class="name">Surface</div><div class="hex">#F2EEE8</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#FFFCF8"></div><div class="meta"><div class="name">Surface Elevated</div><div class="hex">#FFFCF8</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#8B6A4E"></div><div class="meta"><div class="name">Accent</div><div class="hex">#8B6A4E</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#9E7F63"></div><div class="meta"><div class="name">Brand Asset</div><div class="hex">#9E7F63</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#D8D0C4"></div><div class="meta"><div class="name">Line</div><div class="hex">#D8D0C4</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#1F1D1B"></div><div class="meta"><div class="name">Ink 900</div><div class="hex">#1F1D1B</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#4B4640"></div><div class="meta"><div class="name">Ink 700</div><div class="hex">#4B4640</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#888075"></div><div class="meta"><div class="name">Ink 500</div><div class="hex">#888075</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#567A62"></div><div class="meta"><div class="name">Success</div><div class="hex">#567A62</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#A0743C"></div><div class="meta"><div class="name">Warning</div><div class="hex">#A0743C</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#A04F46"></div><div class="meta"><div class="name">Error</div><div class="hex">#A04F46</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#5E7A8E"></div><div class="meta"><div class="name">Info</div><div class="hex">#5E7A8E</div></div></div>
+    </div>
+    <table style="margin-top:24px">
+      <thead><tr><th>组合</th><th>比值</th><th>结论</th></tr></thead>
+      <tbody>
+        <tr><td>ink-900 on background</td><td>15.45:1</td><td>正文与标题首选</td></tr>
+        <tr><td>ink-700 on background</td><td>8.59:1</td><td>次级正文与说明</td></tr>
+        <tr><td>accent on background</td><td>4.52:1</td><td>链接与 CTA 文字</td></tr>
+        <tr><td>ink-500 on background</td><td>3.58:1</td><td>不达 AA 正文，只用于装饰</td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:16px">小字说明、表单帮助、图注、页脚一律使用 ink-700 或更深；状态色只做边框、图标或 ≥18px 文本。</p>
+  </section>
+
+  <section>
+    <h2>Typography 字号</h2>
+    <div class="panel">
+      <p class="specimen" style="font-size:72px;line-height:1.08;letter-spacing:-.03em">Display 72</p>
+      <p class="specimen" style="font-size:48px;line-height:1.18;letter-spacing:-.025em">Heading 1 标题</p>
+      <p class="specimen" style="font-size:36px;line-height:1.24;letter-spacing:-.02em">Heading 2 标题</p>
+      <p class="specimen" style="font-size:28px;line-height:1.32;letter-spacing:-.015em">Heading 3 标题</p>
+      <p style="font-size:17px;line-height:1.82;margin-top:24px">正文 17px / 1.82：以温润克制的高级感与理性秩序感，服务中文语境下重视品质与审美耐久度的客户。</p>
+      <p style="font-size:15px;line-height:1.72">次正文 15px / 1.72：表单说明、辅助信息与导航文案。</p>
+      <p style="font-size:13px;line-height:1.6;color:var(--ink-700)">注释 13px / 1.6：元信息与图注。</p>
+      <p style="font-size:12px;line-height:1.4;letter-spacing:.12em;color:var(--ink-700)">OVERLINE 12PX / 0.12EM</p>
+    </div>
+    <table style="margin-top:24px">
+      <thead><tr><th>Token</th><th>字号</th><th>行高</th><th>字距</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>display</td><td>72px</td><td>1.08</td><td>-0.03em</td><td>首屏主标题</td></tr>
+        <tr><td>heading-1</td><td>48px</td><td>1.18</td><td>-0.025em</td><td>一级标题</td></tr>
+        <tr><td>heading-2</td><td>36px</td><td>1.24</td><td>-0.02em</td><td>二级标题</td></tr>
+        <tr><td>heading-3</td><td>28px</td><td>1.32</td><td>-0.015em</td><td>三级标题</td></tr>
+        <tr><td>body</td><td>17px</td><td>1.82</td><td>0</td><td>主正文</td></tr>
+        <tr><td>body-small</td><td>15px</td><td>1.72</td><td>0</td><td>次正文、表单说明</td></tr>
+        <tr><td>caption</td><td>13px</td><td>1.6</td><td>0.01em</td><td>注释与元信息</td></tr>
+        <tr><td>overline</td><td>12px</td><td>1.4</td><td>0.12em</td><td>分组标签</td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="margin-top:16px">本规范不声明字重：随包字体各自只有一个字重，声明 500 / 600 不会生效。需要强调时用字号、颜色或留白。</p>
+  </section>
+
+  <section>
+    <h2>Layout 布局</h2>
+    <div class="panel">
+      <div class="sp-bars">
+        <div class="sp-row"><span style="width:64px">4px</span><span class="sp-bar" style="width:4px"></span></div>
+        <div class="sp-row"><span style="width:64px">8px</span><span class="sp-bar" style="width:8px"></span></div>
+        <div class="sp-row"><span style="width:64px">12px</span><span class="sp-bar" style="width:12px"></span></div>
+        <div class="sp-row"><span style="width:64px">16px</span><span class="sp-bar" style="width:16px"></span></div>
+        <div class="sp-row"><span style="width:64px">24px</span><span class="sp-bar" style="width:24px"></span></div>
+        <div class="sp-row"><span style="width:64px">32px</span><span class="sp-bar" style="width:32px"></span></div>
+        <div class="sp-row"><span style="width:64px">48px</span><span class="sp-bar" style="width:48px"></span></div>
+        <div class="sp-row"><span style="width:64px">64px</span><span class="sp-bar" style="width:64px"></span></div>
+        <div class="sp-row"><span style="width:64px">96px</span><span class="sp-bar" style="width:96px"></span></div>
+        <div class="sp-row"><span style="width:64px">128px</span><span class="sp-bar" style="width:128px"></span></div>
+      </div>
+      <p class="muted" style="margin-top:24px">8px 基准。区块纵向 96px，品牌级大区块 128px。内容最大宽度 1440px，槽宽 32 / 24 / 16px。</p>
+      <div class="cols">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="muted" style="margin-top:8px">桌面 12 栏</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Elevation &amp; Depth 阴影与动效</h2>
+    <div class="elevation-row">
+      <div class="elevation-item" style="box-shadow:0 8px 24px rgba(31,29,27,.04)">low<br><span class="muted">悬停卡片、轻浮层</span></div>
+      <div class="elevation-item" style="box-shadow:0 18px 44px rgba(31,29,27,.08)">medium<br><span class="muted">下拉、弹层</span></div>
+      <div class="elevation-item" style="box-shadow:0 28px 72px rgba(31,29,27,.12)">high<br><span class="muted">模态、抽屉</span></div>
+    </div>
+    <p class="muted" style="margin-top:24px">缓动 cubic-bezier(0.22, 1, 0.36, 1)，时长 140ms / 280ms / 520ms。入场位移不超过 12px，退场不超过 8px。禁止粒子、3D、shader 与自定义光标，全部动效支持 prefers-reduced-motion。</p>
+  </section>
+
+  <section>
+    <h2>Shapes 形状</h2>
+    <div class="radius-row">
+      <div class="radius-item"><div class="box" style="border-radius:2px"></div>xs 2px</div>
+      <div class="radius-item"><div class="box" style="border-radius:6px"></div>sm 6px</div>
+      <div class="radius-item"><div class="box" style="border-radius:12px"></div>md 12px</div>
+      <div class="radius-item"><div class="box" style="border-radius:999px"></div>pill 999px</div>
+    </div>
+    <p class="muted" style="margin-top:16px">边框与分隔线：1px 实线，颜色 line。不使用双线、虚线装饰或粗边框。</p>
+  </section>
+
+    </div>
+  </details>
+
+  <section>
+    <h2 id="components">Components 组件</h2>
+    <p class="muted" style="margin-bottom:24px">组件目录共 64 条规格、91 个类名；hover 不记录，状态由 active 与选中态表达。完整目录见 <a href="kit/index.html">kit/index.html</a>。</p>
+
+    <h3 style="margin-bottom:16px">Component model</h3>
+    <div class="component-model" style="margin-bottom:32px">
+      <div class="component-model-item"><span class="model-title">01 基础内容</span><span class="model-copy">Typography · Colors · Icons · Placeholders</span></div>
+      <div class="component-model-item"><span class="model-title">02 导航与寻路</span><span class="model-copy">nav · breadcrumb · tabs · pagination</span></div>
+      <div class="component-model-item"><span class="model-title">03 操作按钮</span><span class="model-copy">primary · secondary · sm · lg · link</span></div>
+      <div class="component-model-item"><span class="model-title">04 表单输入</span><span class="model-copy">input states · textarea · select · search · toggle</span></div>
+      <div class="component-model-item"><span class="model-title">05 选择与确认</span><span class="model-copy">checkbox · radio · segmented · choice-card</span></div>
+      <div class="component-model-item"><span class="model-title">06 反馈与状态</span><span class="model-copy">alert · badge · progress · skeleton · empty</span></div>
+      <div class="component-model-item"><span class="model-title">07 披露与浮层</span><span class="model-copy">tooltip · accordion · modal · drawer</span></div>
+      <div class="component-model-item"><span class="model-title">08 内容卡片</span><span class="model-copy">material · case · product · quote · table</span></div>
+      <div class="component-model-item"><span class="model-title">09 页面区块</span><span class="model-copy">hero · section · CTA · footer</span></div>
+      <div class="component-model-item"><span class="model-title">10 标记与工具</span><span class="model-copy">logo · eyebrow · pill · divider · helper</span></div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Navigation</h3>
+    <div class="catalog" style="margin-bottom:32px">
+      <div class="catalog-item">
+        <span class="label">nav-bar · nav-link · nav-cta</span>
+        <div style="background:var(--bg);border:1px solid var(--line);height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 24px">
+          <img class="logo-nav" src="assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木">
+          <span class="catalog-row">
+            <span class="muted">首页</span>
+            <span class="muted">产品</span>
+            <span class="muted">案例</span>
+            <button class="btn btn-primary" style="height:44px;padding:12px 24px">预约咨询</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+    <h3 style="margin-bottom:16px">Wayfinding</h3>
+    <div class="catalog" style="margin-bottom:32px">
+      <div class="catalog-item">
+        <span class="label">breadcrumb · tabs · pagination</span>
+        <div class="wayfinding-demo">
+          <div class="breadcrumb-demo"><span>首页</span><span>/</span><span>案例</span><span>/</span><span>住宅改造</span></div>
+          <div class="tabs-demo"><button class="is-active" type="button">概览</button><button type="button">材质</button><button type="button">细节</button></div>
+          <div class="pagination-demo"><span>−</span><span class="is-active">1</span><span>2</span><span>3</span><span>+</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Buttons</h3>
+    <div class="catalog" style="margin-bottom:32px">
+      <div class="catalog-item">
+        <span class="label">button-primary · button-secondary · button-primary-disabled · button-text-link</span>
+        <div class="catalog-row">
+          <button class="btn btn-primary">预约咨询</button>
+          <button class="btn btn-secondary">查看案例</button>
+          <button class="btn btn-disabled">已提交</button>
+          <span style="color:var(--accent);font-size:15px;text-decoration:underline">了解服务方式</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Forms</h3>
+    <div class="catalog" style="margin-bottom:32px">
+      <div class="catalog-item">
+        <span class="label">form-label · text-input · form-helper · text-input-error</span>
+        <div class="catalog-grid">
+          <div>
+            <label class="muted" for="demo-name">称呼</label>
+            <input class="field" id="demo-name" placeholder="请输入您的称呼" style="margin:8px 0">
+            <p class="muted" style="margin:0">用于后续沟通，不会对外公开。</p>
+          </div>
+          <div>
+            <label class="muted" for="demo-city">所在城市</label>
+            <input class="field" id="demo-city" placeholder="请输入城市" style="margin:8px 0;border-color:var(--error);color:var(--error)">
+            <p class="muted" style="margin:0;color:var(--error)">这一项需要填写后才能继续。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h3 style="margin-bottom:16px">Extended forms</h3>
+    <div class="catalog" style="margin-bottom:32px">
+      <div class="catalog-item">
+        <span class="label">search-field · toggle · choice-card</span>
+        <div class="extended-form-demo">
+          <label class="search-demo">
+            <span class="search-icon" aria-hidden="true"></span>
+            <input class="field" type="search" placeholder="搜索案例、材质或服务">
+          </label>
+          <label class="toggle-demo">
+            <input type="checkbox" checked>
+            <span class="track"><span class="thumb"></span></span>
+            <span>需要上门测量</span>
+          </label>
+          <div class="choice-demo">
+            <label class="choice-card is-selected"><input type="radio" name="preview-choice" checked><span class="choice-title">北美黑胡桃木 · 待确认</span><span class="choice-copy">深色、细纹理，适合克制而温暖的公共空间。</span></label>
+            <label class="choice-card"><input type="radio" name="preview-choice"><span class="choice-title">浅色白橡木 · 待确认</span><span class="choice-copy">明亮、纹理轻，适合采光充足的空间。</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Content cards</h3>
+    <div class="catalog" style="margin-bottom:32px">
+      <div class="catalog-item">
+        <span class="label">card-base · card-material · card-product</span>
+        <div class="catalog-grid">
+          <div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px">
+            <p style="font-family:var(--heading);font-size:22px;margin-bottom:8px">信息版块</p>
+            <p class="muted" style="margin:0">card-base：弱边框、弱阴影，像信息版块而不是电商卡片。</p>
+          </div>
+          <div style="background:var(--elevated);border:1px solid var(--line);border-radius:12px;padding:32px">
+            <p style="font-family:var(--heading);font-size:22px;margin-bottom:8px">材质与工艺</p>
+            <p class="muted" style="margin:0">card-material：强调真实材质摄影与短说明。</p>
+          </div>
+          <div style="background:var(--elevated);border:1px solid var(--line);border-radius:12px;padding:24px">
+            <p style="font-family:var(--heading);font-size:22px;margin-bottom:8px">产品规格</p>
+            <p class="muted" style="margin:0 0 12px">card-product：产品图与规格短表并列，不做价格促销块。</p>
+            <p class="muted" style="margin:0">材质｜待确认 · 尺寸｜待确认</p>
+          </div>
+        </div>
+      </div>
+      <div class="catalog-item">
+        <span class="label">card-case · card-quote</span>
+        <div class="catalog-grid">
+          <div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden">
+            <div class="demo-media"></div>
+            <div style="padding:24px">
+              <p style="font-family:var(--heading);font-size:22px;margin-bottom:8px">案例</p>
+              <p class="muted" style="margin:0">card-case：影像在上、文字在下，影像与卡片圆角一致。</p>
+            </div>
+          </div>
+          <div style="background:var(--elevated);border:1px solid var(--line);border-radius:6px;padding:24px">
+            <p class="muted" style="margin:0 0 8px">报价卡</p>
+            <p style="font-family:var(--heading);font-size:28px;margin:0 0 8px">总价待确认</p>
+            <p class="muted" style="margin:0">card-quote：总价是唯一主焦点，确认条件次之。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Page blocks</h3>
+    <div class="catalog" style="margin-bottom:32px">
+      <div class="catalog-item" style="padding:0;overflow:hidden">
+        <div style="padding:96px 32px;background:var(--bg);border-bottom:1px solid var(--line)">
+          <p style="font-size:12px;letter-spacing:.12em;color:var(--ink-700);margin:0 0 16px">EYEBROW</p>
+          <p style="font-family:var(--heading);font-size:48px;line-height:1.18;margin:0">hero-band 首屏</p>
+        </div>
+        <div style="padding:24px"><span class="label" style="margin:0">hero-band · eyebrow</span></div>
+      </div>
+      <div class="catalog-item">
+        <span class="label">section-header · media-frame</span>
+        <p style="font-family:var(--heading);font-size:36px;margin:0 0 32px">区块标题</p>
+        <div class="demo-media" style="border:1px solid var(--line);border-radius:12px"></div>
+      </div>
+      <div class="catalog-item">
+        <span class="label">spec-table</span>
+        <table>
+          <tbody>
+            <tr><td>材质</td><td class="muted">待确认</td></tr>
+            <tr><td>尺寸</td><td class="muted">待确认</td></tr>
+            <tr><td>交付周期</td><td class="muted">待确认</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="catalog-item">
+        <span class="label">consultation-cta</span>
+        <div style="background:var(--ink-900);color:var(--bg);border-radius:12px;padding:48px">
+          <p style="font-family:var(--heading);font-size:28px;margin:0 0 16px">把你的居住需求告诉我们</p>
+          <button class="btn" style="background:var(--bg);color:var(--ink-900)">预约咨询</button>
+        </div>
+      </div>
+      <div class="catalog-item">
+        <span class="label">footer</span>
+        <div style="background:var(--surface);border:1px solid var(--line);padding:64px 32px">
+          <img class="logo-nav" src="assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木" style="margin-bottom:16px">
+          <p class="muted" style="margin:0">主要栏目 · 联系方式 · 版权信息</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Marks &amp; tags</h3>
+    <div class="catalog">
+      <div class="catalog-item">
+        <span class="label">logo-lockup · pill-tag · eyebrow</span>
+        <div class="catalog-row" style="margin-bottom:16px">
+          <span class="keyword">北美黑胡桃木</span>
+          <span class="keyword">原木工艺</span>
+          <span class="keyword">空间配置</span>
+        </div>
+        <img src="assets/brand/liangqinjiamu-logo-vertical.svg" alt="良禽佳木" style="height:96px">
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Feedback &amp; overlays</h3>
+    <div class="catalog">
+      <div class="catalog-item">
+        <span class="label">status-badge · skeleton · empty-state · tooltip · accordion · modal · drawer · divider</span>
+        <div class="feedback-demo">
+          <div class="badge-row">
+            <span class="status-badge is-success">资料已确认</span>
+            <span class="status-badge is-warning">待补充</span>
+            <span class="status-badge is-error">有冲突</span>
+            <span class="status-badge is-info">评审中</span>
+          </div>
+          <div class="skeleton-demo"><span style="width:88%"></span><span style="width:64%"></span><span style="width:72%"></span></div>
+          <div class="empty-state-demo"><p class="empty-title">还没有可展示的案例</p><p class="empty-copy">资料补齐并确认授权后，这里会显示真实项目内容。</p></div>
+          <div><span class="tooltip-demo">只补充次要说明，不承载必读信息</span></div>
+          <details class="accordion-demo" open><summary>如何确认材质？</summary><div class="accordion-copy">先核对真实样块与项目条件；资料不足时标成待确认。</div></details>
+          <details class="accordion-demo"><summary>什么时候进入报价？</summary><div class="accordion-copy">范围、尺寸与交付方式确认后，再由报价能力给出事实。</div></details>
+          <div class="overlay-grid">
+            <div class="modal-demo"><p class="modal-title">确认交付范围</p><p class="modal-copy">只确认下一步，不编造产品事实、报价或案例信息。</p><div class="catalog-row"><button class="btn btn-primary" style="height:40px;padding:8px 24px">继续</button><button class="btn btn-secondary" style="height:40px;padding:8px 24px">取消</button></div></div>
+            <div class="drawer-demo"><p class="drawer-title">筛选条件</p><p class="drawer-copy">抽屉适合次要筛选与目录详情；不替代主导航。</p><button class="btn btn-secondary" style="height:40px;padding:8px 24px">应用筛选</button></div>
+          </div>
+          <div class="divider-demo" role="separator"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <details class="standard-disclosure">
+    <summary>Reference notes · 展开规范补充</summary>
+    <div class="spec-grid spec-grid-bottom">
+
+  <section>
+    <h2>Do's and Don'ts 该做与不该做</h2>
+    <div class="notes">
+      <div class="panel">
+        <h3>Do</h3>
+        <ul class="muted">
+          <li>先建立品牌气质与信任，再谈产品与咨询入口</li>
+          <li>用真实摄影、材质、比例与留白表达高级感</li>
+          <li>中文可读性优先：字号、行高、标签完整度</li>
+          <li>结构稳定、允许有限变化</li>
+          <li>信息不足时给 spec、占位或待补清单</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Don't</h3>
+        <ul class="muted">
+          <li>电商促销风、倒计时、夸张稀缺文案</li>
+          <li>冷感国际模板腔、玻璃拟态、炫技动效</li>
+          <li>低质量图标、假数据、编造参数或案例</li>
+          <li>照搬参考品牌的结构、形态与交互签名</li>
+          <li>用纯文字品牌名冒充 logo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Responsive Behavior 响应式</h2>
+    <div class="grid-3">
+      <div class="panel"><h3>Mobile</h3><p class="muted" style="margin:0">0-767px · 4 栏 · 槽宽 16px。优先中文阅读与 CTA 点按。</p></div>
+      <div class="panel"><h3>Tablet</h3><p class="muted" style="margin:0">768-1199px · 8 栏 · 槽宽 24px。保留图文层级，不简单压缩桌面版。</p></div>
+      <div class="panel"><h3>Desktop</h3><p class="muted" style="margin:0">1200px+ · 12 栏 · 槽宽 32px。宽留白建立秩序，可局部偏移构图。</p></div>
+    </div>
+    <p class="muted" style="margin-top:16px">触控目标不小于 44×44px；正文行宽建议 28-38 个中文字符。</p>
+  </section>
+
+  <section>
+    <h2>Iteration Guide 迭代指南</h2>
+    <div class="panel">
+      <ol class="muted" style="padding-left:20px;margin:0 0 24px">
+        <li>一次只改一个组件，引用它的 YAML 键</li>
+        <li>状态作为独立条目维护，例如 button-primary-active</li>
+        <li>任何地方都用 token 引用，不要内联 hex</li>
+        <li>需要强调时先放大字号，本规范不提供字重变化</li>
+      </ol>
+      <pre style="white-space:pre-wrap;font-family:var(--body);font-size:15px;line-height:1.72;color:var(--ink-700);margin:0">为良禽佳木生成一版高端中文家居视觉方向：quiet luxury，暖中性色底，低饱和 taupe 强调，编辑式留白，
+克制的宋体标题配现代中文无衬线正文，真实木 / 石 / 布 / 皮革材质，低文字密度。
+避免电商促销感、高饱和色块、玻璃拟态、假奢华与英文优先的模板腔。</pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>Known Gaps 已知缺口</h2>
+    <div class="flag" style="margin-bottom:16px">
+      <strong>标志尺寸：</strong>两个 logo 已按图形边界裁切（横向 678×188，纵向 568×419），可直接按高度排版；最小尺寸与安全边距的正式数值仍待品牌方确认，确认前以可见字高不低于 24px 为准。
+    </div>
+    <div class="flag" style="margin-bottom:16px">
+      <strong>深色主题：</strong>本规范只定义浅色底与深色区块，没有完整的深色主题令牌；需要时先补令牌，不要临时调色。
+    </div>
+    <div class="flag">
+      <strong>字体字重：</strong>随包字体各自只有一个字重（Swei Sugar 为 ExtraLight，OPPO Sans 为 Regular），因此规范不声明字重；需要多字重时先补字体文件。
+    </div>
+  </section>
+
+  <section>
+    <h2>Brand Mark &amp; Logo 标志</h2>
+    <div class="grid-2">
+      <div>
+        <div class="logo-box logo-horizontal"><img src="assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木横向标志"></div>
+        <p class="muted" style="margin-top:12px">横向标志：页头、页尾、品牌签名区、横向落款。</p>
+      </div>
+      <div>
+        <div class="logo-box logo-vertical"><img src="assets/brand/liangqinjiamu-logo-vertical.svg" alt="良禽佳木纵向标志"></div>
+        <p class="muted" style="margin-top:12px">纵向标志：竖版品牌页、封面或纵向签名场景。</p>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:24px">
+      <div class="panel">
+        <h3>深色底</h3>
+        <div class="logo-box panel-dark" style="border:0;min-height:140px">
+          <img src="assets/brand/liangqinjiamu-logo-horizontal.svg" alt="深色底横向标志" style="height:40px">
+        </div>
+      </div>
+      <div class="panel">
+        <h3>用法</h3>
+        <ul class="muted" style="padding-left:20px">
+          <li>默认不插入 logo，只有用户明确要求时才使用</li>
+          <li>必须使用 <code>assets/brand/</code> 的真实 SVG，PNG 仅作降级</li>
+          <li>颜色即 <code>#9E7F63</code>，直接使用文件颜色，不重新上色</li>
+          <li>可见字高不低于 24px，四周净空不小于可见高度的 1/4</li>
+          <li>禁止拉伸、描边、加浮雕发光、改字距、旋转、叠在高噪声图像上</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+    </div>
+  </details>
+
+  <footer>
+    良禽佳木 DESIGN.md v3.0.0 · 本页仅用于人工比对，规则以同目录 <code>DESIGN.md</code> 为准。
+  </footer>
+
+</div>
+</body>
+</html>

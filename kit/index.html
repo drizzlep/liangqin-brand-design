@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>良禽佳木 UI Kit</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+  body { background: var(--lq-color-background); }
+  .sheet-band { height: 64px; background: var(--lq-color-surface); }
+  .sheet { max-width: 880px; margin: 0 auto; padding: 64px 24px 96px; }
+
+  .sheet-masthead { text-align: center; padding-bottom: 96px; }
+  .sheet-masthead img { height: 40px; margin: 0 auto; }
+  .sheet-masthead__sub {
+    margin: 16px 0 0;
+    color: var(--lq-color-ink-700);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .sheet-section { margin-bottom: 96px; }
+  .sheet-label {
+    margin: 0 0 24px;
+    color: var(--lq-color-ink-700);
+    font-family: var(--lq-font-body);
+    font-size: 15px;
+  }
+  .sheet-label--sub { margin-top: 32px; }
+  .sheet-rule { margin: 32px 0; border: 0; border-top: 1px solid var(--lq-color-line); }
+  .sheet-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .sheet-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .sheet-stack > * + * { margin-top: 16px; }
+  .sheet-field-label {
+    display: block;
+    margin: 0 0 8px;
+    color: var(--lq-color-ink-700);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .spec-display { margin: 0 0 32px; font-family: var(--lq-font-heading); font-size: var(--lq-size-display); line-height: var(--lq-line-display); letter-spacing: var(--lq-tracking-display); }
+  .spec-h1 { margin: 0 0 24px; font-family: var(--lq-font-heading); font-size: var(--lq-size-heading-1); line-height: var(--lq-line-heading-1); letter-spacing: var(--lq-tracking-heading-1); }
+  .spec-h2 { margin: 0 0 24px; font-family: var(--lq-font-heading); font-size: var(--lq-size-heading-2); line-height: var(--lq-line-heading-2); letter-spacing: var(--lq-tracking-heading-2); }
+  .spec-h3 { margin: 0 0 24px; font-family: var(--lq-font-heading); font-size: var(--lq-size-heading-3); line-height: var(--lq-line-heading-3); letter-spacing: var(--lq-tracking-heading-3); }
+  .spec-h4 { margin: 0 0 16px; font-family: var(--lq-font-heading); font-size: var(--lq-size-heading-4); line-height: var(--lq-line-heading-4); letter-spacing: var(--lq-tracking-heading-4); }
+  .spec-body { margin: 0 0 24px; font-size: var(--lq-size-body); line-height: var(--lq-line-body); }
+  .spec-small { margin: 0 0 16px; font-size: var(--lq-size-body-small); line-height: var(--lq-line-body-small); }
+  .spec-caption { margin: 0 0 16px; font-size: var(--lq-size-caption); line-height: var(--lq-line-caption); color: var(--lq-color-ink-700); }
+  .spec-over { margin: 0; font-size: var(--lq-size-overline); line-height: var(--lq-line-overline); letter-spacing: var(--lq-tracking-overline); text-transform: uppercase; }
+  .spec-muted { color: var(--lq-color-ink-700); }
+
+  .icon-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 32px 24px; }
+  .icon-grid figure { margin: 0; display: flex; align-items: center; justify-content: center; }
+  .placeholder-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: end; }
+
+  @media (max-width: 767px) {
+    .sheet { padding: 48px 24px 64px; }
+    .sheet-2col, .sheet-3col { grid-template-columns: 1fr; gap: 32px; }
+    .icon-grid { grid-template-columns: repeat(4, 1fr); }
+    .placeholder-grid { grid-template-columns: repeat(2, 1fr); }
+    .sheet-masthead { padding-bottom: 64px; }
+    .sheet-section { margin-bottom: 64px; }
+  }
+</style>
+</head>
+<body class="lq-page">
+
+<div class="sheet-band"></div>
+
+<main class="sheet">
+
+  <header class="sheet-masthead">
+    <img src="../assets/brand/liangqinjiamu-logo-horizontal.svg" alt="良禽佳木">
+    <p class="sheet-masthead__sub">UI KIT · V3.0.0</p>
+  </header>
+
+  <section class="sheet-section">
+    <span class="sheet-field-label">Component model · 10 categories</span>
+    <div class="sheet-3col">
+      <div>
+        <p class="spec-over">基础内容</p>
+        <p class="spec-caption">Typography · Colors · Icons · Placeholders</p>
+        <p class="spec-over">导航与寻路</p>
+        <p class="spec-caption">nav · breadcrumb · tabs · pagination</p>
+        <p class="spec-over">操作按钮</p>
+        <p class="spec-caption">primary · secondary · sm · lg · text link</p>
+      </div>
+      <div>
+        <p class="spec-over">表单输入</p>
+        <p class="spec-caption">input states · textarea · select · search · toggle</p>
+        <p class="spec-over">选择与确认</p>
+        <p class="spec-caption">checkbox · radio · segmented · choice-card · stepper</p>
+        <p class="spec-over">反馈与状态</p>
+        <p class="spec-caption">alert · badge · progress · skeleton · empty-state</p>
+      </div>
+      <div>
+        <p class="spec-over">披露与浮层</p>
+        <p class="spec-caption">tooltip · accordion · modal · drawer</p>
+        <p class="spec-over">内容与页面区块</p>
+        <p class="spec-caption">cards · table · hero · CTA · footer</p>
+        <p class="spec-over">标记与工具</p>
+        <p class="spec-caption">logo · eyebrow · pill · divider · form helper</p>
+      </div>
+    </div>
+    <p class="spec-caption" style="margin-top:24px">状态遵循 default / active / focus-visible / disabled / error；不是每个组件都出现全部状态，hover 不单独记录。</p>
+  </section>
+
+  <section class="sheet-section">
+    <div class="sheet-2col">
+      <div>
+        <h2 class="sheet-label">Headlines</h2>
+        <p class="spec-h1">48 px 一级标题</p>
+        <p class="spec-h2">36 px 二级标题</p>
+        <p class="spec-h3">28 px 三级标题</p>
+        <hr class="sheet-rule">
+        <h2 class="sheet-label sheet-label--sub">Sub-headlines</h2>
+        <p class="spec-h4">22 PX 四级标题</p>
+        <p class="spec-caption">13 PX 注释文字</p>
+        <p class="spec-over">12 PX OVERLINE</p>
+      </div>
+      <div>
+        <h2 class="sheet-label">Paragraphs</h2>
+        <p class="spec-body spec-muted">正文 17px / 1.82：以温润克制的高级感与理性秩序感，服务中文语境下重视品质、信任与长期使用体验的客户。先讲清楚判断标准，再谈产品。</p>
+        <p class="spec-small spec-muted">次正文 15px / 1.72：用于辅助说明、表单帮助信息与导航文案，保证中文在真实阅读场景下清晰。</p>
+        <p class="spec-caption">注释 13px / 1.6：用于元信息、图注与时间戳。</p>
+        <h2 class="sheet-label sheet-label--sub">Display</h2>
+        <p class="spec-display">72 px Display</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <div class="sheet-2col">
+      <div>
+        <h2 class="sheet-label">Buttons</h2>
+        <div class="sheet-stack">
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <button class="lq-btn lq-btn-primary lq-btn-lg">预约咨询</button>
+            <button class="lq-btn lq-btn-secondary lq-btn-lg">查看案例</button>
+          </div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <button class="lq-btn lq-btn-primary">开始配置</button>
+            <button class="lq-btn lq-btn-secondary">了解服务</button>
+          </div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <button class="lq-btn lq-btn-primary lq-btn-sm">筛选</button>
+            <button class="lq-btn lq-btn-secondary lq-btn-sm">重置</button>
+          </div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+            <button class="lq-btn lq-btn-primary is-active">按下态</button>
+            <button class="lq-btn lq-btn-primary" disabled>禁用态</button>
+            <button class="lq-btn lq-btn-text-link">了解服务方式</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="sheet-label">Dropdowns</h2>
+        <div class="sheet-stack">
+          <span class="lq-select-wrap">
+            <select class="lq-select"><option>整体住宅</option><option>单品配置</option></select>
+          </span>
+          <span class="lq-select-wrap">
+            <select class="lq-select"><option>北美黑胡桃木</option><option>材质待确认</option></select>
+          </span>
+          <span class="lq-select-wrap is-dark">
+            <select class="lq-select-on-dark"><option>预算区间</option><option>待确认</option></select>
+          </span>
+          <span class="lq-select-wrap is-dark">
+            <select class="lq-select-on-dark"><option>交付城市</option><option>待确认</option></select>
+          </span>
+
+          <div style="margin-top:32px">
+            <span class="sheet-field-label">Wayfinding</span>
+            <nav class="lq-breadcrumb" aria-label="面包屑">
+              <a href="#">首页</a><span class="lq-breadcrumb__separator">/</span>
+              <a href="#">案例</a><span class="lq-breadcrumb__separator">/</span>
+              <span>住宅改造</span>
+            </nav>
+            <div class="lq-tabs" style="margin-top:16px" role="tablist" aria-label="内容视图">
+              <button class="lq-tabs__tab is-active" type="button">概览</button>
+              <button class="lq-tabs__tab" type="button">材质</button>
+              <button class="lq-tabs__tab" type="button">细节</button>
+            </div>
+            <nav class="lq-pagination" style="margin-top:16px" aria-label="分页">
+              <a class="lq-pagination__item is-disabled" href="#" aria-disabled="true">−</a>
+              <a class="lq-pagination__item is-active" href="#">1</a>
+              <a class="lq-pagination__item" href="#">2</a>
+              <a class="lq-pagination__item" href="#">3</a>
+              <a class="lq-pagination__item" href="#">+</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <div class="sheet-2col">
+      <div>
+        <h2 class="sheet-label">Input Fields</h2>
+        <div class="sheet-2col" style="gap:24px">
+          <div>
+            <label class="sheet-field-label" for="f-name">称呼</label>
+            <input class="lq-text-input" id="f-name" placeholder="请输入您的称呼">
+          </div>
+          <div>
+            <label class="sheet-field-label" for="f-city">所在城市</label>
+            <input class="lq-text-input" id="f-city" placeholder="请输入城市">
+          </div>
+          <div>
+            <label class="sheet-field-label" for="f-mail">邮箱</label>
+            <input class="lq-text-input" id="f-mail" placeholder="name@example.com">
+          </div>
+          <div>
+            <label class="sheet-field-label" for="f-search">搜索</label>
+            <input class="lq-text-input lq-text-input-sm" id="f-search" placeholder="搜索材质或系列">
+          </div>
+
+          <div style="margin-top:24px">
+            <label class="sheet-field-label" for="f-search-field">Search field</label>
+            <label class="lq-search-field">
+              <span class="lq-search-field__icon" aria-hidden="true"></span>
+              <input class="lq-text-input" id="f-search-field" type="search" placeholder="搜索案例、材质或服务">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="sheet-label">Input Field Styles</h2>
+        <div class="sheet-2col" style="gap:24px">
+          <div>
+            <span class="sheet-field-label">Default</span>
+            <input class="lq-text-input" placeholder="请输入">
+          </div>
+          <div>
+            <span class="sheet-field-label">Focused</span>
+            <input class="lq-text-input" value="已聚焦" style="border:2px solid var(--lq-color-accent)">
+          </div>
+          <div>
+            <span class="sheet-field-label">Filled</span>
+            <input class="lq-text-input" value="已填写内容">
+          </div>
+          <div>
+            <span class="sheet-field-label">Error</span>
+            <input class="lq-text-input is-error" value="这一项需要填写">
+          </div>
+          <div>
+            <span class="sheet-field-label">Disabled</span>
+            <input class="lq-text-input" value="暂不可填" disabled>
+          </div>
+          <div>
+            <span class="sheet-field-label">Helper</span>
+            <input class="lq-text-input" placeholder="请输入">
+            <span class="lq-form-helper">用于后续沟通，不会对外公开。</span>
+          </div>
+
+          <div style="margin-top:24px">
+            <span class="sheet-field-label">Toggle</span>
+            <label class="lq-toggle">
+              <input type="checkbox" checked>
+              <span class="lq-toggle__track"><span class="lq-toggle__thumb"></span></span>
+              <span>需要上门测量</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <h2 class="sheet-label">Text Areas &amp; Upload</h2>
+    <div class="sheet-3col">
+      <div>
+        <span class="sheet-field-label">Text Area</span>
+        <textarea class="lq-textarea" placeholder="居住需求、空间条件或想确认的问题"></textarea>
+      </div>
+      <div>
+        <span class="sheet-field-label">Drag &amp; Drop</span>
+        <div class="lq-upload">
+          <span class="lq-icon lq-icon-lg" style="--lq-icon-url:url('icons/download.svg')" role="img" aria-label="上传"></span>
+          <span>把户型图或参考图拖到这里</span>
+        </div>
+      </div>
+      <div>
+        <span class="sheet-field-label">Uploading</span>
+        <div class="lq-upload" style="border-style:solid">
+          <span class="lq-icon" style="--lq-icon-url:url('icons/image.svg')" role="img" aria-label="已上传"></span>
+          <div class="lq-progress" style="width:100%"><div class="lq-progress__bar" style="width:64%"></div></div>
+          <span>户型图-01.jpg · 64%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <div class="sheet-2col">
+      <div>
+        <h2 class="sheet-label">Checkboxes</h2>
+        <div class="sheet-2col" style="gap:16px">
+          <label class="lq-checkbox"><input type="checkbox" checked> 需要上门测量</label>
+          <label class="lq-radio"><input type="radio" name="sheet-a" checked> 先看材料</label>
+          <label class="lq-checkbox"><input type="checkbox"> 需要材质样块</label>
+          <label class="lq-radio"><input type="radio" name="sheet-a"> 先看案例</label>
+          <label class="lq-checkbox is-disabled"><input type="checkbox" disabled> 暂不需要</label>
+          <label class="lq-radio is-disabled"><input type="radio" name="sheet-b" disabled> 暂不选择</label>
+        </div>
+      </div>
+      <div>
+        <h2 class="sheet-label">Misc</h2>
+        <div class="sheet-stack">
+          <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+            <span class="lq-pill-tag">北美黑胡桃木</span>
+            <span class="lq-pill-tag">原木工艺</span>
+            <span class="lq-pill-tag">空间配置</span>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center">
+            <span class="lq-stepper">
+              <button type="button" aria-label="减少">−</button>
+              <input value="92" inputmode="numeric">
+              <button type="button" aria-label="增加">+</button>
+            </span>
+            <span class="lq-note">数量选择</span>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center">
+            <span class="lq-icon" style="--lq-icon-url:url('icons/phone.svg')" role="img" aria-label="电话"></span>
+            <span class="lq-note">400-000-0000（待确认）</span>
+          </div>
+
+          <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+            <span class="lq-status-badge is-success">资料已确认</span>
+            <span class="lq-status-badge is-warning">待补充</span>
+            <span class="lq-status-badge is-error">有冲突</span>
+            <span class="lq-status-badge is-info">评审中</span>
+          </div>
+          <div class="lq-divider" role="separator"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <h2 class="sheet-label">Icons</h2>
+    <div class="icon-grid">
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/menu.svg')" role="img" aria-label="菜单"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/x.svg')" role="img" aria-label="关闭"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/search.svg')" role="img" aria-label="搜索"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/arrow-right.svg')" role="img" aria-label="下一步"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/arrow-up-right.svg')" role="img" aria-label="查看"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/chevron-down.svg')" role="img" aria-label="展开"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/plus.svg')" role="img" aria-label="增加"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/minus.svg')" role="img" aria-label="减少"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/check.svg')" role="img" aria-label="确认"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/download.svg')" role="img" aria-label="下载"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/mail.svg')" role="img" aria-label="邮件"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/phone.svg')" role="img" aria-label="电话"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/calendar.svg')" role="img" aria-label="日程"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/clock.svg')" role="img" aria-label="时间"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/map-pin.svg')" role="img" aria-label="位置"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/truck.svg')" role="img" aria-label="配送"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/package.svg')" role="img" aria-label="包装"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/file-text.svg')" role="img" aria-label="文档"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/image.svg')" role="img" aria-label="图片"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/ruler.svg')" role="img" aria-label="尺寸"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/leaf.svg')" role="img" aria-label="材质"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/home.svg')" role="img" aria-label="空间"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/user.svg')" role="img" aria-label="用户"></span></figure>
+      <figure><span class="lq-icon" style="--lq-icon-url:url('icons/star.svg')" role="img" aria-label="推荐"></span></figure>
+    </div>
+    <p class="spec-caption" style="margin-top:24px">Lucide 线性图标，stroke 1.5，颜色跟随文字色；三档尺寸 16 / 24 / 32。ISC 许可，见 kit/icons/LICENSE.txt。</p>
+  </section>
+
+  <section class="sheet-section">
+    <h2 class="sheet-label">Sliders &amp; Progress</h2>
+    <div class="sheet-2col">
+      <div>
+        <span class="sheet-field-label">Slider</span>
+        <input class="lq-slider" type="range" min="0" max="100" value="60">
+      </div>
+
+      <div style="margin-top:24px">
+        <span class="sheet-field-label">Skeleton</span>
+        <div class="sheet-stack">
+          <div class="lq-skeleton" style="width:72%"></div>
+          <div class="lq-skeleton" style="width:96%"></div>
+          <div class="lq-skeleton" style="width:56%"></div>
+        </div>
+      </div>
+      <div>
+        <span class="sheet-field-label">Progress · 82%</span>
+        <div class="lq-progress"><div class="lq-progress__bar" style="width:82%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <h2 class="sheet-label">Selectors</h2>
+    <div class="sheet-stack">
+      <div>
+        <span class="lq-segmented">
+          <button type="button">全部</button>
+          <button type="button" class="is-active">案例</button>
+          <button type="button">材质</button>
+        </span>
+      </div>
+
+      <div class="sheet-2col" style="margin-top:24px">
+        <label class="lq-choice-card">
+          <input type="radio" name="sheet-choice" checked>
+          <span class="lq-choice-card__title">北美黑胡桃木 · 待确认</span>
+          <span class="lq-choice-card__description">深色、细纹理，适合克制而温暖的公共空间。</span>
+        </label>
+        <label class="lq-choice-card">
+          <input type="radio" name="sheet-choice">
+          <span class="lq-choice-card__title">浅色白橡木 · 待确认</span>
+          <span class="lq-choice-card__description">明亮、纹理轻，适合采光充足的空间。</span>
+        </label>
+      </div>
+      <div>
+        <span class="lq-segmented" style="border:0;background:none;gap:8px">
+          <button type="button">设计</button>
+          <button type="button" class="is-active">生产</button>
+          <button type="button">交付</button>
+          <button type="button">海外</button>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <h2 class="sheet-label">Alerts</h2>
+    <div class="sheet-stack">
+      <div class="lq-alert-on-dark" style="display:flex;align-items:center;gap:16px;padding:16px 24px">
+        <span class="spec-over" style="margin:0">资料已提交，我们会在一个工作日内确认需求。</span>
+        <button class="lq-alert__close" type="button" aria-label="关闭">×</button>
+      </div>
+
+      <div style="margin-top:24px">
+        <span class="sheet-field-label">Tooltip</span>
+        <span class="lq-tooltip" tabindex="0" data-tooltip="只补充次要说明，不承载必读信息">悬停或聚焦查看提示</span>
+      </div>
+      <div style="margin-top:24px">
+        <span class="sheet-field-label">Accordion</span>
+        <details class="lq-accordion" open>
+          <summary>如何确认材质？</summary>
+          <div class="lq-accordion__content">先核对真实样块与项目条件；资料不足时标成待确认，不用效果图替代事实。</div>
+        </details>
+        <details class="lq-accordion">
+          <summary>什么时候进入报价？</summary>
+          <div class="lq-accordion__content">范围、尺寸与交付方式确认后，再由报价能力给出事实。</div>
+        </details>
+      </div>
+      <div class="lq-alert">
+        <span>还有 3 项资料待补充，补齐后即可进入方案确认。</span>
+        <button class="lq-alert__close" type="button" aria-label="关闭">×</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <h2 class="sheet-label">Placeholders</h2>
+    <div class="placeholder-grid">
+      <div class="lq-placeholder" style="aspect-ratio:1 / 1">
+        <span class="lq-icon" style="--lq-icon-url:url('icons/image.svg')" role="img" aria-label="图片占位"></span>
+      </div>
+      <div class="lq-placeholder" style="aspect-ratio:4 / 3">
+        <span class="lq-icon" style="--lq-icon-url:url('icons/image.svg')" role="img" aria-label="图片占位"></span>
+      </div>
+      <div class="lq-placeholder" style="aspect-ratio:16 / 10">
+        <span class="lq-icon" style="--lq-icon-url:url('icons/image.svg')" role="img" aria-label="图片占位"></span>
+      </div>
+      <div class="lq-placeholder" style="aspect-ratio:3 / 4">
+        <span class="lq-icon" style="--lq-icon-url:url('icons/image.svg')" role="img" aria-label="图片占位"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-section">
+    <h2 class="sheet-label">Page Blocks</h2>
+    <div class="sheet-stack">
+      <div class="lq-card-base">
+        <p class="spec-h4">card-base</p>
+        <p class="lq-note">弱边框、弱阴影，像信息版块而不是电商卡片。</p>
+      </div>
+      <div class="lq-card-quote">
+        <span class="sheet-field-label">参考报价</span>
+        <p class="lq-card-quote__total">总价待确认</p>
+        <p class="lq-note">总价是唯一主焦点，确认条件次之。</p>
+      </div>
+
+      <div class="sheet-2col" style="margin-top:24px">
+        <div class="lq-empty-state">
+          <span class="lq-icon lq-icon-lg" style="--lq-icon-url:url('icons/image.svg')" role="img" aria-label="空状态"></span>
+          <p class="lq-empty-state__title">还没有可展示的案例</p>
+          <p class="lq-empty-state__description">资料补齐并确认授权后，这里会显示真实项目内容。</p>
+          <button class="lq-btn lq-btn-secondary lq-btn-sm" type="button">补充资料</button>
+        </div>
+        <dialog class="lq-modal" open>
+          <p class="lq-modal__title">确认交付范围</p>
+          <p class="lq-modal__body">这里只确认下一步，不编造产品事实、报价或案例信息。</p>
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <button class="lq-btn lq-btn-primary lq-btn-sm" type="button">继续</button>
+            <button class="lq-btn lq-btn-secondary lq-btn-sm" type="button">取消</button>
+          </div>
+        </dialog>
+      </div>
+      <div style="margin-top:24px">
+        <span class="sheet-field-label">Drawer</span>
+        <aside class="lq-drawer">
+          <p class="lq-drawer__title">筛选条件</p>
+          <p class="lq-drawer__body">抽屉适合次要筛选与目录详情；不替代主导航。</p>
+          <button class="lq-btn lq-btn-secondary lq-btn-sm" type="button">应用筛选</button>
+        </aside>
+      </div>
+      <div class="lq-consultation-cta">
+        <p class="lq-consultation-cta__title">把你的居住需求告诉我们</p>
+        <button class="lq-btn lq-btn-on-dark">预约咨询</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="sheet-band"></div>
+
+
+<script>
+  document.querySelectorAll('.lq-tabs, .lq-segmented').forEach(function (group) {
+    group.addEventListener('click', function (event) {
+      var button = event.target.closest('button');
+      if (!button || !group.contains(button)) return;
+      group.querySelectorAll('button').forEach(function (item) {
+        item.classList.toggle('is-active', item === button);
+      });
+    });
+  });
+
+  document.querySelectorAll('.lq-modal button').forEach(function (button) {
+    if (button.textContent.trim() !== '取消') return;
+    button.addEventListener('click', function () {
+      var dialog = button.closest('dialog');
+      if (dialog) dialog.close();
+    });
+  });
+</script>
+</body>
+</html>
