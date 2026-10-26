@@ -17,6 +17,15 @@
 
 ## 常见安装位置
 
+最省事的方式（任选其一）：
+
+```bash
+# 通用 skills CLI（Claude Code / Codex / Cursor / Windsurf 等）
+npx skills add drizzlep/liangqin-brand-design-skill@liangqin-brand-body
+```
+
+或解压 Release 里的 `liangqin-brand-body-<version>.zip`，把 `liangqin-brand-body/` 放进下表对应的 skills 目录。
+
 | Runtime | skills 目录 |
 |---|---|
 | Claude Code | `~/.claude/skills/liangqin-brand-body/` |

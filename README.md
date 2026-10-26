@@ -59,7 +59,13 @@ python3 scripts/build_skill.py --zip    # 生成 dist/liangqin-brand-body/ 与�
 - **zip 安装**：解压 `dist/liangqin-brand-body-<version>.zip`，把 `liangqin-brand-body/` 放进目标 runtime 的 skills 目录。
 - **本机多 runtime**：`python3 scripts/sync_runtimes.py --apply`（自动跳过符号链接与不存在的 runtime）。
 - **项目级**：把 `DESIGN.md` 与 `kit/` 复制到目标项目根目录，在 `AGENTS.md` 或 `CLAUDE.md` 里加一行指向 `DESIGN.md`。
-- **GitHub skills CLI**：需要一个根目录就是发行包内容的独立仓库，命令形如 `npx skills add <owner>/<dist-repo>@liangqin-brand-body`。源码仓库 `skills/public/liangqin-brand-body/` 不满足条件，CLI 只会复制入口文件。
+- **GitHub skills CLI**（已验证）：分发仓库为 `drizzlep/liangqin-brand-design-skill`，根目录即发行包内容。
+
+```bash
+npx skills add drizzlep/liangqin-brand-design-skill@liangqin-brand-body
+```
+
+源码仓库 `skills/public/liangqin-brand-body/` 不能直接安装：CLI 只复制入口文件，会缺 `DESIGN.md` 与 `kit/`。
 
 独立分发仓库创建后，用一条命令发布：
 
